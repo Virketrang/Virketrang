@@ -5,7 +5,7 @@
     "monorepo": true,
     "root": "projects/webshop/server",
     "compilerOptions": {
-        "webpack": true,
+        "webpack": false,
         "tsConfigPath": "projects/webshop/server/tsconfig.json"
     },
     "projects": {

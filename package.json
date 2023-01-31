@@ -24,7 +24,11 @@
         "start": "ng serve",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
-        "test": "ng test"
+        "test": "ng test",
+        "webshop:desktop-app:build": "ng build webshop-desktop",
+        "webshop:desktop-electron:build": "tsc --project projects/webshop/client/desktop/tsconfig.build.json",
+        "webshop:desktop-electron:start": "electron build/projects/webshop/client/desktop/electron/main.js",
+        "webshop:desktop:start": "npm run webshop:desktop-app:build && npm run webshop:desktop-electron:build && npm run webshop:desktop-electron:start"
     },
     "workspaces": [
         "projects/**/server",
