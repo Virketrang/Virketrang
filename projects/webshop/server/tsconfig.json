@@ -6,10 +6,20 @@
         "allowSyntheticDefaultImports": true,
         "target": "es2017",
         "sourceMap": true,
-        "outDir": "../../../build/webshop/server",
+        "outDir": "build",
         "baseUrl": "./",
         "incremental": true,
         "skipLibCheck": true,
-        "strictBindCallApply": false
+        "strictBindCallApply": false,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitOverride": true,
+        "strict": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "strictNullChecks": true
     }
 }
