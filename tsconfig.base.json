@@ -1,12 +1,14 @@
 {
-	"compilerOptions": {
-		"strict": true,
-		"strictNullChecks": true,
-		"esModuleInterop": true,
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"noUnusedLocals": true,
-		"skipLibCheck": true,
-		"sourceMap": true
-	}
+    "compilerOptions": {
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitOverride": true,
+        "strict": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "strictNullChecks": true
+    }
 }

@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json.schemastore.org/nest-cli",
+    "collection": "@nestjs/schematics",
+    "sourceRoot": "projects/webshop/server/src",
+    "monorepo": true,
+    "root": "projects/webshop/server",
+    "compilerOptions": {
+        "webpack": true,
+        "tsConfigPath": "projects/webshop/server/tsconfig.json"
+    },
+    "projects": {
+        "project": {
+            "type": "application",
+            "root": "projects/webshop/server",
+            "entryFile": "main",
+            "sourceRoot": "projects/webshop/server/src",
+            "compilerOptions": {
+                "tsConfigPath": "projects/webshop/server/tsconfig.json"
+            }
+        }
+    }
+}

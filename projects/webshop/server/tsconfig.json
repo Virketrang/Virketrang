@@ -1,0 +1,15 @@
+{
+    "extends": "../../../tsconfig.base.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es2017",
+        "sourceMap": true,
+        "outDir": "../../../build/webshop/server",
+        "baseUrl": "./",
+        "incremental": true,
+        "skipLibCheck": true,
+        "strictBindCallApply": false
+    }
+}
