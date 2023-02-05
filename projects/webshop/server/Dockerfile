@@ -2,70 +2,67 @@
 # BUILD FOR LOCAL DEVELOPMENT #
 ###############################
 
-# BASE IMAGE
 FROM node:18-alpine AS development
 
-# CREATE APP DIRECTORY
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/app/server
 
-# COPY package.json
-COPY --chown=node:node package*.json ./
+RUN mkdir -p /usr/src/app/packages
 
-# INSTALL DEPENDENCIES
-RUN npm install
+COPY ./projects/webshop/server/package*.json /usr/src/app/server
 
-# BUNDLE APP SOURCE
-COPY --chown=node:node . .
+COPY ./projects/webshop/packages /usr/src/app/packages
 
-# USER
+WORKDIR /usr/src/app/server
+
+RUN yarn install
+
+COPY ./projects/webshop/server .
+
 USER node
 
 ########################
 # BUILD FOR PRODUCTION #
 ########################
 
-# BASE IMAGE
 FROM node:18-alpine AS build
 
-# CREATE APP DIRECTORY
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/app/server
 
-# COPY package.json
-COPY --chown=node:node package*.json ./
+RUN mkdir -p /usr/src/app/packages
 
-# COPY node_modules
-COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
+COPY ./projects/webshop/packages /usr/src/app/packages
 
-# BUNDLE APP SOURCE
-COPY --chown=node:node . .
+COPY ./tsconfig.base.json /usr
 
-# BUILD SERVER
-RUN npm run build
+WORKDIR /usr/src/app/server
 
-# ENVIRONMENT
+COPY ./projects/webshop/server/package*.json ./projects/webshop/server/tsconfig*.json ./
+
+RUN yarn install
+
+RUN yarn global add @nestjs/cli
+
+COPY ./projects/webshop/server .
+
+RUN npm run docker-build
+
 ENV NODE_ENV production
 
-# INSTALL PRODUCTION ONLY node_modules
-RUN npm install --only=production && npm cache clean --force
+RUN yarn install --production && yarn cache clean
 
-# USER
 USER node
 
 ##############
 # PRODUCTION #
 ##############
 
-# BASE IMAGE
 FROM node:18-alpine AS production
 
-# COPY node_modules FROM BUILD STAGE TO PRODUCTION STAGE
-COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
+COPY --chown=node:node --from=build /usr/src/app/server/node_modules ./node_modules
 
-# COPY build FROM BUILD STAGE TO PRODUCTION STAGE
-COPY --chown=node:node --from=build /usr/src/app/build ./build
+COPY --chown=node:node --from=build /usr/src/app/server/build ./build
 
-# EXPOSE PORT
 EXPOSE 8080
 
-# START SERVER
-CMD ["node", "build/main.js"]
+CMD ["node", "build/server/src/main.js"]
+

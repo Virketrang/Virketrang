@@ -7,20 +7,12 @@
         "target": "es2017",
         "sourceMap": true,
         "outDir": "./build/",
-        "rootDir": "./src",
         "baseUrl": "./",
         "incremental": true,
         "skipLibCheck": true,
         "strictBindCallApply": false,
-        "forceConsistentCasingInFileNames": true,
-        "noImplicitOverride": true,
-        "strict": true,
-        "noPropertyAccessFromIndexSignature": true,
-        "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true,
-        "experimentalDecorators": true,
-        "removeComments": true,
-        "emitDecoratorMetadata": true,
-        "strictNullChecks": true
+        "paths": {
+            "@packages/*": ["../packages/*"]
+        }
     }
 }

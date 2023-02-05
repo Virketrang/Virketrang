@@ -1,0 +1,20 @@
+version: '3'
+services:
+    webshop-server:
+        build:
+            context: ./
+            dockerfile: ./projects/webshop/server/Dockerfile
+        ports:
+            - 8080:8080
+        environment:
+            - PORT=8080
+            - NODE_ENV=production
+    webshop-client:
+        build:
+            context: ./
+            dockerfile: ./projects/webshop/client/web/Dockerfile
+        ports:
+            - 4000:4000
+        environment:
+            - PORT=4000
+            - NODE_ENV=production

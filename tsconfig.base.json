@@ -9,6 +9,7 @@
         "experimentalDecorators": true,
         "removeComments": true,
         "emitDecoratorMetadata": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "noImplicitAny": true
     }
 }

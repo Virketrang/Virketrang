@@ -2,5 +2,18 @@
     "editor.fontSize": 14,
     "prettier.tabWidth": 4,
     "prettier.printWidth": 120,
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "typescript.tsdk": "../node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "projects/**/node_modules": true,
+        "packages/**/node_modules": true,
+        "libraries/**/node_modules": true
+    }
 }

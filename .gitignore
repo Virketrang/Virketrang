@@ -57,10 +57,13 @@ Thumbs.db
 /.nyc_output
 
 # IDEs and editors
-/.idea
+.idea
 .project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
+
+# Other
+storage.json

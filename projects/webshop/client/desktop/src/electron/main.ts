@@ -1,6 +1,5 @@
-import { app, ipcMain, BrowserWindow } from 'electron';
-
-type Nullable<T> = T | null;
+import { app, BrowserWindow } from 'electron';
+import { Nullable } from 'packages/types';
 
 let window: Nullable<BrowserWindow> = null;
 
