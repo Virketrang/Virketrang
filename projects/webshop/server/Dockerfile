@@ -44,7 +44,7 @@ RUN yarn global add @nestjs/cli
 
 COPY ./projects/webshop/server .
 
-RUN npm run docker-build
+RUN yarn docker-build
 
 ENV NODE_ENV production
 

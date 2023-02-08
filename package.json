@@ -5,6 +5,9 @@
     "private": true,
     "license": "UNLICENSED",
     "packageManager": "yarn@1.22.19",
+    "engines": {
+        "node": ">=14.0.0"
+    },
     "author": {
         "name": "Sigfred Frey Nørgaard Knudsen",
         "email": "sigfred@virketrang.com",
@@ -67,6 +70,7 @@
         "karma-jasmine-html-reporter": "~2.0.0",
         "lerna": "^6.4.1",
         "prettier": "^2.8.3",
+        "turbo": "^1.7.3",
         "typescript": "~4.9.4"
     },
     "prettier": {

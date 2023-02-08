@@ -67,3 +67,5 @@ Thumbs.db
 
 # Other
 storage.json
+.turbo
+.next
