@@ -48,6 +48,8 @@ RUN yarn docker-build
 
 ENV NODE_ENV production
 
+ENV PORT 8080
+
 RUN yarn install --production && yarn cache clean
 
 USER node
