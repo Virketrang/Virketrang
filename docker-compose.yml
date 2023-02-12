@@ -1,6 +1,7 @@
 version: '3'
 services:
     webshop-server:
+        image: webshop-server:latest
         build:
             context: ./
             dockerfile: ./projects/webshop/server/Dockerfile
