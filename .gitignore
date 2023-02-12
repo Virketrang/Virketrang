@@ -67,5 +67,7 @@ Thumbs.db
 
 # Other
 storage.json
+container-registry.json
+github-actions.json
 .turbo
 .next
