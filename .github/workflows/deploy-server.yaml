@@ -4,6 +4,9 @@ on:
   push:
     branches: [master]
 
+    paths:
+      - "projects/webshop/server/**"
+
 jobs:
   build-and-deploy:
     name: Setup, Build and Deploy Webshop Server

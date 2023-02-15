@@ -34,14 +34,19 @@
         "webshop-server:start": "lerna run start:prod --scope=@webshop/server",
         "webshop:web:dev": "lerna run dev --scope=@webshop/website",
         "webshop-desktop-app:build": "ng build webshop-desktop",
+        "webshop-desktop-app:serve": "ng serve webshop-desktop",
         "webshop-desktop-electron:build": "tsc --project projects/webshop/client/desktop/tsconfig.build.json",
-        "webshop-desktop-electron:start": "electron build/projects/webshop/client/desktop/electron/main.js",
-        "webshop-desktop:start": "npm run webshop:desktop-app:build && npm run webshop:desktop-electron:build && npm run webshop:desktop-electron:start"
+        "webshop-desktop-electron:watch": "tsc --project projects/webshop/client/desktop/tsconfig.build.json --w",
+        "webshop-desktop-electron:start": "wait-on http://localhost:4200 && electron projects/webshop/client/desktop/build/electron/main.js",
+        "webshop-desktop:start": "yarn webshop-desktop-app:serve && yarn webshop-desktop-electron:build && yarn webshop-desktop-electron:start",
+        "webshop-desktop:dev": "lerna run dev --scope=@virketrang/webshop-desktop"
     },
     "workspaces": [
         "projects/**/server",
         "projects/**/client/*",
         "packages/*",
+        "packages/angular/*",
+        "packages/react/*",
         "libraries/*"
     ],
     "dependencies": {
@@ -63,6 +68,7 @@
         "@angular/compiler-cli": "^15.1.0",
         "@nestjs/schematics": "^9.0.4",
         "@types/jasmine": "~4.3.0",
+        "concurrently": "^7.6.0",
         "electron": "^23.0.0",
         "jasmine-core": "~4.5.0",
         "karma": "~6.4.0",
@@ -73,7 +79,8 @@
         "lerna": "^6.4.1",
         "prettier": "^2.8.3",
         "turbo": "^1.7.3",
-        "typescript": "~4.9.4"
+        "typescript": "~4.9.4",
+        "wait-on": "^7.0.1"
     },
     "prettier": {
         "singleQuote": true,

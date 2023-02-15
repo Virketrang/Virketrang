@@ -20,7 +20,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "build/projects/webshop/client/desktop",
+                        "outputPath": "projects/webshop/client/desktop/build",
                         "index": "projects/webshop/client/desktop/src/index.html",
                         "main": "projects/webshop/client/desktop/src/main.ts",
                         "polyfills": ["zone.js"],
