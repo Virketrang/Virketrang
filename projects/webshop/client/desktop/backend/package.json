@@ -1,8 +1,8 @@
 {
-    "name": "@virketrang/webshop-desktop",
+    "name": "webshop-desktop",
     "version": "0.0.0",
     "license": "UNLICENSED",
-    "main": "./build/electron/index.js",
+    "main": "dist/electron/index.js",
     "description": "A complete business management solution",
     "author": {
         "name": "Sigfred Frey Nørgaard Knudsen",
@@ -11,17 +11,30 @@
     },
     "scripts": {
         "start": "nodemon --exec electron .",
+        "compile": "tsc --project tsconfig.json",
         "watch": "tsc --project tsconfig.json -w",
         "dev": "concurrently \"tsc -p tsconfig.json -w\" \"yarn start\"",
         "build": "electron-builder -m zip"
     },
+    "build": {
+        "extends": null,
+        "extraMetadata": {
+            "main": "dist/electron/index.js"
+        },
+        "files": [
+            "dist/**/*",
+            "package.json"
+        ]
+    },
+    "dependencies": {
+        "electron-reload": "^2.0.0-alpha.1",
+        "electron-reloader": "^1.2.3"
+    },
     "devDependencies": {
         "@types/node": "^18.13.0",
-        "@virketrang/types": "0.0.0",
         "concurrently": "^7.6.0",
+        "electron": "^23.0.0",
         "electron-builder": "^23.6.0",
-        "electron-reload": "^2.0.0-alpha.1",
-        "electron-reloader": "^1.2.3",
         "nodemon": "^2.0.20",
         "wait-on": "^7.0.1"
     }
