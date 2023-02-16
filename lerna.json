@@ -1,13 +1,6 @@
 {
     "version": "0.0.0",
-    "packages": [
-        "projects/**/server",
-        "projects/**/client/*",
-        "projects/**/client/**/frontend",
-        "projects/**/client/**/backend",
-        "packages/*",
-        "libraries/*"
-    ],
+    "packages": ["projects/**/server", "projects/**/client/*", "packages/*", "libraries/*"],
     "useWorkspaces": true,
     "npmClient": "yarn",
     "$schema": "node_modules/lerna/schemas/lerna-schema.json"
