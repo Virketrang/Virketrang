@@ -1,0 +1,58 @@
+{
+    "name": "webshop-desktop",
+    "version": "0.0.0",
+    "private": true,
+    "license": "UNLICENSED",
+    "main": "dist/electron/index.js",
+    "description": "A complete business management solution",
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com"
+    },
+    "scripts": {
+        "start": "nodemon --exec electron .",
+        "compile": "tsc --project tsconfig.json",
+        "watch": "tsc --project tsconfig.json -w",
+        "dev": "concurrently \"tsc -p tsconfig.json -w\" \"yarn start\"",
+        "build": "electron-builder -m"
+    },
+    "build": {
+        "appId": "com.virketrang.workspace",
+        "copyright": "Copyright Virketrang",
+        "extraMetadata": {
+            "main": "dist/electron/index.js"
+        },
+        "files": [
+            "dist/**/*",
+            "package.json"
+        ],
+        "mac": {
+            "category": "public.app-category.business",
+            "target": "dmg"
+        },
+        "win": {
+            "target": "zip"
+        },
+        "linux": {
+            "category": "Office"
+        }
+    },
+    "dependencies": {
+        "electron-reload": "^2.0.0-alpha.1",
+        "electron-reloader": "^1.2.3"
+    },
+    "devDependencies": {
+        "@types/node": "^18.13.0",
+        "concurrently": "^7.6.0",
+        "electron": "^23.0.0",
+        "electron-builder": "^23.6.0",
+        "nodemon": "^2.0.20",
+        "wait-on": "^7.0.1"
+    },
+    "workspaces": {
+        "nohoist": [
+            "**"
+        ]
+    }
+}

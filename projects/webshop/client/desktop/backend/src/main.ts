@@ -1,8 +1,7 @@
-import { Nullable } from '@virketrang/types';
 import { BrowserWindow, App } from 'electron';
 
 export default class Main {
-    static mainWindow: Nullable<BrowserWindow>;
+    static mainWindow: BrowserWindow | null;
     static application: App;
     static BrowserWindow: typeof BrowserWindow;
 
@@ -27,11 +26,15 @@ export default class Main {
             show: false,
         });
 
-        Main.mainWindow.loadURL('http://localhost:4200');
+        if (process.env['NODE_ENV'] === 'production') {
+            Main.mainWindow.loadFile('../html');
+        } else {
+            Main.mainWindow.loadURL('http://localhost:4200');
+        }
 
         Main.mainWindow.once('ready-to-show', Main.mainWindow.show);
 
-        // Main.mainWindow.webContents.openDevTools();
+        Main.mainWindow.webContents.openDevTools();
 
         Main.mainWindow.on('closed', Main.onClose);
     }

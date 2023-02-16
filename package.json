@@ -35,20 +35,28 @@
         "webshop:web:dev": "lerna run dev --scope=@webshop/website",
         "webshop-desktop-app:build": "ng build webshop-desktop",
         "webshop-desktop-app:serve": "ng serve webshop-desktop",
-        "webshop-desktop-electron:build": "tsc --project projects/webshop/client/desktop/tsconfig.build.json",
-        "webshop-desktop-electron:watch": "tsc --project projects/webshop/client/desktop/tsconfig.build.json --w",
-        "webshop-desktop-electron:start": "wait-on http://localhost:4200 && electron projects/webshop/client/desktop/build/electron/main.js",
+        "webshop-desktop-electron:build": "tsc --project projects/webshop/client/desktop/frontend/tsconfig.build.json",
+        "webshop-desktop-electron:watch": "tsc --project projects/webshop/client/desktop/frontend/tsconfig.build.json --w",
+        "webshop-desktop-electron:start": "wait-on http://localhost:4200 && electron projects/webshop/client/desktop/frontend/build/electron/main.js",
         "webshop-desktop:start": "yarn webshop-desktop-app:serve && yarn webshop-desktop-electron:build && yarn webshop-desktop-electron:start",
-        "webshop-desktop:dev": "lerna run dev --scope=@virketrang/webshop-desktop"
+        "webshop-desktop:dev": "lerna run dev --scope=@virketrang/webshop-desktop",
+        "webshop-desktop:build": "ng build webshop-desktop && lerna run compile --scope=webshop-desktop && lerna run build --scope=webshop-desktop"
     },
-    "workspaces": [
-        "projects/**/server",
-        "projects/**/client/*",
-        "packages/*",
-        "packages/angular/*",
-        "packages/react/*",
-        "libraries/*"
-    ],
+    "workspaces": {
+        "packages": [
+            "projects/**/server",
+            "projects/**/client/*",
+            "projects/**/client/**/frontend",
+            "projects/**/client/**/backend",
+            "packages/*",
+            "packages/angular/*",
+            "packages/react/*",
+            "libraries/*"
+        ],
+        "nohoist": [
+            "projects/webshop/client/desktop/backend"
+        ]
+    },
     "dependencies": {
         "@angular/animations": "^15.0.0",
         "@angular/common": "^15.0.0",
@@ -69,7 +77,6 @@
         "@nestjs/schematics": "^9.0.4",
         "@types/jasmine": "~4.3.0",
         "concurrently": "^7.6.0",
-        "electron": "^23.0.0",
         "jasmine-core": "~4.5.0",
         "karma": "~6.4.0",
         "karma-chrome-launcher": "~3.1.0",

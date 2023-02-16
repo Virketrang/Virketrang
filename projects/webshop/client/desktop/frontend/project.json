@@ -1,0 +1,89 @@
+{
+    "name": "webshop-desktop",
+    "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "generators": {
+        "@schematics/angular:component": {
+            "style": "sass"
+        }
+    },
+    "sourceRoot": "projects/webshop/client/desktop/frontend/src",
+    "prefix": "app",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:browser",
+            "options": {
+                "outputPath": "projects/webshop/client/desktop/backend/dist",
+                "index": "projects/webshop/client/desktop/frontend/src/index.html",
+                "main": "projects/webshop/client/desktop/frontend/src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "projects/webshop/client/desktop/frontend/tsconfig.app.json",
+                "inlineStyleLanguage": "sass",
+                "assets": [
+                    "projects/webshop/client/desktop/frontend/src/favicon.ico",
+                    "projects/webshop/client/desktop/frontend/src/assets"
+                ],
+                "styles": ["projects/webshop/client/desktop/frontend/src/styles.sass"],
+                "scripts": []
+            },
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kb",
+                            "maximumError": "1mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "buildOptimizer": false,
+                    "optimization": false,
+                    "vendorChunk": true,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "browserTarget": "webshop-desktop:build:production"
+                },
+                "development": {
+                    "browserTarget": "webshop-desktop:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "browserTarget": "webshop-desktop:build"
+            }
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "polyfills": ["zone.js", "zone.js/testing"],
+                "tsConfig": "projects/webshop/client/desktop/frontend/tsconfig.spec.json",
+                "inlineStyleLanguage": "sass",
+                "assets": [
+                    "projects/webshop/client/desktop/frontend/src/favicon.ico",
+                    "projects/webshop/client/desktop/frontend/src/assets"
+                ],
+                "styles": ["projects/webshop/client/desktop/frontend/src/styles.sass"],
+                "scripts": []
+            }
+        }
+    }
+}

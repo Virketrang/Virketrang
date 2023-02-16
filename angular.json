@@ -13,24 +13,24 @@
                     "style": "sass"
                 }
             },
-            "root": "projects/webshop/client/desktop",
-            "sourceRoot": "projects/webshop/client/desktop/src",
+            "root": "projects/webshop/client/desktop/frontend",
+            "sourceRoot": "projects/webshop/client/desktop/frontend/src",
             "prefix": "app",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "projects/webshop/client/desktop/build",
-                        "index": "projects/webshop/client/desktop/src/index.html",
-                        "main": "projects/webshop/client/desktop/src/main.ts",
+                        "outputPath": "projects/webshop/client/desktop/backend/dist",
+                        "index": "projects/webshop/client/desktop/frontend/src/index.html",
+                        "main": "projects/webshop/client/desktop/frontend/src/main.ts",
                         "polyfills": ["zone.js"],
-                        "tsConfig": "projects/webshop/client/desktop/tsconfig.app.json",
+                        "tsConfig": "projects/webshop/client/desktop/frontend/tsconfig.app.json",
                         "inlineStyleLanguage": "sass",
                         "assets": [
-                            "projects/webshop/client/desktop/src/favicon.ico",
-                            "projects/webshop/client/desktop/src/assets"
+                            "projects/webshop/client/desktop/frontend/src/favicon.ico",
+                            "projects/webshop/client/desktop/frontend/src/assets"
                         ],
-                        "styles": ["projects/webshop/client/desktop/src/styles.sass"],
+                        "styles": ["projects/webshop/client/desktop/frontend/src/styles.sass"],
                         "scripts": []
                     },
                     "configurations": {
@@ -82,13 +82,13 @@
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
                         "polyfills": ["zone.js", "zone.js/testing"],
-                        "tsConfig": "projects/webshop/client/desktop/tsconfig.spec.json",
+                        "tsConfig": "projects/webshop/client/desktop/frontend/tsconfig.spec.json",
                         "inlineStyleLanguage": "sass",
                         "assets": [
-                            "projects/webshop/client/desktop/src/favicon.ico",
-                            "projects/webshop/client/desktop/src/assets"
+                            "projects/webshop/client/desktop/frontend/src/favicon.ico",
+                            "projects/webshop/client/desktop/frontend/src/assets"
                         ],
-                        "styles": ["projects/webshop/client/desktop/src/styles.sass"],
+                        "styles": ["projects/webshop/client/desktop/frontend/src/styles.sass"],
                         "scripts": []
                     }
                 }
