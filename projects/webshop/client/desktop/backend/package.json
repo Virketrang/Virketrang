@@ -1,6 +1,6 @@
 {
     "name": "webshop-desktop",
-    "version": "0.0.0",
+    "version": "0.0.0-alpha",
     "private": true,
     "license": "UNLICENSED",
     "main": "dist/electron/index.js",
@@ -10,15 +10,21 @@
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/virketrang/virketrang"
+    },
     "scripts": {
         "start": "nodemon --exec electron .",
         "compile": "tsc --project tsconfig.json",
         "watch": "tsc --project tsconfig.json -w",
         "dev": "concurrently \"tsc -p tsconfig.json -w\" \"yarn start\"",
-        "build": "electron-builder -m"
+        "build": "electron-builder -m",
+        "release": "electron-builder -m -p 'always'"
     },
     "build": {
         "appId": "com.virketrang.workspace",
+        "productName": "workspace",
         "copyright": "Copyright Virketrang",
         "extraMetadata": {
             "main": "dist/electron/index.js"
@@ -28,8 +34,7 @@
             "package.json"
         ],
         "mac": {
-            "category": "public.app-category.business",
-            "target": "dmg"
+            "category": "public.app-category.business"
         },
         "win": {
             "target": "zip"
@@ -40,7 +45,8 @@
     },
     "dependencies": {
         "electron-reload": "^2.0.0-alpha.1",
-        "electron-reloader": "^1.2.3"
+        "electron-reloader": "^1.2.3",
+        "electron-updater": "^5.3.0"
     },
     "devDependencies": {
         "@types/node": "^18.13.0",

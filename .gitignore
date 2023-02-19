@@ -71,3 +71,4 @@ container-registry.json
 github-actions.json
 .turbo
 .next
+private

@@ -1,6 +1,6 @@
 {
     "name": "@virketrang/virketrang",
-    "version": "0.0.0",
+    "version": "0.0.0-alpha.0",
     "description": "",
     "private": true,
     "license": "UNLICENSED",
@@ -18,12 +18,12 @@
     "keywords": [],
     "homepage": "https://www.virketrang.com",
     "bugs": {
-        "url": "https://github.com/virketrang/workspace/issues",
+        "url": "https://github.com/virketrang/virketrang/issues",
         "email": "sigfred@virketrang.com"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/virketrang/workspace"
+        "url": "https://github.com/virketrang/virketrang"
     },
     "scripts": {
         "ng": "ng",
@@ -84,6 +84,7 @@
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.0.0",
         "lerna": "^6.4.1",
+        "nx": "^15.7.1",
         "prettier": "^2.8.3",
         "turbo": "^1.7.3",
         "typescript": "~4.9.4",

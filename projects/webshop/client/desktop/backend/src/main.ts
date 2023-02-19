@@ -1,4 +1,5 @@
 import { BrowserWindow, App } from 'electron';
+import Update from './update';
 
 export default class Main {
     static mainWindow: BrowserWindow | null;
@@ -16,6 +17,8 @@ export default class Main {
     }
 
     private static createWindow() {
+        setTimeout(Update.checkForUpdates, 3000);
+
         Main.mainWindow = new Main.BrowserWindow({
             width: 1200,
             minWidth: 900,
@@ -26,20 +29,18 @@ export default class Main {
             show: false,
         });
 
-        if (process.env['NODE_ENV'] === 'production') {
-            Main.mainWindow.loadFile('../html');
-        } else {
-            Main.mainWindow.loadURL('http://localhost:4200');
-        }
+        Main.mainWindow.loadFile(`${__dirname}/../index.html`);
+
+        // Main.mainWindow.loadURL('http://localhost:4200');
 
         Main.mainWindow.once('ready-to-show', Main.mainWindow.show);
 
-        Main.mainWindow.webContents.openDevTools();
+        // Main.mainWindow.webContents.openDevTools();
 
         Main.mainWindow.on('closed', Main.onClose);
     }
 
-    static main(app: App, browserWindow: typeof BrowserWindow) {
+    static bootstrap(app: App, browserWindow: typeof BrowserWindow) {
         Main.BrowserWindow = browserWindow;
         Main.application = app;
 
