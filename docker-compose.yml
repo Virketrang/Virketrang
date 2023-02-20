@@ -11,7 +11,7 @@ services:
             - PORT=8080
             - NODE_ENV=production
     webshop-website:
-        image: webshop-client:latest
+        image: webshop-website:latest
         build:
             context: ./
             dockerfile: ./projects/webshop/client/web/Dockerfile
@@ -24,7 +24,7 @@ services:
         image: webshop-desktop:latest
         build:
             context: ./
-            dockerfile: ./projects/webshop/client/desktop/Dockerfile
+            dockerfile: ./projects/webshop/client/desktop/frontend/Dockerfile
         ports:
             - 5000:5000
         environment:

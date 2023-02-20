@@ -1,0 +1,6 @@
+<ul>
+    <h4>{{ title }}</h4>
+    <li *ngFor="let item of items">
+        <a [routerLink]="item.path">{{ item.name }}</a>
+    </li>
+</ul>

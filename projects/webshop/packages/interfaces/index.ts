@@ -1,5 +1,1 @@
-interface Demo {
-    demo: string;
-}
-
-export default Demo;
+export * from './src';

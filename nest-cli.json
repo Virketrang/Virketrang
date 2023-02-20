@@ -12,7 +12,7 @@
         "project": {
             "type": "application",
             "root": "projects/webshop/server",
-            "entryFile": "main",
+            "entryFile": "server/src/main",
             "sourceRoot": "projects/webshop/server/src",
             "compilerOptions": {
                 "tsConfigPath": "projects/webshop/server/tsconfig.json"

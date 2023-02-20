@@ -3,7 +3,7 @@
     "prettier.tabWidth": 4,
     "prettier.printWidth": 120,
     "prettier.singleQuote": true,
-    "typescript.tsdk": "../node_modules/typescript/lib",
+    "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.exclude": {
         "**/.git": true,
