@@ -1,4 +1,29 @@
 {
     "name": "@virketrang/colors",
-    "version": "0.0.0"
+    "version": "0.0.0",
+    "license": "UNLICENSED",
+    "description": "A large collection of colors",
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "main": "dist/cjs/index.js",
+    "module": "disy/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/virketrang/virketrang"
+    },
+    "scripts": {
+        "build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs",
+        "build:esm": "tsc",
+        "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+    },
+    "devDependencies": {
+        "tsup": "^6.6.3",
+        "typescript": "^4.9.5"
+    }
 }

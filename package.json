@@ -32,6 +32,7 @@
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "sync": "syncpack list-mismatches",
+        "lint": "",
         "webshop-server:start": "lerna run start:prod --scope=@webshop/server",
         "webshop:web:dev": "lerna run dev --scope=@webshop/website",
         "webshop-desktop-app:build": "ng build webshop-desktop",

@@ -1,1 +1,3 @@
-export * from './lib';
+export { default as Colors } from './colors';
+
+export * from './types';

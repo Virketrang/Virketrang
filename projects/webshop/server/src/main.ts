@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import Demo from '@packages/interfaces';
+import { Product } from '@packages/interfaces';
 
 const PORT = process.env.PORT || 8080;
 

@@ -36,202 +36,203 @@ import purpleAccent from './accents/purpleAccent';
 import redAccent from './accents/redAccent';
 import tealAccent from './accents/tealAccent';
 import yellowAccent from './accents/yellowAccent';
+
 import { RGBA } from './types/rgba';
 import { TRANSPARENT } from './types/transparent';
 
 @Singleton
 class Colors {
-    public get amber() {
+    public static get amber() {
         return amber;
     }
 
-    public get blue() {
+    public static get blue() {
         return blue;
     }
 
-    public get blueGrey() {
+    public static get blueGrey() {
         return blueGrey;
     }
 
-    public get brown() {
+    public static get brown() {
         return brown;
     }
 
-    public get cyan() {
+    public static get cyan() {
         return cyan;
     }
 
-    public get deepOrange() {
+    public static get deepOrange() {
         return deepOrange;
     }
 
-    public get deepPurple() {
+    public static get deepPurple() {
         return deepPurple;
     }
 
-    public get green() {
+    public static get green() {
         return green;
     }
 
-    public get grey() {
+    public static get grey() {
         return grey;
     }
 
-    public get indigo() {
+    public static get indigo() {
         return indigo;
     }
 
-    public get lightBlue() {
+    public static get lightBlue() {
         return lightBlue;
     }
 
-    public get lightGreen() {
+    public static get lightGreen() {
         return lightGreen;
     }
 
-    public get lime() {
+    public static get lime() {
         return lime;
     }
 
-    public get orange() {
+    public static get orange() {
         return orange;
     }
 
-    public get pink() {
+    public static get pink() {
         return pink;
     }
 
-    public get purple() {
+    public static get purple() {
         return purple;
     }
 
-    public get red() {
+    public static get red() {
         return red;
     }
 
-    public get teal() {
+    public static get teal() {
         return teal;
     }
 
-    public get yellow() {
+    public static get yellow() {
         return yellow;
     }
 
-    public get amberAccent() {
+    public static get amberAccent() {
         return amberAccent;
     }
 
-    public get blueAccent() {
+    public static get blueAccent() {
         return blueAccent;
     }
 
-    public get cyanAccent() {
+    public static get cyanAccent() {
         return cyanAccent;
     }
 
-    public get deepOrangeAccent() {
+    public static get deepOrangeAccent() {
         return deepOrangeAccent;
     }
 
-    public get deepPurpleAccent() {
+    public static get deepPurpleAccent() {
         return deepPurpleAccent;
     }
 
-    public get greenAccent() {
+    public static get greenAccent() {
         return greenAccent;
     }
 
-    public get indigoAccent() {
+    public static get indigoAccent() {
         return indigoAccent;
     }
 
-    public get lightBlueAccent() {
+    public static get lightBlueAccent() {
         return lightBlueAccent;
     }
 
-    public get lightGreenAccent() {
+    public static get lightGreenAccent() {
         return lightGreenAccent;
     }
 
-    public get limeAccent() {
+    public static get limeAccent() {
         return limeAccent;
     }
 
-    public get orangeAccent() {
+    public static get orangeAccent() {
         return orangeAccent;
     }
 
-    public get pinkAccent() {
+    public static get pinkAccent() {
         return pinkAccent;
     }
 
-    public get purpleAccent() {
+    public static get purpleAccent() {
         return purpleAccent;
     }
 
-    public get redAccent() {
+    public static get redAccent() {
         return redAccent;
     }
 
-    public get tealAccent() {
+    public static get tealAccent() {
         return tealAccent;
     }
 
-    public get yellowAccent() {
+    public static get yellowAccent() {
         return yellowAccent;
     }
 
-    public get black(): RGBA {
+    public static get black(): RGBA {
         return 'rgba(0, 0, 0, 1)';
     }
-    public get black12(): RGBA {
+    public static get black12(): RGBA {
         return 'rgba(0, 0, 0, 0.12)';
     }
-    public get black26(): RGBA {
+    public static get black26(): RGBA {
         return 'rgba(0, 0, 0, 0.26)';
     }
-    public get black38(): RGBA {
+    public static get black38(): RGBA {
         return 'rgba(0, 0, 0, 0.38)';
     }
-    public get black45(): RGBA {
+    public static get black45(): RGBA {
         return 'rgba(0, 0, 0, 0.45)';
     }
-    public get black54(): RGBA {
+    public static get black54(): RGBA {
         return 'rgba(0, 0, 0, 0.54)';
     }
-    public get black87(): RGBA {
+    public static get black87(): RGBA {
         return 'rgba(0, 0, 0, 0.87)';
     }
-    public get white(): RGBA {
+    public static get white(): RGBA {
         return 'rgba(255, 255, 255, 1)';
     }
-    public get white10(): RGBA {
+    public static get white10(): RGBA {
         return 'rgba(255, 255, 255, 0.10)';
     }
-    public get white12(): RGBA {
+    public static get white12(): RGBA {
         return 'rgba(255, 255, 255, 0.12)';
     }
-    public get white24(): RGBA {
+    public static get white24(): RGBA {
         return 'rgba(255, 255, 255, 0.24)';
     }
-    public get white30(): RGBA {
+    public static get white30(): RGBA {
         return 'rgba(255, 255, 255, 0.30)';
     }
-    public get white38(): RGBA {
+    public static get white38(): RGBA {
         return 'rgba(255, 255, 255, 0.38)';
     }
-    public get white54(): RGBA {
+    public static get white54(): RGBA {
         return 'rgba(255, 255, 255, 0.54)';
     }
-    public get white60(): RGBA {
+    public static get white60(): RGBA {
         return 'rgba(255, 255, 255, 0.60)';
     }
-    public get white70(): RGBA {
+    public static get white70(): RGBA {
         return 'rgba(255, 255, 255, 0.70)';
     }
-    public get transparent(): TRANSPARENT {
+    public static get transparent(): TRANSPARENT {
         return 'transparent';
     }
 }
 
-export default new Colors();
+export default Colors;
