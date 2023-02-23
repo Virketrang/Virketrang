@@ -23,11 +23,11 @@ jobs:
     publish:
         needs: build
         runs-on: ubuntu-latest
-        env:
-            NODE_ENV: production
         defaults:
             run:
                 working-directory: ./packages/colors
+        env:
+            NODE_ENV: production
         permissions:
             packages: write
             contents: read
