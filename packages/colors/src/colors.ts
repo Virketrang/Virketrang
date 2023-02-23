@@ -1,5 +1,3 @@
-import { Singleton } from './decorators/singleton';
-
 import amber from './colors/amber';
 import blue from './colors/blue';
 import blueGrey from './colors/blueGrey';
@@ -39,8 +37,6 @@ import yellowAccent from './accents/yellowAccent';
 
 import { RGBA } from './types/rgba';
 import { TRANSPARENT } from './types/transparent';
-
-@Singleton
 class Colors {
     public static get amber() {
         return amber;

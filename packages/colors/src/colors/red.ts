@@ -1,4 +1,4 @@
-import { Singleton } from '../decorators/singleton';
+import { Singleton } from '../../../../.idea/decorators/singleton';
 import { HEX } from '../types/hex';
 
 @Singleton
