@@ -37,7 +37,7 @@ import yellowAccent from './accents/yellowAccent';
 
 import { RGBA } from './types/rgba';
 import { TRANSPARENT } from './types/transparent';
-class Colors {
+abstract class Colors {
     public static get amber() {
         return amber;
     }
