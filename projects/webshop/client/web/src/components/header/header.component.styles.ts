@@ -1,5 +1,4 @@
 import { createUseStyles } from 'react-jss';
-import { Colors } from '@virketrang/colors';
 
 const useStyles = createUseStyles({
     header: {
@@ -8,7 +7,7 @@ const useStyles = createUseStyles({
         alignItems: 'center',
         width: '100%',
         height: '6rem',
-        backgroundColor: Colors.amber[400],
+        backgroundColor: '',
     },
 });
 
