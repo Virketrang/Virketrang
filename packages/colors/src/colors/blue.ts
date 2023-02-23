@@ -1,6 +1,6 @@
 import { HEX } from '../types/hex';
 
-class Blue {
+abstract class Blue {
     public static get 50(): HEX {
         return '#E3F2FD';
     }
@@ -42,4 +42,4 @@ class Blue {
     }
 }
 
-export default new Blue();
+export default Blue;

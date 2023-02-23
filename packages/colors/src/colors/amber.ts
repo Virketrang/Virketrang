@@ -1,6 +1,6 @@
 import { HEX } from '../types/hex';
 
-class Amber {
+abstract class Amber {
     public static get 50(): HEX {
         return '#FFF8E1';
     }
@@ -42,4 +42,4 @@ class Amber {
     }
 }
 
-export default new Amber();
+export default Amber;
