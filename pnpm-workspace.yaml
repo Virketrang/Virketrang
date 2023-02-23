@@ -1,0 +1,8 @@
+packages:
+    - "projects/**/server"
+    - "projects/**/client/**"
+    - "projects/**/client/**/frontend"
+    - "projects/**/client/**/backend"
+    - "packages/**"
+    - "packages/angular/**"
+    - "packages/react/**"

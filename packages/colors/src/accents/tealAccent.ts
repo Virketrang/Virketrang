@@ -1,23 +1,21 @@
-import { Singleton } from '../../../../.idea/decorators/singleton';
 import { HEX } from '../types/hex';
 
-@Singleton
-class TealAccent {
-    public get 100(): HEX {
+abstract class TealAccent {
+    public static get 100(): HEX {
         return '#A7FFEB';
     }
 
-    public get 400(): HEX {
+    public static get 400(): HEX {
         return '#1DE9B6';
     }
 
-    public get 700(): HEX {
+    public static get 700(): HEX {
         return '#00BFA5';
     }
 
-    public get default(): HEX {
+    public static get default(): HEX {
         return '#64FFDA';
     }
 }
 
-export default new TealAccent();
+export default TealAccent;

@@ -2,7 +2,7 @@
     "name": "webshop-desktop-backend",
     "version": "0.0.0-alpha",
     "private": true,
-    "license": "UNLICENSED",
+    "license": "MIT",
     "main": "dist/electron/index.js",
     "description": "A complete business management solution",
     "author": {

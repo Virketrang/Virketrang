@@ -3,12 +3,12 @@
     "version": "0.0.0-alpha.0",
     "description": "",
     "private": true,
-    "license": "UNLICENSED",
-    "packageManager": "yarn@1.22.19",
+    "license": "MIT",
+    "packageManager": "pnpm@7.27.1",
     "engines": {
         "node": ">=14.0.0",
-        "yarn": "*",
-        "npm": "please-use-yarn"
+        "yarn": "please-use-pnpm",
+        "pnpm": "*"
     },
     "author": {
         "name": "Sigfred Frey Nørgaard Knudsen",
@@ -26,6 +26,7 @@
         "url": "https://github.com/virketrang/virketrang"
     },
     "scripts": {
+        "preinstall": "npx only-allow pnpm",
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
@@ -33,6 +34,7 @@
         "test": "ng test",
         "sync": "syncpack list-mismatches",
         "lint": "",
+        "packages:build": "lerna run build --path-filter=\"packages\"",
         "webshop-server:start": "lerna run start:prod --scope=@webshop/server",
         "webshop:web:dev": "lerna run dev --scope=@webshop/website",
         "webshop-desktop-app:build": "ng build webshop-desktop",
@@ -43,21 +45,6 @@
         "webshop-desktop:start": "yarn webshop-desktop-app:serve && yarn webshop-desktop-electron:build && yarn webshop-desktop-electron:start",
         "webshop-desktop:dev": "lerna run dev --scope=@virketrang/webshop-desktop",
         "webshop-desktop:build": "ng build webshop-desktop && lerna run compile --scope=webshop-desktop && lerna run build --scope=webshop-desktop"
-    },
-    "workspaces": {
-        "packages": [
-            "projects/**/server",
-            "projects/**/client/*",
-            "projects/**/client/**/frontend",
-            "projects/**/client/**/backend",
-            "packages/*",
-            "packages/angular/*",
-            "packages/react/*",
-            "libraries/*"
-        ],
-        "nohoist": [
-            "projects/webshop/client/desktop/backend"
-        ]
     },
     "devDependencies": {
         "concurrently": "^7.6.0",

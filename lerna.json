@@ -2,11 +2,12 @@
     "version": "0.0.0",
     "packages": [
         "projects/**/server",
-        "projects/**/client/*",
+        "projects/**/client/**",
         "projects/**/client/**/frontend",
         "projects/**/client/**/backend",
-        "packages/*",
-        "libraries/*"
+        "packages/**",
+        "packages/angular/**",
+        "packages/react/**"
     ],
     "useWorkspaces": true,
     "npmClient": "yarn",

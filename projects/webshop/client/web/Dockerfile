@@ -14,7 +14,7 @@ COPY ./projects/webshop/packages /usr/src/app/packages
 
 WORKDIR /usr/src/app/client/web
 
-RUN yarn install
+RUN pnpm install
 
 COPY ./projects/webshop/client/web .
 
@@ -38,19 +38,19 @@ WORKDIR /usr/src/app/client/web
 
 COPY ./projects/webshop/client/web/package*.json ./projects/webshop/client/web/tsconfig*.json ./
 
-RUN yarn install
+RUN pnpm install
 
-RUN yarn global add next
+RUN pnpm -g add next
 
 COPY ./projects/webshop/client/web .
 
-RUN yarn run build
+RUN pnpm run build
 
 ENV NODE_ENV production
 
 ENV PORT 4000
 
-RUN yarn install --production && yarn cache clean
+RUN pnpm install --prod
 
 USER node
 

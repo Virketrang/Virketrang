@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
         alignItems: 'center',
         width: '100%',
         height: '6rem',
-        backgroundColor: '',
+        backgroundColor: '#08244b',
     },
 });
 

@@ -1,3 +1,4 @@
+'use client';
 import LogoComponent from './logo.component.types';
 import useStyles from './logo.component.styles';
 
@@ -7,7 +8,7 @@ const Logo: LogoComponent = ({ children }) => {
     return (
         <div className={styles.logo}>
             <h1 className={styles.title}>{children}</h1>
-            <i className={styles.subtitle}>Handelskompagni</i>
+            <span className={styles.subtitle}>Handelskompagni</span>
         </div>
     );
 };

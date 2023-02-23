@@ -1,23 +1,21 @@
-import { Singleton } from '../../../../.idea/decorators/singleton';
 import { HEX } from '../types/hex';
 
-@Singleton
-class LimeAccent {
-    public get 100(): HEX {
+abstract class LimeAccent {
+    public static get 100(): HEX {
         return '#F4FF81';
     }
 
-    public get 400(): HEX {
+    public static get 400(): HEX {
         return '#C6FF00';
     }
 
-    public get 700(): HEX {
+    public static get 700(): HEX {
         return '#AEEA00';
     }
 
-    public get default(): HEX {
+    public static get default(): HEX {
         return '#EEFF41';
     }
 }
 
-export default new LimeAccent();
+export default LimeAccent;

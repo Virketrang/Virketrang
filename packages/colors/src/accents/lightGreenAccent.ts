@@ -1,8 +1,6 @@
-import { Singleton } from '../../../../.idea/decorators/singleton';
 import { HEX } from '../types/hex';
 
-@Singleton
-class LightGreenAccent {
+abstract class LightGreenAccent {
     public get 100(): HEX {
         return '#CCFF90';
     }
@@ -20,4 +18,4 @@ class LightGreenAccent {
     }
 }
 
-export default new LightGreenAccent();
+export default LightGreenAccent;

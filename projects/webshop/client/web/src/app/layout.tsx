@@ -1,4 +1,3 @@
-'use client';
 import { FunctionComponent } from 'react';
 import Link from 'next/link';
 import { Content, Header, Logo, Navigation, Toolbar } from '../components';

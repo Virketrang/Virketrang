@@ -1,3 +1,4 @@
+'use client';
 import HeaderComponent from './header.component.types';
 import useStyles from './header.component.styles';
 
