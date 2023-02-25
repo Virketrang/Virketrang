@@ -15,5 +15,29 @@
         // "projects/**/node_modules": true,
         // "packages/**/node_modules": true,
         // "libraries/**/node_modules": true
+    },
+    "eslint.workingDirectories": [
+        "projects/**/server",
+        "projects/**/client/**",
+        "projects/**/client/**/frontend",
+        "projects/**/client/**/backend",
+        "packages/**",
+        "packages/angular/**",
+        "packages/react/**"
+    ],
+    "editor.tokenColorCustomizations": {
+        // "comments": "",
+        "textMateRules": []
+    },
+    "search.exclude": {
+        ".git": true,
+        ".eslintcache": true,
+        ".erb/dll": true,
+        "release/{build,app/dist}": true,
+        "node_modules": true,
+        "npm-debug.log.*": true,
+        "test/**/__snapshots__": true,
+        "package-lock.json": true,
+        "*.{css,sass,scss}.d.ts": true
     }
 }

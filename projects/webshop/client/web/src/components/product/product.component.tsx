@@ -4,7 +4,7 @@ import styles from './product.component.module.sass';
 
 const Products: ProductComponent = ({ product }) => {
     return (
-        <div className={styles.product} key={product.id}>
+        <div key={product.id} className={styles.product}>
             <Image src="/assets/placeholders/placeholder-image-2.jpeg" width={400} height={400} alt="description" />
         </div>
     );

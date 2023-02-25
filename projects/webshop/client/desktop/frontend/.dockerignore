@@ -1,8 +1,0 @@
-Dockerfile
-.dockerignore
-node_modules
-npm-debug.log
-build
-dist
-.env.development
-README.md

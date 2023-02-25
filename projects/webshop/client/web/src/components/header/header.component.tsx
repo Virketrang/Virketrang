@@ -1,10 +1,7 @@
-'use client';
 import HeaderComponent from './header.component.types';
-import useStyles from './header.component.styles';
+import styles from './header.component.module.sass';
 
 const Header: HeaderComponent = ({ children }) => {
-    const styles = useStyles();
-
     return <header className={styles.header}>{children}</header>;
 };
 

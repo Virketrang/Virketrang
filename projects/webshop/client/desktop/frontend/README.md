@@ -1,1 +1,0 @@
-# Webshop desktop application

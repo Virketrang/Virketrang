@@ -12,7 +12,12 @@
         "skipLibCheck": true,
         "strictBindCallApply": false,
         "paths": {
-            "@packages/*": ["../packages/*"]
+            "@packages/*": ["../packages/*"],
+            "@authentication/*": ["./src/app/authentication/*"],
+            "@config/*": ["./src/app/config/*"],
+            "@database/*": ["./src/app/database/*"],
+            "@modules/*": ["./src/app/modules/*"],
+            "@services/*": ["./src/app/services/*"]
         }
     }
 }

@@ -4,6 +4,7 @@ const nextConfig = {
         appDir: true,
     },
     distDir: './build',
+    reactStrictMode: false,
 };
 
 module.exports = nextConfig;

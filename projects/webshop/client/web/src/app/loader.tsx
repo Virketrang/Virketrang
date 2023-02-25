@@ -1,7 +1,3 @@
-import { FunctionComponent } from 'react';
-
-const RootLoader: FunctionComponent = () => {
+export default function RootLoader() {
     return <div>Loading...</div>;
-};
-
-export default RootLoader;
+}
