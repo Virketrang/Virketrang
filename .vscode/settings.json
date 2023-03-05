@@ -1,8 +1,5 @@
 {
     "editor.fontSize": 14,
-    "prettier.tabWidth": 4,
-    "prettier.printWidth": 120,
-    "prettier.singleQuote": true,
     "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.exclude": {
@@ -39,5 +36,11 @@
         "test/**/__snapshots__": true,
         "package-lock.json": true,
         "*.{css,sass,scss}.d.ts": true
-    }
+    },
+    "prettier.singleQuote": true,
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 4,
+    "prettier.arrowParens": "avoid",
+    "prettier.bracketSpacing": true,
+    "prettier.quoteProps": "consistent"
 }

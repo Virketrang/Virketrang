@@ -1,10 +1,10 @@
 {
     "name": "@virketrang/virketrang",
     "version": "0.0.0-alpha.0",
-    "description": "",
-    "private": true,
+    "description": "The Virketrang monorepo",
     "license": "MIT",
-    "packageManager": "pnpm@7.27.1",
+    "private": true,
+    "packageManager": "pnpm@7.28.0",
     "engines": {
         "node": ">=14.0.0",
         "yarn": "please-use-pnpm",
@@ -15,7 +15,10 @@
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com/"
     },
-    "keywords": [],
+    "keywords": [
+        "Virketrang",
+        "monorepo"
+    ],
     "homepage": "https://www.virketrang.com",
     "bugs": {
         "url": "https://github.com/virketrang/virketrang/issues",
@@ -27,11 +30,6 @@
     },
     "scripts": {
         "preinstall": "npx only-allow pnpm",
-        "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
-        "watch": "ng build --watch --configuration development",
-        "test": "ng test",
         "sync": "syncpack list-mismatches",
         "lint": "",
         "packages:build": "lerna run build --path-filter=\"packages\"",
@@ -50,15 +48,16 @@
         "concurrently": "^7.6.0",
         "lerna": "^6.5.1",
         "nx": "^15.7.2",
-        "prettier": "^2.8.4",
         "syncpack": "^9.8.4",
-        "turbo": "^1.8.2",
         "typescript": "^4.9.5",
         "wait-on": "^7.0.1"
     },
     "prettier": {
         "singleQuote": true,
         "printWidth": 120,
-        "tabWidth": 4
+        "tabWidth": 4,
+        "arrowParens": "avoid",
+        "bracketSpacing": true,
+        "quoteProps": "consistent"
     }
 }
