@@ -1,0 +1,26 @@
+{
+    "extends": "../../../tsconfig.base.json",
+    "compilerOptions": {
+        "target": "ES6",
+        "lib": ["ES5", "ES2015", "ES2016", "DOM", "ESNext"],
+        "jsx": "react",
+        "module": "ES2015",
+        // "rootDir": "./",                                  /* Specify the root folder within your source files. */
+        "moduleResolution": "node",
+        // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
+        // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
+        // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
+        // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
+        "types": ["node"],
+        "declaration": true,
+        // "declarationMap": true,                           /* Create sourcemaps for d.ts files. */
+        "sourceMap": true,
+        // "outFile": "./",                                  /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
+        "outDir": "./dist/esm",
+        "esModuleInterop": true,
+        // "skipLibCheck": true /* Skip type checking all .d.ts files. */
+        "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx", "../shared/**/*.ts", "../shared/**/*.tsx"],
+    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+}

@@ -181,53 +181,89 @@ abstract class Colors {
     public static get black(): RGBA {
         return 'rgba(0, 0, 0, 1)';
     }
+
     public static get black12(): RGBA {
         return 'rgba(0, 0, 0, 0.12)';
     }
+
     public static get black26(): RGBA {
         return 'rgba(0, 0, 0, 0.26)';
     }
+
     public static get black38(): RGBA {
         return 'rgba(0, 0, 0, 0.38)';
     }
+
     public static get black45(): RGBA {
         return 'rgba(0, 0, 0, 0.45)';
     }
+
     public static get black54(): RGBA {
         return 'rgba(0, 0, 0, 0.54)';
     }
+
     public static get black87(): RGBA {
         return 'rgba(0, 0, 0, 0.87)';
     }
+
     public static get white(): RGBA {
         return 'rgba(255, 255, 255, 1)';
     }
+
     public static get white10(): RGBA {
         return 'rgba(255, 255, 255, 0.10)';
     }
+
     public static get white12(): RGBA {
         return 'rgba(255, 255, 255, 0.12)';
     }
+
     public static get white24(): RGBA {
         return 'rgba(255, 255, 255, 0.24)';
     }
+
     public static get white30(): RGBA {
         return 'rgba(255, 255, 255, 0.30)';
     }
+
     public static get white38(): RGBA {
         return 'rgba(255, 255, 255, 0.38)';
     }
+
     public static get white54(): RGBA {
         return 'rgba(255, 255, 255, 0.54)';
     }
+
     public static get white60(): RGBA {
         return 'rgba(255, 255, 255, 0.60)';
     }
+
     public static get white70(): RGBA {
         return 'rgba(255, 255, 255, 0.70)';
     }
+
     public static get transparent(): TRANSPARENT {
         return 'transparent';
+    }
+
+    public static get inherit() {
+        return 'inherit';
+    }
+
+    public static get initial() {
+        return 'initial';
+    }
+
+    public static get revert() {
+        return 'revert';
+    }
+
+    public static get revertLayer() {
+        return 'revert-layer';
+    }
+
+    public static get unset() {
+        return 'unset';
     }
 }
 

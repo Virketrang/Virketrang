@@ -29,7 +29,11 @@
             "@api": ["src/api/index"],
             "@api/*": ["src/api/*"],
             "@styles/*": ["./src/styles/*"],
-            "@constants": ["./src/constants"]
+            "@constants": ["./src/constants"],
+            "@icons/*": ["./src/icons/*"],
+            "@icons": ["./src/icons"],
+            "@types/*": ["./src/types/*"],
+            "@types": ["./src/types"]
         }
     },
     "include": [

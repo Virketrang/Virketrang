@@ -1,4 +1,4 @@
-export default abstract class $ {
+abstract class $ {
     public static get active() {
         return '&:active' as const;
     }
@@ -315,11 +315,17 @@ export default abstract class $ {
         return '&::target-text' as const;
     }
 
+    public static get fileUploadButton() {
+        return '&::-webkit-file-upload-button' as const;
+    }
+
     public static id(id: string) {
         return `#${id}`;
     }
 
     public static classes(...classes: string[]) {
-        return classes.map((className) => `.${className}`).join('');
+        return classes.map(className => `.${className}`).join('');
     }
 }
+
+export default $;

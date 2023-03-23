@@ -1,29 +1,36 @@
-import { Display } from '@virketrang/jss';
+import Colors from '@virketrang/colors';
+import { Display, JustifyContent, Border, Padding, FontWeight, Margin } from '@virketrang/jss';
 import { createUseStyles } from 'react-jss';
 
 const useProductsStyles = createUseStyles({
     one: {
-        display: 'flex',
-        justifyContent: 'space-between',
+        display: Display.flex,
+        justifyContent: JustifyContent.spaceBetween,
     },
     two: {
-        display: 'flex',
-        gap: '2rem',
-        borderBottom: '1px solid #f5f5f5',
-        padding: '1rem 0 0.4rem 0',
+        display: Display.flex,
+        gap: (2.0).rem(),
+        borderBottom: Border((1.0).px(), Border.solid, '#f5f5f5'),
+        padding: Padding((1.0).rem(), 0, (0.4).rem(), 0),
     },
     menuButton: {
-        padding: '0.75em 0.75em',
-        fontWeight: 600,
-        color: '#ffffff',
-        borderRadius: '0.35em',
+        padding: Padding((0.75).em(), (0.75).em()),
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        borderRadius: (0.35).em(),
         backgroundColor: '#625afa',
     },
     available: {
+        color: Colors.blueAccent[400],
+    },
+    unavailable: {
         color: '#a4a6ab',
     },
     title: {
-        fontSize: '1.5rem',
+        fontSize: (1.5).rem(),
+    },
+    list: {
+        margin: Margin.top((1.0).rem()),
     },
 });
 

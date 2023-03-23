@@ -12,7 +12,7 @@ export class StorageService {
     constructor() {
         this.storage = new Storage({
             projectId: 'liedecke-noergaard',
-            keyFilename: join(__dirname, '../../../../storage.json'),
+            keyFilename: join(__dirname, '../../../../../../../../storage.json'),
         });
 
         this.bucket = this.storage.bucket(BUCKET_NAME);
@@ -23,6 +23,8 @@ export class StorageService {
 
         const stream = file.createWriteStream();
 
-        stream.end(buffer);
+        const result = stream.end(buffer);
+
+        return result;
     }
 }

@@ -5,27 +5,47 @@ declare global {
         px: () => `${number}px`;
         vw: () => `${number}vw`;
         vh: () => `${number}vh`;
+        percentage: () => `${number}%`;
+        unit: (unit: string) => `${number}${string}`;
+        s: () => `${number}s`;
+        ms: () => `${number}ms`;
     }
 }
 
 Number.prototype.em = function () {
-    return `${parseInt(this.toString())}em`;
+    return `${this.valueOf()}em`;
 };
 
 Number.prototype.rem = function () {
-    return `${parseInt(this.toString())}rem`;
+    return `${this.valueOf()}rem`;
 };
 
 Number.prototype.px = function () {
-    return `${parseInt(this.toString())}px`;
+    return `${this.valueOf()}px`;
 };
 
 Number.prototype.vh = function () {
-    return `${parseInt(this.toString())}vh`;
+    return `${this.valueOf()}vh`;
 };
 
 Number.prototype.vw = function () {
-    return `${parseInt(this.toString())}vw`;
+    return `${this.valueOf()}vw`;
+};
+
+Number.prototype.percentage = function () {
+    return `${this.valueOf()}%`;
+};
+
+Number.prototype.unit = function (unit: string) {
+    return `${this.valueOf()}${unit}`;
+};
+
+Number.prototype.s = function () {
+    return `${this.valueOf()}s`;
+};
+
+Number.prototype.ms = function () {
+    return `${this.valueOf()}ms`;
 };
 
 export * from './classes';

@@ -1,18 +1,18 @@
 import { createUseStyles } from 'react-jss';
 import Colors from '@virketrang/colors';
-import { Transform, Position, Cursor, $ } from '@virketrang/jss';
+import { Transform, Position, Cursor, $, Overflow, Margin, BoxShadow, Padding } from '@virketrang/jss';
 
 const useDialogStyles = createUseStyles({
     dialog: {
-        borderRadius: '0.5rem',
-        overflow: 'hidden',
-        padding: '1rem',
+        borderRadius: (0.5).rem(),
+        overflow: Overflow.hidden,
+        padding: Padding((1).rem(), (1.5).rem()),
         position: Position.fixed,
-        boxShadow: '1px 1px 4px 1px rgba(0, 0, 0, 0.1)',
-        minWidth: '600px',
-        left: '50%',
-        top: '50%',
-        transform: Transform.translate('-50%', '-50%'),
+        boxShadow: BoxShadow((1).px(), (1).px(), (4).px(), (1).px(), Colors.black12),
+        minWidth: (600).px(),
+        left: (50).percentage(),
+        top: (50).percentage(),
+        transform: Transform.translate((-50).percentage(), (-50).percentage()),
         backgroundColor: Colors.white,
         [$.backdrop]: {
             backgroundColor: Colors.black26,
@@ -20,12 +20,12 @@ const useDialogStyles = createUseStyles({
     },
     header: {
         position: Position.relative,
-        width: '100%',
+        width: (100).percentage(),
         fontFamily: 'Open Sans',
-        marginBottom: '1rem',
+        margin: Margin.bottom((1).rem()),
     },
     title: {
-        fontSize: '1.5rem',
+        fontSize: (1.5).rem(),
     },
     description: {},
     close: {

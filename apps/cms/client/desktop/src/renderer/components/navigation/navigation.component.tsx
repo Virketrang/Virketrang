@@ -5,11 +5,11 @@ const Navigation: NavigationComponent = () => {
     const styles = useNavigationStyles();
 
     const items = [
-        { path: '/dashboard/orders', name: 'Ordrer' },
-        { path: '/dashboard/webshop', name: 'Webshop' },
-        { path: '/dashboard/accounting', name: 'Regnskab' },
-        { path: '/dashboard/customers', name: 'Kundekartotek' },
-        { path: '/dashboard/employees', name: 'Medarbejdere' },
+        { path: '/orders', name: 'Ordrer' },
+        { path: '/webshop', name: 'Webshop' },
+        { path: '/accounting', name: 'Regnskab' },
+        { path: '/customers', name: 'Kundekartotek' },
+        { path: '/employees', name: 'Medarbejdere' },
     ];
 
     return (

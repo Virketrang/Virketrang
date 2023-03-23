@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { SWRConfig } from 'swr';
+
+import HttpClient from '@virketrang/http';
+
+HttpClient.baseURL = 'http://127.0.0.1:8080';
 
 import App from '@pages/app.component';
 
-import './styles.sass';
-import { Border } from '@virketrang/jss';
-
-console.log(new Border({ width: '1rem', color: 'black', style: 'dotted' }));
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-        <App />
+        <SWRConfig
+            value={{
+                fetcher: async (...args: any) => {
+                    const res = await fetch(args);
+                    return await res.json();
+                },
+                suspense: true,
+            }}>
+            <App />
+        </SWRConfig>
     </React.StrictMode>
 );

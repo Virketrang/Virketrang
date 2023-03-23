@@ -1,0 +1,42 @@
+{
+    "name": "@virketrang/resolut-next",
+    "version": "0.0.0",
+    "description": "A component library for NextJS",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "rm -rf /dist && npm run build:esm && npm run build:cjs",
+        "build:esm": "tsc",
+        "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+    },
+    "keywords": [
+        "NextJS",
+        "ReactJS",
+        "Component Library",
+        "Server Side",
+        "Client Side"
+    ],
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^18.15.5",
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.11",
+        "next": "^13.2.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "typescript": "^5.0.2"
+    },
+    "peerDependencies": {
+        "next": "^13.2.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
+}

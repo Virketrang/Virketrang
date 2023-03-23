@@ -5,4 +5,4 @@ packages:
     - "apps/**/client/**/frontend"
     - "apps/**/client/**/backend"
     - "libraries/**"
-    - "libraries/react/**"
+    - "libraries/resolut/**"

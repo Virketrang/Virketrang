@@ -42,5 +42,6 @@
     "prettier.tabWidth": 4,
     "prettier.arrowParens": "avoid",
     "prettier.bracketSpacing": true,
-    "prettier.quoteProps": "consistent"
+    "prettier.quoteProps": "consistent",
+    "prettier.bracketSameLine": true
 }

@@ -19,4 +19,6 @@ Border.revert = 'revert' as const;
 Border.revertLayer = 'revert-layer' as const;
 Border.unset = 'unset' as const;
 
+Reflect.preventExtensions(Border);
+
 export default Border;

@@ -1,6 +1,6 @@
-import { Dialog } from '@components/index';
-import { useState } from 'react';
-import { AddProduct } from '@features/index';
+import { Dialog, Spinner } from '@components/index';
+import { Suspense, useState } from 'react';
+import { AddProduct, ProductTable } from '@features/index';
 import useProductsStyles from './products.component.styles';
 
 const Products = () => {
@@ -22,15 +22,17 @@ const Products = () => {
                 </div>
                 <div className={styles.two}>
                     <button className={styles.available}>Tilgængelige</button>
-                    <button className={styles.available}>Utilgængelige</button>
+                    <button className={styles.unavailable}>Utilgængelige</button>
                 </div>
             </menu>
+            <Suspense fallback={<Spinner />}>
+                <ProductTable />
+            </Suspense>
             <Dialog
                 open={open}
                 title="Tilføj produkt"
                 description="Udfyld venligst nedenstående oplysninger"
-                close={() => setOpen(false)}
-            >
+                close={() => setOpen(false)}>
                 <AddProduct />
             </Dialog>
         </>

@@ -27,7 +27,9 @@
             "@components": ["./src/renderer/components/index"],
             "@layouts": ["./src/renderer/layouts/index"],
             "@interfaces": ["./src/renderer/interfaces/index"],
-            "@features": ["./src/renderer/features/index"]
+            "@features": ["./src/renderer/features/index"],
+            "@packages/*": ["../../../../packages/*"],
+            "@packages": ["../../../../packages"]
         }
     },
     "include": ["src/renderer", "src/assets"]

@@ -4,5 +4,6 @@
     "tabWidth": 4,
     "arrowParens": "avoid",
     "bracketSpacing": true,
-    "quoteProps": "consistent"
+    "quoteProps": "consistent",
+    "bracketSameLine": true
 }

@@ -6,8 +6,6 @@ const Dialog: DialogComponent = ({ open, children, title, description, close }) 
     const styles = useDialogStyles();
     const ref = useRef<HTMLDialogElement | null>(null);
 
-    console.log(open);
-
     useEffect(() => {
         const dialog = ref.current;
 
@@ -27,8 +25,7 @@ const Dialog: DialogComponent = ({ open, children, title, description, close }) 
                     height="24"
                     viewBox="0 96 960 960"
                     width="24"
-                    onClick={close}
-                >
+                    onClick={close}>
                     <path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
                 </svg>
             </div>

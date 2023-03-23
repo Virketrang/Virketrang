@@ -5,3 +5,6 @@ export { default as Toolbar } from './toolbar/toolbar.component';
 export { default as Navigation } from './navigation/navigation.component';
 export { default as Product } from './product/product.component';
 export { default as Footer } from './footer/footer.component';
+export { default as Icon } from './icon/icon.component';
+export { default as Button } from './button/button.component';
+export { default as Typography } from './typography/typography.component';
