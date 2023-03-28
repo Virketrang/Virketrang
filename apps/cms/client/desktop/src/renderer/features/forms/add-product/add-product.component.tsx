@@ -1,12 +1,12 @@
 import { FormEvent, useState } from 'react';
 
 import HttpClient from '@virketrang/http';
+import { Form } from '@virketrang/forms';
 import { ProductType } from '@packages/enums';
 
 import useAddProductStyles from './add-product.component.styles';
 import AddProductComponent from './add-product.component.types';
 
-import { Form } from '@components/index';
 import { FirstScreen, SecondScreen, ThirdScreen } from './screens';
 
 const AddProduct: AddProductComponent = () => {

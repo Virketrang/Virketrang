@@ -1,5 +1,11 @@
+import { Button } from '@virketrang/resolut-react';
+
 const Discounts = () => {
-    return <p>Discounts</p>;
+    return (
+        <Button color="red" backgroundColor="blue" shape="round" grow={true}>
+            Hello World
+        </Button>
+    );
 };
 
 export default Discounts;

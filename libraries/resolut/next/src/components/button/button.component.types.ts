@@ -1,4 +1,4 @@
-import { LinkProps } from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import { HTMLProps, ReactNode } from 'react';
 
 type ButtonShape = 'round' | 'normal';
@@ -13,9 +13,13 @@ type CustomProps = {
 
 type BaseProps<T> = CustomProps & HTMLProps<T>;
 
-type AnchorProps = LinkProps & BaseProps<HTMLAnchorElement>;
+type AnchorOnlyProps =
+    | { link: never; href: string; external?: true }
+    | { link: typeof Link; href: string; external?: false };
 
-type ButtonProps = BaseProps<HTMLButtonElement>;
+type AnchorProps = LinkProps & AnchorOnlyProps & BaseProps<HTMLAnchorElement>;
+
+type ButtonProps = { link: never; href: never; external: never } & BaseProps<HTMLButtonElement>;
 
 export type Props = AnchorProps | ButtonProps;
 

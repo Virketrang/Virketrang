@@ -5,7 +5,7 @@ interface CreateProduct {
     stock: string;
     description: string;
     retailPrice: string;
-    category: number;
+    category: string;
     type: ProductType;
     costPrice: string;
     available?: boolean;

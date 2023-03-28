@@ -27,6 +27,9 @@ const setupJss = () => {
                 'body': {
                     fontFamily: 'Montserrat, sans-serif',
                 },
+                '#root': {
+                    minHeight: (100.0).percentage(),
+                },
                 'a': {
                     textDecoration: TextDecoration.none,
                     color: Colors.inherit,

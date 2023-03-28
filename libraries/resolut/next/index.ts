@@ -1,2 +1,4 @@
+import '@virketrang/resolut-shared/styles';
+
 export * from './src';
-export * from '../shared';
+export * from '@virketrang/resolut-shared';

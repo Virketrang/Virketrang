@@ -1,9 +1,8 @@
-import { Suspense } from 'react';
 import useSWR from 'swr';
 
-import CategoryTableComponent from './category-table.component.types';
+import { Table, TableBody, TableHead } from '@components';
 
-import { Table, TableBody, TableHead } from '@components/index';
+import CategoryTableComponent from './category-table.component.types';
 import useCategoryTableStyles from './category-table.component.styles';
 
 const CategoryTable: CategoryTableComponent = () => {

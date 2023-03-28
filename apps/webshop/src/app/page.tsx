@@ -1,7 +1,8 @@
-import { Button, Typography } from '@components';
+import { Button, Table, Typography } from '@virketrang/resolut-next';
 import { __server__ } from '@constants';
 import HttpClient from '@virketrang/http';
 import styles from './page.module.sass';
+import Link from 'next/link';
 
 HttpClient.baseURL = __server__;
 
@@ -24,6 +25,7 @@ export default function Page() {
                 </Typography>
                 <Button
                     shape="round"
+                    link={Link}
                     className={styles.button}
                     href="/products"
                     color="#ffffff"
@@ -31,6 +33,9 @@ export default function Page() {
                     grow={true}>
                     Se produkter
                 </Button>
+                <Table>
+                    <Table.Head></Table.Head>
+                </Table>
             </section>
         </>
     );

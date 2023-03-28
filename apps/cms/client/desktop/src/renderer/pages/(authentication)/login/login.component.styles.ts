@@ -1,5 +1,7 @@
 import { createUseStyles } from 'react-jss';
 
-const useLoginStyles = createUseStyles({});
+const useLoginStyles = createUseStyles({
+    button: {},
+});
 
 export default useLoginStyles;

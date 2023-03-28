@@ -10,7 +10,7 @@ export { default as Dialog } from './dialog';
 export { default as TextField } from './text-field';
 export { default as Textarea } from './textarea';
 export { default as ImageField } from './image-field';
-export { default as Field } from './field';
+export { default as Field } from './field/field.component';
 export { default as Form } from './form';
 export { default as Select } from './select/select.component';
 

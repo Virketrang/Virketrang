@@ -3,10 +3,10 @@ import useAuthenticationStyles from './authentication.component.styles';
 import AuthenticationComponent from './authentication.component.types';
 
 const Authentication: AuthenticationComponent = () => {
-    const styles = useAuthenticationStyles;
+    const styles = useAuthenticationStyles();
 
     return (
-        <div>
+        <div className={styles.authentication}>
             <Outlet />
         </div>
     );

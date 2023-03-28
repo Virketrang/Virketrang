@@ -2,11 +2,20 @@
     border: none
     background: var(--button-background-color, #601030)
     color: var(--button-color, #ffffff)
+    font-size: var(--button-font-size, 1rem)
+    font-weight: var(--button-font-weight, 400)
     padding: 0.75rem 1.25rem
     cursor: pointer
+    display: inline-block
+
+    &.stretch
+        width: 100%
 
 .round
     border-radius: 1.25rem
+
+.rounded
+    border-radius: 0.35rem
 
 .normal
     border-radius: 0

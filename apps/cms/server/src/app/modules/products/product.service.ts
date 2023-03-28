@@ -13,7 +13,7 @@ export default class ProductService {
         @InjectRepository(Image)
         private readonly imageRepository: EntityRepository<Image>
     ) {}
-    async getProduct(id: number): Promise<Product> {
+    async getProduct(id: string): Promise<Product> {
         const product = await this.productRepository.findOne({ id });
 
         if (!product) throw new NotFoundException(`Kunne ikke finde noget produkt med id ${id}`);
@@ -49,7 +49,7 @@ export default class ProductService {
         return newProduct;
     }
 
-    async updateProduct(id: number, product: UpdateProduct) {
+    async updateProduct(id: string, product: UpdateProduct) {
         const { name, description, retailPrice, costPrice } = product;
 
         const existingProduct = await this.getProduct(id);
@@ -66,7 +66,7 @@ export default class ProductService {
         return existingProduct;
     }
 
-    async deleteProduct(id: number) {
+    async deleteProduct(id: string) {
         const product = await this.productRepository.findOne({ id });
 
         if (!product) throw new NotFoundException(`Kunne ikke finde noget produkt med id ${id}`);

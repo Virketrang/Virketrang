@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 
 import react from '@vitejs/plugin-react';
 
+import * as packageJson from './package.json';
+
 export default defineConfig({
     plugins: [react()],
     build: {
@@ -13,14 +15,7 @@ export default defineConfig({
             fileName: format => `resolut.${format}.js`,
         },
         rollupOptions: {
-            // external: ['react', 'react-dom', 'react-router-dom'],
-            // output: {
-            //     globals: {
-            //         'react': 'react',
-            //         'react-dom': 'ReactDOM',
-            //         'react-router-dom': 'ReactRouterDOM',
-            //     },
-            // },
+            external: [...Object.keys(packageJson.peerDependencies)],
         },
     },
     css: {

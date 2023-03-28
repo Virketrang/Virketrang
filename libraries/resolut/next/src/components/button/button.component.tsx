@@ -1,5 +1,4 @@
 import { createElement, forwardRef } from 'react';
-import Link from 'next/link';
 
 import styles from './button.component.module.sass';
 import { Props } from './button.component.types';
@@ -14,11 +13,14 @@ const Button = forwardRef<any, Props>(
             color = '#ffffff',
             backgroundColor = '#601030',
             grow = true,
+            link,
+            external,
             ...props
         },
         ref
     ) => {
-        const element = props.href ? Link : 'button';
+        const a: 'a' | typeof link = external ? 'a' : link;
+        const element = props.href ? a : 'button';
 
         const dynamicStyles = { '--button-background-color': backgroundColor, '--button-color': color };
 

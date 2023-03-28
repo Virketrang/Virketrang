@@ -1,7 +1,7 @@
 import Options from './types/options';
 
 export default abstract class HttpClient {
-    public static baseURL: URL | string | undefined = '';
+    public static baseURL: URL | string = '';
     public static defaultErrorMessage: string | undefined;
 
     public static async get<T>(url: RequestInfo | URL, options: Options = { useBaseUrl: true }): Promise<T> {
@@ -14,19 +14,15 @@ export default abstract class HttpClient {
         return response.json();
     }
 
-    public static async post<T>(
-        url: RequestInfo | URL,
-        payload: any,
-        options: Options = { useBaseUrl: true, json: true }
-    ): Promise<T> {
+    public static async post<T>(url: RequestInfo | URL, payload: any, options: Options): Promise<T> {
         const { errorMessage, useBaseUrl, json, ...rest } = options!;
 
         const stringified = JSON.stringify(payload);
 
-        if (json) rest.headers = { ...rest.headers, 'Content-Type': 'application/json' };
+        if (json || json === undefined) rest.headers = { ...rest.headers, 'Content-Type': 'application/json' };
 
-        const response = await fetch(useBaseUrl ? `${HttpClient.baseURL}${url}` : url, {
-            body: json ? stringified : payload,
+        const response = await fetch(useBaseUrl || useBaseUrl === undefined ? `${HttpClient.baseURL}${url}` : url, {
+            body: json || json === undefined ? stringified : payload,
             ...rest,
             method: 'POST',
         });
