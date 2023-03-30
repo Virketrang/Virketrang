@@ -1,5 +1,5 @@
 import '@styles/globals.sass';
-import '@virketrang/resolut-next/style.css';
+import '@resolut/next/style.css';
 
 import { ReactNode } from 'react';
 import Link from 'next/link';

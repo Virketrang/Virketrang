@@ -1,13 +1,16 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
-import { Props, Ref } from './field-group.component.types';
+import FieldGroupComponent from './field-group.component.types';
+import styles from './field-group.component.module.sass';
 
-const FieldGroup = forwardRef<Ref, Props>(({ children, className = '', ...props }, ref) => {
+const FieldGroup: FieldGroupComponent = forwardRef(({ children, className = '', ...props }, ref) => {
     return (
-        <div ref={ref} {...props} className={`${className}`}>
+        <div ref={ref} {...props} className={`${className} ${styles.fieldGroup}`}>
             {children}
         </div>
     );
 });
 
-export default FieldGroup;
+FieldGroup.displayName = 'FieldGroup';
+
+export default memo(FieldGroup);

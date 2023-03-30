@@ -1,7 +1,7 @@
 {
-    "name": "@virketrang/strive-server",
+    "name": "@strive/server",
     "version": "0.0.0-alpha",
-    "description": "The Strive server",
+    "description": "Track your progress - Achieve your goals",
     "private": true,
     "license": "MIT",
     "author": {

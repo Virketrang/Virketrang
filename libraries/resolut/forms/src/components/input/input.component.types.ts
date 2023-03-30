@@ -1,7 +1,8 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
+
 import { HTMLPropsWithoutRef } from '../../types';
 
-type Props = HTMLPropsWithoutRef<HTMLInputElement>;
+type Props = { __type?: string } & HTMLPropsWithoutRef<HTMLInputElement>;
 
 type Ref = RefAttributes<HTMLInputElement>;
 

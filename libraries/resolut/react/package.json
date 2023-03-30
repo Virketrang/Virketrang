@@ -1,7 +1,19 @@
 {
-    "name": "@virketrang/resolut-react",
+    "name": "@resolut/react",
     "version": "0.0.0",
     "description": "A component library for ReactJS",
+    "homepage": "https://www.virketrang.com",
+    "bugs": {
+        "url": "https://github.com/virketrang/virketrang/issues",
+        "email": "sigfred@virketrang.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/virketrang/virketrang"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
     "main": "dist/resolut.cjs.js",
     "module": "dist/resolut.es.js",
     "files": [
@@ -67,7 +79,7 @@
         "react-router-dom": "^6.8.1"
     },
     "dependencies": {
-        "@virketrang/resolut-shared": "workspace:^0.0.0",
+        "@resolut/shared": "workspace:^0.0.0",
         "prop-types": "^15.8.1"
     }
 }

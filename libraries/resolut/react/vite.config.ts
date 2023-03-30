@@ -10,13 +10,16 @@ export default defineConfig({
         outDir: 'dist',
         lib: {
             entry: 'index.ts',
-            name: '@virketrang/resolut-react',
+            name: '@resolut/react',
             formats: ['es', 'cjs'],
             fileName: format => `resolut.${format}.js`,
         },
         rollupOptions: {
             external: [...Object.keys(packageJson.peerDependencies)],
         },
+        watch: {
+            
+        }
     },
     css: {
         modules: {

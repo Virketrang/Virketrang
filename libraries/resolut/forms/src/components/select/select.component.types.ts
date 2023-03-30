@@ -4,17 +4,10 @@ import { HTMLPropsWithoutRef } from '../../types';
 
 import Option from '../option/option.component';
 
-export interface Props extends Omit<HTMLPropsWithoutRef<HTMLSelectElement>, 'children' | 'className'> {
-    label: string;
-    value: string;
-    onChange: () => void;
+export interface Props extends Omit<HTMLPropsWithoutRef<HTMLSelectElement>, 'children'> {
     multiple?: boolean;
     children: ReactElement<typeof Option>;
-    className?: {
-        formControl?: string;
-        select?: string;
-        label?: string;
-    };
+    __type?: string;
 }
 
 export type Ref = RefAttributes<HTMLSelectElement>;

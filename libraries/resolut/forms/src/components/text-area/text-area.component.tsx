@@ -1,17 +1,35 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
 import styles from './text-area.component.module.sass';
-import { Ref, Props } from './text-area.component.types';
+import propTypes from './text-area.component.proptypes';
+import TextAreaComponent from './text-area.component.types';
 
-const TextArea = forwardRef<Ref, Props>(({ name, label, ...props }, ref) => {
-    return (
-        <div className={styles.field}>
-            <label className={styles.label} htmlFor={name}>
-                {label}
-            </label>
-            <textarea className={styles.input} name={name} {...props}></textarea>
-        </div>
-    );
-});
+const TextArea: TextAreaComponent = memo(
+    forwardRef(
+        (
+            { className, autoComplete = 'on', autoCorrect = 'on', lang = 'da', __type = 'RESOLUT_INPUT', ...props },
+            ref
+        ) => {
+            return (
+                <textarea
+                    ref={ref}
+                    className={`${className} ${styles.textarea}`}
+                    {...props}
+                    autoComplete={autoComplete}
+                    autoCorrect={autoCorrect}
+                    lang={lang}
+                />
+            );
+        }
+    )
+);
+
+TextArea.displayName = 'TextArea';
+
+TextArea.propTypes = propTypes;
+
+TextArea.defaultProps = {
+    __type: 'RESOLUT_INPUT',
+};
 
 export default TextArea;

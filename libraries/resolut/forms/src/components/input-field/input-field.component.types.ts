@@ -1,5 +1,5 @@
 import { FunctionComponent, HTMLProps } from 'react';
 
-type TextFieldComponent = FunctionComponent<{ name: string; label: string } & HTMLProps<HTMLInputElement>>;
+type InputFieldComponent = FunctionComponent<{ name: string; label: string } & HTMLProps<HTMLInputElement>>;
 
-export default TextFieldComponent;
+export default InputFieldComponent;

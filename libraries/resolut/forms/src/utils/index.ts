@@ -1,1 +1,2 @@
-export { default as findInput } from './find-input';
+export { default as getPropsByType } from './get-props-by-type';
+export { default as passPropsByType } from './pass-props-by-type';

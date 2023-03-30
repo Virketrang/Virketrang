@@ -1,8 +1,8 @@
-import { HTMLProps, ReactNode } from 'react';
+import { ForwardRefExoticComponent, HTMLProps, ReactNode, RefAttributes } from 'react';
 
-type TypographyElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+type Element = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 
-type TypographyComponent =
+type Component =
     | 'heading1'
     | 'heading2'
     | 'heading3'
@@ -14,10 +14,13 @@ type TypographyComponent =
     | 'body1'
     | 'body2';
 
-export type Props = {
-    element?: TypographyElement;
-    component?: TypographyComponent;
-    children: ReactNode;
-} & HTMLProps<HTMLHeadingElement>;
+export interface Props extends Omit<HTMLProps<HTMLHeadingElement>, 'ref'> {
+    element?: Element;
+    component?: Component;
+}
 
-export type Ref = HTMLHeadingElement | HTMLParagraphElement | HTMLSpanElement;
+export type Ref = RefAttributes<HTMLHeadingElement | HTMLParagraphElement | HTMLSpanElement>;
+
+type TypographyComponent = ForwardRefExoticComponent<Props & Ref>;
+
+export default TypographyComponent;

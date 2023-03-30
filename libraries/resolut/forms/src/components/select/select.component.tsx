@@ -1,25 +1,25 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
 import SelectComponent from './select.component.types';
-import {
-    label as labelStyles,
-    select as selectStyles,
-    formControl as formControlStyles,
-} from './select.component.module.sass';
+import styles from './select.component.module.sass';
+import propTypes from './select.component.proptypes';
 
-const Select: SelectComponent = forwardRef(({ children, name, label, className, ...props }, ref) => {
-    const { formControl, label: formLabel, select } = className || {};
-
-    return (
-        <div className={`${formControlStyles} ${formControl && formControl}`}>
-            <label htmlFor={name} className={`${labelStyles} ${formLabel && formLabel}`}>
-                {label}
-            </label>
-            <select ref={ref} {...props} name={name} className={`${selectStyles} ${select && select}`}>
+const Select: SelectComponent = memo(
+    forwardRef(({ children, multiple = false, className = '', __type = 'RESOLUT_INPUT', ...props }, ref) => {
+        return (
+            <select ref={ref} {...props} className={`${className} ${styles.select}`}>
                 {children}
             </select>
-        </div>
-    );
-});
+        );
+    })
+);
+
+Select.displayName = 'Select';
+
+Select.propTypes = propTypes;
+
+Select.defaultProps = {
+    __type: 'RESOLUT_INPUT',
+};
 
 export default Select;

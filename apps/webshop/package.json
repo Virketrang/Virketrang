@@ -11,9 +11,9 @@
     },
     "dependencies": {
         "@next/font": "^13.2.0",
-        "@virketrang/colors": "workspace:^0.0.2",
         "@virketrang/http": "workspace:0.0.0",
-        "@virketrang/resolut-next": "workspace:^0.0.0",
+        "@resolut/colors": "workspace:^0.0.2",
+        "@resolut/next": "workspace:^0.0.0",
         "@virketrang/types": "workspace:^0.0.0",
         "jss": "^10.10.0",
         "jss-preset-default": "^10.10.0",

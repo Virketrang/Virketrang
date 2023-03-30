@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
 import OptionComponent from './option.component.types';
 import propTypes from './option.component.proptypes';
@@ -12,6 +12,8 @@ const Option: OptionComponent = forwardRef(({ children, className, ...props }, r
     );
 });
 
-// Option.propTypes = propTypes;
+Option.displayName = 'Option';
 
-export default Option;
+Option.propTypes = propTypes;
+
+export default memo(Option);

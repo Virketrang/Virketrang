@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
-const propTypes = {};
+const propTypes = {
+    __type: PropTypes.string,
+};
 
 export default propTypes;

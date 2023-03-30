@@ -3,22 +3,21 @@ import { FormEvent, forwardRef, memo, useCallback } from 'react';
 import { FormProvider } from '../../providers';
 import { useFormReducer } from '../../hooks';
 
-import { Ref, Props } from './form.component.types';
+import FormComponent from './form.component.types';
 import propTypes from './form.component.proptypes';
 
-const Form = forwardRef<Ref, Props>(({ children, onSubmit, preventDefault = true, ...props }, ref) => {
+const Form: FormComponent = forwardRef(({ children, onSubmit, preventDefault = true, ...props }, ref) => {
     const [state, dispatch] = useFormReducer({});
 
     console.log('FORM', 'rerender...');
 
-    const handleSubmit = useCallback(
-        (event: FormEvent<HTMLFormElement>) => {
-            preventDefault && event.preventDefault();
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        preventDefault && event.preventDefault();
 
-            onSubmit && onSubmit(state);
-        },
-        [preventDefault, onSubmit]
-    );
+        console.log(state, 'RESOLUT_FORM_COMPONENT');
+
+        onSubmit && onSubmit(state);
+    };
 
     return (
         <FormProvider value={[state, dispatch]}>
@@ -28,6 +27,8 @@ const Form = forwardRef<Ref, Props>(({ children, onSubmit, preventDefault = true
         </FormProvider>
     );
 });
+
+Form.displayName = 'Form';
 
 Form.propTypes = propTypes;
 

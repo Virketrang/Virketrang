@@ -15,6 +15,7 @@ const Story: StoryFn<typeof Field> = ({ children, ...args }) => {
     return (
         <Default onSubmit={({ name }: any) => setValue(name.value)}>
             <Field {...args}>{children}</Field>
+            <Field {...args}>{children}</Field>
             <button type="submit">Submit</button>
             <span style={{ display: 'block' }}>{value}</span>
         </Default>

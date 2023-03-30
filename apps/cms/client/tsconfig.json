@@ -1,0 +1,38 @@
+{
+    "extends": "../../../tsconfig.base.json",
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "allowJs": false,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": false,
+        "jsx": "react-jsx",
+        "outDir": "./build/renderer",
+        "paths": {
+            "@pages/*": ["./src/renderer/pages/*"],
+            "@pages": ["./src/renderer/pages/index"],
+            "@api/*": ["./src/renderer/api/*"],
+            "@api": ["./src/renderer/api/index"],
+            "@components/*": ["./src/renderer/components/*"],
+            "@components": ["./src/renderer/components/index"],
+            "@layouts/*": ["./src/renderer/layouts/*"],
+            "@layouts": ["./src/renderer/layouts/index"],
+            "@interfaces/*": ["./src/renderer/interfaces/*"],
+            "@interfaces": ["./src/renderer/interfaces/index"],
+            "@features/*": ["./src/renderer/features/*"],
+            "@features": ["./src/renderer/features/index"],
+            "@packages/*": ["../../../../packages/*"],
+            "@packages": ["../../../../packages"]
+        }
+    },
+    "include": ["src/renderer", "src/assets"]
+}

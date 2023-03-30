@@ -1,9 +1,10 @@
 import { createElement, forwardRef } from 'react';
 
 import styles from './typography.component.module.sass';
-import { Props, Ref } from './typography.component.types';
+import propTypes from './typography.component.proptypes';
+import TypographyComponent, { Props, Ref } from './typography.component.types';
 
-const Typography = forwardRef<Ref, Props>(
+const Typography: TypographyComponent = forwardRef(
     ({ element = 'p', className = '', component = 'body1', children, ...props }, ref) => {
         return createElement(
             element,
@@ -12,5 +13,11 @@ const Typography = forwardRef<Ref, Props>(
         );
     }
 );
+
+Typography.displayName = 'Typography';
+
+Typography.defaultProps = { element: 'p', className: '', component: 'body1' };
+
+Typography.propTypes = propTypes;
 
 export default Typography;

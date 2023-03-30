@@ -10,7 +10,7 @@ export default defineConfig({
         outDir: 'dist',
         lib: {
             entry: 'index.ts',
-            name: '@virketrang/resolut',
+            name: '@resolut/forms',
             formats: ['es', 'cjs'],
             fileName: format => `resolut.${format}.js`,
         },

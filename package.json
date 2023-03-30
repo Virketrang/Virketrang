@@ -4,11 +4,12 @@
     "description": "The Virketrang monorepo",
     "license": "MIT",
     "private": true,
-    "packageManager": "pnpm@7.28.0",
+    "packageManager": "pnpm@8.1.0",
     "engines": {
-        "node": ">=14.0.0",
+        "node": ">=19.8.1",
         "yarn": "please-use-pnpm",
-        "pnpm": "*"
+        "npm": "please-use-pnpm",
+        "pnpm": ">=8.1.0"
     },
     "author": {
         "name": "Sigfred Frey Nørgaard Knudsen",
@@ -16,7 +17,7 @@
         "url": "https://www.virketrang.com/"
     },
     "keywords": [
-        "Virketrang",
+        "virketrang",
         "monorepo"
     ],
     "homepage": "https://www.virketrang.com",

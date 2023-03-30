@@ -1,16 +1,16 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import TextField from './text-field.component';
+import InputField from './input-field.component';
 
-const Component: Meta<typeof TextField> = {
-    title: 'TextField',
-    component: TextField,
+const Component: Meta<typeof InputField> = {
+    title: 'InputField',
+    component: InputField,
 };
 
-const Story: StoryFn<typeof TextField> = ({ children, ...args }) => <TextField {...args}>{children}</TextField>;
+const Story: StoryFn<typeof InputField> = ({ children, ...args }) => <InputField {...args}>{children}</InputField>;
 
-export const DefaultTextField = Story.bind({});
+export const DefaultInputField = Story.bind({});
 
-DefaultTextField.args = {};
+DefaultInputField.args = {};
 
 export default Component;

@@ -1,8 +1,13 @@
-import { HTMLProps, ReactNode } from 'react';
+import { ForwardRefExoticComponent, ReactNode, RefAttributes } from 'react';
+import { HTMLPropsWithoutRef } from '../../types';
 
-export type Props = { children: ReactNode; onSubmit?: Function; preventDefault?: boolean } & Omit<
-    HTMLProps<HTMLFormElement>,
-    'onSubmit'
->;
+export interface Props extends Omit<HTMLPropsWithoutRef<HTMLFormElement>, 'onSubmit'> {
+    onSubmit?: Function;
+    preventDefault?: boolean;
+}
 
-export type Ref = HTMLFormElement;
+export type Ref = RefAttributes<HTMLFormElement>;
+
+type FormComponent = ForwardRefExoticComponent<Props & Ref>;
+
+export default FormComponent;

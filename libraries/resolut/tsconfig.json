@@ -10,7 +10,6 @@
         "declaration": true,
         "sourceMap": true,
         "esModuleInterop": true,
-        "plugins": [{ "name": "typescript-plugin-css-modules" }],
         "preserveSymlinks": true,
         "resolveJsonModule": true,
         "allowSyntheticDefaultImports": true

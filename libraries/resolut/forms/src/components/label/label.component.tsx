@@ -1,9 +1,15 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
-import LabelComponent from './lable.component.types';
+import LabelComponent from './label.component.types';
 
-const Label: LabelComponent = forwardRef(() => {
-    return <label htmlFor=""></label>;
+const Label: LabelComponent = forwardRef(({ children, className = '', ...props }, ref) => {
+    return (
+        <label ref={ref} {...props} className={`${className}`}>
+            {children}
+        </label>
+    );
 });
 
-export default Label;
+Label.displayName = 'Label';
+
+export default memo(Label);

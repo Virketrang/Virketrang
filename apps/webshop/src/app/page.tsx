@@ -1,8 +1,9 @@
-import { Button, Table, Typography } from '@virketrang/resolut-next';
+import { Button, Typography } from '@resolut/next';
 import { __server__ } from '@constants';
 import HttpClient from '@virketrang/http';
 import styles from './page.module.sass';
 import Link from 'next/link';
+import { createRef } from 'react';
 
 HttpClient.baseURL = __server__;
 
@@ -33,9 +34,9 @@ export default function Page() {
                     grow={true}>
                     Se produkter
                 </Button>
-                <Table>
+                {/* <Table>
                     <Table.Head></Table.Head>
-                </Table>
+                </Table> */}
             </section>
         </>
     );

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { FormContext } from '../../context';
 
 import FormProviderComponent from './form.provider.types';
@@ -9,4 +11,4 @@ const FormProvider: FormProviderComponent = ({ children, value }) => {
 
 FormProvider.propTypes = propTypes;
 
-export default FormProvider;
+export default memo(FormProvider);

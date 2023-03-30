@@ -1,5 +1,5 @@
-import { FunctionComponent, ReactNode, ReactElement } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 
-type FieldComponent = FunctionComponent<{ children: ReactElement | ReactElement[] }>;
+type FieldComponent = FunctionComponent<{ children: ReactNode }>;
 
 export default FieldComponent;

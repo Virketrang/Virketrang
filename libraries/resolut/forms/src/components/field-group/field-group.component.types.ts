@@ -1,5 +1,9 @@
-import { HTMLProps, ReactNode } from 'react';
+import { ForwardRefExoticComponent, HTMLProps, RefAttributes } from 'react';
 
-export type Props = { children: ReactNode } & HTMLProps<HTMLDivElement>;
+export type Props = HTMLProps<HTMLDivElement>;
 
-export type Ref = HTMLDivElement;
+export type Ref = RefAttributes<HTMLDivElement>;
+
+type FieldGroupComponent = ForwardRefExoticComponent<Props & Ref>;
+
+export default FieldGroupComponent;
