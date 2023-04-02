@@ -17,6 +17,7 @@ pnpm-debug.log*
 yarn-debug.log*
 lerna-debug.log*
 .npmrc
+pnpm-lock.yaml
 
 # IDEs and editors
 .project
@@ -45,6 +46,14 @@ typings
 # System files
 .DS_Store
 Thumbs.db
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
 
 # Environment
 .env
@@ -61,5 +70,6 @@ container-registry.json
 github-actions.json
 .turbo
 .next
+.expo
 private
 .angular

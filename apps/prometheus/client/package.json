@@ -9,6 +9,7 @@
     "license": "MIT",
     "scripts": {
         "dev": "vite",
+        "build": "pnpm run build:renderer && pnpm run build:main",
         "build:renderer": "tsc && vite build",
         "build:main": "tsc --project tsconfig.node.json",
         "electron:dev": "concurrently \"pnpm run dev\" \"wait-on http://127.0.0.1:3000 && tsc -p tsconfig.node.json -w\" \"wait-on http://127.0.0.1:3000 && tsc -p tsconfig.node.json && electron .\"",

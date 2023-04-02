@@ -1,5 +1,5 @@
 {
-    "name": "@virketrang/cms-server",
+    "name": "@virketrang/prometheus-server",
     "version": "0.0.0-alpha",
     "description": "The Virketrang cms server",
     "main": "build/main.js",
