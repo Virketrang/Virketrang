@@ -30,7 +30,8 @@
         }
     },
     "scripts": {
-        "start": "sb dev --port 8000",
+        "dev": "sb dev --port 8000",
+        "start": "pnpm run dev",
         "build:storybook": "sb build",
         "build": "rm -rf /dist && vite build"
     },

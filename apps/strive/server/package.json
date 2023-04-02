@@ -1,5 +1,5 @@
 {
-    "name": "@strive/server",
+    "name": "@virketrang/strive-server",
     "version": "0.0.0-alpha",
     "description": "Track your progress - Achieve your goals",
     "private": true,
@@ -24,6 +24,7 @@
     },
     "scripts": {
         "prebuild": "rimraf dist",
+        "nx-build": "nx run strive-server:build",
         "build": "nest build",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
         "start": "nest start",
@@ -38,17 +39,20 @@
         "test:e2e": "jest --config ./test/jest-e2e.json"
     },
     "dependencies": {
-        "@nestjs/common": "^9.0.0",
-        "@nestjs/core": "^9.0.0",
-        "@nestjs/platform-express": "^9.0.0",
+        "@nestjs/common": "^9.3.12",
+        "@nestjs/config": "^2.3.1",
+        "@nestjs/core": "^9.3.12",
+        "@nestjs/microservices": "^9.3.12",
+        "@nestjs/platform-express": "^9.3.12",
         "reflect-metadata": "^0.1.13",
         "rimraf": "^3.0.2",
         "rxjs": "^7.2.0"
     },
     "devDependencies": {
-        "@nestjs/cli": "^9.0.0",
-        "@nestjs/schematics": "^9.0.0",
-        "@nestjs/testing": "^9.0.0",
+        "@nestjs/cli": "^9.3.0",
+        "@nestjs/schematics": "^9.1.0",
+        "@nestjs/testing": "^9.3.12",
+        "@nrwl/node": "^15.9.2",
         "@types/express": "^4.17.13",
         "@types/jest": "28.1.8",
         "@types/node": "^16.0.0",

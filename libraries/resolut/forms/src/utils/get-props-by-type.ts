@@ -3,7 +3,10 @@ import { Children, isValidElement, ReactNode } from 'react';
 import isString from './is-string';
 
 const getPropsByType = (children: ReactNode, props: string[], type: string[], customType?: string) => {
-    const getProps = (child: ReactElement) => child.props.filter((prop: any) => props.includes(prop));
+    const getProps = (child: ReactElement) =>
+        Object.keys(child.props)
+            .filter(key => props.includes(key))
+            .reduce((object: object, key: string) => ({ ...object, [key]: child.props[key] }), {});
 
     const propsArray = Children.map(children, child => {
         if (!isValidElement(child)) return null;

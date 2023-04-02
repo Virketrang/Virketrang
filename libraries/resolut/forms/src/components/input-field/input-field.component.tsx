@@ -8,15 +8,14 @@ import Input from '../input/input.component';
 import Field from '../field/field.component';
 import FormControl from '../form-control/form-control.component';
 
-const InputField: InputFieldComponent = ({ name, label, ref, ...props }) => {
-    console.log('INPUT FIELD RENDERING... ', name);
+const InputField: InputFieldComponent = ({ name, label, ref, className = '', ...props }) => {
     return (
-        <FormControl className={styles.field}>
+        <FormControl className={styles.formControl}>
             <Field>
                 <Label className={styles.label} htmlFor={name}>
                     {label}
                 </Label>
-                <Input className={styles.input} name={name} {...props} />
+                <Input className={`${styles.input} ${className}`} name={name} {...props} />
             </Field>
         </FormControl>
     );

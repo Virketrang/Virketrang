@@ -1,0 +1,22 @@
+{
+    "name": "@virketrang/strive",
+    "description": "Track your progress - Achieve your goals",
+    "version": "0.0.0",
+    "license": "MIT",
+    "private": true,
+    "keywords": [],
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "homepage": "https://www.virketrang.com",
+    "bugs": {
+        "url": "https://github.com/virketrang/virketrang/issues",
+        "email": "sigfred@virketrang.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/virketrang/virketrang"
+    }
+}

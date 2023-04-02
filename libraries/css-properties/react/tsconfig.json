@@ -1,0 +1,19 @@
+{
+    "extends": "../../../tsconfig.base.json",
+    "compilerOptions": {
+        "lib": ["es5", "es2015", "es2016", "dom", "esnext"],
+        "types": ["node"],
+        "outDir": "dist/esm",
+        "typeRoots": ["src"],
+        "module": "es2015",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "declaration": true,
+        "sourceMap": true,
+        "target": "es6",
+        "baseUrl": ".",
+        "rootDir": "."
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts"],
+    "exclude": ["node_modules"]
+}

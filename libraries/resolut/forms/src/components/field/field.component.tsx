@@ -42,8 +42,6 @@ const Field: FieldComponent = ({ children }) => {
         'RESOLUT_INPUT'
     );
 
-    console.log(name, 'rerender...');
-
     return elements as any;
 };
 
