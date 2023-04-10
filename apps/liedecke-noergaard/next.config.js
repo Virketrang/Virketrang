@@ -9,7 +9,7 @@ const nextConfig = {
         ],
         formats: ['image/avif', 'image/webp'],
     },
-    distDir: './build',
+    distDir: './dist',
     reactStrictMode: false,
 };
 

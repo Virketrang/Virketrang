@@ -1,8 +1,23 @@
 {
     "name": "@virketrang/liedecke-noergaard",
     "version": "0.0.0",
-    "private": true,
+    "description": "",
     "license": "MIT",
+    "keywords": [],
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "homepage": "https://www.virketrang.com",
+    "bugs": {
+        "url": "https://github.com/virketrang/virketrang/issues",
+        "email": "sigfred@virketrang.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/virketrang/virketrang"
+    },
     "scripts": {
         "dev": "next dev",
         "build": "next build",
@@ -10,19 +25,15 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@next/font": "^13.2.0",
-        "@virketrang/http": "workspace:0.0.0",
         "@resolut/colors": "workspace:^0.0.2",
         "@resolut/next": "workspace:^0.0.0",
+        "@virketrang/http": "workspace:0.0.0",
         "@virketrang/types": "workspace:^0.0.0",
-        "jss": "^10.10.0",
-        "jss-preset-default": "^10.10.0",
         "next": "^13.2.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-jss": "^10.10.0",
-        "sass": "^1.58.3",
-        "styled-jss": "^2.2.3"
+        "sass": "^1.58.3"
     },
     "devDependencies": {
         "@types/node": "^18.14.0",
@@ -30,6 +41,6 @@
         "@types/react-dom": "^18.0.11",
         "eslint": "^8.33.0",
         "eslint-config-next": "^13.2.1",
-        "typescript": "^4.9.5"
+        "typescript": "^5.0.4"
     }
 }

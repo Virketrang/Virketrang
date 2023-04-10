@@ -1,0 +1,37 @@
+{
+    "name": "@resolut/colors",
+    "version": "0.0.2",
+    "license": "MIT",
+    "description": "A large collection of colors",
+    "homepage": "https://www.virketrang.com",
+    "bugs": {
+        "url": "https://github.com/virketrang/virketrang/issues",
+        "email": "sigfred@virketrang.com"
+    },
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "main": "dist/cjs/src/index.js",
+    "module": "dist/esm/src/index.js",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/virketrang/virketrang"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "scripts": {
+        "build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs",
+        "build:esm": "tsc",
+        "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+    },
+    "devDependencies": {
+        "@types/node": "^18.14.0",
+        "typescript": "^5.0.4"
+    }
+}

@@ -1,7 +1,9 @@
 {
     "name": "@virketrang/types",
     "version": "0.0.0",
-    "description": "",
+    "description": "Typescript utility types",
+    "main": "index.ts",
+    "module": "index.ts",
     "scripts": {},
     "keywords": [],
     "author": "Sigfred Frey Nørgaard Knudsen",

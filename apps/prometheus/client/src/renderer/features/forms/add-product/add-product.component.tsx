@@ -1,6 +1,5 @@
-import { MouseEvent, Suspense, useCallback, useState } from 'react';
+import { MouseEvent, Suspense, useState } from 'react';
 
-import HttpClient from '@virketrang/http';
 import { Form } from '@resolut/forms';
 import { Conditional } from '@resolut/core';
 
@@ -29,15 +28,15 @@ const handleSubmit = (formData: any) => {
 };
 
 const AddProduct: AddProductComponent = () => {
-    const [screen, setScreen] = useState<number>(1);
+    const [screen, setScreen] = useState<number>(2);
 
     const styles = useAddProductStyles();
 
     const forward = (event: MouseEvent<HTMLButtonElement>) => {
-        // screen < 3 && setScreen(currentValue => currentValue + 1);
+        screen < 3 && setScreen(currentValue => currentValue + 1);
     };
     const backward = (event: MouseEvent<HTMLButtonElement>) => {
-        // screen > 1 && setScreen(currentValue => currentValue - 1);
+        screen > 1 && setScreen(currentValue => currentValue - 1);
     };
 
     return (

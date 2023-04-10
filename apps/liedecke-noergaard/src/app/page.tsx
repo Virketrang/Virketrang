@@ -3,7 +3,6 @@ import { __server__ } from '@constants';
 import HttpClient from '@virketrang/http';
 import styles from './page.module.sass';
 import Link from 'next/link';
-import { createRef } from 'react';
 
 HttpClient.baseURL = __server__;
 
@@ -27,16 +26,14 @@ export default function Page() {
                 <Button
                     shape="round"
                     link={Link}
+                    size="large"
+                    external={false}
                     className={styles.button}
                     href="/products"
                     color="#ffffff"
-                    backgroundColor="#601030"
-                    grow={true}>
+                    backgroundColor="#601030">
                     Se produkter
                 </Button>
-                {/* <Table>
-                    <Table.Head></Table.Head>
-                </Table> */}
             </section>
         </>
     );

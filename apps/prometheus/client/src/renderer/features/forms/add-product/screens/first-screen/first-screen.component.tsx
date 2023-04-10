@@ -5,12 +5,12 @@ import FirstScreenComponent from './first-screen.component.types';
 const FirstScreen: FirstScreenComponent = () => {
     return (
         <>
-            <FieldGroup>
+            <FieldGroup gap="1rem">
                 <InputField name="name" label="Navn" />
                 <InputField name="stock" label="Lagerbeholdning" />
             </FieldGroup>
             <TextAreaField name="description" label="Beskrivelse" cols={30} rows={10} />
-            <FieldGroup>
+            <FieldGroup gap="1rem">
                 <InputField name="retailPrice" label="Salgspris" />
                 <InputField name="costPrice" label="Kostpris" />
             </FieldGroup>

@@ -1,14 +1,13 @@
 import { Outlet } from 'react-router-dom';
-import useAuthenticationStyles from './authentication.component.styles';
+
+import styles from './authentication.component.module.sass';
 import AuthenticationComponent from './authentication.component.types';
 
 const Authentication: AuthenticationComponent = () => {
-    const styles = useAuthenticationStyles();
-
     return (
-        <div className={styles.authentication}>
+        <main className={styles.authentication}>
             <Outlet />
-        </div>
+        </main>
     );
 };
 

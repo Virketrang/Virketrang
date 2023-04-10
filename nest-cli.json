@@ -1,21 +1,24 @@
 {
     "$schema": "https://json.schemastore.org/nest-cli",
     "collection": "@nestjs/schematics",
-    "sourceRoot": "projects/webshop/server/src",
     "monorepo": true,
-    "root": "projects/webshop/server",
-    "compilerOptions": {
-        "webpack": false,
-        "tsConfigPath": "projects/webshop/server/tsconfig.json"
-    },
     "projects": {
-        "project": {
+        "prometheus": {
             "type": "application",
-            "root": "projects/webshop/server",
+            "root": "apps/prometheus/server",
             "entryFile": "server/src/main",
-            "sourceRoot": "projects/webshop/server/src",
+            "sourceRoot": "apps/prometheus/server/src",
             "compilerOptions": {
-                "tsConfigPath": "projects/webshop/server/tsconfig.json"
+                "tsConfigPath": "apps/prometheus/server/tsconfig.json"
+            }
+        },
+        "strive": {
+            "type": "application",
+            "root": "apps/strive/server",
+            "entryFile": "server/src/main",
+            "sourceRoot": "apps/strive/server/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/strive/server/tsconfig.json"
             }
         }
     }

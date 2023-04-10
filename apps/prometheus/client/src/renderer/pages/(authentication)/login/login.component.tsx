@@ -1,36 +1,22 @@
-import useLoginStyles from './login.component.styles';
-import { Button, Typography } from '@resolut/react';
-import { Field, Form } from '@resolut/forms';
+import { Form, Input, Typography } from 'resolut';
+import { FieldGroup } from '@resolut/forms';
+
+import styles from './login.component.module.sass';
 
 const Login = () => {
-    const styles = useLoginStyles();
-
-    function handleSubmit(form: any) {
-        console.log(form);
-    }
-
     return (
-        <>
-            <Button to="/webshop/products" shape="round" grow={false}>
-                Login
-            </Button>
-            <Typography component="heading1" element="h1">
-                Tryk for at logge ind
+        <Form className={styles.loginForm}>
+            <Typography component="heading4" align="center" style={{ marginBottom: '0.25em' }}>
+                Velkommen tilbage
             </Typography>
-            <Form onSubmit={handleSubmit}>
-                <Field>
-                    <label htmlFor="name"></label>
-                    <input type="text" name="name" />
-                </Field>
-                <div>
-                    <Field>
-                        <label htmlFor="password"></label>
-                        <input type="text" name="password" />
-                    </Field>
-                </div>
-                <button type="submit">Submit</button>
-            </Form>
-        </>
+            <Typography component="subtitle2" align="center">
+                Indtast venligst nedenstående oplysninger
+            </Typography>
+            <FieldGroup gap="1rem" direction="horizontal">
+                <Input name="email" shape="rounded" />
+                <Input name="password" shape="rounded" />
+            </FieldGroup>
+        </Form>
     );
 };
 

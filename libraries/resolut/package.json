@@ -32,8 +32,15 @@
     "scripts": {
         "dev": "sb dev --port 8000 --watch",
         "start": "pnpm run dev",
+        "build:next": "nx build @resolut/next",
+        "build:react": "nx build @resolut/react",
+        "build:shared": "nx build @resolut/shared",
+        "build:colors": "nx build @resolut/colors",
+        "build:core": "nx build @resolut/core",
+        "build:forms": "nx build @resolut/forms",
+        "build:prepare": "pnpm run build:shared && pnpm run build:colors && pnpm run build:core && pnpm run build:forms && pnpm run build:react",
         "build:storybook": "sb build",
-        "build": "rm -rf /dist && vite build"
+        "build": "rm -rf /dist && pnpm run build:prepare && vite build"
     },
     "keywords": [
         "NextJS",
@@ -68,7 +75,7 @@
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.8.1",
         "sass": "^1.58.3",
-        "typescript": "^5.0.2",
+        "typescript": "^5.0.4",
         "typescript-plugin-css-modules": "^5.0.0",
         "vite": "^4.1.0",
         "webpack": "^5.76.3"

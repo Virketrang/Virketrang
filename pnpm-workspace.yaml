@@ -1,9 +1,7 @@
 packages:
     - "apps/**"
     - "apps/**/server"
+    - "apps/**/client"
     - "apps/**/client/**"
-    - "apps/**/client/**/frontend"
-    - "apps/**/client/**/backend"
     - "libraries/**"
-    - "libraries/resolut/**"
-    - "libraries/css-properties/**"
+    - "libraries/**/packages/**"
