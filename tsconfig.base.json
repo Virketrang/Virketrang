@@ -1,16 +1,23 @@
 {
+    "$schema": "./schemas/typescript.json",
     "compilerOptions": {
+        "strict": true,
         "forceConsistentCasingInFileNames": true,
         "noImplicitOverride": true,
-        "strict": true,
+        "noImplicitAny": true,
         "noPropertyAccessFromIndexSignature": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "experimentalDecorators": true,
-        "removeComments": true,
         "emitDecoratorMetadata": true,
+        "removeComments": true,
         "strictNullChecks": true,
-        "noImplicitAny": true,
-        "useDefineForClassFields": true
+        "useDefineForClassFields": true,
+        "noImplicitThis": true,
+        "diagnostics": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "strictPropertyInitialization": true,
+        "extendedDiagnostics": true
     }
 }

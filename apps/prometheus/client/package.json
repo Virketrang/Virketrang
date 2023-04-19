@@ -30,9 +30,9 @@
     },
     "dependencies": {
         "@css-properties/react": "workspace:^0.0.0",
-        "@resolut/colors": "workspace:^0.0.2",
+        "@resolut/colors": "workspace:^1.0.0",
         "@resolut/core": "workspace:^0.0.0",
-        "@resolut/forms": "workspace:^0.0.0",
+        "@resolut/forms": "workspace:^",
         "@resolut/react": "workspace:^0.0.0",
         "@virketrang/http": "workspace:^0.0.0",
         "electron-reloader": "^1.2.3",

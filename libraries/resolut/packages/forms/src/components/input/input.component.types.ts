@@ -1,13 +1,13 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
-import { HTMLPropsWithoutRefAndChildren, Size } from '@/types';
+import { HTMLPropsWithoutRefAndChildren, Size } from '../../../../../types';
 
-type InputProps = {
+export interface InputProps extends Omit<HTMLPropsWithoutRefAndChildren<HTMLInputElement>, 'size'> {
     size?: Size;
     shape?: 'square' | 'rounded';
-} & HTMLPropsWithoutRefAndChildren<HTMLInputElement>;
+}
 
-type InputRef = RefAttributes<HTMLInputElement>;
+export type InputRef = RefAttributes<HTMLInputElement>;
 
 type InputComponent = ForwardRefExoticComponent<InputProps & InputRef>;
 

@@ -1,5 +1,5 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
-import { HTMLPropsWithoutRef } from '@/types';
+import { HTMLPropsWithoutRef } from '../../../../../types';
 
 export interface Props extends Omit<HTMLPropsWithoutRef<HTMLFormElement>, 'onSubmit'> {
     onSubmit?: Function;

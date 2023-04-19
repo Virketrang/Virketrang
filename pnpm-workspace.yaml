@@ -5,3 +5,4 @@ packages:
     - "apps/**/client/**"
     - "libraries/**"
     - "libraries/**/packages/**"
+    - "templates/**"

@@ -1,37 +1,55 @@
 {
     "name": "@resolut/colors",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "license": "MIT",
+    "private": false,
     "description": "A large collection of colors",
+    "keywords": [
+        "colors"
+    ],
     "homepage": "https://www.virketrang.com",
     "bugs": {
         "url": "https://github.com/virketrang/virketrang/issues",
-        "email": "sigfred@virketrang.com"
+        "email": "bugs@virketrang.com"
     },
     "author": {
         "name": "Sigfred Frey Nørgaard Knudsen",
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com/"
     },
-    "main": "dist/cjs/src/index.js",
-    "module": "dist/esm/src/index.js",
+    "type": "module",
+    "main": "./dist/resolut-colors.cjs",
+    "exports": {
+        "types": "./dist/resolut-colors.d.ts",
+        "import": "./dist/resolut-colors.mjs",
+        "require": "./dist/resolut-colors.cjs"
+    },
+    "types": "./dist/resolut-colors.d.ts",
     "files": [
         "dist"
     ],
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/",
+        "access": "public"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/virketrang/virketrang"
     },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
-    },
     "scripts": {
-        "build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs",
-        "build:esm": "tsc",
-        "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+        "prepublishOnly": "pnpm run build",
+        "build": "tsc && rollup -c .build/rollup.config.js"
     },
     "devDependencies": {
+        "rollup": "^3.20.2",
+        "rollup-plugin-copy": "^3.4.0",
+        "rollup-plugin-delete": "^2.0.0",
+        "rollup-plugin-dts": "^5.3.0",
+        "rollup-plugin-generate-package-json": "^3.2.0",
+        "rollup-plugin-typescript2": "^0.34.1",
+        "@rollup/plugin-terser": "^0.4.1",
+        "typescript": "^5.0.4",
         "@types/node": "^18.14.0",
-        "typescript": "^5.0.4"
+        "@types/rollup-plugin-generate-package-json": "^3.2.0"
     }
 }

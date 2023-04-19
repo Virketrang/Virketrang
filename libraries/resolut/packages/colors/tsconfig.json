@@ -1,18 +1,26 @@
 {
-    "extends": "../../../../tsconfig.base.json",
     "compilerOptions": {
-        "lib": ["es5", "es2015", "es2016", "dom", "esnext"],
-        "types": ["node"],
-        "outDir": "dist/esm",
-        "module": "es2015",
-        "moduleResolution": "node",
+        "lib": ["esnext"],
+        "outDir": ".build",
+        "diagnostics": true,
+        "target": "ES2020",
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "strict": true,
         "esModuleInterop": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noImplicitOverride": true,
+        "noUncheckedIndexedAccess": true,
+        "incremental": true,
+        "module": "ESNext",
+        "moduleResolution": "node",
         "declaration": true,
         "sourceMap": true,
-        "target": "es6",
-        "baseUrl": ".",
-        "rootDir": "."
+        "tsBuildInfoFile": ".build/tsconfig.build.tsbuildinfo"
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src", "rollup.config.ts"],
     "exclude": ["node_modules"]
 }

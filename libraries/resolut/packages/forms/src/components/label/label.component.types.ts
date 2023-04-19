@@ -1,6 +1,6 @@
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
-import { FontWeight, HTMLPropsWithoutRefAndChildren } from '@/types';
+import { FontWeight, HTMLPropsWithoutRefAndChildren } from '../../../../../types';
 
 type Props = { children: string | number; fontWeight?: FontWeight } & HTMLPropsWithoutRefAndChildren<HTMLLabelElement>;
 

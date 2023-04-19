@@ -1,13 +1,13 @@
 import { createElement, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 
-import '@styles/base.sass';
-import '@styles/button.sass';
-import '@styles/shape.sass';
-import '@styles/size.sass';
-import '@styles/stretch.sass';
+import '../../../../../styles/base.sass';
+import '../../../../../styles/button.sass';
+import '../../../../../styles/shape.sass';
+import '../../../../../styles/size.sass';
+import '../../../../../styles/stretch.sass';
 
-import styles from './button.component.module.sass';
+import * as styles from './button.component.module.sass';
 import ButtonComponent from './button.component.types';
 
 const Button: ButtonComponent = forwardRef(

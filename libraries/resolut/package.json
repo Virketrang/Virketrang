@@ -16,6 +16,7 @@
     },
     "main": "dist/resolut.cjs.js",
     "module": "dist/resolut.es.js",
+    "types": "dist/resolut.d.ts",
     "files": [
         "dist"
     ],
@@ -40,7 +41,9 @@
         "build:forms": "nx build @resolut/forms",
         "build:prepare": "pnpm run build:shared && pnpm run build:colors && pnpm run build:core && pnpm run build:forms && pnpm run build:react",
         "build:storybook": "sb build",
-        "build": "rm -rf /dist && pnpm run build:prepare && vite build"
+        "build:vite": "rm -rf /dist && pnpm run build:prepare && vite build",
+        "watch": "parcel watch",
+        "build": "parcel build"
     },
     "keywords": [
         "NextJS",

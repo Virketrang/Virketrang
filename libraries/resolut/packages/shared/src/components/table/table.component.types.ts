@@ -1,5 +1,4 @@
 import { HTMLProps, ReactNode } from 'react';
-import { FunctionComponent } from 'react';
 
 type Props = { children: ReactNode } & HTMLProps<HTMLTableElement>;
 

@@ -10,20 +10,17 @@ import styles from './modal.component.module.sass';
 
 const Modal: ModalComponent = memo(
     forwardRef(
-        (
-            {
-                draggable = false,
-                className = '',
-                title,
-                footer,
-                open,
-                shape = 'rounded',
-                backdrop = 'rgba(0, 0, 0, 0.1)',
-                style,
-                ...props
-            },
-            ref
-        ) => {
+        ({
+            draggable = false,
+            className = '',
+            title,
+            footer,
+            open,
+            shape = 'rounded',
+            backdrop = 'rgba(0, 0, 0, 0.1)',
+            style,
+            ...props
+        }) => {
             const modal = createRef<HTMLDialogElement>()!;
 
             const classNames = `${className} ${styles.modal} ${shape}`;

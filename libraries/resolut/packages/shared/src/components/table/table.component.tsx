@@ -1,5 +1,3 @@
-import React from 'react';
-
 import TableComponent from './table.component.types';
 import styles from './table.component.module.sass';
 
@@ -16,7 +14,7 @@ Table.Head = () => {
 };
 
 Table.Body = () => {
-    return <tbody></tbody>
-}
+    return <tbody></tbody>;
+};
 
 export default Table;

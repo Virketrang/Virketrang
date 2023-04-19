@@ -1,5 +1,5 @@
 {
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.exclude": {

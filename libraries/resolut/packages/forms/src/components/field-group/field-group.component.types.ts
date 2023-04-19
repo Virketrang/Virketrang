@@ -1,6 +1,6 @@
 import { ForwardRefExoticComponent, HTMLProps, RefAttributes } from 'react';
 
-import { HTMLPropsWithoutRef } from '@/types';
+import { HTMLPropsWithoutRef } from '../../../../../types';
 
 export type Props = { gap?: string; direction?: 'horizontal' | 'vertical' } & HTMLPropsWithoutRef<HTMLDivElement>;
 

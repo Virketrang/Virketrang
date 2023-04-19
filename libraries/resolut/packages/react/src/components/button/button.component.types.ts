@@ -1,7 +1,7 @@
 import { LinkProps } from 'react-router-dom';
 import { ForwardRefExoticComponent, HTMLProps, ReactNode, RefAttributes } from 'react';
 
-import { Size, ButtonShape, FontWeight } from '@/types';
+import { Size, ButtonShape, FontWeight } from '../../../../../types';
 
 type CustomProps = {
     children: ReactNode;

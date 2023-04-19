@@ -1,7 +1,7 @@
 import { forwardRef, memo } from 'react';
 
-import '@styles/base.sass';
-import '@styles/size.sass';
+import '@/styles/base.sass';
+import '@/styles/size.sass';
 
 import InputComponent from './input.component.types';
 import styles from './input.component.module.sass';

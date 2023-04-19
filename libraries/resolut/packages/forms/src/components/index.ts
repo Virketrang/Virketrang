@@ -11,7 +11,3 @@ export { default as Option } from './option/option.component';
 export { default as Input } from './input/input.component';
 export { default as ImageInput } from './image-input/image-input.component';
 export { default as ImagePreview } from './image-preview/image-preview.component';
-
-export { default as InputField } from './input-field/input-field.component';
-export { default as SelectField } from './select-field/select-field.component';
-export { default as TextAreaField } from './text-area-field/text-area-field.component';

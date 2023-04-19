@@ -1,5 +1,5 @@
-import { Form, Input, Typography } from 'resolut';
-import { FieldGroup } from '@resolut/forms';
+import { Typography, Input } from 'resolut';
+import { Form, FieldGroup, FormControl, Label } from '@resolut/forms';
 
 import styles from './login.component.module.sass';
 
@@ -14,6 +14,9 @@ const Login = () => {
             </Typography>
             <FieldGroup gap="1rem" direction="horizontal">
                 <Input name="email" shape="rounded" />
+                <FormControl>
+                    <Label>Test</Label>
+                </FormControl>
                 <Input name="password" shape="rounded" />
             </FieldGroup>
         </Form>

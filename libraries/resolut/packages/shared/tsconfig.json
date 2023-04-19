@@ -1,14 +1,4 @@
 {
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {
-        "outDir": "./dist/esm",
-        "baseUrl": ".",
-        "plugins": [{ "name": "typescript-plugin-css-modules", "options": { "classnameTransform": "camelCase" } }],
-        "paths": {
-            "@/*": ["../../*"],
-            "@styles/*": ["../../styles/*"]
-        }
-    },
-    "include": ["src/**/*.ts", "src/**/*.tsx"],
-    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+    "$schema": "../../../../schemas/typescript.json",
+    "extends": "../react/tsconfig.json"
 }

@@ -1,7 +1,7 @@
-import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import Typography from './typography.component';
+import { AnnotatedStoryFn } from '@storybook/types';
 
 const Story: Meta<typeof Typography> = {
     title: 'Typography',

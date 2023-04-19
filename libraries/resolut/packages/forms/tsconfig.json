@@ -1,15 +1,23 @@
 {
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "./dist/esm",
+        "outDir": "dist",
+        "rootDir": "../../../../",
         "baseUrl": ".",
         "plugins": [{ "name": "typescript-plugin-css-modules", "options": { "classnameTransform": "camelCase" } }],
-        "types": [],
+        "declaration": true,
+        "declarationMap": true,
+        "target": "ES2015",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "types": ["react"],
+        "emitDeclarationOnly": true,
         "paths": {
             "@/*": ["../../*"],
             "@styles/*": ["../../styles/*"]
-        }
+        },
+        "lib": ["esnext", "dom", "dom.iterable"]
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx", "../../types/*.ts", "../../styles/*.sass"],
-    "exclude": ["node_modules", "../../node_modules", "**/*.test.ts", "**/*.test.tsx"]
+    "include": ["./src/**/*.ts", "./src/**/*.tsx", "../../types/*.ts", "../../styles/**/*.sass", "**/*.d.ts"],
+    "exclude": ["node_modules", "**/node_modules", "**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "dist"]
 }
