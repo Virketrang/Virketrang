@@ -1,10 +1,10 @@
 import { forwardRef, memo } from 'react';
 
-import '@/styles/base.sass';
-import '@/styles/alert.sass';
-import '@/styles/stretch.sass';
-import '@/styles/size.sass';
-import '@/styles/shape.sass';
+import '../../../../../styles/base.sass';
+import '../../../../../styles/alert.sass';
+import '../../../../../styles/stretch.sass';
+import '../../../../../styles/size.sass';
+import '../../../../../styles/shape.sass';
 
 import NativeSelectComponent from './native-select.component.types';
 import styles from './native-select.component.module.sass';

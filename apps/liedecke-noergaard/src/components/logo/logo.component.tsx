@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import LogoComponent from './logo.component.types';
 import styles from './logo.component.module.sass';
 
@@ -10,4 +12,4 @@ const Logo: LogoComponent = ({ children }) => {
     );
 };
 
-export default Logo;
+export default memo(Logo);

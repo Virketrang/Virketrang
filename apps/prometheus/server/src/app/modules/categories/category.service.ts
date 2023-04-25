@@ -1,7 +1,7 @@
 import { EntityRepository } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Category } from 'src/app/entities';
+import { Category } from '../../entities/index';
 
 @Injectable()
 export default class CategoryService {

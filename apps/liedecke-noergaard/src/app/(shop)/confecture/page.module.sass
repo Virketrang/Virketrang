@@ -1,0 +1,22 @@
+@use '../../../styles/_variables'
+
+$product_width: 240px
+    
+.banner
+    background: url("../../../../public/assets/banners/confecture.jpeg")
+    height: 32rem
+    display: flex
+    justify-content: center
+    align-items: center
+    color: #fff
+
+    @media (max-width: variables.$breakpoint)
+        display: none
+
+.products
+    padding: 5em 10vw
+    width: 100%
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax($product_width, 1fr))
+    gap: 2em
+    

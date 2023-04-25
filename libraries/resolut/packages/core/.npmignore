@@ -1,8 +1,0 @@
-.build
-node_modules
-src
-LICENSE
-package.json
-README.md
-rollup.config.ts
-tsconfig.json

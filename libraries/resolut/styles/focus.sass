@@ -1,0 +1,12 @@
+@media (prefers-reduced-motion: no-preference)
+    .focus
+        &:focus-visible
+            transition: outline-offset 75ms ease-out
+
+        &:not(:active):focus-visible
+            transition-duration: 25ms
+
+    
+.focus
+    &:not(:active):focus-visible
+        outline-offset: 0.5rem

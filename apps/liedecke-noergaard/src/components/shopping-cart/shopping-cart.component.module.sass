@@ -1,0 +1,48 @@
+$cart_width: 480px
+    
+.backdrop
+    background: rgba(0, 0, 0, 0.3)
+    position: fixed
+    inset: 0
+    z-index: 1000
+    display: flex
+    justify-content: flex-end
+    overflow: hidden
+    transition: opacity 300ms ease 50ms
+
+    opacity: 0
+    pointer-events: none
+
+    &[data-state-open="true"]
+        opacity: 1
+        pointer-events: all
+
+.cart
+    width: $cart_width
+    padding: 2em
+    position: fixed
+    background: #ffffff
+    right: -480px
+    top: 0
+    bottom: 0
+    transition: right 300ms ease 50ms
+    z-index: 2000
+    right: -480px
+
+    &[data-state-open="true"]
+        right: 0
+
+.header
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 6em
+
+    &::after
+        position: absolute
+        bottom: 0
+        content: ''
+        width: 100%
+        height: 1px
+        background: #c1c1c1

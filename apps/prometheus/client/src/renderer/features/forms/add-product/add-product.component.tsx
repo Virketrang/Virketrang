@@ -1,7 +1,7 @@
 import { MouseEvent, Suspense, useState } from 'react';
 
 import { Form } from '@resolut/forms';
-import { Conditional } from '@resolut/core';
+import { Conditional } from '@resolut/server';
 
 import useAddProductStyles from './add-product.component.styles';
 import AddProductComponent from './add-product.component.types';

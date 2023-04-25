@@ -1,8 +1,10 @@
 import { FunctionComponent } from 'react';
-import { Product } from '@packages/interfaces';
 
 type ProductComponent = FunctionComponent<{
-    product: Product;
+    id: number;
+    images: { cover: { close: { url: string; alt: string }; distant: { url: string; alt: string } } };
+    price: number;
+    name: string;
 }>;
 
 export default ProductComponent;

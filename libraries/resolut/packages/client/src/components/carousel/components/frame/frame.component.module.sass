@@ -1,0 +1,15 @@
+.frame
+    display: grid
+    grid-template-columns: repeat(var(--slides), 400px)
+
+    width: 400px
+    height: 400px
+    overflow-x: scroll
+
+    scroll-snap-type: x mandatory
+
+    -ms-overflow-style: none
+    scrollbar-width: none
+
+    &::-webkit-scrollbar
+        display: none

@@ -25,11 +25,13 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@resolut/client": "workspace:^",
         "@resolut/colors": "workspace:^1.0.0",
-        "@resolut/next": "workspace:^0.0.0",
+        "@resolut/server": "workspace:^",
+        "@vanilla-extract/css": "^1.11.0",
         "@virketrang/http": "workspace:0.0.0",
         "@virketrang/types": "workspace:^0.0.0",
-        "next": "^13.2.1",
+        "next": "^13.3.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-jss": "^10.10.0",
@@ -37,10 +39,12 @@
     },
     "devDependencies": {
         "@types/node": "^18.14.0",
-        "@types/react": "^18.0.28",
+        "@types/react": "^18.0.37",
         "@types/react-dom": "^18.0.11",
+        "@vanilla-extract/next-plugin": "^2.1.2",
         "eslint": "^8.33.0",
         "eslint-config-next": "^13.2.1",
-        "typescript": "^5.0.4"
+        "typescript": "^5.0.4",
+        "typescript-plugin-css-modules": "^5.0.0"
     }
 }

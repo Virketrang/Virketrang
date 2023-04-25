@@ -8,7 +8,8 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        "**/.parcel-cache": true
         // "projects/**/node_modules": true,
         // "packages/**/node_modules": true,
         // "libraries/**/node_modules": true

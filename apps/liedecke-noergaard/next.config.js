@@ -2,6 +2,7 @@
 const nextConfig = {
     experimental: {
         appDir: true,
+        typedRoutes: true,
     },
     images: {
         remotePatterns: [
@@ -10,7 +11,7 @@ const nextConfig = {
         formats: ['image/avif', 'image/webp'],
     },
     distDir: './dist',
-    reactStrictMode: false,
+    reactStrictMode: true,
 };
 
 module.exports = nextConfig;

@@ -1,0 +1,6 @@
+.storybook
+dist
+node_modules
+src
+.sassrc
+tsconfig.json

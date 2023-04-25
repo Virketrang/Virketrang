@@ -1,4 +1,5 @@
 {
+    "$schema": "../../../../schemas/typescript.json",
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
@@ -19,5 +20,5 @@
         "lib": ["esnext", "dom", "dom.iterable"]
     },
     "include": ["./src/**/*.ts", "./src/**/*.tsx", "../../types/*.ts", "../../styles/**/*.sass", "**/*.d.ts"],
-    "exclude": ["node_modules", "**/node_modules", "**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "dist"]
+    "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "dist"]
 }

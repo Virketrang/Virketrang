@@ -1,4 +1,0 @@
-{
-    "$schema": "../../../../schemas/typescript.json",
-    "extends": "../react/tsconfig.json"
-}

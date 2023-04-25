@@ -2,7 +2,6 @@ import { Children, forwardRef, isValidElement, memo, ReactNode, useState } from 
 
 import SelectComponent from './select.component.types';
 import styles from './select.component.module.sass';
-import propTypes from './select.component.proptypes';
 
 const extractOptions = (children: ReactNode) =>
     Children.map(children, child => {
@@ -70,8 +69,6 @@ const Select: SelectComponent = memo(
 );
 
 Select.displayName = 'Select';
-
-Select.propTypes = propTypes;
 
 Select.defaultProps = {
     __type: 'RESOLUT_INPUT',

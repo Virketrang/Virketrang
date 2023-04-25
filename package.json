@@ -1,6 +1,6 @@
 {
     "name": "@virketrang/virketrang",
-    "version": "0.0.0-alpha.0",
+    "version": "0.0.0-alpha",
     "description": "The Virketrang monorepo",
     "license": "MIT",
     "private": true,
@@ -14,11 +14,30 @@
     "author": {
         "name": "Sigfred Frey Nørgaard Knudsen",
         "email": "sigfred@virketrang.com",
-        "url": "https://www.virketrang.com/"
+        "url": "https://www.virketrang.com/staff/sigfred"
     },
+    "contributors": [
+        {
+            "name": "Isabella Liedecke Mørck",
+            "email": "isabella@virketrang.com",
+            "url": "https://www.virketrang.com/staff/isabella"
+        }
+    ],
     "keywords": [
         "virketrang",
-        "monorepo"
+        "monorepo",
+        "react",
+        "typescript",
+        "nextjs",
+        "nestjs",
+        "postgresql",
+        "typeorm",
+        "sass",
+        "nx",
+        "docker",
+        "storybook",
+        "pnpm",
+        "workspace"
     ],
     "homepage": "https://www.virketrang.com",
     "bugs": {
@@ -31,8 +50,8 @@
     },
     "scripts": {
         "preinstall": "npx only-allow pnpm",
-        "reinstall": "",
-        "nx": "nx",
+        "reinstall": "npkill",
+        "pnx": "nx",
         "APPS": "-------------- APPS --------------",
         "strive": "",
         "strive:client": "nx dev @virketrang/strive-client",
@@ -49,7 +68,9 @@
         "liedecke-noergaard:client": "nx dev @virketrang/liedecke-noergaard",
         "PACKAGES": "---------- PACKAGES ----------",
         "resolut-forms": "nx dev @resolut/forms",
-        "resolut-forms:start": "nx start @resolut/forms"
+        "resolut-forms:start": "nx start @resolut/forms",
+        "UPDATE": "---------- UPDATE ----------",
+        "update storybook": "npx storybook@latest upgrade"
     },
     "devDependencies": {
         "@nrwl/cli": "^15.9.2",
@@ -59,7 +80,9 @@
         "@parcel/transformer-sass": "^2.8.3",
         "@parcel/transformer-typescript-types": "^2.8.3",
         "concurrently": "^7.6.0",
+        "npkill": "^0.11.2",
         "nx": "15.9.2",
+        "parcel": "^2.8.3",
         "prettier": "^2.8.4",
         "syncpack": "^9.8.4",
         "typescript": "^5.0.4",

@@ -1,8 +1,8 @@
-import { Button, Typography } from '@resolut/next';
 import { __server__ } from '@constants';
 import HttpClient from '@virketrang/http';
 import styles from './page.module.sass';
-import Link from 'next/link';
+
+import { Typography, Button } from '@resolut/server';
 
 HttpClient.baseURL = __server__;
 
@@ -23,15 +23,7 @@ export default function Page() {
                 <Typography component="body1" element="p">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </Typography>
-                <Button
-                    shape="round"
-                    link={Link}
-                    size="large"
-                    external={false}
-                    className={styles.button}
-                    href="/products"
-                    color="#ffffff"
-                    backgroundColor="#601030">
+                <Button shape="round" className={styles.button} color="#ffffff" backgroundColor="#601030">
                     Se produkter
                 </Button>
             </section>
