@@ -8,6 +8,7 @@ const config = defineConfig({
         alias: {
             styles: path.resolve(__dirname, '../../styles'),
             types: path.resolve(__dirname, '../../types'),
+            logic: path.resolve(__dirname, '../../logic'),
         },
     },
     plugins: [react()],

@@ -3,7 +3,6 @@ import { MouseEvent, memo, useRef, createRef, forwardRef, useCallback, Children,
 
 import CarouselFrameComponent from './frame.component.types';
 import styles from './frame.component.module.sass';
-import { CarouselArrows, CarouselControls } from './components';
 
 import { NotARefObjectError, NoElementReferencedError } from '../../../../errors';
 
@@ -15,7 +14,7 @@ const CarouselFrame: CarouselFrameComponent = memo(
         ) => {
             if (typeof forwardedRef === 'function') throw new NotARefObjectError();
 
-            const carousel = forwardedRef || createRef<HTMLDivElement>();
+            const carousel = createRef<HTMLDivElement>();
             const dragging = useRef(false);
             const startX = useRef<number>();
             const scrollLeft = useRef<number>();
@@ -29,7 +28,7 @@ const CarouselFrame: CarouselFrameComponent = memo(
             const mouseDown = useCallback(
                 (event: MouseEvent<HTMLDivElement>) => {
                     onMouseDown && onMouseDown(event);
-                    if (!carousel.current) throw new NoElementReferencedError();
+                    if (!carousel.current) return;
 
                     carousel.current.style.scrollSnapType = 'none';
                     dragging.current = true;
@@ -37,14 +36,14 @@ const CarouselFrame: CarouselFrameComponent = memo(
                     startX.current = event.pageX - carousel.current.offsetLeft;
                     scrollLeft.current = carousel.current.scrollLeft || 0;
                 },
-                [onMouseDown]
+                [onMouseDown, carousel]
             );
 
             const mouseMove = useCallback(
                 (event: MouseEvent<HTMLDivElement>) => {
                     onMouseMove && onMouseMove(event);
                     if (!dragging.current) return;
-                    if (!carousel.current) throw new NoElementReferencedError();
+                    if (!carousel.current) return;
                     if (!startX.current) throw Error('No starting x-value exists');
                     if (!scrollLeft.current && scrollLeft.current !== 0) throw Error('No scrollLeft value exists');
 
@@ -54,16 +53,19 @@ const CarouselFrame: CarouselFrameComponent = memo(
                     const distancedDragged = xPositionWithinCarousel - startX.current;
                     carousel.current.scrollTo({ left: scrollLeft.current - distancedDragged });
                 },
-                [onMouseMove]
+                [onMouseMove, carousel]
             );
 
-            const mouseUpOrLeave = useCallback((event: MouseEvent<HTMLDivElement>) => {
-                if (!carousel.current) throw new NoElementReferencedError();
+            const mouseUpOrLeave = useCallback(
+                (event: MouseEvent<HTMLDivElement>) => {
+                    if (!carousel.current) return;
 
-                carousel.current.style.scrollSnapType = 'x mandatory';
+                    carousel.current.style.scrollSnapType = 'x mandatory';
 
-                dragging.current = false;
-            }, []);
+                    dragging.current = false;
+                },
+                [carousel]
+            );
 
             return (
                 <div

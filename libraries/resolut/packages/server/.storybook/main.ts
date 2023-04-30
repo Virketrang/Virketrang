@@ -1,12 +1,8 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+
 const config: StorybookConfig = {
-    stories: [
-        '../src/**/*.stories.mdx',
-        '../src/**/*.stories.@(js|jsx|ts|tsx)',
-        '../../shared/src/**/*.stories.mdx',
-        '../../shared/src/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
-    addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-mdx-gfm'],
+    stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+    addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
     core: {},
     framework: {
         name: '@storybook/react-vite',
@@ -15,6 +11,7 @@ const config: StorybookConfig = {
     features: {
         storyStoreV7: true,
     },
+
     async viteFinal(config, options) {
         return config;
     },

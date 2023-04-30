@@ -1,37 +1,112 @@
 .typography
-    letter-spacing: 1px
     text-align: var(--typography-align, inherit)
+    text-transform: var(--typography-transform, none)
+    font-family: var(--typography-font, inherit)
+    letter-spacing: var(--typography-letter-spacing, initial)
+    line-height: var(--typography-line-height, initial)
+    padding: var(--typography-padding, 0)
+    margin: var(--typography-margin, 0)
+    color: var(--typography-color, inherit)
 
 .heading1
     font-size: 6rem
 
-.heading2
-    font-size: 3.75rem
+    &.fluid
+        font-size: clamp(20rem, 40vw, 30rem) 
+        font-size: clamp(20rem, 40dvw, 30rem)
 
-.heading3
+        &.container
+            font-size: clamp(20rem, 40cqi, 30rem)
+
+.heading2
     font-size: 3rem
 
-.heading4
-    font-size: 2.125rem
-    font-weight: 500
+    &.fluid
+        font-size: clamp(15rem, 30vw, 20rem) 
+        font-size: clamp(15rem, 30dvw, 20rem)
 
-.heading5
+        &.container
+            font-size: clamp(15rem, 30cqi, 20rem)
+
+.heading3
+    font-size: 2.125rem
+
+    &.fluid
+        font-size: clamp(10rem, 20vw, 15rem) 
+        font-size: clamp(10rem, 20dvw, 15rem)
+
+        &.container
+            font-size: clamp(10rem, 20cqi, 15rem)
+
+.heading4
     font-size: 1.5rem
 
+    &.fluid
+        font-size: clamp(7.5rem, 10vw, 10rem) 
+        font-size: clamp(7.5rem, 10dvw, 10rem)
+
+        &.container
+            font-size: clamp(7.5rem, 10cqi, 10rem)
+
+.heading5
+    font-size: 3.75rem
+
+    &.fluid
+        font-size: clamp(5rem, 7vw, 7.5rem) 
+        font-size: clamp(5rem, 7dvw, 7.5rem)
+
+        &.container
+            font-size: clamp(5rem, 7cqi, 7.5rem)
+
 .heading6
-    font-size: 1.25rem
+    font-size: 1.25rem 
+
+    &.fluid
+        font-size: clamp(4rem, 5vw, 5rem)
+        font-size: clamp(4rem, 5dvw, 5rem)
+
+        &.container
+            font-size: clamp(4rem, 5cqi, 5rem)
 
 .subtitle1
     font-size: 1rem
 
+    &.fluid
+        font-size: clamp(2rem, 4vw, 3rem) 
+        font-size: clamp(2rem, 4dvw, 3rem)
+
+        &.container
+            font-size: clamp(2rem, 4cqi, 3rem)
+
 .subtitle2
     font-size: 0.875rem
+
+    &.fluid
+        font-size: clamp(1.5rem, 3vw, 2rem) 
+        font-size: clamp(1.5rem, 3dvw, 2rem)
+
+        &.container
+            font-size: clamp(1.5rem, 3cqi, 2rem)
 
 .body1
     font-size: 1rem
 
+    &.fluid
+        font-size: clamp(1rem, 2vw, 1.5rem)
+        font-size: clamp(1rem, 2dvw, 1.5rem)
+
+        &.container
+            font-size: clamp(1rem, 2cqi, 1.5rem)
+
 .body2
     font-size: 0.875rem
+
+    &.fluid
+        font-size: clamp(0.5rem, 1vw, 1rem)
+        font-size: clamp(0.5rem, 1dvw, 1rem)
+
+        &.container
+            font-size: clamp(0.5rem, 1cqi, 1rem)
 
 .caption
     font-size: 0.75rem

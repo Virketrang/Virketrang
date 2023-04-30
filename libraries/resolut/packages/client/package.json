@@ -36,7 +36,9 @@
         "build": "parcel build"
     },
     "alias": {
-        "styles": "../../styles"
+        "styles": "../../styles",
+        "types": "../../types",
+        "logic": "../../logic"
     },
     "keywords": [
         "React",

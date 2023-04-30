@@ -1,9 +1,9 @@
-import { ComponentPropsWithoutRef, ForwardRefExoticComponent, RefAttributes } from 'react';
+import { ComponentPropsWithoutRef, ForwardRefExoticComponent, MemoExoticComponent, RefAttributes } from 'react';
 
 export interface CarouselProps extends ComponentPropsWithoutRef<'div'> {}
 
 export type CarouselRef = RefAttributes<HTMLDivElement>;
 
-type CarouselComponent = ForwardRefExoticComponent<CarouselProps & CarouselRef>;
+type CarouselComponent = MemoExoticComponent<ForwardRefExoticComponent<CarouselProps & CarouselRef>>;
 
 export default CarouselComponent;

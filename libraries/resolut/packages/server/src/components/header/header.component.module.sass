@@ -1,8 +1,19 @@
 .header
     display: flex
-
-    height: var(--header-height, 4rem)
-    background-color: var(--header-background-color, #ffffff)
-    padding: 0 var(--header-inset, 4rem)
     align-items: var(--header-vertical-alignment, center)
+    gap: var(--header-gap, 0)
     justify-content: var(--header-horizontal-alignment, space-between)
+
+    // & > *:not(:last-child):not(:first-child), & > *:only-child, & > *:first-child:last-child
+    //     margin-inline: auto
+
+    // & > *:first-child:nth-last-child(2)
+    //     margin-right: auto
+
+    // & > *:first-child:nth-last-child(2) ~ *
+    //     margin-left: auto
+        
+    height: var(--header-height, 4rem)
+    width: 100%
+    background-color: var(--header-background-color, #ffffff)
+    padding: 0 var(--header-inset, clamp(1.5rem, 3vw, 2rem))

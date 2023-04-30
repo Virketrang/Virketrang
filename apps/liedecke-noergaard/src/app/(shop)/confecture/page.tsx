@@ -1,6 +1,7 @@
 import { Product } from '@components';
+import Confecture from '../../../../public/assets/banners/confecture.jpeg';
 
-import { Typography } from '@resolut/server';
+import { Flex, Typography } from '@resolut/server';
 import styles from './page.module.sass';
 
 const data = [
@@ -53,11 +54,11 @@ const data = [
 export default async function Page() {
     return (
         <>
-            <div className={styles.banner}>
-                <Typography component="heading1" element="h1">
+            <Flex height="32rem" fallback="#3d3e41" background={`url(${Confecture.src})`} container>
+                <Typography color="#ffffff" variant="subtitle1" element="h1" fluid container>
                     Konfekture
                 </Typography>
-            </div>
+            </Flex>
             <div className={styles.products}>
                 {data.map((product, index) => (
                     <Product key={index} {...product} />

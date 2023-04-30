@@ -1,10 +1,10 @@
-import { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLProps, ReactNode, RefAttributes } from 'react';
+import { ComponentPropsWithoutRef, ForwardRefExoticComponent, ReactElement, ReactNode, RefAttributes } from 'react';
 
-import { Size, ButtonShape, FontWeight } from 'types/index';
+import { Size, Shape, FontWeight, Margin } from 'types/index';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode;
-    shape?: ButtonShape;
+export interface ButtonProps extends ComponentPropsWithoutRef<'button'>, Margin {
+    children?: string;
+    shape?: Shape;
     color?: string;
     backgroundColor?: string;
     grow?: boolean;
@@ -12,6 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     fontSize?: string;
     fontWeight?: FontWeight;
     size?: Size;
+    icon?: ReactElement;
 }
 
 export type ButtonRef = RefAttributes<HTMLButtonElement>;

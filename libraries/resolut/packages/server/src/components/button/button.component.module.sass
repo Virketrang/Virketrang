@@ -1,7 +1,17 @@
 .button
+    display: inline-block
+    cursor: pointer
+    border: inherit
+    font: inherit
+
     background: var(--button-background-color, #601030)
     color: var(--button-color, #ffffff)
+    font-size: var(--button-font-size, 500)
     font-weight: var(--button-font-weight, bold)
+    margin: var(--button-margin, 0)
+
+    &.disabled
+        cursor: not-allowed
 
 .grow
     transition: transform 200ms ease-in-out

@@ -1,5 +1,3 @@
-import { Product as ProductCompoent } from '@components';
-import { Product } from '@packages/interfaces';
 import styles from './page.module.sass';
 
 export const metadata = {
@@ -7,27 +5,23 @@ export const metadata = {
     description: 'Alles vores produkter',
 };
 
-async function getData() {
-    const res = await fetch('http://localhost:8080/products');
+// async function getData() {
+//     const res = await fetch('http://localhost:8080/products');
 
-    if (!res.ok) throw new Error('Failed to fetch data');
+//     if (!res.ok) throw new Error('Failed to fetch data');
 
-    const json = await res.json();
+//     const json = await res.json();
 
-    return json.body;
-}
+//     return json.body;
+// }
 
 const Products = async () => {
-    const products: Product[] = await getData();
+    // const products: Product[] = await getData();
 
     return (
-        <section className={styles.section}>
+        <section className="">
             <h2 className={styles.title}>Udvalgte Produkter</h2>
-            <div className={styles.products}>
-                {products.map(product => (
-                    <ProductCompoent key={product.id} product={product} />
-                ))}
-            </div>
+            <div className={styles.products}>TODO: Fix manglende render</div>
         </section>
     );
 };

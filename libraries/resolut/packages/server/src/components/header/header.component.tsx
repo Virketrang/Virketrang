@@ -1,7 +1,13 @@
 import { forwardRef, memo } from 'react';
 
+import 'styles/base.sass';
+
+import { ClassAttribute, CSSVariables, numberToPixels, convertFluidSizeToCSSValue } from 'utils/index';
+
 import HeaderComponent from './header.component.types';
 import styles from './header.component.module.sass';
+
+const NAME = 'header';
 
 const Header: HeaderComponent = memo(
     forwardRef(
@@ -10,7 +16,8 @@ const Header: HeaderComponent = memo(
                 children,
                 height = '4rem',
                 backgroundColor = '#ffffff',
-                inset = '4rem',
+                inset = 'size-fluid-2',
+                gap = '0',
                 verticalAlignment = 'center',
                 horizontalAlignment = 'space-between',
                 style,
@@ -19,23 +26,29 @@ const Header: HeaderComponent = memo(
             },
             ref
         ) => {
-            const dynamic = {
-                '--header-height': typeof height === 'number' ? `${height}px` : height,
-                '--header-background-color': backgroundColor,
-                '--header-inset': typeof inset === 'number' ? `${inset}px` : inset,
-                '--header-vertical-alignment': verticalAlignment,
-                '--header-horizontal-alignment': horizontalAlignment,
-            };
+            const CSSVariablesStyles = CSSVariables(
+                {
+                    gap,
+                    height: numberToPixels(height),
+                    inset: convertFluidSizeToCSSValue(inset),
+                    backgroundColor,
+                    verticalAlignment,
+                    horizontalAlignment,
+                },
+                NAME
+            );
 
-            const classNames = `${className} ${styles.header}`;
+            const classNames = ClassAttribute(styles.header, className);
 
             return (
-                <header className={classNames} ref={ref} style={{ ...dynamic, ...style }} {...props}>
+                <header className={classNames} ref={ref} style={{ ...CSSVariablesStyles, ...style }} {...props}>
                     {children}
                 </header>
             );
         }
     )
 );
+
+Header.displayName = NAME;
 
 export default Header;

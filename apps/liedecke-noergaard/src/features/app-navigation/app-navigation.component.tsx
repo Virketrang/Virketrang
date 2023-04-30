@@ -1,20 +1,21 @@
 import Link from 'next/link';
-
-import { Navigation } from '@components';
-
-import AppNavigationComponent from './app-navigation.component.types';
 import { memo } from 'react';
 
-const AppNavigation: AppNavigationComponent = () => {
+import AppNavigationComponent from './app-navigation.component.types';
+import styles from './app-navigation.component.module.sass';
+
+import { Header } from '@resolut/server';
+
+const AppNavigation: AppNavigationComponent = memo(() => {
     return (
-        <Navigation>
+        <Header gap="2.5rem" horizontalAlignment="center" className={styles.navigation}>
             <Link href="/offers">Tilbud</Link>
             <Link href="/confecture">Konfekture</Link>
             <Link href="/utensils">Husgeråd</Link>
             <Link href="/cider">Cider</Link>
             <Link href="/recipes">Opskrifter</Link>
-        </Navigation>
+        </Header>
     );
-};
+});
 
-export default memo(AppNavigation);
+export default AppNavigation;

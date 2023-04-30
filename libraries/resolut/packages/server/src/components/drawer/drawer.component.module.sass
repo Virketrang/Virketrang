@@ -1,0 +1,55 @@
+.drawer
+    background: var(--drawer-background-color, white)
+    position: fixed
+    z-index: 2000
+    padding: var(--drawer-padding, 0)
+
+    transition: right var(--drawer-duration, 300ms) var(--drawer-timing-function, ease) var(--drawer-delay, 50ms), left var(--drawer-duration, 300ms) var(--drawer-timing-function, ease) var(--drawer-delay, 50ms), top var(--drawer-duration, 300ms) var(--drawer-timing-function, ease) var(--drawer-delay, 50ms), bottom var(--drawer-duration, 300ms) var(--drawer-timing-function, ease) var(--drawer-delay, 50ms)
+
+    &.left, &.right
+        top: 0
+        bottom: 0
+        width: var(--drawer-width, 480px)
+
+    &.top, &.bottom
+        left: 0
+        right: 0
+        height: var(--drawer-width, 480px)
+
+    &.top
+        top: calc(-1 * var(--drawer-width, 480px))
+
+        &[data-state-open="true"]
+            top: 0
+
+    &.bottom
+        bottom: calc(-1 * var(--drawer-width, 480px))
+
+        &[data-state-open="true"]
+            bottom: 0
+
+    &.left
+        left: calc(-1 * var(--drawer-width, 480px))
+        
+        &[data-state-open="true"]
+            left: 0
+
+    &.right
+        right: calc(-1 * var(--drawer-width, 480px))
+
+        &[data-state-open="true"]
+            right: 0
+
+.backdrop
+    background: var(--drawer-backdrop-color, rgba(0, 0, 0, 0.3))
+    position: fixed
+    inset: 0
+    z-index: 1000
+    transition: opacity 300ms ease 50ms
+
+    opacity: 0
+    pointer-events: none
+
+    &[data-state-open="true"]
+        opacity: 1
+        pointer-events: all

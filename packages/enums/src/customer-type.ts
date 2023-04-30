@@ -1,6 +1,6 @@
 enum CustomerType {
-    'PRIVATE' = 'private',
-    'business' = 'business',
+    PRIVATE = 'private',
+    BUSINESS = 'business',
 }
 
 export default CustomerType;

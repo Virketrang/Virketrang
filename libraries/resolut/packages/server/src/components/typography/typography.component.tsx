@@ -1,22 +1,80 @@
-import { createElement, forwardRef } from 'react';
+import { createElement, forwardRef, memo } from 'react';
 
 import styles from './typography.component.module.sass';
 import TypographyComponent from './typography.component.types';
 
-const Typography: TypographyComponent = forwardRef(
-    ({ element = 'p', className = '', component = 'body1', children, align = 'inherit', style, ...props }, ref) => {
-        const classNames = `${className} ${styles.typography} ${styles[component]}`;
+const NAME = 'typography';
 
-        const dynamic = { '--typography-align': align };
+import {
+    convertFontLetterSpacingToCSSValue,
+    convertFontLineHeightToCSSValue,
+    CSSVariables,
+    ClassAttribute,
+} from 'utils/index';
+import { convertMarginToCSSValue, convertPaddingToCSSValue } from 'utils/index';
 
-        return createElement(
-            element,
-            { ref, className: classNames, style: { ...dynamic, ...style }, ...props },
-            children
-        );
-    }
+const Typography: TypographyComponent = memo(
+    forwardRef(
+        (
+            {
+                element = 'p',
+                className = '',
+                variant = 'body1',
+                children,
+                align = 'inherit',
+                margin,
+                marginTop,
+                marginRight,
+                marginBottom,
+                marginLeft,
+                color = 'inherit',
+                fluid = true,
+                container = false,
+                padding,
+                paddingTop,
+                paddingRight,
+                paddingBottom,
+                paddingLeft,
+                style,
+                transform = 'none',
+                font = 'inherit',
+                lineHeight = 'font-lineheight-4',
+                letterSpacing = 'font-letterspacing-3',
+                ...props
+            },
+            ref
+        ) => {
+            const classNames = ClassAttribute(
+                className,
+                styles.typography,
+                styles[variant],
+                fluid ? styles.fluid : '',
+                container ? styles.container : ''
+            );
+
+            const CSSVariablesStyles = CSSVariables(
+                {
+                    align,
+                    transform,
+                    font,
+                    color,
+                    letterSpacing: convertFontLetterSpacingToCSSValue(letterSpacing),
+                    lineHeight: convertFontLineHeightToCSSValue(lineHeight),
+                    margin: convertMarginToCSSValue(margin, marginTop, marginRight, marginBottom, marginLeft),
+                    padding: convertPaddingToCSSValue(padding, paddingTop, paddingRight, paddingBottom, paddingLeft),
+                },
+                NAME
+            );
+
+            return createElement(
+                element,
+                { ref, className: classNames, style: { ...CSSVariablesStyles, ...style }, ...props },
+                children
+            );
+        }
+    )
 );
 
-Typography.displayName = 'Typography';
+Typography.displayName = NAME;
 
 export default Typography;

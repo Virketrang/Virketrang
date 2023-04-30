@@ -1,5 +1,5 @@
-import { Dispatch, FunctionComponent, SetStateAction } from 'react';
+import { FunctionComponent } from 'react';
 
-type AppHeaderComponent = FunctionComponent<{ setOpen: Dispatch<SetStateAction<boolean>> }>;
+type AppHeaderComponent = FunctionComponent<{}>;
 
 export default AppHeaderComponent;

@@ -1,17 +1,18 @@
-import { HTMLPropsWithoutRef } from 'types/index';
-import { ForwardRefExoticComponent, ReactNode, RefAttributes } from 'react';
+import { ComponentPropsWithoutRef, ReactNode, RefAttributes } from 'react';
 
-export interface HeaderProps extends HTMLPropsWithoutRef<HTMLHeadingElement> {
-    height?: number | string;
+import { HorizontalAlignment, ResolutComponent, VerticalAlignment, WithAutoComplete, SizeFluid } from 'types/index';
+export interface HeaderProps extends ComponentPropsWithoutRef<'header'> {
+    height?: string | number;
     backgroundColor?: string;
-    verticalAlignment?: string;
-    horizontalAlignment?: string;
-    inset?: string | number;
+    verticalAlignment?: VerticalAlignment;
+    horizontalAlignment?: HorizontalAlignment;
+    inset?: WithAutoComplete<SizeFluid>;
     children: ReactNode;
+    gap?: string | number;
 }
 
 export type HeaderRef = RefAttributes<HTMLHeadingElement>;
 
-type HeaderComponent = ForwardRefExoticComponent<HeaderProps & HeaderRef>;
+type HeaderComponent = ResolutComponent<HeaderProps & HeaderRef>;
 
 export default HeaderComponent;

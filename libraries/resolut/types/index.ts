@@ -1,9 +1,4 @@
-export type { default as Size } from './size';
-export type { default as ButtonShape } from './button-shape';
-export type { default as FontWeight } from './font-weight';
-export type { default as GlobalValues } from './global-values';
-export type { default as Status } from './status';
-export type { default as HTMLPropsWithoutChildren } from './html-props-without-children';
-export type { default as HTMLPropsWithoutRef } from './html-props-without-ref';
-export type { default as HTMLPropsWithoutRefAndChildren } from './html-props-without-ref-and-children';
-export type { default as TimingFunction } from './timing-function';
+export * from './properties';
+export * from './fields';
+export * from './units';
+export * from './other';
