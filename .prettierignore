@@ -1,6 +1,25 @@
+# OUTPUT DIRECTORIES
 dist
-build
+.build
+
+# DEPENDENCIES
 node_modules
+
+# BUNDLER
+.parcel-cache/
+
+# CSS PREPROCESSOR
+.sass-cache/
+
+# FRAMEWORKS
+.next
+.expo
+
+# PACKAGE MANAGER
+pnpm-lock.yaml
+
+# LOGS
+*.log
+
+# OTHER
 coverage
-.idea
-.angular

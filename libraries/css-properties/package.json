@@ -1,6 +1,15 @@
 {
-    "name": "@virketrang/css-properties",
-    "description": "CSS properties for CSS in JS libraries",
+    "name": "@css-properties/react",
     "version": "0.0.0",
-    "license": "MIT"
+    "license": "MIT",
+    "description": "A large collection of CSS properties for React",
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/virketrang/virketrang"
+    }
 }

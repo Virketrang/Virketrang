@@ -1,6 +1,5 @@
 {
     "extends": "../../tsconfig.json",
-    "$schema": "../../../../schemas/typescript.json",
     "compilerOptions": {
         "plugins": [{ "name": "typescript-plugin-css-modules", "options": { "classnameTransform": "camelCase" } }],
         "paths": {

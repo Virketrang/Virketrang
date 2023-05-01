@@ -1,77 +1,41 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# CSS PREPROCESSOR
+.sass-cache/
 
-# Compiled output
-dist
-build
-tmp
-out-tsc
-bazel-out
-.build
-legacy
+# FINDER
+.DS_Store
 
-# Node
-node_modules
-npm-debug.log*
-yarn-error.log*
-logs
-*.log
-pnpm-debug.log*
-yarn-debug.log*
-lerna-debug.log*
+# MODULE BUNDLER
+.parcel-cache
+
+# PRIVATE
+private
+
+# FRAMEWORKS
+.next
+.expo
+
+# PACKAGE MANAGER
 .npmrc
 pnpm-lock.yaml
+pnpm-debug.log*
 
-# IDEs and editors
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-.idea
+# DEPENDENCIES
+node_modules
 
-# Miscellaneous
-.angular/cache
-.sass-cache/
-connect.lock
-coverage
-libpeerconnection.log
-testem.log
-typings
-
-# System files
-.DS_Store
-Thumbs.db
-npm-debug.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
-
-# Environment
+# ENVIRONMENT VARIABLES
 .env
 .env.development
 .env.production
 .env.locals
 
-# Tests
-/.nyc_output
+# OUTPUT DIRECTORIES
+dist
+.build
 
-# Other
-storage.json
-container-registry.json
-github-actions.json
-.turbo
-.next
-.expo
-private
-.angular
+# OTHER
+tmp
+out-tsc
+logs
+*.log
+.project
+coverage

@@ -1,0 +1,23 @@
+# STORYBOOK
+.storybook
+
+# DEPENDENCIES
+node_modules
+
+# SASS
+.sassrc
+
+# TYPESCRIPT
+tsconfig.json
+
+# TEST
+vitest.config.ts
+
+# NPM
+.npmignore
+
+# SOURCE
+utils
+types
+styles
+packages

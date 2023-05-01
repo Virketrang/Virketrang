@@ -1,25 +1,10 @@
 {
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "lib": ["esnext"],
-        "outDir": ".build",
-        "diagnostics": true,
-        "target": "ES2020",
-        "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true,
-        "skipLibCheck": true,
-        "strict": true,
-        "esModuleInterop": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noImplicitReturns": true,
-        "noImplicitOverride": true,
-        "noUncheckedIndexedAccess": true,
-        "incremental": true,
-        "module": "ESNext",
-        "moduleResolution": "node",
-        "declaration": true,
-        "sourceMap": true
+        "lib": ["ESNext"],
+        "outDir": "dist",
+        "target": "ESNext"
     },
-    "include": ["src", "rollup.config.ts"],
+    "include": ["src"],
     "exclude": ["node_modules"]
 }

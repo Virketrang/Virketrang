@@ -10,9 +10,7 @@
         "declaration": true,
         "sourceMap": true,
         "skipLibCheck": true,
-        "esModuleInterop": true,
         "preserveSymlinks": true,
-        "resolveJsonModule": true,
-        "allowSyntheticDefaultImports": true
+        "resolveJsonModule": true
     }
 }

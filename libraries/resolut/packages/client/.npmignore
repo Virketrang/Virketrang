@@ -1,6 +1,21 @@
+# STORYBOOK
 .storybook
-dist
+
+# DEPENDENCIES
 node_modules
-src
+
+# SASS
 .sassrc
+
+# TYPESCRIPT
 tsconfig.json
+
+# BUNDLER
+vite.config.ts
+vitest.config.ts
+
+# NPM
+.npmignore
+
+# SOURCE
+src

@@ -25,7 +25,8 @@
         "url": "https://github.com/virketrang/virketrang"
     },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
+        "registry": "https://npm.pkg.github.com",
+        "access": "public"
     },
     "scripts": {
         "prepublishOnly": "pnpm run build",

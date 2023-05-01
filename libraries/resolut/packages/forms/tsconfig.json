@@ -1,5 +1,4 @@
 {
-    "$schema": "../../../../schemas/typescript.json",
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",

@@ -1,7 +1,7 @@
 {
     "editor.fontSize": 16,
     "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",
-    // "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -10,23 +10,18 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/.parcel-cache": true
-        // "projects/**/node_modules": true,
-        // "packages/**/node_modules": true,
-        // "libraries/**/node_modules": true
     },
     "eslint.workingDirectories": [
-        "projects/**/server",
-        "projects/**/client/**",
-        "projects/**/client/**/frontend",
-        "projects/**/client/**/backend",
-        "packages/**",
-        "packages/angular/**",
-        "packages/react/**"
+        "website",
+        "server",
+        "dashboard",
+        "apps/**",
+        "apps/**/server",
+        "apps/**/client",
+        "apps/**/client/**",
+        "libraries/**",
+        "libraries/**/packages/**"
     ],
-    "editor.tokenColorCustomizations": {
-        // "comments": "",
-        "textMateRules": []
-    },
     "search.exclude": {
         ".git": true,
         ".eslintcache": true,

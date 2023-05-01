@@ -1,8 +1,21 @@
-.build
+# STORYBOOK
+.storybook
+
+# DEPENDENCIES
 node_modules
-src
-LICENSE
-package.json
-README.md
-rollup.config.ts
+
+# SASS
+.sassrc
+
+# TYPESCRIPT
 tsconfig.json
+
+# BUNDLER
+vite.config.ts
+vitest.config.ts
+
+# NPM
+.npmignore
+
+# SOURCE
+src

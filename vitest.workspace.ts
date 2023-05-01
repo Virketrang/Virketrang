@@ -10,7 +10,6 @@ const config = defineWorkspace([
     'apps/**/client/**',
     'libraries/**',
     'libraries/**/packages/**',
-    'templates/**',
 ]);
 
 export default config;

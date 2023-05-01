@@ -40,8 +40,6 @@
     "scripts": {
         "prepublishOnly": "pnpm run build",
         "publish": "npm publish",
-        "start": "storybook dev --port 8000",
-        "build:storybook": "storybook build",
         "watch": "parcel watch",
         "build": "parcel build"
     },
