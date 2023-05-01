@@ -16,4 +16,6 @@ const AppHeader: AppHeaderComponent = memo(({}) => {
     );
 });
 
+AppHeader.displayName = 'AppHeader';
+
 export default memo(AppHeader);

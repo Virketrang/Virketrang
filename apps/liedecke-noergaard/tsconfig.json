@@ -40,7 +40,9 @@
             "@context/*": ["./src/context/*"],
             "@context": ["./src/context"],
             "@features/*": ["./src/features/*"],
-            "@features": ["./src/features"]
+            "@features": ["./src/features"],
+            "@i18n/*": ["./i18n/*"],
+            "@i18n": ["./i18n"]
         }
     },
     "include": [

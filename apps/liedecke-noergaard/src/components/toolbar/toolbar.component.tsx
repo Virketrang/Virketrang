@@ -1,9 +1,12 @@
-import ToolbarComponent from './toolbar.component.types';
-import styles from './toolbar.component.module.sass';
 import { memo } from 'react';
 
-const Toolbar: ToolbarComponent = ({ children }) => {
-    return <div className={styles.toolbar}>{children}</div>;
-};
+import ToolbarComponent from './toolbar.component.types';
+import styles from './toolbar.component.module.sass';
 
-export default memo(Toolbar);
+const Toolbar: ToolbarComponent = memo(({ children }) => {
+    return <div className={styles.toolbar}>{children}</div>;
+});
+
+Toolbar.displayName = 'Toolbar';
+
+export default Toolbar;

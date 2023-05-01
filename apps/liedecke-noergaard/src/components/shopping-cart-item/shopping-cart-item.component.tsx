@@ -1,9 +1,12 @@
-import ShoppingCartItemComponent from './shopping-cart-item.component.types';
-import styles from './shopping-cart-item.component.module.sass';
 import { memo } from 'react';
 
-const ShoppingCartItem: ShoppingCartItemComponent = () => {
-    return <li className={styles.base}></li>;
-};
+import ShoppingCartItemComponent from './shopping-cart-item.component.types';
+import styles from './shopping-cart-item.component.module.sass';
 
-export default memo(ShoppingCartItem);
+const ShoppingCartItem: ShoppingCartItemComponent = memo(() => {
+    return <li className={styles.base}></li>;
+});
+
+ShoppingCartItem.displayName = 'ShoppingCartItem';
+
+export default ShoppingCartItem;

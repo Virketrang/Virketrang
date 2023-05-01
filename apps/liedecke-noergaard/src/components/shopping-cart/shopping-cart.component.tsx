@@ -7,7 +7,7 @@ import { Close } from '@icons';
 import ShoppingCartComponent from './shopping-cart.component.types';
 import styles from './shopping-cart.component.module.sass';
 
-const ShoppingCart: ShoppingCartComponent = ({ open, setOpen }) => {
+const ShoppingCart: ShoppingCartComponent = memo(({ open, setOpen }) => {
     return (
         <>
             <Drawer open={open}>
@@ -21,6 +21,8 @@ const ShoppingCart: ShoppingCartComponent = ({ open, setOpen }) => {
             </Drawer>
         </>
     );
-};
+});
 
-export default memo(ShoppingCart);
+ShoppingCart.displayName = 'ShoppingCart';
+
+export default ShoppingCart;

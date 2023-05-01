@@ -67,4 +67,6 @@ const Button: ButtonComponent = memo(
     )
 );
 
+Button.displayName = 'Button';
+
 export default Button;

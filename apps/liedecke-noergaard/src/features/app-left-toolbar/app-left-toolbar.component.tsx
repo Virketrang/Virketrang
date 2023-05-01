@@ -15,4 +15,6 @@ const AppLeftToolbar: AppLeftToolbarComponent = memo(() => {
     );
 });
 
+AppLeftToolbar.displayName = 'AppLeftToolbar';
+
 export default AppLeftToolbar;

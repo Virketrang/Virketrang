@@ -7,6 +7,7 @@ tmp
 out-tsc
 bazel-out
 .build
+legacy
 
 # Node
 node_modules

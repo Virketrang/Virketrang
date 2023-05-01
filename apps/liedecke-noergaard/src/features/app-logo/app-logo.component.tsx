@@ -17,4 +17,6 @@ const AppLogo: AppLogoComponent = memo(({}) => {
     );
 });
 
+AppLogo.displayName = 'AppLogo';
+
 export default AppLogo;

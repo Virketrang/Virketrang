@@ -17,39 +17,46 @@
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com/"
     },
-    "type": "module",
-    "main": "./dist/resolut-colors.cjs",
-    "exports": {
-        "types": "./dist/resolut-colors.d.ts",
-        "import": "./dist/resolut-colors.mjs",
-        "require": "./dist/resolut-colors.cjs"
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "public"
     },
-    "types": "./dist/resolut-colors.d.ts",
+    "source": "src/index.ts",
+    "main": "dist/main.js",
+    "module": "dist/module.js",
+    "types": "dist/types.d.ts",
+    "exports": {
+        "types": "./dist/types.d.ts",
+        "import": "./dist/module.js",
+        "require": "./dist/main.js"
+    },
     "files": [
         "dist"
     ],
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org/",
-        "access": "public"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/virketrang/virketrang"
     },
     "scripts": {
         "prepublishOnly": "pnpm run build",
-        "build": "tsc && rollup -c .build/rollup.config.js"
+        "publish": "npm publish",
+        "start": "storybook dev --port 8000",
+        "build:storybook": "storybook build",
+        "watch": "parcel watch",
+        "build": "parcel build"
     },
     "devDependencies": {
+        "@parcel/packager-ts": "^2.8.3",
+        "@rollup/plugin-terser": "^0.4.1",
+        "@types/node": "^18.14.0",
+        "@types/rollup-plugin-generate-package-json": "^3.2.0",
+        "parcel": "^2.8.3",
         "rollup": "^3.20.2",
         "rollup-plugin-copy": "^3.4.0",
         "rollup-plugin-delete": "^2.0.0",
         "rollup-plugin-dts": "^5.3.0",
         "rollup-plugin-generate-package-json": "^3.2.0",
         "rollup-plugin-typescript2": "^0.34.1",
-        "@rollup/plugin-terser": "^0.4.1",
-        "typescript": "^5.0.4",
-        "@types/node": "^18.14.0",
-        "@types/rollup-plugin-generate-package-json": "^3.2.0"
+        "typescript": "^5.0.4"
     }
 }

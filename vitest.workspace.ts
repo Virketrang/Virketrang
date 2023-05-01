@@ -1,6 +1,9 @@
 import { defineWorkspace } from 'vitest/config';
 
 const config = defineWorkspace([
+    'website',
+    'server',
+    'dashboard',
     'apps/**',
     'apps/**/server',
     'apps/**/client',

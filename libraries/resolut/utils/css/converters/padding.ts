@@ -1,4 +1,4 @@
-import { numberToPixels } from '../../../logic';
+import { numberToPixels } from '../../';
 
 export default function padding(
     all?: string | number,

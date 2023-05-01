@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { Button } from '@resolut/server';
@@ -9,7 +9,7 @@ import { ShoppingBag } from '@icons';
 
 import AppRightToolbarComponent from './app-right-toolbar.component.types';
 
-const AppRightToolbar: AppRightToolbarComponent = () => {
+const AppRightToolbar: AppRightToolbarComponent = memo(() => {
     const [open, setOpen] = useState(false);
     const [documentReady, setDocumentReady] = useState(false);
 
@@ -25,6 +25,8 @@ const AppRightToolbar: AppRightToolbarComponent = () => {
             {documentReady && createPortal(<ShoppingCart open={open} setOpen={setOpen} />, document.body)}
         </>
     );
-};
+});
+
+AppRightToolbar.displayName = 'AppRightToolbar';
 
 export default AppRightToolbar;

@@ -25,6 +25,7 @@ const config = defineConfig({
             fileName: format => `resolut.${format}.js`,
         },
     },
+    test: { watch: false, globals: true },
     plugins: [react(), vanillaExtractPlugin(), dts({ insertTypesEntry: true, root: resolve(__dirname, '../../') })],
 });
 

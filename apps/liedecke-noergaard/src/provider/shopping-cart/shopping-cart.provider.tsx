@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 import { ShoppingCartContext } from '@context';
 import { ShoppingCart } from '@components';
@@ -7,7 +7,7 @@ import { CartItem } from '@types';
 
 import ShoppingCartProvider from './shopping-cart.provider.types';
 
-const ShoppingCartProvider: ShoppingCartProvider = ({ children }) => {
+const ShoppingCartProvider: ShoppingCartProvider = memo(({ children }) => {
     const [open, setOpen] = useState(false);
     const [items, setItems] = useLocalStorage<CartItem[]>('shopping-cart', []);
 
@@ -58,6 +58,8 @@ const ShoppingCartProvider: ShoppingCartProvider = ({ children }) => {
             <ShoppingCart open={open} setOpen={setOpen} />
         </ShoppingCartContext.Provider>
     );
-};
+});
+
+ShoppingCartProvider.displayName = 'ShoppingCartProvider';
 
 export default ShoppingCartProvider;

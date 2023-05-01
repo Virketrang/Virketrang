@@ -8,8 +8,15 @@
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com/"
     },
-    "main": "dist/cjs/src/index.js",
-    "module": "dist/esm/src/index.js",
+    "source": "src/index.ts",
+    "main": "dist/main.js",
+    "module": "dist/module.js",
+    "types": "dist/types.d.ts",
+    "exports": {
+        "types": "./dist/types.d.ts",
+        "import": "./dist/module.js",
+        "require": "./dist/main.js"
+    },
     "files": [
         "dist"
     ],
@@ -21,12 +28,17 @@
         "registry": "https://npm.pkg.github.com"
     },
     "scripts": {
-        "build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
-        "build:esm": "tsc",
-        "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+        "prepublishOnly": "pnpm run build",
+        "publish": "npm publish",
+        "start": "storybook dev --port 8000",
+        "build:storybook": "storybook build",
+        "watch": "parcel watch",
+        "build": "parcel build"
     },
     "devDependencies": {
+        "@parcel/packager-ts": "^2.8.3",
         "@types/node": "^18.14.0",
+        "parcel": "^2.8.3",
         "typescript": "^5.0.4"
     }
 }

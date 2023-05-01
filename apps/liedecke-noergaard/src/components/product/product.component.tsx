@@ -1,28 +1,36 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { memo } from 'react';
+
 import ProductComponent from './product.component.types';
 import styles from './product.component.module.sass';
-import Link from 'next/link';
 
-const Products: ProductComponent = ({ id, images, price, name }) => {
+const Product: ProductComponent = memo(({ id, category, language, images, price, name, index }) => {
     return (
-        <Link href={`/confecture/${id}`}>
+        <Link href={`/${language}/${category}/${id}`}>
             <div className={styles.product}>
                 <div className={styles['image-container']}>
                     <Image
                         className={styles.close}
                         src={images.cover.distant.url}
                         alt={images.cover.distant.alt}
-                        sizes="100vw"
+                        sizes="(min-width: 60em) 24vw,
+                               (min-width: 28em) 45vw,
+                               100vw"
                         fill
-                        priority
+                        priority={index < 8}
+                        placeholder="blur"
                     />
                     <Image
                         className={styles.distant}
                         src={images.cover.close.url}
                         alt={images.cover.close.alt}
-                        sizes="100vw"
+                        sizes="(min-width: 60em) 24vw,
+                               (min-width: 28em) 45vw,
+                               100vw"
                         fill
-                        priority
+                        priority={index < 8}
+                        placeholder="blur"
                     />
                 </div>
                 <div className={styles.details}>
@@ -32,6 +40,8 @@ const Products: ProductComponent = ({ id, images, price, name }) => {
             </div>
         </Link>
     );
-};
+});
 
-export default Products;
+Product.displayName = 'Product';
+
+export default Product;

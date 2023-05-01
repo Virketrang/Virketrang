@@ -1,0 +1,12 @@
+{
+    "navigation": {
+        "offers": "Offers",
+        "confecture": "Confecture",
+        "utencils": "Utencils",
+        "cider": "Cider",
+        "recipes": "Recipes"
+    },
+    "shoppingCart": {
+        "title": "Shopping Cart"
+    }
+}

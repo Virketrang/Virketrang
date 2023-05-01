@@ -34,7 +34,7 @@
         "build:storybook": "storybook build",
         "watch": "parcel watch",
         "build": "parcel build",
-        "build:vite": "vite build"
+        "test": "vitest"
     },
     "alias": {
         "styles": "../../styles",
@@ -73,6 +73,7 @@
         "@vanilla-extract/parcel-transformer": "^1.0.0",
         "@vanilla-extract/vite-plugin": "^3.8.0",
         "@vitejs/plugin-react": "^3.1.0",
+        "@vitest/ui": "^0.30.1",
         "parcel": "^2.8.3",
         "postcss": "^8.4.21",
         "react": "^18.2.0",
