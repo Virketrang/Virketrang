@@ -2,8 +2,11 @@
     "singleQuote": true,
     "printWidth": 120,
     "tabWidth": 4,
-    "arrowParens": "avoid",
+    "arrowParens": "always",
     "bracketSpacing": true,
     "quoteProps": "consistent",
-    "bracketSameLine": true
+    "bracketSameLine": false,
+    "jsxSingleQuote": false,
+    "semi": false,
+    "trailingComma": "none"
 }

@@ -38,8 +38,8 @@ const Typography: TypographyComponent = memo(
                 style,
                 transform = 'none',
                 font = 'inherit',
-                lineHeight = 'font-lineheight-4',
-                letterSpacing = 'font-letterspacing-3',
+                lineHeight = 'lineheight-4',
+                letterSpacing = 'letterspacing-3',
                 ...props
             },
             ref

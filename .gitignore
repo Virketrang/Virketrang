@@ -10,8 +10,12 @@
 # PRIVATE
 private
 
+# TESTING
+coverage
+
 # FRAMEWORKS
 .next
+.vercel
 .expo
 
 # PACKAGE MANAGER
@@ -31,11 +35,15 @@ node_modules
 # OUTPUT DIRECTORIES
 dist
 .build
+out
+build
+out-tsc
 
 # OTHER
 tmp
-out-tsc
 logs
 *.log
 .project
-coverage
+
+# TYPESCRIPT
+*.tsbuildinfo

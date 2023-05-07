@@ -8,6 +8,13 @@
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com/"
     },
+    "contributors": [
+        {
+            "name": "Isabella Liedecke Mørck",
+            "email": "isabella@virketrang.com",
+            "url": "https://www.virketrang.com/staff/isabella"
+        }
+    ],
     "license": "MIT",
     "homepage": "https://www.virketrang.com",
     "bugs": {
@@ -22,22 +29,32 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "test": "vitest && rimraf coverage"
     },
     "dependencies": {
-        "@resolut/colors": "workspace:^1.0.0",
+        "@resolut/client": "workspace:^",
+        "@resolut/colors": "workspace:^",
         "@resolut/server": "workspace:^",
+        "@vercel/postgres": "^0.1.3",
+        "next": "^13.4.1",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "server-only": "^0.0.1"
     },
     "devDependencies": {
+        "@testing-library/react": "^14.0.0",
         "@types/node": "^18.14.0",
         "@types/react": "^18.0.28",
         "@types/react-dom": "^18.0.11",
+        "@vitejs/plugin-react": "^3.1.0",
+        "@vitest/coverage-c8": "^0.30.1",
         "eslint": "^8.33.0",
-        "eslint-config-next": "^13.2.1",
+        "eslint-config-next": "^13.4.1",
+        "jsdom": "^21.1.2",
+        "sass": "^1.58.3",
         "typescript": "^5.0.4",
-        "next": "^13.2.1",
-        "sass": "^1.58.3"
+        "typescript-plugin-css-modules": "^5.0.1",
+        "vitest": "^0.30.1"
     }
 }

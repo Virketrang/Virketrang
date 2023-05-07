@@ -7,6 +7,18 @@
         "url": "https://github.com/virketrang/virketrang/issues",
         "email": "sigfred@virketrang.com"
     },
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "contributors": [
+        {
+            "name": "Isabella Liedecke Mørck",
+            "email": "isabella@virketrang.com",
+            "url": "https://www.virketrang.com/staff/isabella"
+        }
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/virketrang/virketrang",
@@ -16,7 +28,7 @@
         "registry": "https://npm.pkg.github.com/",
         "access": "public"
     },
-    "source": "packages/index.ts",
+    "source": "packages/**/src/index.ts",
     "main": "dist/main.js",
     "module": "dist/module.js",
     "types": "dist/types.d.ts",
@@ -29,28 +41,46 @@
         "dist"
     ],
     "scripts": {
-        "dev": "storybook dev --port 8000 --watch",
-        "start": "pnpm run dev",
-        "b": "parcel build",
-        "build": "pnpm run build:client && pnpm run build:server && pnpm run build:colors",
+        "START": "--------------- START ---------------",
+        "start": "storybook dev --port 8000 --watch",
+        "start:client": "nx start @resolut/client",
+        "start:server": "nx start @resolut/server",
+        "start:colors": "nx start @resolut/colors",
+        "DEV": "--------------- DEV ---------------",
+        "dev": "pnpm run dev",
+        "dev:client": "nx dev @resolut/client",
+        "dev:server": "nx dev @resolut/server",
+        "dev:colors": "nx dev @resolut/colors",
+        "BUILD": "--------------- BUILD ---------------",
+        "build": "pnpm run build:client && pnpm run build:server && pnpm run build:colors && parcel build",
         "build:client": "nx build @resolut/client",
         "build:server": "nx build @resolut/server",
         "build:colors": "nx build @resolut/colors",
-        "build:storybook": "storybook build",
+        "WATCH": "--------------- WATCH ---------------",
         "watch": "pnpm run watch:client && pnpm run watch:server && pnpm run watch:colors",
         "watch:client": "nx watch @resolut/client",
         "watch:server": "nx watch @resolut/server",
-        "watch:colors": "nx watch @resolut/colors"
+        "watch:colors": "nx watch @resolut/colors",
+        "TEST": "--------------- TEST ---------------",
+        "test": "vitest",
+        "test:server": "nx test @resolut/server",
+        "test:client": "nx test @resolut/client",
+        "test:colors": "nx test @resolut/colors",
+        "LINT": "--------------- LINT ---------------",
+        "lint": "lint",
+        "lint:server": "nx lint @resolut/server",
+        "lint:client": "nx lint @resolut/client",
+        "lint:colors": "nx lint @resolut/colors"
     },
     "keywords": [
         "NextJS",
         "React",
         "Component Library"
     ],
-    "author": {
-        "name": "Sigfred Frey Nørgaard Knudsen",
-        "email": "sigfred@virketrang.com",
-        "url": "https://www.virketrang.com/"
+    "alias": {
+        "styles": "../../styles",
+        "types": "../../types",
+        "utils": "../../utils"
     },
     "license": "MIT",
     "devDependencies": {
@@ -66,8 +96,12 @@
         "@storybook/react-vite": "7.0.7",
         "@storybook/testing-library": "0.1.0",
         "@storybook/types": "7.0.7",
+        "@testing-library/react": "^14.0.0",
         "@types/node": "^18.15.5",
         "@types/react": "^18.0.28",
+        "@vitejs/plugin-react": "^3.1.0",
+        "@vitest/coverage-c8": "^0.30.1",
+        "jsdom": "^21.1.2",
         "parcel": "^2.8.3",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

@@ -12,6 +12,9 @@ tsconfig.json
 
 # BUNDLER
 vite.config.ts
+.parcelrc
+
+# TEST
 vitest.config.ts
 
 # NPM

@@ -11,6 +11,21 @@
         "sourceMap": true,
         "skipLibCheck": true,
         "preserveSymlinks": true,
-        "resolveJsonModule": true
-    }
+        "resolveJsonModule": true,
+        "plugins": [{ "name": "typescript-plugin-css-modules", "options": { "classnameTransform": "camelCase" } }],
+        "paths": {
+            "styles/*": ["./styles/*"],
+            "types/*": ["./types/*"],
+            "utils/*": ["./utils/*"]
+        }
+    },
+    "include": [
+        "packages/**/*.ts",
+        "packages/**/*.tsx",
+        "utils/**/*.ts",
+        "utils/**/*.tsx",
+        "types/**/*.ts",
+        "types/**/*.tsx"
+    ],
+    "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"]
 }

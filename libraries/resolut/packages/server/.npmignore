@@ -9,9 +9,13 @@ node_modules
 
 # TYPESCRIPT
 tsconfig.json
+tsconfig.test.json
 
 # BUNDLER
 vite.config.ts
+.parcelrc
+
+# TEST
 vitest.config.ts
 
 # NPM

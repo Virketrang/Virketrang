@@ -4,20 +4,28 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "dev": "npm run build-electron && electron .",
-        "start": "next start",
+        "dev": "concurrently \"pnpm run next:dev\" \"wait-on http://localhost:3000 && pnpm run electron:build\" \"wait-on http://localhost:3000 && pnpm run electron:dev\"",
+        "start": "pnpm run electron:build && NODE_ENV=production pnpm run electron:dev",
+        "build": "pnpm run build:next && pnpm run build:electron",
         "lint": "next lint",
-        "build": "npm run build-renderer && npm run build-electron",
-        "dist": "npm run build && electron-builder",
-        "clean": "rimraf dist main renderer/out renderer/.next",
-        "build-renderer": "next build renderer",
-        "build-electron": "tsc -p electron-src",
-        "pack-app": "npm run build && electron-builder --dir",
-        "type-check": "tsc -p ./renderer/tsconfig.json && tsc -p ./electron-src/tsconfig.json"
+        "test": "pnpm run next:test",
+        "package": "pnpm run build && electron-builder --dir",
+        "dist": "pnpm run build && electron-builder",
+        "NEXT": "--------------- NEXT ---------------",
+        "next:dev": "next dev",
+        "next:test": "vitest && rimraf coverage",
+        "next:build": "next build",
+        "ELECTRON": "--------------- ELECTRON ---------------",
+        "electron:dev": "electron dist/electron/index.js",
+        "electron:build": "tsc -p tsconfig.node.json",
+        "AUTO": "--------------- AUTO ---------------",
+        "postinstall": "electron-builder install-app-deps"
     },
     "dependencies": {
         "electron-is-dev": "^2.0.0",
         "electron-next": "^3.1.5",
+        "electron-updater": "^5.3.0",
+        "next": "13.3.4",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
@@ -25,19 +33,27 @@
         "@types/node": "18.16.3",
         "@types/react": "18.2.0",
         "@types/react-dom": "^18.0.11",
+        "@vitejs/plugin-react": "^3.1.0",
+        "@vitest/coverage-c8": "^0.30.1",
+        "autoprefixer": "^10.4.14",
+        "concurrently": "^8.0.1",
         "electron": "^24.1.3",
         "electron-builder": "^23.6.0",
+        "electron-reloader": "^1.2.3",
         "eslint": "8.39.0",
         "eslint-config-next": "^13.2.1",
-        "next": "13.3.4",
+        "postcss": "^8.4.21",
         "rimraf": "^3.0.2",
-        "typescript": "5.0.4"
+        "sass": "^1.58.3",
+        "typescript": "5.0.4",
+        "typescript-plugin-css-modules": "^5.0.1",
+        "vitest": "^0.30.1",
+        "wait-on": "^7.0.1"
     },
     "build": {
         "asar": true,
         "files": [
-            "main",
-            "renderer/out"
+            "out"
         ]
     }
 }

@@ -2,13 +2,23 @@
     "name": "@virketrang/server",
     "version": "0.0.0",
     "description": "The Virketrang server",
-    "main": "build/main.js",
-    "author": "Sigfred Frey Nørgaard Knudsen",
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "contributors": [
+        {
+            "name": "Isabella Liedecke Mørck",
+            "email": "isabella@virketrang.com",
+            "url": "https://www.virketrang.com/staff/isabella"
+        }
+    ],
     "private": true,
     "license": "MIT",
     "scripts": {
         "DEV": "-------------- DEV --------------",
-        "dev": "nest start --watch --entryFile=apps/prometheus/server/src/main.js",
+        "dev": "nest start --watch",
         "BUILD": "-------------- BUILD --------------",
         "prebuild": "rimraf build",
         "build": "nest build",
@@ -60,6 +70,7 @@
         "source-map-support": "^0.5.21",
         "supertest": "^6.3.3",
         "ts-jest": "29.1.0",
+        "ts-loader": "^9.4.2",
         "tsconfig-paths": "4.2.0",
         "typescript": "^5.0.4"
     },

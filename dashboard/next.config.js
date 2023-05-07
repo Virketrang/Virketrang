@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        appDir: true,
+        appDir: true
     },
     output: 'export',
-};
+    reactStrictMode: true,
+    distDir: 'dist',
+    assetPrefix: '.'
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

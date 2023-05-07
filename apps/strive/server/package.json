@@ -9,6 +9,13 @@
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com/"
     },
+    "contributors": [
+        {
+            "name": "Isabella Liedecke Mørck",
+            "email": "isabella@virketrang.com",
+            "url": "https://www.virketrang.com/staff/isabella"
+        }
+    ],
     "keywords": [
         "Virketrang",
         "Strive"

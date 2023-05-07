@@ -1,0 +1,3 @@
+VERCEL COLOR PALETTE:
+LINK: https://vercel.com/design/color
+REPO: https://github.com/geist-org/geist-ui/tree/master

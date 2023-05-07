@@ -6,7 +6,7 @@
         "allowSyntheticDefaultImports": true,
         "target": "es2017",
         "sourceMap": true,
-        "outDir": "./dist/",
+        "outDir": "./dist",
         "diagnostics": false,
         "extendedDiagnostics": false,
         "baseUrl": "./",
@@ -14,7 +14,7 @@
         "skipLibCheck": true,
         "strictBindCallApply": false,
         "paths": {
-            "@packages/*": ["../../../packages/*"],
+            "@packages/*": ["../packages/*"],
             "@authentication/*": ["./src/app/authentication/*"],
             "@config/*": ["./src/app/config/*"],
             "@database/*": ["./src/app/database/*"],

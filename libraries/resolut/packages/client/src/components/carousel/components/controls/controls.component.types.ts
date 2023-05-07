@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ForwardRefExoticComponent, HTMLProps, RefAttributes } from 'react';
+import { ComponentPropsWithoutRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 
 export interface CarouselControlsProps extends ComponentPropsWithoutRef<'div'> {}
 

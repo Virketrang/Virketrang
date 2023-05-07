@@ -8,6 +8,13 @@
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com/"
     },
+    "contributors": [
+        {
+            "name": "Isabella Liedecke Mørck",
+            "email": "isabella@virketrang.com",
+            "url": "https://www.virketrang.com/staff/isabella"
+        }
+    ],
     "source": "src/index.ts",
     "main": "dist/main.js",
     "module": "dist/module.js",
@@ -39,5 +46,14 @@
         "@types/node": "^18.14.0",
         "parcel": "^2.8.3",
         "typescript": "^5.0.4"
+    },
+    "overrides": {
+        "parcel": {
+            "@parcel/config-default": {
+                "@parcel/optimizer-htmlnano": {
+                    "svgo": "^3.0.2"
+                }
+            }
+        }
     }
 }

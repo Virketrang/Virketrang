@@ -1,16 +1,24 @@
 {
+    // VSCODE
     "editor.fontSize": 16,
-    "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",
-    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.compactFolders": false,
     "files.exclude": {
         "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/.parcel-cache": true
+        "**/.parcel-cache": false,
+        "**/.next": true,
+        "**/.vscode": false,
+        ".vscode": false
     },
+    // TYPESCRIPT
+    "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    // JAVASCRIPT
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    // ESLINT
     "eslint.workingDirectories": [
         "website",
         "server",
@@ -22,22 +30,31 @@
         "libraries/**",
         "libraries/**/packages/**"
     ],
-    "search.exclude": {
-        ".git": true,
-        ".eslintcache": true,
-        ".erb/dll": true,
-        "release/{build,app/dist}": true,
-        "node_modules": true,
-        "npm-debug.log.*": true,
-        "test/**/__snapshots__": true,
-        "package-lock.json": true,
-        "*.{css,sass,scss}.d.ts": true
+    // MATERIAL ICONS THEME
+    "material-icon-theme.folders.associations": {
+        // APPS
+        "dashboard": "Admin",
+        // LIBRARIES
+        "resolut": "React-components",
+        "css-properties": "Css",
+        // CLIENT
+        "desktop": "Client",
+        "native": "Mobile",
+        // NEXT
+        "next": "Next",
+        // ELECTRON
+        "electron": "Client",
+        // SUBDIRECTORIES
+        "entities": "Class",
+        "features": "Stack",
+        "ui": "Content",
+        "forms": "Mock",
+        // TYPESCRIPT
+        "enums": "Mappings",
+        // DOCUMENTS
+        "legal": "Contract",
+        "word": "Docs"
     },
-    "prettier.singleQuote": true,
-    "prettier.printWidth": 120,
-    "prettier.tabWidth": 4,
-    "prettier.arrowParens": "avoid",
-    "prettier.bracketSpacing": true,
-    "prettier.quoteProps": "consistent",
-    "prettier.bracketSameLine": true
+    "material-icon-theme.files.associations": { "vitest.workspace.ts": "Vitest", "tsconfig.nest.json": "Tsconfig" },
+    "material-icon-theme.activeIconPack": "react"
 }

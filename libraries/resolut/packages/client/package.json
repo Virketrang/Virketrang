@@ -33,15 +33,17 @@
         "start": "storybook dev --port 8000",
         "build:storybook": "storybook build",
         "watch": "parcel watch",
-        "build": "parcel build"
+        "build": "parcel build",
+        "test": "vitest"
     },
     "alias": {
         "styles": "../../styles",
         "types": "../../types",
-        "logic": "../../logic"
+        "utils": "../../utils"
     },
     "keywords": [
         "React",
+        "NextJS",
         "Component Library",
         "Client Side"
     ],
@@ -50,6 +52,13 @@
         "email": "sigfred@virketrang.com",
         "url": "https://www.virketrang.com/"
     },
+    "contributors": [
+        {
+            "name": "Isabella Liedecke Mørck",
+            "email": "isabella@virketrang.com",
+            "url": "https://www.virketrang.com/staff/isabella"
+        }
+    ],
     "license": "MIT",
     "devDependencies": {
         "@parcel/packager-ts": "^2.8.3",

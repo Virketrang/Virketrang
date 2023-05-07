@@ -1,8 +1,10 @@
 {
     "navigation": {
-        "projects": "Projekter",
+        "products": "Produkter",
         "team": "Hold",
         "philosophy": "Filosofi",
-        "contact": "Kontakt"
+        "contact": "Kontakt",
+        "blog": "Blog",
+        "earnings": "Regnskab"
     }
 }

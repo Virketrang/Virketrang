@@ -1,11 +1,10 @@
 {
-    "$schema": "./schemas/typescript.json",
     "compilerOptions": {
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "noImplicitOverride": true,
         "noImplicitAny": true,
-        "noPropertyAccessFromIndexSignature": true,
+        "noPropertyAccessFromIndexSignature": false,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "experimentalDecorators": true,
@@ -18,6 +17,9 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "strictPropertyInitialization": true,
-        "extendedDiagnostics": true
+        "extendedDiagnostics": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true
     }
 }

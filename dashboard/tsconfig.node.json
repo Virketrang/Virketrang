@@ -1,0 +1,12 @@
+{
+    "extends": "../tsconfig.base.json",
+    "compilerOptions": {
+        "lib": ["ESNext"],
+        "skipLibCheck": true,
+        "module": "CommonJS",
+        "target": "esnext",
+        "outDir": "dist/electron"
+    },
+    "exclude": ["node_modules"],
+    "include": ["./src/electron/*.ts"]
+}

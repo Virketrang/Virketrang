@@ -1,25 +1,40 @@
-# OUTPUT DIRECTORIES
-dist
-.build
+# CSS PREPROCESSOR
+.sass-cache/
+
+# FINDER
+.DS_Store
+
+# MODULE BUNDLER
+.parcel-cache
+
+# TESTING
+coverage
+
+# FRAMEWORKS
+.next
+.vercel
+.expo
+
+# PACKAGE MANAGER
+.npmrc
+pnpm-lock.yaml
+pnpm-debug.log*
 
 # DEPENDENCIES
 node_modules
 
-# BUNDLER
-.parcel-cache/
+# OUTPUT DIRECTORIES
+dist
+.build
+out
+build
+out-tsc
 
-# CSS PREPROCESSOR
-.sass-cache/
-
-# FRAMEWORKS
-.next
-.expo
-
-# PACKAGE MANAGER
-pnpm-lock.yaml
-
-# LOGS
-*.log
+# TYPESCRIPT
+*.tsbuildinfo
 
 # OTHER
-coverage
+tmp
+logs
+*.log
+.project

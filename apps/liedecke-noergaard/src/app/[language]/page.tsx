@@ -1,13 +1,13 @@
-import Mixed from '../../../public/assets/banners/mixed.jpeg';
+import Mixed from '../../../public/assets/banners/mixed.jpeg'
 
-import { Typography, Button, Flex } from '@resolut/server';
+import { Typography, Button, Flex } from '@resolut/server'
 
 export const metadata = {
     title: 'Liedecke & Noergaard | Forside',
-    description: 'Forside',
-};
+    description: 'Forside'
+}
 
-export const revalidate = 86400;
+export const revalidate = 86400
 
 export default function Page() {
     return (
@@ -23,6 +23,9 @@ export default function Page() {
                     Se produkter
                 </Button>
             </Flex>
+            <div>
+                
+            </div>
         </>
-    );
+    )
 }

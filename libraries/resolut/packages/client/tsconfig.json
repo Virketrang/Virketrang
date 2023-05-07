@@ -5,7 +5,7 @@
         "paths": {
             "styles/*": ["../../styles/*"],
             "types/*": ["../../types/*"],
-            "logic/*": ["../../logic/*"]
+            "utils/*": ["../../utils/*"]
         }
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],

@@ -8,8 +8,10 @@
         }
     },
     "namedInputs": {
-        "stories": ["!{projectRoot}/**/*.md", "!{projectRoot}/**/*.stories.ts", "!{projectRoot}/**/*.stories.tsx"],
-        "dockerfiles": ["Dockerfile", ".dockerignore"]
+        "stories": ["!{projectRoot}/**/*.stories.ts", "!{projectRoot}/**/*.stories.tsx"],
+        "dockerfiles": ["Dockerfile", ".dockerignore"],
+        "readme": ["README.md"],
+        "license": ["LICENSE"]
     },
     "targetDefaults": {
         "build": {
@@ -19,6 +21,7 @@
         "dev": {},
         "test": {
             "inputs": ["^stories", "^dockerfiles"]
-        }
+        },
+        "lint": {}
     }
 }

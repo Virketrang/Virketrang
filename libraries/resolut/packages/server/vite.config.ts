@@ -1,18 +1,15 @@
 import { defineConfig } from 'vite';
 
 import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
-import path, { join, resolve } from 'path';
+import { join, resolve } from 'path';
 
 const config = defineConfig({
     resolve: {
         alias: {
-            styles: path.resolve(__dirname, '../../styles'),
-            types: path.resolve(__dirname, '../../types'),
-            logic: path.resolve(__dirname, '../../logic'),
-            utils: path.resolve(__dirname, '../../utils'),
+            styles: resolve(__dirname, '../../styles'),
+            types: resolve(__dirname, '../../types'),
+            utils: resolve(__dirname, '../../utils'),
         },
     },
     build: {
@@ -21,12 +18,11 @@ const config = defineConfig({
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
             name: '@resolut/server',
-            formats: ['es', 'umd'],
-            fileName: format => `resolut.${format}.js`,
+            formats: ['es', 'cjs', 'umd'],
+            fileName: format => `${format}.js`,
         },
     },
-    test: { watch: false, globals: true },
-    plugins: [react(), vanillaExtractPlugin(), dts({ insertTypesEntry: true, root: resolve(__dirname, '../../') })],
+    plugins: [react()],
 });
 
 export default config;

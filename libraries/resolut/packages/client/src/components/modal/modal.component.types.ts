@@ -1,13 +1,10 @@
-import { HTMLPropsWithoutRefAndChildren } from 'types/index';
-import { ForwardRefExoticComponent, RefAttributes } from 'react';
+import { ComponentPropsWithoutRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 
 type ModalShape = 'square' | 'rounded';
 
-export interface ModalProps extends HTMLPropsWithoutRefAndChildren<HTMLDialogElement> {
-    // @REQUIRED PROPERTIES
+export interface ModalProps extends ComponentPropsWithoutRef<'dialog'> {
     open: boolean;
     title: string;
-    // @OPTIONAL PROPERTIES
     draggable?: boolean;
     footer?: any;
     backdrop?: string;

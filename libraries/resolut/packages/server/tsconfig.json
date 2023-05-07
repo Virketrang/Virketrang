@@ -5,11 +5,9 @@
         "paths": {
             "styles/*": ["../../styles/*"],
             "types/*": ["../../types/*"],
-            "logic/*": ["../../logic/*"],
             "utils/*": ["../../utils/*"]
-        },
-        "jsx": "react-jsx"
+        }
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.css.ts"],
-    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": ["node_modules"]
 }
