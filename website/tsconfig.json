@@ -1,7 +1,7 @@
 {
     "extends": "../tsconfig.base.json",
     "compilerOptions": {
-        "target": "es5",
+        "target": "es2015",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
         "skipLibCheck": true,
@@ -17,11 +17,19 @@
         ],
         "paths": {
             "@/*": ["./src/*"],
+            "@packages/*": ["../packages/*"],
             "@i18n": ["./i18n/index.ts"],
             "@i18n/*": ["./i18n/*"],
-            "@packages/*": ["../packages/*"],
-            "@component": ["./component/index.ts"],
-            "@component/*": ["./component/*"]
+            "@component": ["./src/component/index.ts"],
+            "@component/*": ["./src/component/*"],
+            "@utils": ["./src/utils/index.ts"],
+            "@utils/*": ["./src/utils/*"],
+            "@types": ["./src/types/index.ts"],
+            "@types/*": ["./src/types/*"],
+            "@features": ["./src/features/index.ts"],
+            "@features/*": ["./src/features/*"],
+            "@server-only": ["./src/server-only/index.ts"],
+            "@server-only/*": ["./src/server-only/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

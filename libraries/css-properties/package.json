@@ -1,5 +1,5 @@
 {
-    "name": "@css-properties/react",
+    "name": "css-properties",
     "version": "0.0.0",
     "license": "MIT",
     "description": "A large collection of CSS properties for React",

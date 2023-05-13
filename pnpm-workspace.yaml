@@ -3,8 +3,5 @@ packages:
     - "server"
     - "dashboard"
     - "apps/**"
-    - "apps/**/server"
-    - "apps/**/client"
-    - "apps/**/client/**"
     - "libraries/**"
     - "libraries/**/packages/**"

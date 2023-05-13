@@ -1,4 +1,1 @@
-export { AppHeader } from './app-header'
-export { AppLogo } from './app-logo'
-export { AppNavigation } from './app-navigation'
-export { AppToolbar } from './app-toolbar'
+export { default as LocaleSwitch } from './locale-switch/locale-switch.component'

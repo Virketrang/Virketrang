@@ -1,18 +1,17 @@
 import '@packages/styles/next.sass'
+import '@packages/styles/focus.sass'
+import '../globals.sass'
 
-import { Locale, i18n, getDictionary } from '@i18n'
-import { AppHeader } from '@/components'
-
-export const metadata = {
-    title: 'Virketrang | Forside',
-    description: 'Forsiden til virketrang.com'
-}
+import { i18n } from '@i18n'
+import { Locale } from '@types'
+import getDictionary from '@server-only/get-dictionary'
+import { AppFooter, AppHeader } from '@/features'
 
 export async function generateStaticParams() {
     return i18n.locales.map((locale) => ({ language: locale }))
 }
 
-export default async function RootLayout({
+export default async function Layout({
     children,
     params
 }: {
@@ -22,10 +21,11 @@ export default async function RootLayout({
     const { navigation } = await getDictionary(params.language)
 
     return (
-        <html lang="en">
+        <html lang={params.language}>
             <body>
                 <AppHeader locale={params.language} navigation={navigation} />
                 {children}
+                <AppFooter />
             </body>
         </html>
     )

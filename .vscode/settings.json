@@ -7,10 +7,11 @@
     "files.exclude": {
         "**/.git": true,
         "**/.DS_Store": true,
-        "**/.parcel-cache": false,
+        "**/.parcel-cache": true,
         "**/.next": true,
-        "**/.vscode": false,
-        ".vscode": false
+        "website/.vscode": true,
+        "dashboard/.vscode": true,
+        "apps/**/.vscode": false
     },
     // TYPESCRIPT
     "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",

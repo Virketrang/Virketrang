@@ -32,13 +32,16 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@formatjs/intl-localematcher": "^0.2.32",
         "@resolut/client": "workspace:^",
         "@resolut/colors": "workspace:^",
         "@resolut/server": "workspace:^",
+        "negotiator": "^0.6.3",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
+        "@types/negotiator": "^0.6.1",
         "@types/node": "^18.14.0",
         "@types/react": "^18.0.37",
         "@types/react-dom": "^18.0.11",

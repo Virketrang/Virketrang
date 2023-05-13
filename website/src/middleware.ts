@@ -1,9 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const DEFAULT_LOCALE = 'da'
+import getLocale from '@utils/get-locale'
+import { i18n } from '@i18n'
 
-export const middleware = (request: NextRequest) => NextResponse.redirect(new URL(`/${DEFAULT_LOCALE}`, request.url))
+// @ts-ignore not all code paths return a value.
+export const middleware = (request: NextRequest) => {
+    const pathname = request.nextUrl.pathname
+
+    if (['/manifest.json', '/favicon.ico', '/logo.svg'].includes(pathname)) return
+
+    const pathnameIsMissingLocale = i18n.locales.every(
+        (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+    )
+
+    if (pathnameIsMissingLocale) {
+        const locale = getLocale(request)
+
+        return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url))
+    }
+}
 
 export const config = {
-    matcher: ['/']
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
 }

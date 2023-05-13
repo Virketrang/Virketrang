@@ -3,15 +3,16 @@ const nextConfig = {
     experimental: {
         appDir: true,
         typedRoutes: true,
+        externalDir: true
     },
     images: {
         remotePatterns: [
-            { protocol: 'https', hostname: 'storage.cloud.google.com', pathname: '/liedecke-noergaard/**', port: '' },
+            { protocol: 'https', hostname: 'storage.cloud.google.com', pathname: '/liedecke-noergaard/**', port: '' }
         ],
-        formats: ['image/avif', 'image/webp'],
+        formats: ['image/avif', 'image/webp']
     },
     distDir: './dist',
-    reactStrictMode: true,
-};
+    reactStrictMode: true
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

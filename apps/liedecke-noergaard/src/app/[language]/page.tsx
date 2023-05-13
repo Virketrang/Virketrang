@@ -1,4 +1,9 @@
+import Image from 'next/image'
+
+import Product from '../../../public/assets/products/confecture/confecture-1.webp'
 import Mixed from '../../../public/assets/banners/mixed.jpeg'
+
+import styles from './page.module.sass'
 
 import { Typography, Button, Flex } from '@resolut/server'
 
@@ -23,9 +28,6 @@ export default function Page() {
                     Se produkter
                 </Button>
             </Flex>
-            <div>
-                
-            </div>
         </>
     )
 }

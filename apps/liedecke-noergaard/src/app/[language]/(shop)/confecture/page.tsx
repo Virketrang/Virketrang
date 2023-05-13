@@ -1,10 +1,11 @@
-import { Flex, Typography } from '@resolut/server';
+import { Flex, Typography } from '@resolut/server'
 
-import { Product } from '@components';
-import { Locale, i18n } from '@i18n';
-import Confecture from '../../../../public/assets/banners/confecture.jpeg';
+import { Product } from '@components'
+import i18n from '@config/i18n'
+import { Locale } from '@types'
+import Confecture from '../../../../public/assets/banners/confecture.jpeg'
 
-import styles from './page.module.sass';
+import styles from './page.module.sass'
 
 const data = [
     {
@@ -14,9 +15,9 @@ const data = [
         images: {
             cover: {
                 close: { url: '/assets/products/confecture/confecture-11.webp', alt: 'Billede 11' },
-                distant: { url: '/assets/products/confecture/confecture-1.webp', alt: 'Billede 1' },
-            },
-        },
+                distant: { url: '/assets/products/confecture/confecture-1.webp', alt: 'Billede 1' }
+            }
+        }
     },
     {
         id: 2,
@@ -25,9 +26,9 @@ const data = [
         images: {
             cover: {
                 close: { url: '/assets/products/confecture/confecture-22.webp', alt: 'Billede 22' },
-                distant: { url: '/assets/products/confecture/confecture-2.webp', alt: 'Billede 2' },
-            },
-        },
+                distant: { url: '/assets/products/confecture/confecture-2.webp', alt: 'Billede 2' }
+            }
+        }
     },
     {
         id: 3,
@@ -36,9 +37,9 @@ const data = [
         images: {
             cover: {
                 close: { url: '/assets/products/confecture/confecture-33.webp', alt: 'Billede 33' },
-                distant: { url: '/assets/products/confecture/confecture-3.webp', alt: 'Billede 3' },
-            },
-        },
+                distant: { url: '/assets/products/confecture/confecture-3.webp', alt: 'Billede 3' }
+            }
+        }
     },
     {
         id: 4,
@@ -47,14 +48,14 @@ const data = [
         images: {
             cover: {
                 close: { url: '/assets/products/confecture/confecture-44.webp', alt: 'Billede 44' },
-                distant: { url: '/assets/products/confecture/confecture-4.webp', alt: 'Billede 4' },
-            },
-        },
-    },
-] as const;
+                distant: { url: '/assets/products/confecture/confecture-4.webp', alt: 'Billede 4' }
+            }
+        }
+    }
+] as const
 
 export async function generateStaticParams() {
-    return i18n.locales.map(locale => ({ language: locale }));
+    return i18n.locales.map((locale) => ({ language: locale }))
 }
 
 export default async function Page({ params }: { params: { language: Locale } }) {
@@ -77,5 +78,5 @@ export default async function Page({ params }: { params: { language: Locale } })
                 ))}
             </div>
         </>
-    );
+    )
 }

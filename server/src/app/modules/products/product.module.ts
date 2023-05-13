@@ -1,14 +1,15 @@
-import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common'
+import { MikroOrmModule } from '@mikro-orm/nestjs'
 
-import DatabaseModule from '@database/database.module';
-import { StorageService } from '@services/storage/storage.service';
+import { StorageService } from '@services'
+import { Product } from '@entities'
 
-import ProductController from './product.controller';
-import ProductService from './product.service';
+import ProductController from './product.controller'
+import ProductService from './product.service'
 
 @Module({
-    imports: [DatabaseModule],
+    imports: [MikroOrmModule.forFeature([Product])],
     controllers: [ProductController],
-    providers: [ProductService, StorageService],
+    providers: [ProductService, StorageService]
 })
 export default class ProductModule {}

@@ -1,8 +1,12 @@
 import { BrowserWindow, App } from 'electron'
-import Update from './update'
-import { resolve } from 'path'
+import { join } from 'path'
 
-const __prod = process.env['NODE_ENV'] === 'production'
+import Update from './update'
+
+const __prod__ = process.env['NODE_ENV'] === 'production'
+
+const url = new URL(join(__dirname, '../index.html'))
+url.protocol = 'file:'
 
 export default class Main {
     static mainWindow: BrowserWindow | null
@@ -32,13 +36,13 @@ export default class Main {
             show: false
         })
 
-        __prod
-            ? Main.mainWindow.loadFile(resolve(__dirname, '../index.html'))
-            : Main.mainWindow.loadURL('http://localhost:3000')
+        __prod__ && Main.mainWindow.loadFile(url.toString())
+
+        !__prod__ && Main.mainWindow.loadURL('http://localhost:3000')
 
         Main.mainWindow.once('ready-to-show', Main.mainWindow.show)
 
-        Main.mainWindow.webContents.openDevTools()
+        !__prod__ && Main.mainWindow.webContents.openDevTools()
 
         Main.mainWindow.on('closed', Main.onClose)
     }
@@ -52,13 +56,3 @@ export default class Main {
         Main.application.on('activate', Main.createWindow)
     }
 }
-
-// main.webContents.on('did-fail-load', () => {
-//     main!.loadURL(
-//         url.format({
-//             pathname: path.join(__dirname, '../index.html'),
-//             protocol: 'file:',
-//             slashes: true,
-//         })
-//     );
-// });

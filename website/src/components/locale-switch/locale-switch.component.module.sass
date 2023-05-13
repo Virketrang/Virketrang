@@ -1,0 +1,36 @@
+.switch
+    position: relative
+
+    .locale
+        cursor: pointer
+        white-space: nowrap
+        border: 1px solid #efefef
+        padding: 0.25em 0.5em 
+        border-radius: 0.25em
+        color: var(--text-primary)
+
+    .menu
+        position: absolute
+        display: none
+        flex-direction: column
+        align-items: center
+        background: var(--background-primary)
+        width: 150%
+        color: var(--text-primary)
+        transform: translateX(calc(-33.333333% / 2)) translateY(1rem)
+        filter: drop-shadow(0 0 2px rgba(0,0,0,0.1))
+
+        &[data-state-open="true"]
+            display: flex
+
+        a
+            padding-block: 0.5em
+            text-align: center
+            width: 100%
+
+            &[aria-selected="true"]
+                background: orange
+
+        
+    
+
