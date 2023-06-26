@@ -2,6 +2,9 @@
     // VSCODE
     "editor.fontSize": 16,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "markdownlint.config": {
+        "MD030": false
+    },
     "workbench.iconTheme": "material-icon-theme",
     "explorer.compactFolders": false,
     "files.exclude": {
@@ -48,6 +51,7 @@
         // SUBDIRECTORIES
         "entities": "Class",
         "features": "Stack",
+        "composables": "Stack",
         "ui": "Content",
         "forms": "Mock",
         // TYPESCRIPT

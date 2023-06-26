@@ -22,25 +22,10 @@
         ],
         "baseUrl": "./",
         "paths": {
-            "@packages/*": ["../../packages/*"],
-            "@config/*": ["../../config/*"],
-            "@constants": ["./src/constants"],
-            "@components": ["./src/components/index"],
-            "@components/*": ["./src/components/*"],
-            "@icons/*": ["./src/icons/*"],
-            "@icons": ["./src/icons"],
-            "@types/*": ["./src/types/*"],
-            "@types": ["./src/types"],
-            "@provider/*": ["./src/provider/*"],
-            "@provider": ["./src/provider"],
-            "@hooks/*": ["./src/hooks/*"],
-            "@hooks": ["./src/hooks"],
-            "@context/*": ["./src/context/*"],
-            "@context": ["./src/context"],
-            "@features/*": ["./src/features/*"],
-            "@features": ["./src/features"],
-            "@utils/*": ["./utils/*"],
-            "@utils": ["./utils"]
+            "@/packages/*": ["../../packages/*"],
+            "@/config/*": ["../../config/*"],
+            "@/public/*": ["./public/*"],
+            "@/*": ["./src/*"]
         }
     },
     "include": [

@@ -12,17 +12,24 @@
         "url": "https://github.com/virketrang/virketrang"
     },
     "source": "src/index.ts",
-    "main": "dist/main.js",
-    "module": "dist/module.js",
-    "types": "dist/types.d.ts",
+    "main": "dist/cjs.js",
+    "module": "dist/es.js",
+    "types": "dist/index.d.ts",
     "exports": {
-        "types": "./dist/types.d.ts",
-        "import": "./dist/module.js",
-        "require": "./dist/main.js"
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/es.js",
+            "require": "./dist/cjs.js"
+        },
+        "./styles": {
+            "import": "./dist/style.css",
+            "require": "./dist/style.css"
+        }
     },
     "files": [
         "dist"
     ],
+    "packageManager": "pnpm@8.6.0",
     "publishConfig": {
         "registry": "https://registry.npmjs.org/",
         "access": "public"
@@ -32,8 +39,7 @@
         "publish": "npm publish",
         "start": "storybook dev --port 8000",
         "build:storybook": "storybook build",
-        "watch": "parcel watch",
-        "build": "parcel build",
+        "build": "vite build",
         "test": "vitest"
     },
     "alias": {
@@ -61,9 +67,6 @@
     ],
     "license": "MIT",
     "devDependencies": {
-        "@parcel/packager-ts": "^2.8.3",
-        "@parcel/transformer-sass": "^2.8.3",
-        "@parcel/transformer-typescript-types": "^2.8.3",
         "@storybook/addon-actions": "7.0.6",
         "@storybook/addon-essentials": "7.0.6",
         "@storybook/addon-interactions": "7.0.6",
@@ -74,10 +77,9 @@
         "@storybook/react-vite": "7.0.6",
         "@storybook/testing-library": "0.1.0",
         "@storybook/types": "7.0.6",
-        "@types/node": "^18.15.5",
+        "@types/node": "^18.16.0",
         "@types/react": "^18.0.28",
         "@vitejs/plugin-react": "^3.1.0",
-        "parcel": "^2.8.3",
         "postcss": "^8.4.21",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -86,7 +88,7 @@
         "typescript": "^5.0.4",
         "typescript-plugin-css-modules": "^5.0.0",
         "vite": "^4.1.0",
-        "webpack": "^5.76.3"
+        "vite-plugin-dts": "^2.3.0"
     },
     "peerDependencies": {
         "react": "^18.2.0"

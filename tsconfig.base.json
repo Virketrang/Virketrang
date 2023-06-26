@@ -20,6 +20,9 @@
         "extendedDiagnostics": true,
         "module": "esnext",
         "moduleResolution": "node",
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "paths": {
+            "@virketrang/my-lib": ["packages/my-lib/src/index.ts"]
+        }
     }
 }

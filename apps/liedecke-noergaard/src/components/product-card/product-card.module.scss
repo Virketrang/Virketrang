@@ -1,0 +1,90 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 50px;
+}
+
+.newsLabel {
+    position: absolute;
+    left: 17px;
+    top: 13px;
+    text-transform: uppercase;
+}
+
+.wrapper {
+    grid-column: 1 / 3;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    .close {
+        opacity: 0;
+        transition: opacity 300ms ease-in;
+    }
+
+    &:hover {
+        .close {
+            opacity: 1;
+        }
+    }
+}
+
+.details {
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h4 {
+        font-weight: 500;
+        font-size: 1.25rem;
+    }
+}
+
+.actions {
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 0.5rem;
+
+    .textButton {
+        width: 6rem;
+        height: 2rem;
+        transition: scale 200ms ease-in;
+
+        &:hover {
+            scale: 1.025;
+        }
+    }
+
+    .more {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        color: #000;
+    }
+
+    .purchase {
+        background: #000;
+        color: #fff;
+    }
+
+    .iconButton {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .actions {
+        .textButton {
+            display: none;
+        }
+
+        .iconButton {
+            display: grid;
+            place-items: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+        }
+    }
+}

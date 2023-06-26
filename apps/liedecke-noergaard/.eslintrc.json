@@ -4,9 +4,7 @@
     "overrides": [
         {
             "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-            "rules": {
-                "@next/next/no-html-link-for-pages": ["off", "projects/webshop/client/web/src/app"]
-            }
+            "rules": {}
         },
         {
             "files": ["*.ts", "*.tsx"],

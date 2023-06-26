@@ -1,6 +1,6 @@
-const i18n: { defaultLocale: 'da'; locales: ('da' | 'en' | 'de')[] } = {
+const i18n: { defaultLocale: 'da'; locales: ('da' | 'en')[] } = {
     defaultLocale: 'da',
-    locales: ['da', 'en', 'de']
+    locales: ['da', 'en']
 }
 
 export default i18n

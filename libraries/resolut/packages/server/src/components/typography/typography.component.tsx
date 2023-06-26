@@ -1,17 +1,17 @@
-import { createElement, forwardRef, memo } from 'react';
+import { createElement, forwardRef, memo } from 'react'
 
-import styles from './typography.component.module.sass';
-import TypographyComponent from './typography.component.types';
+import styles from './typography.component.module.sass'
+import TypographyComponent from './typography.component.types'
 
-const NAME = 'typography';
+const NAME = 'typography'
 
 import {
     convertFontLetterSpacingToCSSValue,
     convertFontLineHeightToCSSValue,
     CSSVariables,
-    ClassAttribute,
-} from 'utils/index';
-import { convertMarginToCSSValue, convertPaddingToCSSValue } from 'utils/index';
+    ClassAttribute
+} from 'utils/index'
+import { convertMarginToCSSValue, convertPaddingToCSSValue } from 'utils/index'
 
 const Typography: TypographyComponent = memo(
     forwardRef(
@@ -50,7 +50,7 @@ const Typography: TypographyComponent = memo(
                 styles[variant],
                 fluid ? styles.fluid : '',
                 container ? styles.container : ''
-            );
+            )
 
             const CSSVariablesStyles = CSSVariables(
                 {
@@ -61,20 +61,20 @@ const Typography: TypographyComponent = memo(
                     letterSpacing: convertFontLetterSpacingToCSSValue(letterSpacing),
                     lineHeight: convertFontLineHeightToCSSValue(lineHeight),
                     margin: convertMarginToCSSValue(margin, marginTop, marginRight, marginBottom, marginLeft),
-                    padding: convertPaddingToCSSValue(padding, paddingTop, paddingRight, paddingBottom, paddingLeft),
+                    padding: convertPaddingToCSSValue(padding, paddingTop, paddingRight, paddingBottom, paddingLeft)
                 },
                 NAME
-            );
+            )
 
             return createElement(
                 element,
                 { ref, className: classNames, style: { ...CSSVariablesStyles, ...style }, ...props },
                 children
-            );
+            )
         }
     )
-);
+)
 
-Typography.displayName = NAME;
+Typography.displayName = NAME
 
-export default Typography;
+export default Typography

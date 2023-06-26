@@ -23,5 +23,15 @@
             "inputs": ["^stories", "^dockerfiles"]
         },
         "lint": {}
+    },
+    "generators": {
+        "@nx/react": {
+            "application": {
+                "babel": true
+            },
+            "library": {
+                "unitTestRunner": "vitest"
+            }
+        }
     }
 }

@@ -1,0 +1,5 @@
+export { default as Header } from './header/header.component'
+export { default as Footer } from './footer/footer.component'
+export { default as ShoppingCart } from './shopping-cart/shopping-cart.component'
+export { default as Sidebar } from './sidebar/sidebar.component'
+export { default as CookieModal } from './cookie-modal/cookie-modal.component'

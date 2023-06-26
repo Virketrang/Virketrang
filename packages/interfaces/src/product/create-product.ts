@@ -1,14 +1,14 @@
-import { ProductType } from '@packages/enums';
+import { ProductType } from '../../../enums'
 
 interface CreateProduct {
-    name: string;
-    stock: string;
-    description: string;
-    retailPrice: string;
-    category: string;
-    type: ProductType;
-    costPrice: string;
-    available?: boolean;
+    name: string
+    stock: string
+    description: string
+    retailPrice: string
+    category: string
+    type: ProductType
+    costPrice: string
+    available?: boolean
 }
 
-export default CreateProduct;
+export default CreateProduct

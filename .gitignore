@@ -26,10 +26,6 @@ pnpm-debug.log*
 # DEPENDENCIES
 node_modules
 
-# FIREBASE
-firebase.ts
-firebase.js
-
 # ENVIRONMENT VARIABLES
 .env
 .env.development

@@ -1,0 +1,42 @@
+.wrapper {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.banner {
+    object-fit: cover;
+    object-position: center;
+    inset: 0;
+}
+
+.section {
+    margin: 6rem 8rem;
+
+    h2 {
+        font-weight: 600;
+    }
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .section {
+        margin: 6rem 4rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .section {
+        margin: 6rem 2rem;
+
+        h2 {
+            text-align: center;
+        }
+    }
+}

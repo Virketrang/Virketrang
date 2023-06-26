@@ -1,0 +1,93 @@
+.sidebar {
+    display: none;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 400px;
+    padding-inline: 2rem;
+    background: #fff;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    transition: transform 250ms ease-in;
+    transform: translateX(-100%);
+
+    &[data-open='true'] {
+        transform: translateX(0);
+    }
+}
+
+.navigation {
+    font-size: 2rem;
+    font-weight: 500;
+    padding-block: 2rem;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        li {
+            color: rgba(0, 0, 0, 0.5);
+
+            &:hover {
+                color: rgba(0, 0, 0, 1);
+            }
+        }
+    }
+}
+
+.actions {
+    margin-top: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    padding-block: 2rem;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.15);
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+
+    .search {
+        &::after {
+            content: '';
+        }
+    }
+
+    .login {
+        &::after {
+            content: '';
+        }
+    }
+}
+
+.logo {
+    padding: 3rem 0;
+
+    h4 {
+        margin-inline: auto;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .sidebar {
+        display: flex;
+    }
+}

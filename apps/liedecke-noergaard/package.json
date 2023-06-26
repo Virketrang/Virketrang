@@ -34,20 +34,21 @@
     "dependencies": {
         "@formatjs/intl-localematcher": "^0.2.32",
         "@resolut/client": "workspace:^",
-        "@resolut/colors": "workspace:^",
         "@resolut/server": "workspace:^",
         "negotiator": "^0.6.3",
+        "next": "13.4.4",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "sharp": "^0.32.1"
     },
     "devDependencies": {
+        "@faker-js/faker": "^8.0.2",
         "@types/negotiator": "^0.6.1",
         "@types/node": "^18.14.0",
         "@types/react": "^18.0.37",
         "@types/react-dom": "^18.0.11",
         "eslint": "^8.33.0",
         "eslint-config-next": "^13.2.1",
-        "next": "13.3.5-canary.1",
         "sass": "^1.58.3",
         "typescript": "^5.0.4",
         "typescript-plugin-css-modules": "^5.0.0"

@@ -18,7 +18,7 @@ import Link from 'next/link'
 const AppLogo: AppLogoComponent = memo(({ locale }) => {
     return (
         <Link href={`/${locale}`} className={logo}>
-            <Image alt="Logo" width={32} height={32} src={Logo.src} />
+            <Image alt="Logo" width={24} height={24} src={Logo.src} />
             <h4 className={cormorantGaramond.className} style={{ fontWeight: 700 }}>
                 Virketrang
             </h4>

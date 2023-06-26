@@ -1,0 +1,11 @@
+.navigation {
+    gap: 4rem;
+    display: flex;
+    margin: auto;
+}
+
+@media (max-width: 1120px) {
+    .navigation {
+        display: none;
+    }
+}

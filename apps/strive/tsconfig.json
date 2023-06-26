@@ -10,10 +10,11 @@
         "skipLibCheck": true,
         "target": "ESNext",
         "baseUrl": ".",
+        "typeRoots": ["src/types"],
         "paths": {
             "@components/*": ["src/components/*"]
         }
     },
-    "include": ["**/*.ts", "**/*.tsx"],
+    "include": ["**/*.ts", "**/*.tsx", "index.jsx"],
     "extends": "expo/tsconfig.base"
 }

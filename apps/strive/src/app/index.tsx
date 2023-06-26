@@ -1,21 +1,39 @@
 import { Text, View } from 'react-native'
-
 import { StatusBar } from 'expo-status-bar'
 
-import { LoginModal, PressableButton } from 'src/components/index'
+import { Button } from '../components/index'
 
-import { app, heading, caption } from './_styles'
-import { useState } from 'react'
+import { app, heading, caption, button, buttonGroup } from './_styles'
+import Colors from '@resolut/colors'
+import { useRouter } from 'expo-router'
 
 export default function App() {
-    const [visible, setVisible] = useState(false)
+    const router = useRouter()
 
     return (
         <View style={app}>
             <Text style={heading}>Strive</Text>
             <Text style={caption}>Track your progress - Achieve your goals</Text>
-            <LoginModal visible={visible} />
-            <PressableButton setVisible={setVisible} />
+            <View style={buttonGroup}>
+                <Button
+                    style={button}
+                    shape="rounded"
+                    color={Colors.white}
+                    backgroundColor={Colors.blue[400]}
+                    onPress={() => router.push('/signin')}
+                >
+                    Signin
+                </Button>
+                <Button
+                    style={button}
+                    shape="rounded"
+                    color={Colors.white}
+                    backgroundColor={Colors.orange[400]}
+                    onPress={() => router.push('/signup')}
+                >
+                    Signup
+                </Button>
+            </View>
             <StatusBar />
         </View>
     )

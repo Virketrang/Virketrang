@@ -1,15 +1,14 @@
-'use client';
-import { createRef, forwardRef, memo, useEffect } from 'react';
+import { createRef, forwardRef, memo, useEffect } from 'react'
 
-import 'styles/base.sass';
-import 'styles/button.sass';
-import 'styles/size.sass';
-import 'styles/shape.sass';
+import 'styles/base.sass'
+import 'styles/button.sass'
+import 'styles/size.sass'
+import 'styles/shape.sass'
 
-import { NotARefObjectError } from '../../errors';
+import { NotARefObjectError } from '../../errors'
 
-import ModalComponent from './modal.component.types';
-import styles from './modal.component.module.sass';
+import ModalComponent from './modal.component.types'
+import styles from './modal.component.module.sass'
 
 const Modal: ModalComponent = memo(
     forwardRef(
@@ -27,19 +26,19 @@ const Modal: ModalComponent = memo(
             },
             forwardedRef
         ) => {
-            if (typeof forwardedRef === 'function') throw new NotARefObjectError();
+            if (typeof forwardedRef === 'function') throw new NotARefObjectError()
 
-            const modal = forwardedRef || createRef<HTMLDialogElement>()!;
+            const modal = forwardedRef || createRef<HTMLDialogElement>()!
 
-            const classNames = `${className} ${styles.modal} ${shape}`;
+            const classNames = `${className} ${styles.modal} ${shape}`
 
-            const dynamic = { '--modal-backdrop': backdrop };
+            const dynamic = { '--modal-backdrop': backdrop }
 
             useEffect(() => {
-                modal.current?.removeAttribute('open');
+                modal.current?.removeAttribute('open')
 
-                open ? modal.current?.showModal() : modal.current?.close();
-            }, [open]);
+                open ? modal.current?.showModal() : modal.current?.close()
+            }, [open])
 
             return (
                 <dialog
@@ -47,7 +46,8 @@ const Modal: ModalComponent = memo(
                     {...props}
                     ref={modal}
                     className={classNames}
-                    draggable={draggable}>
+                    draggable={draggable}
+                >
                     <form className={styles.form} method="dialog">
                         <div className={styles.header}>
                             <h4>{title}</h4>{' '}
@@ -70,9 +70,9 @@ const Modal: ModalComponent = memo(
                         </div>
                     </form>
                 </dialog>
-            );
+            )
         }
     )
-);
+)
 
-export default Modal;
+export default Modal

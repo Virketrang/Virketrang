@@ -1,0 +1,14 @@
+.menu {
+    display: none;
+}
+
+@media screen and (max-width: 1120px) {
+    .menu {
+        display: inline-block;
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

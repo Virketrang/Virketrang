@@ -1,0 +1,88 @@
+{
+    "navigation": {
+        "confecture": "Confecture",
+        "craftsmanship": "Craftsmanship",
+        "cider": "Cider",
+        "recipes": "Recipes",
+        "menu": "Menu",
+        "search": "Search",
+        "login": "Login"
+    },
+    "shoppingCart": {
+        "title": "Shopping Cart",
+        "pieces": "pcs.",
+        "remove": "Remove",
+        "total": "Total",
+        "acceptance": "I have read and accepts",
+        "termsAndConditionsOfSale": "the terms and conditions of sale",
+        "and": "and",
+        "privacyPolicy": "the privacy policy.",
+        "checkout": "Checkout"
+    },
+    "footer": {
+        "about": {
+            "title": "About",
+            "entries": {
+                "newsletter": "Newsletter",
+                "retailers": "Retailers",
+                "store": "Store",
+                "catalog": "Catalog",
+                "history": "History",
+                "philosophy": "Philosophy"
+            }
+        },
+        "information": {
+            "title": "Information",
+            "entries": {
+                "faq": "FAQ",
+                "inspectionReport": "Inspection Report",
+                "termsAndConditionsOfSale": "Terms and conditions of sale",
+                "privacyPolicy": "Privacy policy",
+                "cookiePolicy": "Cookie policy",
+                "termsAndConditionsOfDelivery": "Terms and conditions of delivery"
+            }
+        },
+        "other": {
+            "title": "Other",
+            "entries": {
+                "career": "Career",
+                "business": "Business",
+                "employees": "Employees",
+                "annualReport": "Annual Report",
+                "suppliers": "Suppliers",
+                "imageBank": "Image Bank"
+            }
+        },
+        "contacts": {
+            "openingHours": "Open 08:00 - 16:00",
+            "mail": "contact@liedeckenoergaard.com",
+            "phone": "0045 30 28 82 55",
+            "cvr": "41255250",
+            "address": "Banegårdsvej 8, 1. th. - 8660 Skanderborg - Denmark"
+        },
+        "copyright": "All rights reserved."
+    },
+    "landingPage": {
+        "selectedProducts": "Selected products"
+    },
+    "product": {
+        "newsLabel": "New",
+        "add": "Add",
+        "readMore": "Read more"
+    },
+    "currency": "GBP",
+    "cookieModal": {
+        "navigation": { "consent": "Consent", "details": "Details", "about": "About" },
+        "nessesary": "Only nessesary",
+        "accept": "Accept",
+        "consent": {
+            "title": "You are in charge of your personal information",
+            "text": "We use our own and third party cookies to enhance the user experience of our webshop, provide statistics and deliver targetet marketing. Choose \"Accept\" to consent to our use of cookies. Alternatively you can select to what degree we may use cookies. You can at any time withdraw your consent. Please read our ",
+            "cookiePolicy": "cookie policy.",
+            "nessesary": "Nessesary",
+            "preferences": "Preferences",
+            "statistics": "Statistics",
+            "marketing": "Marketing"
+        }
+    }
+}
