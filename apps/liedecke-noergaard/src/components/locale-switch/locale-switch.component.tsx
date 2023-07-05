@@ -22,7 +22,13 @@ const LocaleSwitch: LocaleSwitchComponent = memo(({ currentLocale }) => {
     return (
         <div className={styles.localeSwitch}>
             <LocaleFlag locale={currentLocale} />
-            <select onChange={handleChange} className={styles.select} defaultValue={currentLocale}>
+            <select
+                name="locale-switch"
+                id="locale-switch"
+                onChange={handleChange}
+                className={styles.select}
+                defaultValue={currentLocale}
+            >
                 <option value={currentLocale}>{localeToLanguageName(currentLocale)}</option>
                 {otherLocales.map((locale) => (
                     <option key={locale} value={locale}>

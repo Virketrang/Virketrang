@@ -1,14 +1,14 @@
-import { Entity, OneToMany, PrimaryKey, Property, Collection } from '@mikro-orm/core';
-import Product from './product.entity';
+import { Entity, OneToMany, PrimaryKey, Property, Collection } from '@mikro-orm/core'
+import Product from './product.entity'
 
 @Entity()
 export default abstract class Category {
     @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
-    id!: string;
+    id!: string
 
     @Property()
-    name!: string;
+    name!: string
 
-    @OneToMany({ entity: () => Product, mappedBy: 'category', orphanRemoval: true, eager: true })
-    products = new Collection<Product[]>(this);
+    // @OneToMany({ entity: () => Product, mappedBy: 'category', orphanRemoval: true, eager: true })
+    // products = new Collection<Product[]>(this)
 }

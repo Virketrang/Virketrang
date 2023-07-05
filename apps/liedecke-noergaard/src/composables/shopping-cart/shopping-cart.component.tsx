@@ -60,7 +60,7 @@ const ShoppingCart: ShoppingCartComponent = memo(({ dictionaries }) => {
                 </span>
             </div>
             <div className={styles.terms}>
-                <input type="checkbox" />
+                <input name="user-consent" id="user-consent" type="checkbox" />
                 <span>
                     {`${dictionaries.shoppingCart.acceptance} `}
                     <Link href="">{dictionaries.shoppingCart.termsAndConditionsOfSale}</Link>

@@ -19,6 +19,12 @@
         "privacyPolicy": "privatlivspolitikken.",
         "checkout": "Gå til kassen"
     },
+    "filter": {
+        "collection": {
+            "title": "Kollektion",
+            "values": ["Kollektion 1", "Kollektion 2", "Kollektion 3", "Kollektion 4", "Kollektion 5"]
+        }
+    },
     "footer": {
         "about": {
             "title": "Om os",
@@ -55,7 +61,7 @@
         },
         "contacts": {
             "openingHours": "Åbent 08:00 - 16:00",
-            "mail": "kontakt@liedeckenoergaard.dk",
+            "mail": "info@liedeckenoergaard.dk",
             "phone": "(+45) 30 28 82 55",
             "cvr": "41255250",
             "address": "Banegårdsvej 8, 1. th. - 8660 Skanderborg - Danmark"
@@ -63,7 +69,9 @@
         "copyright": "Alle rettigheder forbeholdes."
     },
     "landingPage": {
-        "selectedProducts": "Udvalgte produkter"
+        "selectedProducts": "Udvalgte produkter",
+        "title": "Forside",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     "product": {
         "newsLabel": "nyhed",
@@ -84,5 +92,9 @@
             "statistics": "Statistik",
             "marketing": "Markedsføring"
         }
+    },
+    "confecture": {
+        "title": "Konfekture",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
 }

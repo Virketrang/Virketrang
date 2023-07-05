@@ -2,7 +2,7 @@ import { InjectRepository } from '@mikro-orm/nestjs'
 import { Injectable, NotFoundException } from '@nestjs/common'
 import { EntityManager } from '@mikro-orm/postgresql'
 
-import { Order } from '@entities'
+import { Order } from '@/app/entities'
 
 import OrderRepository from './order.repository'
 import { wrap } from '@mikro-orm/core'

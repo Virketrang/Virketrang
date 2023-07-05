@@ -22,10 +22,10 @@ const PaymentMethods: PaymentMethodsComponent = memo(() => {
                 <Mastercard />
             </li>
             <li>
-                <Image src={Visa.src} width={32} height={10.37} alt="Visa logo" />
+                <Image src={Visa.src} width={32} height={10} alt="Visa logo" />
             </li>
             <li>
-                <Image src={Dankort.src} width={33.18} height={20} alt="Dankort logo" />
+                <Image src={Dankort.src} width={33} height={20} alt="Dankort logo" />
             </li>
         </ul>
     )

@@ -2,31 +2,21 @@
     "extends": "../tsconfig.base.json",
     "compilerOptions": {
         "target": "ESNext",
-        "lib": ["dom", "dom.iterable", "esnext"],
+        "useDefineForClassFields": true,
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "allowJs": false,
         "skipLibCheck": true,
-        "noEmit": true,
+        "esModuleInterop": false,
+        "baseUrl": ".",
         "isolatedModules": true,
-        "jsx": "preserve",
-        "incremental": true,
-        "noPropertyAccessFromIndexSignature": false,
-        "plugins": [
-            {
-                "name": "typescript-plugin-css-modules",
-                "options": {
-                    "classnameTransform": "camelCase"
-                }
-            },
-            {
-                "name": "next"
-            }
-        ],
+        "typeRoots": ["unimport.d.ts"],
+        "noEmit": true,
+        "jsx": "react-jsx",
         "paths": {
             "@/*": ["./src/*"],
-            "@components/*": ["./src/components/*"],
             "@packages/*": ["../packages/*"]
-        },
-        "allowJs": true
+        }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "dist/types/**/*.ts"],
-    "exclude": ["node_modules", "dist"]
+    "include": ["src", "unimport.d.ts"],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }

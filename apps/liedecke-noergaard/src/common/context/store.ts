@@ -1,3 +1,4 @@
+'use client'
 import { createContext, Dispatch } from 'react'
 import { StoreAction, StoreState } from '../provider/store.provider'
 

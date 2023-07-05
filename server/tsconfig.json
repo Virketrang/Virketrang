@@ -15,18 +15,7 @@
         "strictBindCallApply": false,
         "paths": {
             "@packages/*": ["../packages/*"],
-            "@authentication/*": ["./src/app/authentication/*"],
-            "@config/*": ["./src/app/config/*"],
-            "@database/*": ["./src/app/database/*"],
-            "@modules/*": ["./src/app/modules/*"],
-            "@services/*": ["./src/app/services/*"],
-            "@entities/*": ["./src/app/entities/*"],
-            "@authentication": ["./src/app/authentication/index"],
-            "@config": ["./src/app/config/index"],
-            "@database": ["./src/app/database/index"],
-            "@modules": ["./src/app/modules/index"],
-            "@services": ["./src/app/services/index"],
-            "@entities": ["./src/app/entities/index"]
+            "@/*": ["./src/*"]
         }
     }
 }

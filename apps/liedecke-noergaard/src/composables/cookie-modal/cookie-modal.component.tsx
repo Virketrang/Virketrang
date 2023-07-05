@@ -1,24 +1,35 @@
 'use client'
-import { memo, createRef, useEffect, useState, useRef } from 'react'
+import { memo, createRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import CookieModalComponent from './cookie-modal.types'
 import styles from './cookie-modal.module.scss'
+import { FormEvent } from 'react'
+
+const LOCAL_STORAGE_KEY = 'liedecke-noergaard-cookie-preferences'
 
 const CookieModal: CookieModalComponent = memo(({ dictionary }) => {
     const modal = createRef<HTMLDialogElement>()
     const [screen, setScreen] = useState<'CONSENT' | 'DETAILS' | 'ABOUT'>('CONSENT')
+    const [preferences, setPreferences] = useState(true)
+    const [statistics, setStatistics] = useState(true)
+    const [marketing, setMarketing] = useState(true)
 
     useEffect(() => {
         if (!modal) return
         modal.current?.removeAttribute('open')
 
-        modal.current?.showModal()
-    }, [modal])
+        const userCookiePreferences = localStorage.getItem(LOCAL_STORAGE_KEY)
+        if (!userCookiePreferences) return modal.current?.showModal()
+    }, [])
+
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ nessesary: true, preferences, statistics, marketing }))
+    }
 
     return (
         <dialog className={styles.modal} ref={modal}>
-            <form method="dialog">
+            <form method="dialog" onSubmit={handleSubmit}>
                 <span className={styles.logo}>Liedecke & Noergaard</span>
                 <nav className={styles.navigation}>
                     <ul>
@@ -42,17 +53,34 @@ const CookieModal: CookieModalComponent = memo(({ dictionary }) => {
                     </div>
                     <div className={styles.checkboxes}>
                         <span className={styles.nessesary}>{dictionary.consent.nessesary}</span>
-
                         <label htmlFor="preferences">
-                            <input defaultChecked type="checkbox" name="preferences" id="preferences" />
+                            <input
+                                onChange={() => setPreferences((prev) => !prev)}
+                                checked={preferences}
+                                type="checkbox"
+                                name="preferences"
+                                id="preferences"
+                            />
                             <span>{dictionary.consent.preferences}</span>
                         </label>
                         <label htmlFor="statistics">
-                            <input defaultChecked type="checkbox" name="statistics" id="statistics" />
+                            <input
+                                onChange={() => setStatistics((prev) => !prev)}
+                                checked={statistics}
+                                type="checkbox"
+                                name="statistics"
+                                id="statistics"
+                            />
                             <span>{dictionary.consent.statistics}</span>
                         </label>
                         <label htmlFor="marketing">
-                            <input defaultChecked type="checkbox" name="marketing" id="marketing" />
+                            <input
+                                onChange={() => setMarketing((prev) => !prev)}
+                                checked={marketing}
+                                type="checkbox"
+                                name="marketing"
+                                id="marketing"
+                            />
                             <span>{dictionary.consent.marketing}</span>
                         </label>
                     </div>

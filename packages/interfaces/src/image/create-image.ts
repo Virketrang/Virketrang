@@ -1,6 +1,8 @@
 interface CreateImage {
-    url: string;
-    description: string;
+    url: string
+    alt: string
+    width: number
+    height: number
 }
 
-export default CreateImage;
+export default CreateImage

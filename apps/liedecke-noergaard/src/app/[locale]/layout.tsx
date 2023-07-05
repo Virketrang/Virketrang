@@ -1,6 +1,6 @@
 /// <reference path="../../typings.d.ts" />
-import '@/packages/styles/preset.scss'
-import '@/packages/styles/focus.sass'
+import '@/packages/styles/preset.css'
+import '@/packages/styles/focus.css'
 import '../../styles.scss'
 
 import { ReactNode } from 'react'

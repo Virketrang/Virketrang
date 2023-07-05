@@ -1,9 +1,13 @@
 import { EntityManager, EntityRepository } from '@mikro-orm/postgresql'
 import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@mikro-orm/nestjs'
-import { Image, Product } from 'src/app/entities'
-import { CreateProduct, UpdateProduct, CreateImage } from '@packages/interfaces'
 import { wrap } from '@mikro-orm/core'
+
+import { CreateProduct, UpdateProduct, CreateImage } from '@packages/interfaces'
+import { Product } from '@/app/entities'
+import { sanitizeObject, calcSort } from '@/app/utils'
+
+import ProductQueryParams from './dto/query.dto'
 
 @Injectable()
 export default class ProductService {
@@ -20,8 +24,19 @@ export default class ProductService {
         return product
     }
 
-    async getProducts() {
-        const products = await this.productRepository.findAll({ populate: ['images'] })
+    async getProducts({ minPrice, maxPrice, limit, materials, sort, ...params }: ProductQueryParams) {
+        const products = await this.productRepository.find(
+            sanitizeObject({
+                ...params,
+                materials: materials ? { $contains: materials } : undefined,
+                retailPrice: { $gte: minPrice || 1, $lte: maxPrice || 10000 }
+            }),
+            {
+                populate: ['images'],
+                limit: limit,
+                orderBy: calcSort(sort)
+            }
+        )
 
         if (!products) new NotFoundException('Ingen produkter blev fundet')
 
@@ -29,7 +44,18 @@ export default class ProductService {
     }
 
     async createProduct(product: CreateProduct, images: CreateImage[]): Promise<Product> {
-        const { name, stock, description, retailPrice, costPrice, category, type, available } = product
+        const {
+            name,
+            stock,
+            description,
+            retailPrice,
+            costPrice,
+            category,
+            available,
+            materials,
+            measurement,
+            deliveryTime
+        } = product
 
         const newProduct = this.productRepository.create({
             name: name,
@@ -37,10 +63,12 @@ export default class ProductService {
             description: description,
             retailPrice: Number(retailPrice),
             costPrice: Number(costPrice),
-            type,
-            images,
             category,
-            available: available ? available : true
+            images,
+            deliveryTime: Number(deliveryTime),
+            available: available ? available : true,
+            materials,
+            measurement
         })
 
         await this.em.persistAndFlush(newProduct)

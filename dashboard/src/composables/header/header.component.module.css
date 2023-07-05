@@ -1,0 +1,15 @@
+.appbar {
+    background: #4f45e4;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 4rem;
+}
+
+.toolbar {
+    fill: #fff;
+    display: flex;
+    gap: 2rem;
+}

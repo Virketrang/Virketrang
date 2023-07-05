@@ -1,59 +1,29 @@
 {
-    "name": "@virketrang/dashboard",
-    "productName": "Dashboard",
-    "version": "0.0.0",
+    "name": "dashboard",
     "private": true,
+    "version": "0.0.0",
+    "type": "module",
     "scripts": {
-        "dev": "concurrently \"pnpm run next:dev\" \"wait-on http://localhost:3000 && pnpm run electron:build\" \"wait-on http://localhost:3000 && pnpm run electron:dev\"",
-        "start": "pnpm run electron:build && NODE_ENV=production pnpm run electron:dev",
-        "build": "pnpm run build:next && pnpm run build:electron",
-        "lint": "next lint",
-        "test": "pnpm run next:test",
-        "package": "pnpm run build && electron-builder --dir",
-        "dist": "pnpm run build && electron-builder",
-        "NEXT": "--------------- NEXT ---------------",
-        "next:dev": "next dev",
-        "next:test": "vitest && rimraf coverage",
-        "next:build": "next build",
-        "ELECTRON": "--------------- ELECTRON ---------------",
-        "electron:dev": "electron dist/electron/index.js",
-        "electron:build": "tsc -p tsconfig.node.json",
-        "AUTO": "--------------- AUTO ---------------",
-        "postinstall": "electron-builder install-app-deps"
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "tauri": "tauri"
     },
     "dependencies": {
-        "electron-is-dev": "^2.0.0",
-        "electron-next": "^3.1.5",
-        "electron-updater": "^5.3.0",
-        "next": "13.3.4",
-        "react": "18.2.0",
-        "react-dom": "18.2.0"
+        "@tauri-apps/api": "^1.4.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.14.0",
+        "swr": "^2.2.0",
+        "unimport": "^3.0.14"
     },
     "devDependencies": {
-        "@types/node": "18.16.3",
-        "@types/react": "18.2.0",
-        "@types/react-dom": "^18.0.11",
-        "@vitejs/plugin-react": "^3.1.0",
-        "@vitest/coverage-c8": "^0.30.1",
-        "autoprefixer": "^10.4.14",
-        "concurrently": "^8.0.1",
-        "electron": "^24.3.0",
-        "electron-builder": "^23.6.0",
-        "electron-reloader": "^1.2.3",
-        "eslint": "8.39.0",
-        "eslint-config-next": "^13.2.1",
-        "postcss": "^8.4.21",
-        "rimraf": "^3.0.2",
-        "sass": "^1.58.3",
-        "typescript": "5.0.4",
-        "typescript-plugin-css-modules": "^5.0.1",
-        "vitest": "^0.30.1",
-        "wait-on": "^7.0.1"
-    },
-    "build": {
-        "asar": true,
-        "files": [
-            "out"
-        ]
+        "@tauri-apps/cli": "^1.4.0",
+        "@types/node": "^18.7.10",
+        "@types/react": "^18.0.15",
+        "@types/react-dom": "^18.0.6",
+        "@vitejs/plugin-react": "^3.0.0",
+        "typescript": "^4.9.5",
+        "vite": "^4.2.1"
     }
 }

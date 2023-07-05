@@ -1,22 +1,22 @@
-import { Embedded, Entity, Property } from '@mikro-orm/core';
-import Address from '../address.entity';
+import { Embeddable, Embedded, Property } from '@mikro-orm/core'
+import Address from './address.entity'
 
-@Entity({ abstract: true })
+@Embeddable()
 export default abstract class Person {
     @Property()
-    firstname!: string;
+    firstname!: string
 
     @Property()
-    lastname!: string;
+    lastname!: string
 
     @Property({ persist: false })
     get name(): string {
-        return `${this.firstname} ${this.lastname}`;
+        return `${this.firstname} ${this.lastname}`
     }
 
     @Property()
-    email!: string;
+    email!: string
 
     @Embedded(() => Address)
-    address!: Address;
+    address!: Address
 }

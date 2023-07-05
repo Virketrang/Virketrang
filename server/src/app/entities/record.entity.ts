@@ -1,7 +1,7 @@
-import { Entity, PrimaryKey } from '@mikro-orm/core';
+import { Entity, PrimaryKey } from '@mikro-orm/core'
 
 @Entity()
 export default class Record {
     @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
-    id!: string;
+    public id!: string
 }

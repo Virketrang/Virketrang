@@ -1,0 +1,12 @@
+:root {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+
+    --background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #fff;
+    }
+}

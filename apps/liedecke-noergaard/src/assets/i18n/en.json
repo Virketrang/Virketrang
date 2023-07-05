@@ -19,6 +19,12 @@
         "privacyPolicy": "the privacy policy.",
         "checkout": "Checkout"
     },
+    "filter": {
+        "collection": {
+            "title": "Collection",
+            "values": ["Collection 1", "Collection 2", "Collection 3", "Collection 4", "Collection 5"]
+        }
+    },
     "footer": {
         "about": {
             "title": "About",
@@ -55,7 +61,7 @@
         },
         "contacts": {
             "openingHours": "Open 08:00 - 16:00",
-            "mail": "contact@liedeckenoergaard.com",
+            "mail": "info@liedeckenoergaard.dk",
             "phone": "0045 30 28 82 55",
             "cvr": "41255250",
             "address": "Banegårdsvej 8, 1. th. - 8660 Skanderborg - Denmark"
@@ -63,7 +69,9 @@
         "copyright": "All rights reserved."
     },
     "landingPage": {
-        "selectedProducts": "Selected products"
+        "selectedProducts": "Selected products",
+        "title": "Forside",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     "product": {
         "newsLabel": "New",
@@ -84,5 +92,9 @@
             "statistics": "Statistics",
             "marketing": "Marketing"
         }
+    },
+    "confecture": {
+        "title": "Confecture",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
 }

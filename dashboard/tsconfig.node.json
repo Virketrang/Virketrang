@@ -1,12 +1,11 @@
 {
     "extends": "../tsconfig.base.json",
     "compilerOptions": {
-        "lib": ["ESNext"],
-        "skipLibCheck": true,
-        "module": "CommonJS",
-        "target": "esnext",
-        "outDir": "dist/electron"
+        "composite": true,
+        "paths": {
+            "@/*": ["./src/*"],
+            "@packages/*": ["../packages/*"]
+        }
     },
-    "exclude": ["node_modules"],
-    "include": ["./src/electron/*.ts"]
+    "include": ["vite.config.ts"]
 }

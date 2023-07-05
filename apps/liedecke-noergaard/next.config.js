@@ -7,7 +7,8 @@ const nextConfig = {
     },
     images: {
         remotePatterns: [
-            { protocol: 'https', hostname: 'storage.cloud.google.com', pathname: '/liedecke-noergaard/**', port: '' }
+            { protocol: 'https', hostname: 'storage.cloud.google.com', pathname: '/liedecke-noergaard/**', port: '' },
+            { protocol: 'https', hostname: 'storage.googleapis.com', pathname: '/liedecke-noergaard/**', port: '' }
         ],
         formats: ['image/avif', 'image/webp']
     },

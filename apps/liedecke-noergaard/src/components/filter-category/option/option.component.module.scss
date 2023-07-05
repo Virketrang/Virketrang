@@ -1,0 +1,12 @@
+.option {
+    display: flex;
+    gap: 1em;
+
+    input {
+        border-radius: 0;
+    }
+
+    label {
+        font-weight: 500;
+    }
+}

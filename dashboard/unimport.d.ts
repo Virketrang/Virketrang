@@ -1,0 +1,21 @@
+export {}
+declare global {
+  const Fragment: typeof import('react')['Fragment']
+  const Link: typeof import('react-router-dom')['Link']
+  const NavLink: typeof import('react-router-dom')['NavLink']
+  const Outlet: typeof import('react-router-dom')['Outlet']
+  const React: typeof import('react')['default']
+  const RouterProvider: typeof import('react-router-dom')['RouterProvider']
+  const createBrowserRouter: typeof import('react-router-dom')['createBrowserRouter']
+  const createElement: typeof import('react')['createElement']
+  const createPortal: typeof import('react-dom')['createPortal']
+  const createRef: typeof import('react')['createRef']
+  const createRoot: typeof import('react-dom/client')['createRoot']
+  const memo: typeof import('react')['memo']
+  const useCallback: typeof import('react')['useCallback']
+  const useEffect: typeof import('react')['useEffect']
+  const useNavigate: typeof import('react-router-dom')['useNavigate']
+  const useOutletContext: typeof import('react-router-dom')['useOutletContext']
+  const useSWR: typeof import('swr')['default']
+  const useState: typeof import('react')['useState']
+}

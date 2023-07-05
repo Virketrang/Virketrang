@@ -12,7 +12,7 @@ export default class StorageService {
     constructor() {
         this.storage = new Storage({
             projectId: 'liedecke-noergaard',
-            keyFilename: join(__dirname, '../../../../../../../../storage.json')
+            keyFilename: join(__dirname, '../../private/storage.json')
         })
 
         this.bucket = this.storage.bucket(BUCKET_NAME)

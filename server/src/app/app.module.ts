@@ -1,12 +1,12 @@
 import { Module, Logger } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { MikroOrmModule } from '@mikro-orm/nestjs'
-import { Bank, Category, Customer, Employee, Product, Record, Image } from './entities'
+import { Bank, Category, Customer, Employee, Product, Record, Image, Measurement, Description } from './entities'
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 
-import { ProductModule, CategoryModule } from '@modules'
+import { ProductModule, CategoryModule } from '@/app/modules'
 
 import * as joi from 'joi'
 
@@ -27,7 +27,7 @@ const logger = new Logger('MikroORM')
         MikroOrmModule.forRootAsync({
             imports: [ConfigModule],
             useFactory: (configService: ConfigService) => ({
-                entities: [Product, Image, Category, Customer, Employee, Bank, Record],
+                entities: [Product, Image, Category, Customer, Employee, Bank, Record, Measurement, Description],
                 dbName: 'webshop',
                 type: 'postgresql',
                 host: 'localhost',

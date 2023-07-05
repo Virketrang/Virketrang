@@ -1,0 +1,11 @@
+.wrapper {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.banner {
+    object-fit: cover;
+    object-position: center;
+    inset: 0;
+}

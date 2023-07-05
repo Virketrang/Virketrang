@@ -1,0 +1,18 @@
+.select {
+    appearance: none;
+    padding-inline: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    height: 2rem;
+    width: 20rem;
+    font-weight: 700;
+    background-image: url('../../../public/icons/expand.svg');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%;
+    background-size: 2em auto;
+}
+
+.select::-ms-expand {
+    display: none;
+}

@@ -1,0 +1,67 @@
+.select {
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+    height: 2rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.select::after {
+    bottom: 50%;
+    transform: translateY(50%);
+    right: 0.8em;
+    content: '';
+    position: absolute;
+    width: 0.7em;
+    height: 0.375em;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.select span {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    width: 100%;
+    padding-inline: 1rem 0.5rem;
+    height: 2rem;
+}
+
+.select ul {
+    position: absolute;
+    transform: scaleY(0);
+    overflow: hidden;
+    max-height: 500%;
+}
+
+.select[data-open='true'] ul {
+    transition: transform 250ms ease-in;
+    transform-origin: bottom;
+    transform: scaleY(1);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    transform: translateY(100%);
+    font-size: 0.75rem;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    overflow-y: auto;
+}
+
+.select[data-open='true'] ul li {
+    padding: 0.25em 0.75em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select[data-open='true'] ul li input {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+}

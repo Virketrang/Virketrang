@@ -1,9 +1,8 @@
-import { Property, PrimaryKey, OneToMany, Entity, Collection, ManyToOne, Rel, Enum } from '@mikro-orm/core'
+import { Property, PrimaryKey, OneToMany, Entity, Collection, ManyToOne, Rel, Enum, Embedded } from '@mikro-orm/core'
 
-import { ProductType } from '@packages/enums'
+import { PRODUCT_CATEGORY } from '@packages/enums'
 
-import Category from './category.entity'
-import Image from './image.entity'
+import { Description, Measurement, Image, Category } from '.'
 
 @Entity()
 export default class Product {
@@ -13,8 +12,8 @@ export default class Product {
     @Property()
     name!: string
 
-    @Property()
-    description!: String
+    @Embedded(() => Description)
+    description!: Description
 
     @Property()
     retailPrice!: number
@@ -29,13 +28,19 @@ export default class Product {
     available!: boolean
 
     @Property()
-    materials!: []
+    materials!: string[]
 
-    @Enum(() => ProductType)
-    type!: ProductType
+    @Enum(() => PRODUCT_CATEGORY)
+    category!: PRODUCT_CATEGORY
 
     @Property()
     createdAt?: Date = new Date()
+
+    @Embedded(() => Measurement)
+    measurement!: Measurement
+
+    @Property()
+    deliveryTime!: number
 
     @Property()
     profit() {
@@ -45,6 +50,6 @@ export default class Product {
     @OneToMany({ entity: () => Image, mappedBy: 'product', orphanRemoval: true, eager: true })
     images = new Collection<Image>(this)
 
-    @ManyToOne({ entity: () => Category })
-    category!: Rel<Product>
+    // @ManyToOne({ entity: () => Category })
+    // category!: Rel<Product>
 }

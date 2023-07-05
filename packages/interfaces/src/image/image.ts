@@ -1,8 +1,8 @@
 interface Image {
-    id: number;
-    url: string;
-    description: string;
-    product: number;
+    id: number
+    url: string
+    alt: string
+    product: number
 }
 
-export default Image;
+export default Image

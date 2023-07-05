@@ -38,7 +38,7 @@ const Footer: FooterComponent = memo(({ dictionary: { about, information, other,
                         <ul className={styles.contactInfo}>
                             <li>{contacts.openingHours}</li>
                             <li>
-                                <a href="mailto:kontakt@liedeckenoergaard.dk">{contacts.mail}</a>
+                                <a href="mailto:info@liedeckenoergaard.dk">{contacts.mail}</a>
                             </li>
                             <li>
                                 <a href="tel:004530288255">{contacts.phone}</a>

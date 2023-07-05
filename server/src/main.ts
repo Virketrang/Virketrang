@@ -1,21 +1,25 @@
-import { MikroORM } from '@mikro-orm/core';
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app/app.module';
+import { MikroORM } from '@mikro-orm/core'
+import { NestFactory } from '@nestjs/core'
+import { ValidationPipe } from '@nestjs/common'
 
-const PORT = process.env.PORT || 8080;
+import { AppModule } from '@/app/app.module'
+
+const PORT = process.env.PORT || 8080
 
 async function bootstrap() {
-    const app = await NestFactory.create(AppModule);
+    const app = await NestFactory.create(AppModule)
 
     app.enableCors({
         credentials: true,
-        origin: '*',
-    });
+        origin: '*'
+    })
 
-    await app.get(MikroORM).getSchemaGenerator().ensureDatabase();
-    await app.get(MikroORM).getSchemaGenerator().updateSchema();
+    await app.get(MikroORM).getSchemaGenerator().ensureDatabase()
+    await app.get(MikroORM).getSchemaGenerator().updateSchema()
 
-    await app.listen(PORT);
+    app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }))
+
+    await app.listen(PORT)
 }
 
-bootstrap();
+bootstrap()

@@ -1,61 +1,57 @@
 import Image from 'next/image'
-import { faker } from '@faker-js/faker'
 
-import Banner from '@/public/images/banners/banner.jpeg'
-import Distant from '@/public/images/products/confecture/confecture-33.webp'
-import Close from '@/public/images/products/confecture/confecture-3.webp'
-
+import BannerImage from '@/public/images/banners/banner.jpeg'
+import { Product } from '@/packages/interfaces'
 import { Locale } from '@/types'
 import { getDictionary } from '@/server'
-import { ProductCard } from '@/components'
+import { ProductCard, Banner } from '@/components'
+import { __server__, isProductNew } from '@/common'
 
 import styles from './page.module.scss'
 
 type PageProps = { params: { locale: Locale } }
 
-const getSelectedProducts = async () => {
-    return [...Array(8)].map(() => ({
-        name: 'Flødebolle',
-        price: parseInt(faker.commerce.price()),
-        id: faker.string.uuid(),
-        images: {
-            distant: { src: Distant.src, alt: 'Demo image' },
-            close: { src: Close.src, alt: 'Demo image' }
-        },
-        recent: true,
-        materials: 'Eg/valnød'
-    }))
+const getSelectedProducts: () => Promise<{ status: string; body: Product[] }> = async () => {
+    const response = await fetch(__server__ + 'products')
+
+    return await response.json()
 }
 
-export const metadata = {
-    title: 'Liedecke & Noergaard | Forside',
-    description: 'Forside'
+export async function generateMetadata({ params: { locale } }: PageProps) {
+    const { landingPage } = await getDictionary(locale)
+
+    return { title: landingPage.title, description: landingPage.description }
 }
 
 export default async function Page({ params: { locale } }: PageProps) {
     const { landingPage, product, currency } = await getDictionary(locale)
-    const products = await getSelectedProducts()
+    const data = await getSelectedProducts()
 
     return (
         <>
-            <div className={styles.wrapper} role="banner">
-                <Image
-                    src={Banner.src}
-                    fill
-                    blurDataURL={Banner.blurDataURL}
-                    placeholder="blur"
-                    sizes="100vw"
-                    alt={'Billede af et dækket bord'}
-                    priority
-                    className={styles.banner}
-                />
-            </div>
+            <Banner src={BannerImage.src} blurDataURL={BannerImage.blurDataURL} alt="Demo Billede" />
             <section className={styles.section}>
                 <h2>{landingPage.selectedProducts}</h2>
                 <div className={styles.grid} role="grid">
-                    {products.map((entry) => (
-                        <ProductCard key={entry.id} product={entry} dictionaries={{ product, currency }} />
-                    ))}
+                    {data &&
+                        data.body &&
+                        data.body.map(({ id, retailPrice, name, materials, images }) => (
+                            <ProductCard
+                                key={id}
+                                product={{
+                                    price: retailPrice,
+                                    name,
+                                    id,
+                                    materials: materials.join('/'),
+                                    images: {
+                                        close: { alt: images[0].alt, src: images[0].url },
+                                        distant: { alt: images[1].alt, src: images[1].url }
+                                    },
+                                    recent: isProductNew(new Date(data.body[0].createdAt))
+                                }}
+                                dictionaries={{ product, currency }}
+                            />
+                        ))}
                 </div>
             </section>
         </>

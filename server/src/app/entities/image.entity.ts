@@ -7,9 +7,6 @@ export default class Image {
     id!: string
 
     @Property()
-    description!: string
-
-    @Property()
     alt!: string
 
     @Property()

@@ -7,10 +7,10 @@ import styles from './navigation.module.scss'
 const Navigation: NavigationComponent = memo(({ dictionary: { confecture, craftsmanship, cider, recipes } }) => {
     return (
         <nav className={styles.navigation}>
-            <Link href="">{confecture}</Link>
-            <Link href="">{craftsmanship}</Link>
-            <Link href="">{cider}</Link>
-            <Link href="">{recipes}</Link>
+            <Link href="/products/confecture">{confecture}</Link>
+            <Link href="/products/craftmansship">{craftsmanship}</Link>
+            <Link href="/products/cider">{cider}</Link>
+            <Link href="/recipes">{recipes}</Link>
         </nav>
     )
 })
