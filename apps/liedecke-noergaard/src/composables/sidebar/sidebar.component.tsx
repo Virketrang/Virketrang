@@ -1,7 +1,4 @@
 'use client'
-import { memo } from 'react'
-import Link from 'next/link'
-
 import { Logo, ModalHeader } from '@/components'
 import { useStore } from '@/common'
 import { Person, Search } from '@/assets'

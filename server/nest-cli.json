@@ -1,8 +1,12 @@
 {
     "$schema": "https://json.schemastore.org/nest-cli",
     "collection": "@nestjs/schematics",
+    "language": "ts",
     "sourceRoot": "src",
+    "root": ".",
     "compilerOptions": {
-        "webpack": true
+        "webpack": true,
+        "webpackConfigPath": "webpack.config.js",
+        "typeCheck": true
     }
 }

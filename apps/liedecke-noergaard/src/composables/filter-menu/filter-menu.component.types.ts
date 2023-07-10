@@ -1,7 +1,14 @@
-import { FunctionComponent } from 'react'
+import { Entity } from '@/packages/interfaces'
+import { Currency, Dictionary, Locale } from '@/types'
 
-import { Dictionary } from '@/types'
+export type FilterMenuProps = {
+    dictionary: Dictionary<'filter'>
+    divisions: Entity.Division.Retrieve[]
+    open: boolean
+    currency: Currency
+    locale: Locale
+}
 
-type FilterMenuComponent = FunctionComponent<{ dictionary: Dictionary<'filter'> }>
+type FilterMenuComponent = React.Component<FilterMenuProps>
 
 export default FilterMenuComponent

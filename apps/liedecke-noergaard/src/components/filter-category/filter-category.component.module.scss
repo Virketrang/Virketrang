@@ -1,6 +1,15 @@
 .category {
     position: relative;
-    padding-bottom: 1rem;
+    padding-block: 1rem;
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.15);
+        top: 0;
+    }
 
     &::after {
         position: absolute;
@@ -14,7 +23,7 @@
     .title {
         font-weight: 500;
         font-size: 1.25rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .options {

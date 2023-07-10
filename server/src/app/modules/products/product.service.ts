@@ -3,11 +3,12 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@mikro-orm/nestjs'
 import { wrap } from '@mikro-orm/core'
 
-import { CreateProduct, UpdateProduct, CreateImage } from '@packages/interfaces'
+import { Entity } from '@packages/interfaces'
 import { Product } from '@/app/entities'
 import { sanitizeObject, calcSort } from '@/app/utils'
 
 import ProductQueryParams from './dto/query.dto'
+import CreateProductDTO from './dto/create-product.dto'
 
 @Injectable()
 export default class ProductService {
@@ -43,40 +44,15 @@ export default class ProductService {
         return products
     }
 
-    async createProduct(product: CreateProduct, images: CreateImage[]): Promise<Product> {
-        const {
-            name,
-            stock,
-            description,
-            retailPrice,
-            costPrice,
-            category,
-            available,
-            materials,
-            measurement,
-            deliveryTime
-        } = product
-
-        const newProduct = this.productRepository.create({
-            name: name,
-            stock: Number(stock),
-            description: description,
-            retailPrice: Number(retailPrice),
-            costPrice: Number(costPrice),
-            category,
-            images,
-            deliveryTime: Number(deliveryTime),
-            available: available ? available : true,
-            materials,
-            measurement
-        })
+    async createProduct(product: CreateProductDTO, images: Entity.Image.Create[]): Promise<Product> {
+        const newProduct = this.productRepository.create({ ...product, images })
 
         await this.em.persistAndFlush(newProduct)
 
         return newProduct
     }
 
-    async updateProduct(id: string, product: UpdateProduct) {
+    async updateProduct(id: string, product: Entity.Product.Update) {
         const { name, description, retailPrice, costPrice } = product
 
         const existingProduct = await this.getProduct(id)
@@ -98,6 +74,6 @@ export default class ProductService {
 
         if (!product) throw new NotFoundException(`Kunne ikke finde noget produkt med id ${id}`)
 
-        return await this.productRepository.removeAndFlush(product)
+        return await this.em.removeAndFlush(product)
     }
 }

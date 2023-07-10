@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import Image from 'next/image'
 
 import LinkedIn from '@/public/icons/linkedin.png'

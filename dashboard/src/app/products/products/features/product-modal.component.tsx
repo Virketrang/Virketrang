@@ -1,3 +1,6 @@
+import { Entity, PRODUCT_CATEGORY } from '@packages/index'
+
+import { convertObjectToFormData } from '@/common'
 import { Stepper, Button } from '@/components'
 
 import ProductModalComponent from './product-modal.component.types'
@@ -10,7 +13,7 @@ const ProductModal: ProductModalComponent = memo(({ open, setOpen }) => {
     const modal = createRef<HTMLDialogElement>()
 
     const [name, setName] = useState<string>('')
-    const [category, setCategory] = useState<string>('confecture')
+    const [category, setCategory] = useState<PRODUCT_CATEGORY>(PRODUCT_CATEGORY.CONFECTURE)
     const [shortDescription, setShortDescription] = useState<string>('')
     const [longDescription, setLongDescription] = useState<string>('')
     const [deliveryTime, setDeliveryTime] = useState<number>(0)
@@ -50,24 +53,30 @@ const ProductModal: ProductModalComponent = memo(({ open, setOpen }) => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
-        const formData = new FormData()
-
-        formData.append('name', name)
-        formData.append('shortDescription', shortDescription)
-        formData.append('category', category)
-        formData.append('longDescription', longDescription)
-        formData.append('deliveryTime', deliveryTime.toString())
-        formData.append('stock', stock.toString())
-        formData.append('costPrice', cost.toString())
-        formData.append('retailPrice', retailPrice.toString())
-        for (let i = 0; i < materials.length; i++) {
-            formData.append('materials[]', materials[i])
+        const data: Entity.Product.Create = {
+            name: { 'da-DK': name, 'en-GB': name },
+            description: {
+                short: { 'da-DK': shortDescription, 'en-GB': shortDescription },
+                long: { 'da-DK': longDescription, 'en-GB': longDescription }
+            },
+            category: category,
+            deliveryTime: deliveryTime,
+            stock: stock,
+            retailPrice: retailPrice,
+            costPrice: cost,
+            available: available,
+            designer: 'Sigfred Frey Nørgaard Knudsen',
+            materials: materials,
+            measurement: { unit: unit, value: 100 }
         }
-        formData.append('available', available === true ? 'true' : 'false')
-        formData.append('unit', unit)
+
+        const formData = convertObjectToFormData(data)
+
         for (let i = 0; i < images.length; i++) {
             formData.append('images[]', images[i])
         }
+
+        console.log([...formData.entries()])
 
         const response = await fetch('http://localhost:8080/products', {
             body: formData,

@@ -1,6 +1,4 @@
-import { ComponentProps, FunctionComponent, memo } from 'react'
-
-const Mastercard: FunctionComponent<ComponentProps<'svg'>> = memo(() => {
+const Mastercard: React.FunctionComponent<React.ComponentProps<'svg'>> = memo(() => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="28.22" height="20" viewBox="0 0 152.407 108">
             <g>

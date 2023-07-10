@@ -1,7 +1,4 @@
 'use client'
-import Link from 'next/link'
-import { memo, useState } from 'react'
-
 import styles from './footer-list.module.scss'
 import FooterListComponent from './footer-list.types'
 

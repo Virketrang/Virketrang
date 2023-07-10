@@ -1,19 +1,15 @@
-/// <reference path="../../typings.d.ts" />
 import '@/packages/styles/preset.css'
 import '@/packages/styles/focus.css'
 import '../../styles.scss'
 
-import { ReactNode } from 'react'
-
 import { i18n } from '@/config/index'
 import { getDictionary } from '@/server'
 import { CookieModal, Footer, Header, ShoppingCart, Sidebar } from '@/composables'
-import { Font } from '@/common/utils'
+import { Font, StoreProvider } from '@/common'
 import { Locale } from '@/types'
-import { StoreProvider } from '@/common/provider'
 
 type LayoutProps = {
-    children: ReactNode
+    children: React.ReactNode
     params: { locale: Locale }
 }
 
@@ -31,7 +27,7 @@ export default async function RootLayout({ children, params: { locale } }: Layou
                     <Header dictionary={navigation} />
                     <main>{children}</main>
                     <Footer locale={locale} dictionary={footer} />
-                    <ShoppingCart dictionaries={{ shoppingCart, currency }} />
+                    <ShoppingCart locale={locale} dictionaries={{ shoppingCart, currency }} />
                     <Sidebar dictionary={navigation} />
                     <CookieModal dictionary={cookieModal} />
                 </StoreProvider>

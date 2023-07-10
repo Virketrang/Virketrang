@@ -1,6 +1,3 @@
-import { memo } from 'react'
-import Link from 'next/link'
-
 import NavigationComponent from './navigation.types'
 import styles from './navigation.module.scss'
 

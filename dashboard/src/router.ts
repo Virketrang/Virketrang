@@ -9,7 +9,7 @@ import Accounting from '@/app/accounting/page'
 import Customers from '@/app/customers/page'
 
 import Products from '@/app/products/products/page'
-import Categories from '@/app/products/categories/page'
+import Categories from '@/app/products/divisions/page'
 import Materials from '@/app/products/materials/page'
 
 import Error from './app/error'
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
                 Component: ProductLayout,
                 children: [
                     { path: '/products', Component: Products },
-                    { path: '/products/categories', Component: Categories },
+                    { path: '/products/divisions', Component: Categories },
                     { path: '/products/materials', Component: Materials }
                 ]
             },

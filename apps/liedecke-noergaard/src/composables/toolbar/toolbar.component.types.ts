@@ -1,5 +1,8 @@
-import { FunctionComponent } from 'react'
-
-type ToolbarComponent = FunctionComponent<{}>
+type ToolbarComponent = FunctionComponent<{
+    sortBy: string
+    setSortBy: Dispatch<SetStateAction<string>>
+    open: boolean
+    setOpen: Dispatch<SetStateAction<boolean>>
+}>
 
 export default ToolbarComponent

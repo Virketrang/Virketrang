@@ -1,6 +1,11 @@
 .menu {
+    display: none;
     width: 20rem;
     height: 80rem;
+}
+
+.menu[data-state-open='true'] {
+    display: block;
 }
 
 .category {

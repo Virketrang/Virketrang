@@ -1,12 +1,14 @@
 import { Body, Controller, Delete, Get, Param, Post, Query, UploadedFiles, UseInterceptors } from '@nestjs/common'
 import { FilesInterceptor } from '@nestjs/platform-express'
 
-import { CreateProduct, CreateImage } from '@packages/interfaces'
+import { Entity } from '@packages/interfaces'
 
 import { StorageService } from '@/app/services'
+import { File } from '@/app/types'
 
 import ProductService from './product.service'
 import ProductQueryParams from './dto/query.dto'
+import CreateProductDTO from './dto/create-product.dto'
 
 @Controller('/products')
 export default class ProductController {
@@ -14,8 +16,8 @@ export default class ProductController {
 
     @Post()
     @UseInterceptors(FilesInterceptor('images[]', 8))
-    async createProduct(@UploadedFiles() files: Express.Multer.File[], @Body() body: any) {
-        let images: CreateImage[] = files.map((file) => {
+    async createProduct(@UploadedFiles() files: File[], @Body() body: CreateProductDTO) {
+        let images: Entity.Image.Create[] = files.map((file) => {
             return {
                 url: `https://storage.googleapis.com/liedecke-noergaard/${file.originalname}`,
                 alt: 'Test Image',
@@ -28,24 +30,9 @@ export default class ProductController {
             this.storageService.upload(file.originalname, file.buffer)
         })
 
-        const product = await this.productsService.createProduct(
-            {
-                name: body.name,
-                description: { short: body.shortDescription, long: body.longDescription },
-                materials: body.materials,
-                costPrice: body.costPrice,
-                retailPrice: body.retailPrice,
-                stock: body.stock,
-                deliveryTime: body.deliveryTime,
-                category: body.category,
-                available: body.available === 'true' ? true : false,
-                measurement: {
-                    unit: body.unit,
-                    value: 100
-                }
-            },
-            images
-        )
+        console.log({ images: files, ...body })
+
+        const product = await this.productsService.createProduct(body, images)
 
         return { status: 'succes', body: product }
     }

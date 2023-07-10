@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type CredentialsComponent = FunctionComponent<{ copyright: string; address: string; cvr: string }>
+type CredentialsComponent = React.FunctionComponent<{ copyright: string; address: string; cvr: string }>
 
 export default CredentialsComponent

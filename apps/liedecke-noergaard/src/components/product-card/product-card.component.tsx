@@ -1,15 +1,14 @@
 'use client'
-import { memo } from 'react'
 import Image from 'next/image'
 
-import { useStore, formatCurrency } from '@/common'
+import { useStore, Currency } from '@/common'
 import { ArrowRight, ShoppingBag } from '@/assets'
 
 import ProductCardComponent from './product-card.types'
 import styles from './product-card.module.scss'
 
 const ProductCard: ProductCardComponent = memo(
-    ({ product: { id, images, name, price, recent, materials }, dictionaries }) => {
+    ({ product: { id, images, name, price, recent, materials }, dictionaries, locale }) => {
         const { dispatch } = useStore()
 
         const handleClick = () =>
@@ -38,7 +37,9 @@ const ProductCard: ProductCardComponent = memo(
                 </div>
                 <div className={styles.details}>
                     <h4>{name}</h4>
-                    <span>{formatCurrency(price, dictionaries.currency === 'DKK' ? 'DKK' : 'GBP')}</span>
+                    <span>
+                        {Currency.numberToCurrency(price, dictionaries.currency === 'DKK' ? 'DKK' : 'GBP', locale)}
+                    </span>
                 </div>
                 <div className={styles.actions}>
                     <button className={`${styles.more} ${styles.textButton}`}>{dictionaries.product.readMore}</button>

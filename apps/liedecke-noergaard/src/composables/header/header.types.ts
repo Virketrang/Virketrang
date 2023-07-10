@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
 import { Dictionary } from '@/types'
 
 type HeaderComponent = FunctionComponent<{

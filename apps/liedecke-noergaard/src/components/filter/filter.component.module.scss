@@ -10,3 +10,7 @@
     background-position: right 0.7em top 50%;
     background-size: 1.25em auto;
 }
+
+.filter[data-state-open='true'] {
+    background-image: url('../../../public/icons/close.svg');
+}

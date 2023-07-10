@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import { Close } from '@/assets'
 
 import styles from './modal-header.module.scss'

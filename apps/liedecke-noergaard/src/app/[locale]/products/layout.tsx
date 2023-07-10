@@ -1,6 +1,4 @@
-import { ReactNode } from 'react'
-
-type LayoutProps = { children: ReactNode }
+type LayoutProps = { children: React.ReactNode }
 
 export default function ProductLayout({ children }: LayoutProps) {
     return <>{children}</>

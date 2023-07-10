@@ -1,6 +1,4 @@
-import { useContext } from 'react'
-
-import { StoreContext } from '../context'
+import { StoreContext } from '@/common'
 
 const useStore = () => {
     const hook = useContext(StoreContext)

@@ -1,10 +1,6 @@
 'use client'
-import { memo, createRef, useEffect, useState } from 'react'
-import Link from 'next/link'
-
 import CookieModalComponent from './cookie-modal.types'
 import styles from './cookie-modal.module.scss'
-import { FormEvent } from 'react'
 
 const LOCAL_STORAGE_KEY = 'liedecke-noergaard-cookie-preferences'
 

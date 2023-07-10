@@ -1,21 +1,17 @@
 'use client'
-import { memo } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
-
 import { i18n } from '@/config/index'
-import { localeToLanguageName, redirectedPathname } from '@/common/utils'
+import { localeToLanguageName, redirectedPathname } from '@/common'
 import { LocaleFlag } from '@/components'
 
 import LocaleSwitchComponent from './locale-switch.types'
 import styles from './locale-switch.module.scss'
-import { ChangeEvent } from 'react'
 
 const LocaleSwitch: LocaleSwitchComponent = memo(({ currentLocale }) => {
     const pathname = usePathname()
     const router = useRouter()
     const otherLocales = i18n.locales.filter((locale) => locale !== currentLocale)
 
-    const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         router.push(redirectedPathname(pathname, event.target.value))
     }
 

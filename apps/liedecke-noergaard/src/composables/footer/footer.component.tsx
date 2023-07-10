@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import { Logo, LocaleSwitch, FooterList, SocialMedia, PaymentMethods, Credentials } from '@/components'
 
 import FooterComponent from './footer.types'

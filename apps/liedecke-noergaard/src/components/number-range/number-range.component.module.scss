@@ -1,0 +1,25 @@
+.range {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    input {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        height: 2.5rem;
+        padding-inline: 1rem;
+        width: 8rem;
+        font-size: 1.125rem;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 1rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.35);
+    }
+}

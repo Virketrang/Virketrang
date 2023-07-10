@@ -1,5 +1,3 @@
-import { FunctionComponent, ReactNode } from 'react'
-
-type FilterCategoryComponent = FunctionComponent<{ title: string; children: ReactNode }>
+type FilterCategoryComponent = React.FunctionComponent<{ title: string; children: React.ReactNode }>
 
 export default FilterCategoryComponent

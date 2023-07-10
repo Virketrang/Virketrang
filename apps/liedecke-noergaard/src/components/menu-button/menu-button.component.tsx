@@ -1,6 +1,4 @@
 'use client'
-import { memo } from 'react'
-
 import { Menu } from '@/assets'
 import { useStore } from '@/common'
 

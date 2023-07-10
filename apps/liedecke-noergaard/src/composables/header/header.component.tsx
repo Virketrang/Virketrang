@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import { Logo, MenuButton, Navigation, CartButton } from '@/components'
 
 import HeaderComponent from './header.types'

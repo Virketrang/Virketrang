@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import styles from './credentials.module.scss'
 import CredentialsComponent from './credentials.types'
 

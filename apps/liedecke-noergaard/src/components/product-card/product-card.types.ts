@@ -1,6 +1,4 @@
-import { FunctionComponent } from 'react'
-
-import { Dictionary } from '@/types'
+import { Dictionary, Locale } from '@/types'
 
 type ProductCardComponent = FunctionComponent<{
     product: {
@@ -15,6 +13,7 @@ type ProductCardComponent = FunctionComponent<{
         materials: string
     }
     dictionaries: { product: Dictionary<'product'>; currency: Dictionary<'currency'> }
+    locale: Locale
 }>
 
 export default ProductCardComponent

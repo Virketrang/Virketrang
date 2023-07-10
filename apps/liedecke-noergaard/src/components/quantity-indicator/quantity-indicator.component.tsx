@@ -1,6 +1,4 @@
 'use client'
-import { memo } from 'react'
-
 import { useStore } from '@/common'
 import { Minus, Plus } from '@/assets'
 

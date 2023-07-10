@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type PaymentMethodsComponent = FunctionComponent<{}>
+type PaymentMethodsComponent = React.FunctionComponent<{}>
 
 export default PaymentMethodsComponent

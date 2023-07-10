@@ -1,7 +1,5 @@
-import { FunctionComponent, ComponentProps } from 'react'
+interface CartButtonProps extends React.ComponentProps<'svg'> {}
 
-interface CartButtonProps extends ComponentProps<'svg'> {}
-
-type CartButtonComponent = FunctionComponent<CartButtonProps>
+type CartButtonComponent = React.FunctionComponent<CartButtonProps>
 
 export default CartButtonComponent

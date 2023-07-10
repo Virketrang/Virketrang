@@ -1,8 +1,6 @@
-import { FunctionComponent } from 'react'
-
 import { Dictionary } from '@/types'
 
-type NavigationComponent = FunctionComponent<{
+type NavigationComponent = React.FunctionComponent<{
     dictionary: Dictionary<'navigation'>
 }>
 

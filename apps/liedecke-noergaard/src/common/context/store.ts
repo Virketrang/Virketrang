@@ -1,10 +1,9 @@
 'use client'
-import { createContext, Dispatch } from 'react'
-import { StoreAction, StoreState } from '../provider/store.provider'
+import { StoreAction, StoreState } from '../providers/store.provider'
 
 type Store = {
     state: StoreState
-    dispatch: Dispatch<StoreAction>
+    dispatch: React.Dispatch<StoreAction>
 } | null
 
 const StoreContext = createContext<Store>(null)

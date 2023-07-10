@@ -1,5 +1,5 @@
-import { StoreAction, StoreState } from '../provider/store.provider'
-import { Store } from '../utils'
+import { StoreAction, StoreState } from '../providers/store.provider'
+import { Store } from '@/common'
 
 const StoreReducer = (state: StoreState, action: StoreAction): StoreState => {
     switch (action.type) {

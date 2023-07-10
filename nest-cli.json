@@ -5,6 +5,7 @@
     "collection": "@nestjs/schematics",
     "compilerOptions": {
         "webpack": true,
+        "webpackConfigPath": "server/webpack.config.js",
         "tsConfigPath": "server/tsconfig.json"
     },
     "monorepo": true,
@@ -15,7 +16,9 @@
             "entryFile": "main",
             "sourceRoot": "server/src",
             "compilerOptions": {
-                "tsConfigPath": "server/tsconfig.json"
+                "tsConfigPath": "server/tsconfig.json",
+                "webpack": true,
+                "webpackConfigPath": "server/webpack.config.js"
             }
         },
         "strive": {

@@ -1,4 +1,4 @@
-import { Product } from '../provider/store.provider'
+import { Product } from '../providers/store.provider'
 
 export default abstract class Store {
     public static addProduct(products: Product[], product: Product): Product[] {

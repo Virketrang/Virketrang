@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import Image from 'next/image'
 
 import styles from './banner.component.module.scss'

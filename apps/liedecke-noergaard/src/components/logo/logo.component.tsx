@@ -1,6 +1,3 @@
-import Link from 'next/link'
-import { memo } from 'react'
-
 import styles from './logo.module.scss'
 import LogoComponent from './logo.types'
 

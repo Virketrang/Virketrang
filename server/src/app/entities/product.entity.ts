@@ -1,16 +1,16 @@
-import { Property, PrimaryKey, OneToMany, Entity, Collection, ManyToOne, Rel, Enum, Embedded } from '@mikro-orm/core'
+import { Property, PrimaryKey, OneToMany, Entity, Collection, Enum, Embedded, ManyToMany } from '@mikro-orm/core'
 
 import { PRODUCT_CATEGORY } from '@packages/enums'
 
-import { Description, Measurement, Image, Category } from '.'
+import { Description, Measurement, Image, Subdivision, I18NText } from '.'
 
 @Entity()
 export default class Product {
     @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
     id!: string
 
-    @Property()
-    name!: string
+    @Embedded(() => I18NText)
+    name!: I18NText
 
     @Embedded(() => Description)
     description!: Description
@@ -20,6 +20,9 @@ export default class Product {
 
     @Property()
     costPrice!: number
+
+    @Property()
+    deliveryTime!: number
 
     @Property({ default: 0 })
     stock!: number
@@ -40,7 +43,7 @@ export default class Product {
     measurement!: Measurement
 
     @Property()
-    deliveryTime!: number
+    designer!: string
 
     @Property()
     profit() {
@@ -50,6 +53,6 @@ export default class Product {
     @OneToMany({ entity: () => Image, mappedBy: 'product', orphanRemoval: true, eager: true })
     images = new Collection<Image>(this)
 
-    // @ManyToOne({ entity: () => Category })
-    // category!: Rel<Product>
+    @ManyToMany({ entity: () => Subdivision, nullable: true })
+    subdivisions?: Collection<Subdivision> = new Collection<Subdivision>(this)
 }

@@ -2,7 +2,7 @@ import { MikroOrmModule } from '@mikro-orm/nestjs'
 import { Module, Logger } from '@nestjs/common'
 
 import { __prod__ } from '../../constants'
-import { Bank, Category, Customer, Description, Employee, Image, Measurement, Product, Record } from '../entities'
+import { Bank, Subdivision, Customer, Description, Employee, Image, Measurement, Product, Record } from '../entities'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 
 const logger = new Logger('MikroORM')
@@ -12,7 +12,7 @@ const logger = new Logger('MikroORM')
         MikroOrmModule.forRootAsync({
             imports: [ConfigModule],
             useFactory: (configService: ConfigService) => ({
-                entities: [Product, Image, Category, Customer, Employee, Bank, Record, Measurement, Description],
+                entities: [Product, Image, Subdivision, Customer, Employee, Bank, Record, Measurement, Description],
                 dbName: 'webshop',
                 type: 'postgresql',
                 host: 'localhost',
@@ -25,7 +25,7 @@ const logger = new Logger('MikroORM')
             }),
             inject: [ConfigService]
         }),
-        MikroOrmModule.forFeature([Product, Image, Category, Customer, Employee, Bank, Record])
+        MikroOrmModule.forFeature([Product, Image, Subdivision, Customer, Employee, Bank, Record])
     ],
     exports: [MikroOrmModule]
 })

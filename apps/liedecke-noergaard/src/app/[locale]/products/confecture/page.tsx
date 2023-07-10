@@ -1,24 +1,13 @@
-import BannerImage from '@/public/images/banners/confecture.jpeg'
+import { PRODUCT_CATEGORY, SORTING_OPTION } from '@/packages/index'
 
-import { Product } from '@/packages/interfaces'
-import { SORTING_OPTION } from '@/packages/enums'
+import BannerImage from '@/public/images/banners/confecture.jpeg'
 import { getDictionary } from '@/server'
 import { Locale } from '@/types'
-import { Banner, ProductCard } from '@/components'
-import { FilterMenu, Toolbar } from '@/composables'
-import { __server__, isProductNew } from '@/common'
-
-import styles from './page.module.scss'
+import { Heading } from '@/components'
+import { ProductList } from '@/composables'
+import { __server__, API } from '@/common'
 
 type PageProps = { params: { locale: Locale } }
-
-const getProducts: ({ sortBy }: { sortBy: SORTING_OPTION }) => Promise<{ status: string; body: Product[] }> = async ({
-    sortBy
-}) => {
-    const response = await fetch(__server__ + 'products?' + `sort=${sortBy}`)
-
-    return await response.json()
-}
 
 export async function generateMetadata({ params: { locale } }: PageProps) {
     const { confecture } = await getDictionary(locale)
@@ -28,40 +17,27 @@ export async function generateMetadata({ params: { locale } }: PageProps) {
 
 export default async function Page({ params: { locale } }: PageProps) {
     const { confecture, product, currency, filter } = await getDictionary(locale)
-    const data = await getProducts({ sortBy: SORTING_OPTION.PRICE_ASSENDING })
+    const products = await API.getProducts({ sortBy: SORTING_OPTION.PRICE_ASSENDING })
+    const divisions = await API.getDivisions()
+
+    if (divisions.status !== 'success') throw Error('Kunne ikke indlæse inddelinger')
+    if (products.status !== 'success') throw Error('Kunne ikke indlæse produkter')
 
     return (
         <>
-            <Banner src={BannerImage.src} alt="Demo Image" blurDataURL={BannerImage.blurDataURL} />
-            <div className={styles.heading} role="heading">
-                <h1>{confecture.title}</h1>
-                <p>{confecture.description}</p>
-            </div>
-            <Toolbar />
-            <div className={styles.wrapper}>
-                <FilterMenu dictionary={filter} />
-                <section className={styles.grid} role="grid">
-                    {data &&
-                        data.body &&
-                        data.body.map(({ id, retailPrice, name, materials, images }) => (
-                            <ProductCard
-                                key={id}
-                                product={{
-                                    price: retailPrice,
-                                    name,
-                                    id,
-                                    materials: materials.join('/'),
-                                    images: {
-                                        close: { alt: images[0].alt, src: images[0].url },
-                                        distant: { alt: images[1].alt, src: images[1].url }
-                                    },
-                                    recent: isProductNew(new Date(data.body[0].createdAt))
-                                }}
-                                dictionaries={{ product, currency }}
-                            />
-                        ))}
-                </section>
-            </div>
+            <Heading
+                title={confecture.title}
+                description={confecture.description}
+                banner={{ src: BannerImage.src, alt: 'Demo Image', blurDataURL: BannerImage.blurDataURL! }}
+            />
+            <ProductList
+                divisions={divisions.body.filter((division) =>
+                    division.categories.includes(PRODUCT_CATEGORY.CONFECTURE)
+                )}
+                products={products.body.filter((p) => p.category === PRODUCT_CATEGORY.CONFECTURE)}
+                dictionaries={{ product, currency, filter }}
+                locale={locale}
+            />
         </>
     )
 }

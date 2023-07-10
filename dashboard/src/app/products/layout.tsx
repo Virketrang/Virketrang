@@ -23,11 +23,8 @@ const Page = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink
-                            className={({ isActive }) => (isActive ? styles.active : '')}
-                            to="/products/categories"
-                        >
-                            Kategorier
+                        <NavLink className={({ isActive }) => (isActive ? styles.active : '')} to="/products/divisions">
+                            Inddelinger
                         </NavLink>
                     </li>
                     <li>

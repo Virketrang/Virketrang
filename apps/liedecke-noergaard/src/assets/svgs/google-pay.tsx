@@ -1,6 +1,4 @@
-import { ComponentProps, FunctionComponent, memo } from 'react'
-
-const GooglePay: FunctionComponent<ComponentProps<'svg'>> = memo(() => {
+const GooglePay: React.FunctionComponent<React.ComponentProps<'svg'>> = memo(() => {
     return (
         <>
             <svg

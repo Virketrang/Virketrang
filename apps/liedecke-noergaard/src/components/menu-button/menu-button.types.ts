@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type MenuButtonComponent = FunctionComponent<{}>
+type MenuButtonComponent = React.FunctionComponent<{}>
 
 export default MenuButtonComponent

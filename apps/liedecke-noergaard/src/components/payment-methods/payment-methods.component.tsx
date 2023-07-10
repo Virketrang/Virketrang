@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import Image from 'next/image'
 
 import Visa from '@/public/icons/visa.png'

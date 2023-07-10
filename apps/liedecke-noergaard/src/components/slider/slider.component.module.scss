@@ -1,0 +1,51 @@
+.control {
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+.slider {
+    appearance: none;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+
+    &::-webkit-slider-thumb {
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 1.5rem;
+        background-color: #fff;
+        position: relative;
+        margin: 5px 0;
+        cursor: pointer;
+        appearance: none;
+        pointer-events: all;
+        z-index: 2;
+        box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.15);
+    }
+
+    &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.15);
+    }
+
+    &:nth-child(1) {
+        &::-webkit-slider-thumb::before {
+            background-color: red;
+        }
+    }
+
+    &:nth-child(2) {
+        background: none;
+
+        &::-webkit-slider-thumb::before {
+            background-color: grey;
+        }
+    }
+}

@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import Option from './option/option.component'
 import FilterCategoryComponent from './filter-category.component.types'
 import styles from './filter-category.component.module.scss'

@@ -1,6 +1,4 @@
-import { ComponentProps, FunctionComponent, memo } from 'react'
-
-const ApplePay: FunctionComponent<ComponentProps<'svg'>> = memo(() => {
+const ApplePay: React.FunctionComponent<React.ComponentProps<'svg'>> = memo(() => {
     return (
         <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_92_908)">

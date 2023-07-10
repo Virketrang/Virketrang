@@ -1,10 +1,11 @@
-import { Embeddable, Property } from '@mikro-orm/core'
+import { Embeddable, Embedded, Property } from '@mikro-orm/core'
+import I18NText from './i18n-text.entity'
 
 @Embeddable()
 export default abstract class Description {
-    @Property({ type: 'text' })
-    short!: string
+    @Embedded({ entity: () => I18NText, type: 'text' })
+    short!: I18NText
 
-    @Property({ type: 'longtext' })
-    long!: string
+    @Embedded({ entity: () => I18NText, type: 'longtext' })
+    long!: I18NText
 }

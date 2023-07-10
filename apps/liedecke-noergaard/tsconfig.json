@@ -11,6 +11,7 @@
         "module": "esnext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
+        "typeRoots": ["unimport.d.ts", "globals.d.ts"],
         "isolatedModules": true,
         "jsx": "preserve",
         "incremental": true,
@@ -23,6 +24,7 @@
         "baseUrl": "./",
         "paths": {
             "@/packages/*": ["../../packages/*"],
+            "@/packages": ["../../packages/index"],
             "@/config/*": ["../../config/*"],
             "@/public/*": ["./public/*"],
             "@/*": ["./src/*"]
@@ -32,6 +34,7 @@
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
+        "unimport.d.ts",
         ".next/types/**/*.ts",
         "./dist/types/**/*.ts",
         "../../packages/**/*.ts",

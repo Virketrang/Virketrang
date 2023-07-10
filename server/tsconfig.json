@@ -1,14 +1,15 @@
 {
     "extends": "../tsconfig.base.json",
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "CommonJS",
         "declaration": true,
         "allowSyntheticDefaultImports": true,
-        "target": "es2017",
+        "target": "ESNext",
         "sourceMap": true,
         "outDir": "./dist",
         "diagnostics": false,
         "extendedDiagnostics": false,
+        "typeRoots": ["unimport.d.ts"],
         "baseUrl": "./",
         "incremental": true,
         "skipLibCheck": true,

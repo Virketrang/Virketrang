@@ -1,17 +1,15 @@
 'use client'
-import { memo } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { useStore } from '@/common/hooks'
 import { Close } from '@/assets/svgs'
-import { formatCurrency } from '@/common/utils'
+import { Currency } from '@/common/utils'
 import { ModalHeader, QuantityIndicator } from '@/components'
 
 import ShoppingCartComponent from './shopping-cart.types'
 import styles from './shopping-cart.module.scss'
 
-const ShoppingCart: ShoppingCartComponent = memo(({ dictionaries }) => {
+const ShoppingCart: ShoppingCartComponent = memo(({ dictionaries, locale }) => {
     const { state, dispatch } = useStore()
 
     const handleClick = () => dispatch({ type: 'CLOSE_SHOPPING_CART' })
@@ -32,7 +30,11 @@ const ShoppingCart: ShoppingCartComponent = memo(({ dictionaries }) => {
                             </div>
                             <div className={styles.actions}>
                                 <span className={styles.amount}>
-                                    {formatCurrency(price, dictionaries.currency === 'DKK' ? 'DKK' : 'GBP')}
+                                    {Currency.numberToCurrency(
+                                        price,
+                                        dictionaries.currency === 'DKK' ? 'DKK' : 'GBP',
+                                        locale
+                                    )}
                                 </span>
                                 <QuantityIndicator
                                     dictionary={{ pieces: dictionaries.shoppingCart.pieces }}
@@ -50,12 +52,13 @@ const ShoppingCart: ShoppingCartComponent = memo(({ dictionaries }) => {
             <div className={styles.total}>
                 <h4>{dictionaries.shoppingCart.total}</h4>
                 <span>
-                    {formatCurrency(
+                    {Currency.numberToCurrency(
                         state.shoppingCart.products.reduce(
                             (currentValue, product) => currentValue + product.price * product.quantity,
                             0
                         ),
-                        dictionaries.currency === 'DKK' ? 'DKK' : 'GBP'
+                        dictionaries.currency === 'DKK' ? 'DKK' : 'GBP',
+                        locale
                     )}
                 </span>
             </div>

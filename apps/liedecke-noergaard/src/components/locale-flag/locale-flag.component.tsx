@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import Image from 'next/image'
 
 import Denmark from '@/public/icons/denmark.png'
@@ -9,7 +8,7 @@ import styles from './locale-flag.module.scss'
 
 const LocaleFlag: LocaleFlagComponent = memo(({ locale }) => {
     switch (locale) {
-        case 'da':
+        case 'da-DK':
             return (
                 <Image
                     className={styles.flag}
@@ -20,7 +19,7 @@ const LocaleFlag: LocaleFlagComponent = memo(({ locale }) => {
                     alt="Det danske flag"
                 />
             )
-        case 'en':
+        case 'en-GB':
             return (
                 <Image
                     className={styles.flag}

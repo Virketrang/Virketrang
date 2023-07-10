@@ -1,5 +1,3 @@
-import { NextRequest, NextResponse } from 'next/server'
-
 import { getLocale } from '@/common/utils/index'
 import i18n from '@/config/i18n'
 

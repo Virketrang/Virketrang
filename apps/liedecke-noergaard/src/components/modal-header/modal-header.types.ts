@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type ModalHeaderComponent = FunctionComponent<{ title: string; onClick: () => void }>
+type ModalHeaderComponent = React.FunctionComponent<{ title: string; onClick: () => void }>
 
 export default ModalHeaderComponent

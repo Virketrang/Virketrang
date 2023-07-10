@@ -1,8 +1,5 @@
 'use client'
-import { FunctionComponent } from 'react'
-import { memo } from 'react'
-
-type CloseComponent = FunctionComponent<{ onClick?: () => void }>
+type CloseComponent = React.FunctionComponent<{ onClick?: () => void }>
 
 const Close: CloseComponent = memo(({ onClick = () => null }) => {
     return (

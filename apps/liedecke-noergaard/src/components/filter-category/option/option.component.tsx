@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import styles from './option.component.module.scss'
 import OptionComponent from './option.component.types'
 

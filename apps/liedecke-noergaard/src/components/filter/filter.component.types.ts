@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type FilterComponent = FunctionComponent<{}>
+type FilterComponent = React.FunctionComponent<{ open: boolean; onClick: () => void }>
 
 export default FilterComponent
