@@ -4,6 +4,7 @@
     border-radius: 0.25rem;
     padding-inline: 1em 0.5em;
     flex-shrink: 0;
+    width: 100%;
 }
 
 .field::placeholder {

@@ -8,7 +8,7 @@ import FilterMenuComponent, { FilterMenuProps } from './filter-menu.component.ty
 
 const FilterMenu = memo(({ divisions, open, currency, locale }: FilterMenuProps) => {
     return (
-        <aside data-state-open={true} className={styles.menu}>
+        <aside data-state-open={open} className={styles.menu}>
             {divisions.map((division) => (
                 <FilterCategory key={division.id} title={division.name[locale]}>
                     {division.subdivisions &&

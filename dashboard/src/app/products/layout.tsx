@@ -18,7 +18,7 @@ const Page = () => {
             <nav className={styles.navigation}>
                 <ul>
                     <li>
-                        <NavLink className={({ isActive }) => (isActive ? styles.active : '')} to="/products">
+                        <NavLink className={({ isActive }) => (isActive ? styles.active : '')} to="/products" end>
                             Produkter
                         </NavLink>
                     </li>

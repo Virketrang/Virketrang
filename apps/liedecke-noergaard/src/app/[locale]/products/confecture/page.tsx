@@ -5,7 +5,7 @@ import { getDictionary } from '@/server'
 import { Locale } from '@/types'
 import { Heading } from '@/components'
 import { ProductList } from '@/composables'
-import { __server__, API } from '@/common'
+import { API } from '@/common'
 
 type PageProps = { params: { locale: Locale } }
 
@@ -20,8 +20,8 @@ export default async function Page({ params: { locale } }: PageProps) {
     const products = await API.getProducts({ sortBy: SORTING_OPTION.PRICE_ASSENDING })
     const divisions = await API.getDivisions()
 
-    if (divisions.status !== 'success') throw Error('Kunne ikke indlæse inddelinger')
-    if (products.status !== 'success') throw Error('Kunne ikke indlæse produkter')
+    if (divisions.status !== 'success') return <div>Indlæser...</div>
+    if (products.status !== 'success') return <div>Indlæser...</div>
 
     return (
         <>

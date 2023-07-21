@@ -1,5 +1,5 @@
-import * as Entities from '../../../server/src/app/entities'
-import CreateProductDTO from '../../../server/src/app/modules/products/dto/create-product.dto'
+import type * as Entities from '../../../server/src/app/entities'
+import type * as Validation from '../../../server/src/app/validation'
 
 declare namespace Entity {
     type Division = Entities.Division
@@ -23,7 +23,7 @@ declare namespace Entity {
     type Product = Entities.Product
 
     namespace Product {
-        type Create = CreateProductDTO
+        type Create = Validation.Product.Create
 
         type Update = Partial<Create>
     }

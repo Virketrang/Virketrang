@@ -30,8 +30,10 @@ export type StoreAction =
     | { type: 'ADD'; payload: Product }
     | { type: 'REMOVE' | 'INCREASE' | 'DECREASE'; payload: string }
 
+const initialState = { shoppingCart: { products: [], open: false }, sidebar: false }
+
 const StoreProvider: StoreProviderComponent = ({ children }) => {
-    const [state, dispatch] = useReducer(StoreReducer, { shoppingCart: { products: [], open: false }, sidebar: false })
+    const [state, dispatch] = useReducer(StoreReducer, initialState)
 
     return <StoreContext.Provider value={{ state, dispatch }}>{children}</StoreContext.Provider>
 }

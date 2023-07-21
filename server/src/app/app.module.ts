@@ -14,9 +14,6 @@ import {
     Division
 } from './entities'
 
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
-
 import { ProductModule, DivisionModule, SubdivisionModule } from '@/app/modules'
 
 const logger = new Logger('MikroORM')
@@ -70,8 +67,6 @@ const logger = new Logger('MikroORM')
         ProductModule,
         DivisionModule,
         SubdivisionModule
-    ],
-    controllers: [AppController],
-    providers: [AppService]
+    ]
 })
 export class AppModule {}

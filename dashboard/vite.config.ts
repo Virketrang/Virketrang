@@ -1,23 +1,33 @@
 import { fileURLToPath } from 'url'
 
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import Unimport from 'unimport/unplugin'
 
-export default defineConfig(async () => ({
+import react from '@vitejs/plugin-react'
+import unimport from 'unimport/unplugin'
+import autoprefixer from 'autoprefixer'
+
+export default defineConfig({
     plugins: [
         react(),
-        Unimport.vite({
+        unimport.vite({
             imports: [
                 { name: 'default', as: 'React', from: 'react' },
                 { name: 'useState', from: 'react' },
                 { name: 'useCallback', from: 'react' },
                 { name: 'useEffect', from: 'react' },
+                { name: 'useContext', from: 'react' },
+                { name: 'useMemo', from: 'react' },
+                { name: 'useReducer', from: 'react' },
+                { name: 'useRef', from: 'react' },
+                { name: 'forwardRef', from: 'react' },
                 { name: 'memo', from: 'react' },
                 { name: 'Fragment', from: 'react' },
+                { name: 'Suspense', from: 'react' },
                 { name: 'createRef', from: 'react' },
+                { name: 'createContext', from: 'react' },
                 { name: 'createElement', from: 'react' },
                 { name: 'createPortal', from: 'react-dom' },
+                { name: 'default', as: 'ReactDOM', from: 'react-dom' },
                 { name: 'createRoot', from: 'react-dom/client' },
                 { name: 'createBrowserRouter', from: 'react-router-dom' },
                 { name: 'NavLink', from: 'react-router-dom' },
@@ -47,5 +57,10 @@ export default defineConfig(async () => ({
         target: process.env.TAURI_PLATFORM == 'windows' ? 'chrome105' : 'safari13',
         minify: !process.env.TAURI_DEBUG ? 'esbuild' : false,
         sourcemap: !!process.env.TAURI_DEBUG
+    },
+    css: {
+        postcss: {
+            plugins: [autoprefixer]
+        }
     }
-}))
+})

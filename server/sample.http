@@ -1,0 +1,17 @@
+POST http://localhost:8080/divisions
+content-type: application/json
+
+{
+    "name": {"en-GB": "Materials", "da-DK": "Materialer"},
+    "categories": ["craftmansship"]
+}
+
+###
+
+POST http://localhost:8080/divisions
+content-type: application/json
+
+{
+    "name": {"en-GB": "Ingrediens", "da-DK": "Ingredienser"},
+    "categories": ["confecture", "cider"]
+}

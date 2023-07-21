@@ -1,22 +1,16 @@
-import React from 'react';
+import { Meta, StoryFn } from '@storybook/react'
 
-import { Meta, StoryFn } from '@storybook/react';
-import Modal from './modal.component';
+const Story: Meta<Resolut.Modal.Component> = {
+    component: Modal
+}
 
-const Component: Meta<typeof Modal> = {
-    title: 'Modal',
-    component: Modal,
-    argTypes: {},
-};
+const Template: StoryFn<Resolut.Modal.Component> = ({ ...props }) => <Modal {...props} />
 
-const Story: StoryFn<typeof Modal> = props => <Modal {...props} />;
+export const Basic = Template.bind({})
 
-export const BasicModal = Story.bind({});
+Basic.args = {
+    open: false,
+    children: <h1>Test</h1>
+}
 
-BasicModal.args = {
-    title: 'Basic modal',
-    open: true,
-    draggable: true,
-};
-
-export default Component;
+export default Story

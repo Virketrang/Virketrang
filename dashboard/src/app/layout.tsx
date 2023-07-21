@@ -1,10 +1,15 @@
+import { SnackbarProvider } from '@/common'
+import { Snackbar } from '@/components'
 import { Header } from '@/composables'
 
 function Layout() {
     return (
         <>
-            <Header />
-            <Outlet />
+            <SnackbarProvider>
+                <Header />
+                <Outlet />
+                <Snackbar placement="bottom-left" />
+            </SnackbarProvider>
         </>
     )
 }

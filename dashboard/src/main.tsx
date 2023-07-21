@@ -1,7 +1,8 @@
-import '@packages/styles/preset.css'
-import '@packages/styles/focus.css'
+import '@packages/css/preset.css'
+import '@packages/css/focus.css'
+import '@packages/themes/modern.css'
+import '@packages/fonts/montserrat.css'
 
-import '@/styles/theme.css'
 import '@/styles/fonts.css'
 
 import router from './router'

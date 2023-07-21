@@ -1,0 +1,7 @@
+@import url(./material-symbols-outlined/font-face.css);
+
+:root,
+body {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+}

@@ -1,2 +1,2 @@
 export * from './functions'
-export * from './dto'
+export * from '../validation/i18n'

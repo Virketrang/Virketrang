@@ -3,17 +3,22 @@ import { DarkMode, LightMode } from '@/assets'
 import ThemeSwitchComponent from './theme-switch.component.types'
 
 const ThemeSwitch: ThemeSwitchComponent = memo(() => {
-    const [theme, setTheme] = useState(false)
+    const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
-    if (!theme)
+    const handleClick = (theme: 'light' | 'dark') => {
+        document.body.parentElement?.setAttribute('data-theme', theme)
+        setTheme(theme)
+    }
+
+    if (theme === 'light')
         return (
-            <button onClick={() => setTheme(true)}>
+            <button onClick={() => handleClick('dark')}>
                 <LightMode />
             </button>
         )
     else
         return (
-            <button onClick={() => setTheme(false)}>
+            <button onClick={() => handleClick('light')}>
                 <DarkMode />
             </button>
         )

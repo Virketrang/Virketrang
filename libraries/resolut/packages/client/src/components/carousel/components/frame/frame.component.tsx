@@ -1,5 +1,3 @@
-import { MouseEvent, memo, useRef, createRef, forwardRef, useCallback, Children, useMemo } from 'react'
-
 import CarouselFrameComponent from './frame.component.types'
 import styles from './frame.component.module.sass'
 
@@ -25,7 +23,7 @@ const CarouselFrame: CarouselFrameComponent = memo(
             const dynamicStyles = { '--slides': childCount }
 
             const mouseDown = useCallback(
-                (event: MouseEvent<HTMLDivElement>) => {
+                (event: React.MouseEvent<HTMLDivElement>) => {
                     onMouseDown && onMouseDown(event)
                     if (!carousel.current) return
 
@@ -39,7 +37,7 @@ const CarouselFrame: CarouselFrameComponent = memo(
             )
 
             const mouseMove = useCallback(
-                (event: MouseEvent<HTMLDivElement>) => {
+                (event: React.MouseEvent<HTMLDivElement>) => {
                     onMouseMove && onMouseMove(event)
                     if (!dragging.current) return
                     if (!carousel.current) return
@@ -56,7 +54,7 @@ const CarouselFrame: CarouselFrameComponent = memo(
             )
 
             const mouseUpOrLeave = useCallback(
-                (event: MouseEvent<HTMLDivElement>) => {
+                (event: React.MouseEvent<HTMLDivElement>) => {
                     if (!carousel.current) return
 
                     carousel.current.style.scrollSnapType = 'x mandatory'

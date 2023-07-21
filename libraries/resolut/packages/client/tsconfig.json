@@ -3,11 +3,15 @@
     "compilerOptions": {
         "plugins": [{ "name": "typescript-plugin-css-modules", "options": { "classnameTransform": "camelCase" } }],
         "paths": {
-            "styles/*": ["../../styles/*"],
-            "types/*": ["../../types/*"],
-            "utils/*": ["../../utils/*"]
-        }
+            "@/*": ["./src/*"],
+            "@/styles/*": ["../../styles/*"],
+            "@/types/*": ["../../types/*"],
+            "@/utils/*": ["../../utils/*"],
+            "@/fonts/*": ["../../fonts/*"],
+            "@/packages/*": ["../../../../packages/*"]
+        },
+        "typeRoots": ["unimport.d.ts", "../../types/resolut.d.ts"]
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx", "../../utils/**/*.ts"],
-    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx", "**/*.stories.ts", "**/*.stories.tsx"]
+    "include": ["src/**/*.ts", "src/**/*.tsx", "../../utils/**/*.ts", "unimport.d.ts", "../../types/resolut.d.ts"],
+    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
 }

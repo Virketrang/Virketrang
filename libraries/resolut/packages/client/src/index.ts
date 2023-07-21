@@ -1,5 +1,7 @@
-/// <reference path="./typings.d.ts" />
+import '@/packages/fonts/material-symbols-outlined.css'
+import '@/packages/css/preset.css'
+
+export { default as Table } from './components/table/table.component'
+export { default as Pagination } from './components/pagination/pagination.component'
 export { default as Modal } from './components/modal/modal.component'
-export { default as Carousel } from './components/carousel/carousel.component'
-export { default as Slide } from './components/slide/slide.component'
-export { default as Draggable } from './components/draggable/draggable.component'
+export { default as Input } from './components/input/input.component'

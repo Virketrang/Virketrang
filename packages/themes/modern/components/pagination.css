@@ -1,0 +1,16 @@
+.resolut-pagination {
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.resolut-pagination button.back {
+    padding: 8px 4px 8px 12px;
+}
+
+.resolut-pagination button.page {
+    padding: 8px;
+}
+
+.resolut-pagination button.forward {
+    padding: 8px;
+}

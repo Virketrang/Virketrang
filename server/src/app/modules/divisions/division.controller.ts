@@ -1,6 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common'
 
-import { Entity } from '@packages/index'
+import * as Validation from '@/app/validation'
 
 import DivisionService from './division.service'
 
@@ -9,21 +9,26 @@ export default class DivisionController {
     constructor(private readonly divisionService: DivisionService) {}
 
     @Get(':id')
+    @HttpCode(200)
     async getDivision(@Param('id') id: string) {
         return { status: 'success', body: await this.divisionService.get(id) }
     }
 
     @Get()
+    @HttpCode(200)
     async getDivisions() {
         return { status: 'success', body: await this.divisionService.getAll() }
     }
 
     @Post()
-    async createDivision(@Body() body: Entity.Division.Create) {
+    @HttpCode(201)
+    @UsePipes(new ValidationPipe({ whitelist: true, transform: true }))
+    async createDivision(@Body() body: Validation.Division.Create) {
         return { status: 'success', body: await this.divisionService.create(body) }
     }
 
     @Delete(':id')
+    @HttpCode(204)
     async deleteDivision(@Param('id') id: string) {
         return { status: 'success', body: await this.divisionService.remove(id) }
     }

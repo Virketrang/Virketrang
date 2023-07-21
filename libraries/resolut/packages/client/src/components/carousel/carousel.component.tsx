@@ -1,5 +1,3 @@
-import { memo, forwardRef } from 'react'
-
 import { CarouselRoot, CarouselFrame, CarouselArrows, CarouselControls } from './components'
 
 import CarouselComponent from './carousel.component.types'

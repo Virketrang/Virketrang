@@ -19,17 +19,17 @@ async function bootstrap() {
     await app.get(MikroORM).getSchemaGenerator().ensureDatabase()
     await app.get(MikroORM).getSchemaGenerator().updateSchema()
 
-    app.useGlobalPipes(
-        new ValidationPipe({
-            whitelist: true,
-            transform: true,
-            enableDebugMessages: true,
-            exceptionFactory: (errors: ValidationError[]) => {
-                console.log(errors)
-                return new BadRequestException('Validation error')
-            }
-        })
-    )
+    // app.useGlobalPipes(
+    //     new ValidationPipe({
+    //         whitelist: true,
+    //         transform: true,
+    //         enableDebugMessages: true,
+    //         exceptionFactory: (errors: ValidationError[]) => {
+    //             console.log(errors)
+    //             return new BadRequestException('Validation error')
+    //         }
+    //     })
+    // )
 
     await app.listen(PORT)
 

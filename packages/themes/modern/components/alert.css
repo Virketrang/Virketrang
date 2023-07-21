@@ -1,0 +1,23 @@
+.alert {
+    color: #fff;
+}
+
+.alert::after {
+    background-color: #c6eabf;
+}
+
+.alert.success {
+    background: var(--success-color);
+}
+
+.alert.warning {
+    background: var(--warning-color);
+}
+
+.alert.info {
+    background: var(--info-color);
+}
+
+.alert.error {
+    background: var(--error-color);
+}

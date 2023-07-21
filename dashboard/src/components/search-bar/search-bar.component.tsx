@@ -6,7 +6,7 @@ import styles from './search-bar.component.module.css'
 
 const SearchBar: SearchBarComponent = memo(() => {
     const input = createRef<HTMLInputElement>()
-    useShortcut('metaKey', ['s'], () => input.current?.focus())
+    useShortcut('metaKey', ['k'], () => input.current?.focus())
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault()

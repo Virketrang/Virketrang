@@ -19,8 +19,6 @@ const materialsArray = [
 
 const Four: React.FunctionComponent<Props> = memo(
     ({ category, materials, setMaterials, available, setAvailable, unit, setUnit }) => {
-        console.log(materials)
-
         return (
             <>
                 <MultiSelect

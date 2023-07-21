@@ -28,7 +28,7 @@ const ProductList: ProductListComponent = memo(
                                 key={id}
                                 product={{
                                     price: retailPrice,
-                                    name,
+                                    name: name[locale],
                                     id,
                                     materials: materials.join('/'),
                                     images: {

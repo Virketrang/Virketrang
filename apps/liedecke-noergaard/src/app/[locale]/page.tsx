@@ -9,7 +9,7 @@ import styles from './page.module.scss'
 
 type PageProps = { params: { locale: Locale } }
 
-const getSelectedProducts: () => Http.Response<Entity.Product> = async () => {
+const getProducts: () => Http.Response<Entity.Product> = async () => {
     const response = await fetch(__server__ + 'products')
 
     return await response.json()
@@ -23,7 +23,7 @@ export async function generateMetadata({ params: { locale } }: PageProps) {
 
 export default async function Page({ params: { locale } }: PageProps) {
     const { landingPage, product, currency } = await getDictionary(locale)
-    const data = await getSelectedProducts()
+    const data = await getProducts()
 
     if (data.status === 'error' || data.status === 'failure') throw Error('Kunne ikke indlæse produkter')
 
@@ -40,7 +40,7 @@ export default async function Page({ params: { locale } }: PageProps) {
                                 key={id}
                                 product={{
                                     price: retailPrice,
-                                    name,
+                                    name: name[locale],
                                     id,
                                     materials: materials.join('/'),
                                     images: {

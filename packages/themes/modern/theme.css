@@ -1,0 +1,21 @@
+:root {
+    --warning-color: #ed6c03;
+    --error-color: #d3302f;
+    --info-color: #0088d1;
+    --success-color: #2e7d31;
+
+    --primary-background-color: #ffffff;
+    --primary-text-color: #000000;
+}
+
+@media (prefers-color-theme: dark) {
+    :root {
+        --primary-background-color: #000000;
+        --primary-text-color: #ffffff;
+    }
+}
+
+[data-theme='dark'] {
+    --primary-background-color: #000000;
+    --primary-text-color: #ffffff;
+}

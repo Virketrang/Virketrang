@@ -7,8 +7,7 @@ import { Entity } from '@packages/interfaces'
 import { Product } from '@/app/entities'
 import { sanitizeObject, calcSort } from '@/app/utils'
 
-import ProductQueryParams from './dto/query.dto'
-import CreateProductDTO from './dto/create-product.dto'
+import * as Validation from '@/app/validation'
 
 @Injectable()
 export default class ProductService {
@@ -25,7 +24,7 @@ export default class ProductService {
         return product
     }
 
-    async getProducts({ minPrice, maxPrice, limit, materials, sort, ...params }: ProductQueryParams) {
+    async getProducts({ minPrice, maxPrice, limit, materials, sort, ...params }: Validation.Product.Query) {
         const products = await this.productRepository.find(
             sanitizeObject({
                 ...params,
@@ -44,7 +43,7 @@ export default class ProductService {
         return products
     }
 
-    async createProduct(product: CreateProductDTO, images: Entity.Image.Create[]): Promise<Product> {
+    async createProduct(product: Validation.Product.Create, images: Entity.Image.Create[]): Promise<Product> {
         const newProduct = this.productRepository.create({ ...product, images })
 
         await this.em.persistAndFlush(newProduct)

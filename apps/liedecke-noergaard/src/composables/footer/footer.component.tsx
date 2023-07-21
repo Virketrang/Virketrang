@@ -25,10 +25,17 @@ const Footer: FooterComponent = memo(({ dictionary: { about, information, other,
                 <FooterList
                     title={information.title}
                     entries={Object.values(information.entries).map((value) => ({ label: value, href: '' }))}
-                />{' '}
+                />
                 <FooterList
                     title={other.title}
-                    entries={Object.values(other.entries).map((value) => ({ label: value, href: '' }))}
+                    entries={[
+                        { label: other.entries.career, href: '/career' },
+                        { label: other.entries.business, href: '/business' },
+                        { label: other.entries.employees, href: '/employees' },
+                        { label: other.entries.annualReport, href: '/annual-report' },
+                        { label: other.entries.suppliers, href: '/suppliers' },
+                        { label: other.entries.imageBank, href: '/image-bank' }
+                    ]}
                 />
                 <div className={styles.section4}>
                     <div>
