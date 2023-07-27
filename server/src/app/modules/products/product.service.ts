@@ -1,23 +1,21 @@
-import { EntityManager, EntityRepository } from '@mikro-orm/postgresql'
 import { Injectable, NotFoundException } from '@nestjs/common'
-import { InjectRepository } from '@mikro-orm/nestjs'
-import { wrap } from '@mikro-orm/core'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
 
 import { Entity } from '@packages/interfaces'
-import { Product } from '@/app/entities'
-import { sanitizeObject, calcSort } from '@/app/utils'
+import { Product } from '@/entities'
+import { sanitizeObject, calcSort } from '@/utils'
 
-import * as Validation from '@/app/validation'
+import * as Validation from '@/validation'
 
 @Injectable()
 export default class ProductService {
     constructor(
         @InjectRepository(Product)
-        private readonly productRepository: EntityRepository<Product>,
-        private readonly em: EntityManager
+        private readonly productRepository: Repository<Product>
     ) {}
     async getProduct(id: string): Promise<Product> {
-        const product = await this.productRepository.findOne({ id })
+        const product = await this.productRepository.findOne({ where: { id } })
 
         if (!product) throw new NotFoundException(`Kunne ikke finde noget produkt med id ${id}`)
 
@@ -30,12 +28,7 @@ export default class ProductService {
                 ...params,
                 materials: materials ? { $contains: materials } : undefined,
                 retailPrice: { $gte: minPrice || 1, $lte: maxPrice || 10000 }
-            }),
-            {
-                populate: ['images'],
-                limit: limit,
-                orderBy: calcSort(sort)
-            }
+            })
         )
 
         if (!products) new NotFoundException('Ingen produkter blev fundet')
@@ -46,7 +39,7 @@ export default class ProductService {
     async createProduct(product: Validation.Product.Create, images: Entity.Image.Create[]): Promise<Product> {
         const newProduct = this.productRepository.create({ ...product, images })
 
-        await this.em.persistAndFlush(newProduct)
+        await this.productRepository.save(newProduct)
 
         return newProduct
     }
@@ -56,23 +49,16 @@ export default class ProductService {
 
         const existingProduct = await this.getProduct(id)
 
-        wrap(existingProduct).assign({
-            name,
-            description,
-            retailPrice: Number(retailPrice),
-            costPrice: Number(costPrice)
-        })
-
-        await this.em.persistAndFlush(existingProduct)
+        await this.productRepository.save({ ...existingProduct, name, description, retailPrice, costPrice })
 
         return existingProduct
     }
 
     async deleteProduct(id: string) {
-        const product = await this.productRepository.findOne({ id })
+        const product = await this.productRepository.findOne({ where: { id } })
 
         if (!product) throw new NotFoundException(`Kunne ikke finde noget produkt med id ${id}`)
 
-        return await this.em.removeAndFlush(product)
+        return await this.productRepository.remove(product)
     }
 }

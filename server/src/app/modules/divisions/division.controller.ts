@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common'
 
-import * as Validation from '@/app/validation'
+import * as Validation from '@/validation'
 
 import DivisionService from './division.service'
 

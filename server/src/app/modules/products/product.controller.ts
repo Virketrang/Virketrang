@@ -1,6 +1,5 @@
 import {
     Body,
-    ClassSerializerInterceptor,
     Controller,
     Delete,
     Get,
@@ -17,8 +16,8 @@ import { FilesInterceptor } from '@nestjs/platform-express'
 
 import { Entity, Http } from '@packages/interfaces'
 
-import { StorageService } from '@/app/services'
-import { File } from '@/app/types'
+import { StorageService } from '@/services'
+import { File } from '@/types'
 
 import ProductService from './product.service'
 import * as Validation from '../../validation/index'

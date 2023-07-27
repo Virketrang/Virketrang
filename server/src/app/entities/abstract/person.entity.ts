@@ -1,22 +1,16 @@
-import { Embeddable, Embedded, Property } from '@mikro-orm/core'
+import { Column } from 'typeorm'
 import Address from './address.entity'
 
-@Embeddable()
 export default abstract class Person {
-    @Property()
+    @Column()
     firstname!: string
 
-    @Property()
+    @Column()
     lastname!: string
 
-    @Property({ persist: false })
-    get name(): string {
-        return `${this.firstname} ${this.lastname}`
-    }
-
-    @Property()
+    @Column()
     email!: string
 
-    @Embedded(() => Address)
+    @Column(() => Address)
     address!: Address
 }

@@ -16,8 +16,8 @@ module.exports = {
     plugins: [
         require('unimport/unplugin').default.webpack({
             imports: [
-                { name: 'MikroORM', from: '@mikro-orm/core' },
-                { name: 'NestFactory', form: '@nestjs/core' }
+                { name: 'NestFactory', from: '@nestjs/core' },
+                { name: 'Entity', from: 'typeorm' }
             ],
             dts: true
         })

@@ -1,5 +1,5 @@
-import '@packages/styles/next.sass'
-import '@packages/styles/focus.sass'
+import '@packages/css/preset.css'
+import '@packages/css/focus.css'
 import '../globals.sass'
 
 import { i18n } from '@i18n'

@@ -1,58 +1,52 @@
-import { Property, PrimaryKey, OneToMany, Entity, Collection, Enum, Embedded, ManyToMany } from '@mikro-orm/core'
-
+import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
 import { PRODUCT_CATEGORY } from '@packages/enums'
 
 import { Description, Measurement, Image, Subdivision, I18NText } from '.'
 
 @Entity()
 export default class Product {
-    @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
+    @PrimaryGeneratedColumn('uuid')
     id!: string
 
-    @Embedded(() => I18NText)
+    @Column(() => I18NText)
     name!: I18NText
 
-    @Embedded(() => Description)
+    @Column(() => Description)
     description!: Description
 
-    @Property()
+    @Column()
     retailPrice!: number
 
-    @Property()
+    @Column()
     costPrice!: number
 
-    @Property()
+    @Column()
     deliveryTime!: number
 
-    @Property({ default: 0 })
+    @Column({ default: 0 })
     stock!: number
 
-    @Property({ default: true })
+    @Column({ default: true })
     available!: boolean
 
-    @Property()
+    @Column(() => String, { array: true })
     materials!: string[]
 
-    @Enum(() => PRODUCT_CATEGORY)
+    @Column({ type: 'enum', enum: PRODUCT_CATEGORY })
     category!: PRODUCT_CATEGORY
 
-    @Property()
+    @Column()
     createdAt?: Date = new Date()
 
-    @Embedded(() => Measurement)
+    @Column(() => Measurement)
     measurement!: Measurement
 
-    @Property()
+    @Column()
     designer!: string
 
-    @Property()
-    profit() {
-        return this.retailPrice - this.costPrice
-    }
+    @OneToMany(() => Image, (image) => image.product)
+    images!: Image[]
 
-    @OneToMany({ entity: () => Image, mappedBy: 'product', orphanRemoval: true, eager: true })
-    images = new Collection<Image>(this)
-
-    @ManyToMany({ entity: () => Subdivision, nullable: true })
-    subdivisions?: Collection<Subdivision> = new Collection<Subdivision>(this)
+    @ManyToMany(() => Subdivision, (subdivision) => subdivision.products, { nullable: true })
+    subdivisions?: Subdivision[]
 }

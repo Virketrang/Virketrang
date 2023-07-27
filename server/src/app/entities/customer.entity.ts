@@ -1,15 +1,17 @@
-import { Entity, Enum, OneToMany, PrimaryKey } from '@mikro-orm/core';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { CustomerType } from '@packages/enums'
 
-import { CustomerType } from '@packages/enums';
-
-import { Person } from './abstract';
-import Order from './order.entity';
+import { Person } from './abstract'
+import Order from './order.entity'
 
 @Entity()
 export default abstract class Customer extends Person {
-    @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
-    id!: string;
+    @PrimaryGeneratedColumn('uuid')
+    id!: string
 
-    @Enum(() => CustomerType)
-    type!: CustomerType;
+    @Column({ type: 'enum', enum: CustomerType })
+    type!: CustomerType
+
+    @OneToMany(() => Order, (order) => order.customer)
+    orders!: Order[]
 }

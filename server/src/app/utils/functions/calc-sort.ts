@@ -1,9 +1,7 @@
-import { QueryOrderMap } from '@mikro-orm/core'
-
 import { SORTING_OPTION } from '@packages/enums'
-import { Product } from '@/app/entities'
+import { Product } from '@/entities'
 
-export default function calcSort(sortingOption: SORTING_OPTION): QueryOrderMap<Product> {
+export default function calcSort(sortingOption: SORTING_OPTION): any {
     switch (sortingOption) {
         case SORTING_OPTION.ALPHABETICALLY:
             return { name: 'ASC' }

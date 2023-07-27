@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common'
-import { MikroOrmModule } from '@mikro-orm/nestjs'
+import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { StorageService } from '@/app/services'
-import { Product } from '@/app/entities'
+import { StorageService } from '@/services'
+import { Product } from '@/entities'
 
 import ProductController from './product.controller'
 import ProductService from './product.service'
 
 @Module({
-    imports: [MikroOrmModule.forFeature([Product])],
+    imports: [TypeOrmModule.forFeature([Product])],
     controllers: [ProductController],
     providers: [ProductService, StorageService]
 })

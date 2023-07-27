@@ -2,7 +2,7 @@ import { Transform } from 'class-transformer'
 import { IsNumber, IsOptional, IsEnum, IsString, IsBoolean, IsArray } from 'class-validator'
 
 import { PRODUCT_CATEGORY, SORTING_OPTION } from '@packages/enums'
-import { toArray, toBoolean, toNumber } from '@/app/utils'
+import { toArray, toBoolean, toNumber } from '@/utils'
 
 export default class ProductQueryParams {
     @Transform(({ value }) => toNumber(value, { min: 1, max: 100, default: 20 }))

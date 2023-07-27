@@ -1,5 +1,3 @@
 export {}
 
-declare global {
-    const MikroORM: typeof import('@mikro-orm/core')['MikroORM']
-}
+declare global {}

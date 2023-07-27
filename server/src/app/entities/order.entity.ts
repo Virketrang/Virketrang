@@ -1,14 +1,14 @@
-import { Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import Customer from './customer.entity'
 
 @Entity()
 export default class Order {
-    @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
+    @PrimaryGeneratedColumn('uuid')
     id!: string
 
-    @Property()
+    @Column()
     completed!: boolean
 
-    @ManyToOne({ entity: () => Customer })
+    @ManyToOne(() => Customer, (customer) => customer.orders)
     customer!: Customer
 }

@@ -1,5 +1,4 @@
-import { Entity, OneToMany, PrimaryKey, Collection, Enum, Embedded } from '@mikro-orm/core'
-
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
 import { PRODUCT_CATEGORY } from '@packages/enums'
 
 import Subdivision from './subdivision.entity'
@@ -7,15 +6,15 @@ import { I18NText } from './abstract'
 
 @Entity()
 export default abstract class Division {
-    @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
+    @PrimaryGeneratedColumn('uuid')
     id!: string
 
-    @Embedded(() => I18NText)
+    @Column(() => I18NText)
     name!: I18NText
 
-    @OneToMany({ entity: () => Subdivision, mappedBy: 'division', orphanRemoval: true, nullable: true })
-    subdivisions = new Collection<Subdivision>(this)
+    @OneToMany(() => Subdivision, (subdivision) => subdivision.division, { nullable: true })
+    subdivisions?: Subdivision[]
 
-    @Enum({ items: () => PRODUCT_CATEGORY, array: true })
+    @Column({ type: 'enum', enum: PRODUCT_CATEGORY, array: true })
     categories!: PRODUCT_CATEGORY[]
 }

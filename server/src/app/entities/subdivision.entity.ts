@@ -1,19 +1,19 @@
-import { Entity, PrimaryKey, ManyToOne, Embedded, ManyToMany, Collection } from '@mikro-orm/core'
+import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import Division from './division.entity'
 import { I18NText } from './abstract'
 import Product from './product.entity'
 
 @Entity()
 export default abstract class Subdivision {
-    @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
+    @PrimaryGeneratedColumn('uuid')
     id!: string
 
-    @Embedded(() => I18NText)
+    @Column(() => I18NText)
     name!: I18NText
 
-    @ManyToOne({ entity: () => Division })
+    @ManyToOne(() => Division, (division) => division.subdivisions)
     division!: Division
 
-    @ManyToMany({ entity: () => Product, nullable: true })
-    products?: Collection<Product> = new Collection<Product>(this)
+    @ManyToMany(() => Product, (product) => product.subdivisions)
+    products?: Product[]
 }

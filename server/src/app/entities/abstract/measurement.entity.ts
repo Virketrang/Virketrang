@@ -1,10 +1,9 @@
-import { Embeddable, Property } from '@mikro-orm/core'
+import { Column } from 'typeorm'
 
-@Embeddable()
 export default abstract class Measurement {
-    @Property()
+    @Column()
     unit!: string
 
-    @Property()
+    @Column()
     value!: number
 }

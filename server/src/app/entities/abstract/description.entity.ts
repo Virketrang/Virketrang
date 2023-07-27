@@ -1,11 +1,10 @@
-import { Embeddable, Embedded, Property } from '@mikro-orm/core'
+import { Column } from 'typeorm'
 import I18NText from './i18n-text.entity'
 
-@Embeddable()
 export default abstract class Description {
-    @Embedded({ entity: () => I18NText, type: 'text' })
+    @Column(() => I18NText)
     short!: I18NText
 
-    @Embedded({ entity: () => I18NText, type: 'longtext' })
+    @Column(() => I18NText)
     long!: I18NText
 }

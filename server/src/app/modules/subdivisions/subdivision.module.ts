@@ -1,14 +1,15 @@
 import { Module } from '@nestjs/common'
-import { MikroOrmModule } from '@mikro-orm/nestjs'
+import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { Subdivision } from '@/app/entities'
+import { Subdivision } from '@/entities'
 
 import SubdivisionService from './subdivision.service'
 import SubdivisionController from './subdivision.controller'
+import SubdivisionRepository from './subdivision.repository'
 
 @Module({
-    providers: [SubdivisionService],
+    providers: [SubdivisionService, SubdivisionRepository],
     controllers: [SubdivisionController],
-    imports: [MikroOrmModule.forFeature([Subdivision])]
+    imports: [TypeOrmModule.forFeature([Subdivision])]
 })
 export default class SubdivisionModule {}

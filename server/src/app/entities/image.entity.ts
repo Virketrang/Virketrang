@@ -1,23 +1,23 @@
-import { PrimaryKey, Property, ManyToOne, Entity, Rel } from '@mikro-orm/core'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import Product from './product.entity'
 
 @Entity()
 export default class Image {
-    @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
+    @PrimaryGeneratedColumn('uuid')
     id!: string
 
-    @Property()
+    @Column()
     alt!: string
 
-    @Property()
+    @Column()
     width!: number
 
-    @Property()
+    @Column()
     height!: number
 
-    @Property()
+    @Column()
     url!: string
 
-    @ManyToOne({ entity: () => Product })
-    product!: Rel<Product>
+    @ManyToOne(() => Product, (product) => product.images)
+    product!: Product
 }

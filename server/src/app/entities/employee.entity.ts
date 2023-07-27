@@ -1,24 +1,24 @@
-import { Entity, OneToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Person } from './abstract';
-import Bank from './bank.entity';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Person } from './abstract'
+import Bank from './abstract/bank.entity'
 
 @Entity()
 export default abstract class Employee extends Person {
-    @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
-    id!: string;
+    @PrimaryGeneratedColumn('uuid')
+    id!: string
 
-    @Property()
-    cpr!: number;
+    @Column()
+    cpr!: number
 
-    @Property()
-    hourlyPay!: number;
+    @Column()
+    hourlyPay!: number
 
-    @Property()
-    active!: boolean;
+    @Column()
+    active!: boolean
 
-    @Property()
-    position!: string;
+    @Column()
+    position!: string
 
-    @OneToOne({ mappedBy: 'employee' })
-    bank!: Bank;
+    @Column(() => Bank)
+    bank!: Bank
 }

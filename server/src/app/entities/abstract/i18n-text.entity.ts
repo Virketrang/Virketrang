@@ -1,10 +1,10 @@
-import { Embeddable, Property } from '@mikro-orm/core'
+import { Column } from 'typeorm'
 
-@Embeddable()
+
 export default abstract class I18NText {
-    @Property()
+    @Column(() => String)
     'en-GB'!: string
 
-    @Property()
+    @Column(() => String)
     'da-DK'!: string
 }

@@ -7,12 +7,11 @@ import {
     IsNotEmptyObject,
     IsNumber,
     IsObject,
-    IsString,
-    isInt
+    IsString
 } from 'class-validator'
 import { Transform, Type } from 'class-transformer'
 
-import { toBoolean, toNumber } from '@/app/utils'
+import { toBoolean, toNumber } from '@/utils'
 import * as Validation from '../index'
 import { PRODUCT_CATEGORY } from '@packages/index'
 

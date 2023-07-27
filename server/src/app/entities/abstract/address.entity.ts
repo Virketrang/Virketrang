@@ -1,22 +1,21 @@
-import { Embeddable, Property } from '@mikro-orm/core'
+import { Column } from 'typeorm'
 
-@Embeddable()
 export default abstract class Address {
-    @Property()
+    @Column()
     streetName!: string
 
-    @Property()
+    @Column()
     streetNumber!: string
 
-    @Property()
+    @Column()
     floor!: string
 
-    @Property()
+    @Column()
     postalCode!: number
 
-    @Property()
+    @Column()
     city!: string
 
-    @Property()
+    @Column()
     country!: string
 }
