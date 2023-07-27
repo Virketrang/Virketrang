@@ -54,6 +54,7 @@
         "sass": "^1.58.3",
         "typescript": "^5.0.4",
         "typescript-plugin-css-modules": "^5.0.1",
+        "unimport": "^3.0.14",
         "vitest": "^0.30.1"
     }
 }
