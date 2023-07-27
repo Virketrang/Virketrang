@@ -1,7 +1,7 @@
 version: '3'
 services:
-    webshop-server:
-        image: webshop-server:latest
+    server:
+        image: server:latest
         build:
             context: ./
             dockerfile: ./projects/webshop/server/Dockerfile
@@ -10,8 +10,8 @@ services:
         environment:
             - PORT=8080
             - NODE_ENV=production
-    webshop-website:
-        image: webshop-website:latest
+    liedecke-noergaard:
+        image: liedecke-noergaard:latest
         build:
             context: ./
             dockerfile: ./projects/webshop/client/web/Dockerfile
@@ -20,8 +20,8 @@ services:
         environment:
             - PORT=4000
             - NODE_ENV=production
-    webshop-desktop:
-        image: webshop-desktop:latest
+    nexus:
+        image: nexus:latest
         build:
             context: ./
             dockerfile: ./projects/webshop/client/desktop/frontend/Dockerfile
@@ -29,4 +29,14 @@ services:
             - 5000:5000
         environment:
             - PORT=5000
+            - NODE_ENV=production
+    website:
+        image: website:latest
+        build:
+            context: ./
+            dockerfile: ./website/Dockerfile
+        ports:
+            - 3000:3000
+        environment:
+            - PORT=3000
             - NODE_ENV=production

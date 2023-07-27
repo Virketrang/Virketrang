@@ -20,15 +20,6 @@
                 "webpack": true,
                 "webpackConfigPath": "server/webpack.config.js"
             }
-        },
-        "strive": {
-            "type": "application",
-            "root": "apps/strive/server",
-            "entryFile": "main",
-            "sourceRoot": "apps/strive/server/src",
-            "compilerOptions": {
-                "tsConfigPath": "apps/strive/server/tsconfig.json"
-            }
         }
     }
 }

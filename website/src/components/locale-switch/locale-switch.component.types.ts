@@ -1,4 +1,4 @@
-import { Locale } from '@i18n'
+import { Locale } from '@/types'
 import { FunctionComponent } from 'react'
 
 type LocaleSwitchComponent = FunctionComponent<{ locale: Locale }>

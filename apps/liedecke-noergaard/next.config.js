@@ -40,6 +40,9 @@ const nextConfig = {
         )
 
         return config
+    },
+    env: {
+        SERVER_URL: 'http://localhost:8080'
     }
 }
 

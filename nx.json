@@ -3,12 +3,13 @@
         "default": {
             "runner": "nx/tasks-runners/default",
             "options": {
-                "cacheableOperations": ["build"]
+                "cacheableOperations": ["build", "lint", "test"]
             }
         }
     },
     "namedInputs": {
         "stories": ["!{projectRoot}/**/*.stories.ts", "!{projectRoot}/**/*.stories.tsx"],
+        "test": ["!{projectRoot}/**/*+(spec|test).ts", "!{projectRoot}/**/*+(spec|test).tsx"],
         "dockerfiles": ["Dockerfile", ".dockerignore"],
         "readme": ["README.md"],
         "license": ["LICENSE"]
@@ -16,11 +17,12 @@
     "targetDefaults": {
         "build": {
             "inputs": ["^stories", "^dockerfiles"],
-            "dependsOn": ["^build"]
+            "dependsOn": ["^lint", "^test", "^build"]
         },
         "dev": {},
         "test": {
-            "inputs": ["^stories", "^dockerfiles"]
+            "inputs": ["^stories", "^test"],
+            "dependsOn": ["^lint"]
         },
         "lint": {}
     },

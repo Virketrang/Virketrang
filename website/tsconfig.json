@@ -1,37 +1,84 @@
 {
-    "extends": "../tsconfig.base.json",
-    "compilerOptions": {
-        "target": "es2015",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "noEmit": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "incremental": true,
-        "plugins": [
-            { "name": "typescript-plugin-css-modules", "options": { "classnameTransform": "camelCase" } },
-            {
-                "name": "next"
-            }
-        ],
-        "paths": {
-            "@/*": ["./src/*"],
-            "@packages/*": ["../packages/*"],
-            "@i18n": ["./i18n/index.ts"],
-            "@i18n/*": ["./i18n/*"],
-            "@component": ["./src/component/index.ts"],
-            "@component/*": ["./src/component/*"],
-            "@utils": ["./src/utils/index.ts"],
-            "@utils/*": ["./src/utils/*"],
-            "@types": ["./src/types/index.ts"],
-            "@types/*": ["./src/types/*"],
-            "@features": ["./src/features/index.ts"],
-            "@features/*": ["./src/features/*"],
-            "@server-only": ["./src/server-only/index.ts"],
-            "@server-only/*": ["./src/server-only/*"]
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCase"
         }
-    },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+      },
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@packages/*": [
+        "../packages/*"
+      ],
+      "@i18n": [
+        "./i18n/index.ts"
+      ],
+      "@i18n/*": [
+        "./i18n/*"
+      ],
+      "@component": [
+        "./src/component/index.ts"
+      ],
+      "@component/*": [
+        "./src/component/*"
+      ],
+      "@utils": [
+        "./src/utils/index.ts"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@types": [
+        "./src/types/index.ts"
+      ],
+      "@types/*": [
+        "./src/types/*"
+      ],
+      "@features": [
+        "./src/features/index.ts"
+      ],
+      "@features/*": [
+        "./src/features/*"
+      ],
+      "@server-only": [
+        "./src/server-only/index.ts"
+      ],
+      "@server-only/*": [
+        "./src/server-only/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "./dist/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }

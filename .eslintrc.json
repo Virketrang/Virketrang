@@ -1,12 +1,9 @@
 {
-    "root": true,
     "ignorePatterns": ["**/*"],
     "overrides": [
         {
             "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-            "rules": {
-                "@typescript-eslint/no-namespace": "off"
-            }
+            "rules": {}
         },
         {
             "files": ["*.ts", "*.tsx"],

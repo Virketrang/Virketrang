@@ -1,5 +1,6 @@
 import { memo } from 'react'
-
+import styles from './app-logo.component.module.sass'
+import Link from 'next/link'
 import Image from 'next/image'
 
 import { Cormorant_Garamond } from 'next/font/google'
@@ -12,12 +13,10 @@ const cormorantGaramond = Cormorant_Garamond({
 })
 
 import AppLogoComponent from './app-logo.component.types'
-import { logo } from './app-logo.component.module.sass'
-import Link from 'next/link'
 
 const AppLogo: AppLogoComponent = memo(({ locale }) => {
     return (
-        <Link href={`/${locale}`} className={logo}>
+        <Link href={`/${locale}`} className={styles.logo}>
             <Image alt="Logo" width={24} height={24} src={Logo.src} />
             <h4 className={cormorantGaramond.className} style={{ fontWeight: 700 }}>
                 Virketrang

@@ -1,7 +1,7 @@
 declare global {
     namespace NodeJS {
         interface ProcessEnv {
-            PORT: number
+            SERVER_PORT: number
             POSTGRES_USER: string
             POSTGRES_HOST: string
             POSTGRES_PASSWORD: string

@@ -5,7 +5,7 @@ import { AppModule } from '@/app.module'
 
 declare const module: any
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.SERVER_PORT || 8080
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule)
