@@ -12,9 +12,10 @@
         "**/.DS_Store": true,
         "**/.parcel-cache": true,
         "**/.next": true,
+        ".husky/_": true,
         "website/.vscode": true,
         "dashboard/.vscode": true,
-        "apps/**/.vscode": false
+        "apps/**/.vscode": true
     },
     // TYPESCRIPT
     "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",
