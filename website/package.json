@@ -27,7 +27,7 @@
     },
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "NODE_ENV=product next build",
         "start": "next start",
         "lint": "next lint",
         "test": "vitest && rimraf coverage"
