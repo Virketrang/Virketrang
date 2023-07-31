@@ -1,7 +1,7 @@
 import { Transform } from 'class-transformer'
 import { IsNumber, IsOptional, IsEnum, IsString, IsBoolean, IsArray } from 'class-validator'
 
-import { PRODUCT_CATEGORY, SORTING_OPTION } from '@packages/enums'
+import { Enums } from '@packages/index'
 import { toArray, toBoolean, toNumber } from '../../utils'
 
 export default class ProductQueryParams {
@@ -10,9 +10,9 @@ export default class ProductQueryParams {
     @IsOptional()
     public limit!: number
 
-    @IsEnum(PRODUCT_CATEGORY)
+    @IsEnum(Enums.PRODUCT_CATEGORY)
     @IsOptional()
-    public category!: PRODUCT_CATEGORY
+    public category!: Enums.PRODUCT_CATEGORY
 
     @Transform(({ value }) => toNumber(value, { min: 1, max: 10000, default: 1 }))
     @IsNumber()
@@ -35,7 +35,7 @@ export default class ProductQueryParams {
     @IsOptional()
     public materials!: string[]
 
-    @IsEnum(SORTING_OPTION)
+    @IsEnum(Enums.SORTING_OPTION)
     @IsOptional()
-    public sort!: SORTING_OPTION
+    public sort!: Enums.SORTING_OPTION
 }

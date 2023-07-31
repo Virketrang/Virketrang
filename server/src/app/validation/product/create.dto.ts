@@ -13,9 +13,9 @@ import { Transform, Type } from 'class-transformer'
 
 import { toBoolean, toNumber } from '../../utils'
 import * as Validation from '../index'
-import { PRODUCT_CATEGORY } from '@packages/index'
+import { Enums, Interfaces } from '@packages/index'
 
-export default abstract class CreateProduct {
+export default abstract class CreateProduct implements Interfaces.Entity.Product.Create {
     @Transform(({ value }) => JSON.parse(value))
     @IsDefined({ message: 'Produktet skal have et navn' })
     @IsNotEmptyObject()
@@ -55,8 +55,8 @@ export default abstract class CreateProduct {
     @IsString({ each: true, message: 'Materialer skal være af typen: String' })
     materials!: string[]
 
-    @IsEnum(PRODUCT_CATEGORY, { message: 'Ugyldig produktkategori angivet' })
-    category!: PRODUCT_CATEGORY
+    @IsEnum(Enums.PRODUCT_CATEGORY, { message: 'Ugyldig produktkategori angivet' })
+    category!: Enums.PRODUCT_CATEGORY
 
     @IsString({ message: 'Der skal angives en designer og angivelsen skal være en String' })
     designer!: string

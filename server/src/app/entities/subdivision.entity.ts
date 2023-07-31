@@ -2,9 +2,10 @@ import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 't
 import Division from './division.entity'
 import { I18NText } from './abstract'
 import Product from './product.entity'
+import { Interfaces } from '@packages/index'
 
 @Entity()
-export default abstract class Subdivision {
+export default abstract class Subdivision implements Interfaces.Entity.Subdivision {
     @PrimaryGeneratedColumn('uuid')
     id!: string
 
