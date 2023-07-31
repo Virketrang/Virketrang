@@ -9,6 +9,7 @@ on:
         paths:
             - 'apps/nexus/**'
             - 'packages/**'
+            - '.github/workflows/nexus-distribution.yaml'
 
 jobs:
     release:
@@ -46,11 +47,10 @@ jobs:
             - name: Rust setup
               run: curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-            - name: Sync node version and cache
+            - name: Sync node version
               uses: actions/setup-node@v3
               with:
                   node-version: 'latest'
-                  cache: 'npm'
 
             - name: Install dependencies and build frontend
               run: npm install && npm run build
