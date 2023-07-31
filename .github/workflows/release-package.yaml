@@ -5,11 +5,11 @@ on:
         branches: [master]
 
         paths:
-            - "packages/colors/**"
+            - 'packages/colors/**'
 
 jobs:
     build:
-        runs-on: "ubuntu-latest"
+        runs-on: 'ubuntu-latest'
         defaults:
             run:
                 working-directory: ./packages/colors
@@ -18,8 +18,8 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
-            - run: yarn install
-            - run: yarn build
+            - run: pnpm install
+            - run: pnpm build
     publish:
         needs: build
         runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
               with:
                   node-version: 16
                   registry-url: https://npm.pkg.github.com/
-            - run: yarn install
-            - run: yarn publish
+            - run: pnpm install
+            - run: pnpm publish
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.RELEASE_AND_DEPLOY }}
