@@ -34,6 +34,11 @@ jobs:
             - name: Checkout of repository
               uses: actions/checkout@v3
 
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: latest
+
             - name: Install dependencies (ubuntu only)
               if: matrix.platform == 'ubuntu-20.04'
               run: |
@@ -49,7 +54,7 @@ jobs:
                   node-version: 'latest'
 
             - name: Install dependencies and build frontend
-              run: npm install && npm run nexus:build
+              run: pnpm install && pnpm run nexus:build
 
             - name: Build the application
               uses: tauri-apps/tauri-action@v0
