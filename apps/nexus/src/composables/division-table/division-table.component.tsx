@@ -1,4 +1,4 @@
-import { Pagination } from '@resolut/client'
+// import { Pagination } from '@resolut/client'
 
 import { Dots } from '@/assets'
 import { categoriesArrayToString, useTable } from '@/common'
@@ -34,12 +34,12 @@ const DivisionTable: DivisionTableComponent = memo(({ data }) => {
                 <Table.Head head={table.head} />
                 <Table.Body body={table.body} />
             </Table>
-            <Pagination
+            {/* <Pagination
                 back={table.pagination.back}
                 forward={table.pagination.forward}
                 index={table.pagination.index}
                 pages={Math.ceil(tableData.length / PAGE_SIZE)}
-            />
+            /> */}
         </>
     )
 })

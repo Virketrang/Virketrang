@@ -1,4 +1,4 @@
-import { Modal } from '@resolut/client'
+// import { Modal } from '@resolut/client'
 
 import { PRODUCT_CATEGORY } from '@packages/enums'
 import { Button, InputField, MultiSelect } from '@/components'
@@ -33,7 +33,8 @@ const DivisionModal: DivisionModalComponent = memo(({ open, setOpen }) => {
     }
 
     return (
-        <Modal onSubmit={handleSubmit} open={open}>
+        <>
+            {/* <Modal onSubmit={handleSubmit} open={open}> */}
             <h4>Inddeling</h4>
             <div className={styles.controller}>
                 <InputField placeholder="Dansk navn" value={name} onChange={(event) => setName(event.target.value)} />
@@ -58,7 +59,8 @@ const DivisionModal: DivisionModalComponent = memo(({ open, setOpen }) => {
                 </Button>
                 <Button onClick={() => null}>Opret</Button>
             </div>
-        </Modal>
+            {/* </Modal> */}
+        </>
     )
 })
 
