@@ -4,6 +4,8 @@
 
 FROM node:18-alpine AS development
 
+RUN npm i -g npm@latest
+
 RUN mkdir -p /workspace/website
 
 RUN mkdir -p /workspace/packages

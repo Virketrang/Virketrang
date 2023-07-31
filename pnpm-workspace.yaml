@@ -1,7 +1,6 @@
 packages:
     - "website"
     - "server"
-    - "dashboard"
     - "apps/**"
     - "libraries/**"
     - "libraries/**/packages/**"

@@ -1,5 +1,4 @@
 import { SORTING_OPTION } from '@packages/enums'
-import { Product } from '@/entities'
 
 export default function calcSort(sortingOption: SORTING_OPTION): any {
     switch (sortingOption) {

@@ -18,7 +18,7 @@
         "apps/**/.vscode": true
     },
     // TYPESCRIPT
-    "typescript.tsdk": "/Users/sigfred/Desktop/Webudvikling/node_modules/typescript/lib",
+    "typescript.tsdk": "/Users/sigfred/Dropbox/Virketrang/Webudvikling/node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     // JAVASCRIPT

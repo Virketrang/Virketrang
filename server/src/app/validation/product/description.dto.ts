@@ -1,6 +1,6 @@
 import { IsDefined, IsNotEmptyObject, IsObject, ValidateNested } from 'class-validator'
 
-import I18NTextDTO from '@/validation/i18n/text.dto'
+import I18NTextDTO from '../../validation/i18n/text.dto'
 import { Transform } from 'class-transformer'
 
 export default abstract class DescriptionDTO {

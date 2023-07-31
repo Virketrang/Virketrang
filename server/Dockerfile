@@ -8,15 +8,15 @@ RUN mkdir -p /workspace/server
 
 RUN mkdir -p /workspace/packages
 
-COPY ./server/package*.json /workspace/server
+COPY --chown=node:node ./server/package*.json /workspace/server
 
-COPY ./packages /workspace/packages
+COPY --chown=node:node ./packages /workspace/packages
 
 WORKDIR /workspace/server
 
-RUN npm install
+COPY --chown=node:node ./server .
 
-COPY ./server .
+RUN npm install 
 
 USER node
 
@@ -30,27 +30,25 @@ RUN mkdir -p /workspace/server
 
 RUN mkdir -p /workspace/packages
 
-COPY ./packages /workspace/packages
+COPY --chown=node:node ./packages /workspace/packages
 
-COPY ./tsconfig.base.json /workspace
+COPY --chown=node:node ./tsconfig.base.json /workspace
 
 WORKDIR /workspace/server
 
-COPY ./server/package*.json ./server/tsconfig*.json ./
-
-RUN npm install
-
-RUN npm install -g @nestjs/cli
-
 COPY ./server .
+
+COPY ./server/tsconfig*.json ./
+
+COPY --chown=node:node --from=development /workspace/server/package*.json ./
+
+RUN npm ci
 
 RUN npm run build
 
 ENV NODE_ENV production
 
-ENV PORT 8080
-
-RUN npm install only=production
+RUN npm ci --only=production && npm cache clean --force
 
 USER node
 
@@ -64,7 +62,7 @@ COPY --chown=node:node --from=build /workspace/server/node_modules ./node_module
 
 COPY --chown=node:node --from=build /workspace/server/dist ./dist
 
-EXPOSE 8080
+EXPOSE ${PORT}
 
 CMD ["node", "dist/main.js"]
 

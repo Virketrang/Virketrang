@@ -1,5 +1,3 @@
-import { Product } from '@/entities'
-
 export default function sanitizeObject(queryParameters: any): any {
     return Object.entries(queryParameters)
         .filter(([_, v]) => v != null)

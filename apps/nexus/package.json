@@ -1,0 +1,32 @@
+{
+    "name": "nexus",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "tauri": "tauri"
+    },
+    "dependencies": {
+        "@resolut/client": "workspace:^",
+        "@tauri-apps/api": "^1.4.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.14.0",
+        "swr": "^2.2.0"
+    },
+    "devDependencies": {
+        "@tauri-apps/cli": "^1.4.0",
+        "@types/node": "^18.7.10",
+        "@types/react": "^18.0.15",
+        "@types/react-dom": "^18.0.6",
+        "@vitejs/plugin-react": "^3.1.0",
+        "autoprefixer": "^10.4.14",
+        "postcss": "^8.4.21",
+        "typescript": "^4.9.5",
+        "unimport": "^3.0.14",
+        "vite": "^4.4.4"
+    }
+}

@@ -4,12 +4,12 @@
     "description": "The Virketrang monorepo",
     "license": "MIT",
     "private": true,
-    "packageManager": "pnpm@8.6.0",
+    "packageManager": "pnpm@8.6.11",
     "engines": {
-        "node": ">=19.8.1",
+        "node": ">=20.5.0",
         "yarn": "please-use-pnpm",
         "npm": "please-use-pnpm",
-        "pnpm": ">=8.6.0"
+        "pnpm": ">=8.6.11"
     },
     "author": {
         "name": "Sigfred Frey Nørgaard Knudsen",
@@ -52,6 +52,9 @@
         "SPECIAL": "-------------- SPECIAL --------------",
         "prepare": "husky install",
         "preinstall": "npx only-allow pnpm",
+        "nvmrc": "node -v > .nvmrc",
+        "postinstall": "pnpm nvmrc",
+        "predev": "pnpm nvmrc",
         "pnx": "nx",
         "GENERAL": "-------------- GENERAL --------------",
         "dev": "pnpm run server && pnpm run liedecke-noergaard",
@@ -72,11 +75,11 @@
         "website:test": "nx test @virketrang/website",
         "website:lint": "nx lint @virketrang/website",
         "website:build": "nx build @virketrang/website",
-        "dashboard:dev": "nx dev dashboard",
-        "dashboard:start": "nx start dashboard",
-        "dashboard:test": "nx test dashboard",
-        "dashboard:lint": "nx lint dashboard",
-        "dashboard:build": "nx build dashboard",
+        "nexus:dev": "nx dev nexus",
+        "nexus:start": "nx start nexus",
+        "nexus:test": "nx test nexus",
+        "nexus:lint": "nx lint nexus",
+        "nexus:build": "nx build nexus",
         "strive:dev": "nx dev @virketrang/strive",
         "strive:start": "nx start @virketrang/strive",
         "strive:test": "nx test @virketrang/strive:test",
@@ -97,7 +100,8 @@
         "update:storybook": "npx storybook@latest upgrade",
         "update:next": "pnpm --recursive update next react react-dom eslint-config-next --latest",
         "update:nx": "pnpm update \"@nx/*\" \"@nrwl/*\"",
-        "update:vite": "pnpm --recursive update vite && pnpm --recursive update @vitejs/plugin-react"
+        "update:vite": "pnpm --recursive update vite && pnpm --recursive update @vitejs/plugin-react",
+        "update:pnpm": "pnpm i -D pnpm@latest -w"
     },
     "devDependencies": {
         "@nrwl/cli": "^15.9.2",
@@ -119,7 +123,7 @@
         "jsdom": "~20.0.3",
         "lint-staged": "^13.2.3",
         "nx": "16.1.4",
-        "pnpm": "^8.6.0",
+        "pnpm": "^8.6.11",
         "prettier": "^2.8.4",
         "react": "18.2.0",
         "react-dom": "18.2.0",
