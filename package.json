@@ -101,7 +101,9 @@
         "update:next": "pnpm --recursive update next react react-dom eslint-config-next --latest",
         "update:nx": "pnpm update \"@nx/*\" \"@nrwl/*\"",
         "update:vite": "pnpm --recursive update vite && pnpm --recursive update @vitejs/plugin-react",
-        "update:pnpm": "pnpm i -D pnpm@latest -w"
+        "update:pnpm": "pnpm i -D pnpm@latest -w",
+        "WORKFLOWS": "---------- WORKFLOWS ----------",
+        "nexus": "pnpm --filter nexus build"
     },
     "devDependencies": {
         "@nrwl/cli": "^15.9.2",

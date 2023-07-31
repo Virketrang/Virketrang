@@ -30,10 +30,6 @@ jobs:
                       rust_target: x86_64-pc-windows-msvc
         runs-on: ${{ matrix.platform }}
 
-        defaults:
-            run:
-                working-directory: ./apps/nexus
-
         steps:
             - name: Checkout of repository
               uses: actions/checkout@v3
@@ -53,7 +49,7 @@ jobs:
                   node-version: 'latest'
 
             - name: Install dependencies and build frontend
-              run: npm install && npm run build
+              run: npm install && npm run nexus:build
 
             - name: Build the application
               uses: tauri-apps/tauri-action@v0
