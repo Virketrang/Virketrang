@@ -1,5 +1,5 @@
-import { Interfaces, Enums } from '@packages/index'
-
+import Interfaces from 'packages/types/interfaces'
+import Enums from 'packages/types/enums'
 import { convertObjectToFormData } from '@/common'
 import { Stepper, Button } from '@/components'
 

@@ -1,4 +1,4 @@
-import { Interfaces } from '@packages/index'
+import Interfaces from 'packages/types/interfaces'
 
 import { fetcher } from '@/common'
 import { ProductTable } from '@/composables'

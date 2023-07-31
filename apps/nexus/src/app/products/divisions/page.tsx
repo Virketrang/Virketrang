@@ -1,4 +1,4 @@
-import { Interfaces } from '@packages/index'
+import Interfaces from 'packages/types/interfaces'
 import { fetcher, useSnackbar } from '@/common'
 import Loading from './loading'
 import { DivisionModal, DivisionTable } from '@/composables'

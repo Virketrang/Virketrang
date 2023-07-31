@@ -1,6 +1,6 @@
 // import { Modal } from '@resolut/client'
 
-import { Enums } from '@packages/index'
+import Enums from 'packages/types/enums'
 import { Button, InputField, MultiSelect } from '@/components'
 import { useSnackbar } from '@/common'
 

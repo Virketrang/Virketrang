@@ -7,14 +7,12 @@
         "allowJs": false,
         "skipLibCheck": true,
         "esModuleInterop": false,
-        "baseUrl": ".",
         "isolatedModules": true,
-        "typeRoots": ["unimport.d.ts"],
+        "typeRoots": ["./apps/nexus/unimport.d.ts"],
         "noEmit": true,
         "jsx": "react-jsx",
         "paths": {
-            "@/*": ["./src/*"],
-            "@packages/*": ["../../packages/*"]
+            "@/*": ["apps/nexus/src/*"]
         }
     },
     "include": ["src", "unimport.d.ts"],

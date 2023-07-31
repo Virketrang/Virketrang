@@ -1,7 +1,7 @@
-import '@packages/css/preset.css'
-import '@packages/css/focus.css'
-import '@packages/themes/modern.css'
-import '@packages/fonts/montserrat.css'
+import 'packages/css/preset.css'
+import 'packages/css/focus.css'
+import 'packages/themes/modern.css'
+import 'packages/fonts/montserrat.css'
 
 import '@/styles/fonts.css'
 

@@ -1,4 +1,4 @@
-import { Interfaces } from '@packages/index'
+import Interfaces from 'packages/types/interfaces'
 import { FunctionComponent } from 'react'
 
 interface ProductTableProps {

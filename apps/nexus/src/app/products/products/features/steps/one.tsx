@@ -1,5 +1,5 @@
 import { InputField, Select, Textarea, Option } from '@/components'
-import { Enums } from '@packages/index'
+import Enums from 'packages/types/enums'
 
 type Props = {
     state: { name: string; category: string; shortDescription: string }

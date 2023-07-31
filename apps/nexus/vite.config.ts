@@ -44,7 +44,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
-            '@packages': fileURLToPath(new URL('../../packages', import.meta.url))
+            'packages': fileURLToPath(new URL('../../packages', import.meta.url))
         }
     },
     clearScreen: false,
