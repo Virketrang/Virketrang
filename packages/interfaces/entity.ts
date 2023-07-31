@@ -1,5 +1,5 @@
-import type * as Entities from '../../../server/src/app/entities'
-import type * as Validation from '../../../server/src/app/validation'
+import type * as Entities from '../../server/src/app/entities'
+import type * as Validation from '../../server/src/app/validation'
 
 declare namespace Entity {
     type Division = Entities.Division

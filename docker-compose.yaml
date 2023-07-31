@@ -7,8 +7,6 @@ services:
             dockerfile: ./server/Dockerfile
         ports:
             - 8080:8080
-        env_file:
-            - .env
         environment:
             - PORT=8080
             - NODE_ENV=production
@@ -22,17 +20,6 @@ services:
             - 4000:4000
         environment:
             - PORT=4000
-            - NODE_ENV=production
-        platform: linux/amd64
-    nexus:
-        image: nexus:latest
-        build:
-            context: ./
-            dockerfile: ./dashboard/Dockerfile
-        ports:
-            - 5000:5000
-        environment:
-            - PORT=5000
             - NODE_ENV=production
         platform: linux/amd64
     website:
