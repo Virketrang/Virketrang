@@ -1,8 +1,8 @@
-import { Entity } from '@packages/interfaces'
+import { Interfaces } from '@packages/index'
 import { FunctionComponent } from 'react'
 
 interface ProductTableProps {
-    data: Entity.Product[]
+    data: Interfaces.Entity.Product[]
 }
 
 type ProductTableComponent = FunctionComponent<ProductTableProps>

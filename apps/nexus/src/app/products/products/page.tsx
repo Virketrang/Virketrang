@@ -1,4 +1,4 @@
-import { Entity, Http } from '@packages/index'
+import { Interfaces } from '@packages/index'
 
 import { fetcher } from '@/common'
 import { ProductTable } from '@/composables'
@@ -10,7 +10,7 @@ import Loading from './loading'
 type Props = {}
 
 const Page = ({}: Props) => {
-    const { data, isLoading } = useSWR<Awaited<Http.Response<Entity.Product>>>(
+    const { data, isLoading } = useSWR<Awaited<Interfaces.Http.Response<Interfaces.Entity.Product>>>(
         'http://localhost:8080/products',
         fetcher
     )

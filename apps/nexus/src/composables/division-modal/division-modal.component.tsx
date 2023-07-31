@@ -1,6 +1,6 @@
 // import { Modal } from '@resolut/client'
 
-import { PRODUCT_CATEGORY } from '@packages/enums'
+import { Enums } from '@packages/index'
 import { Button, InputField, MultiSelect } from '@/components'
 import { useSnackbar } from '@/common'
 
@@ -12,7 +12,7 @@ const DivisionModal: DivisionModalComponent = memo(({ open, setOpen }) => {
 
     const [name, setName] = useState('')
     const [name2, setName2] = useState('')
-    const [categories, setCategories] = useState<PRODUCT_CATEGORY[]>([])
+    const [categories, setCategories] = useState<Enums.PRODUCT_CATEGORY[]>([])
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -45,11 +45,11 @@ const DivisionModal: DivisionModalComponent = memo(({ open, setOpen }) => {
                 />
                 <MultiSelect
                     selected={categories}
-                    selectedChanged={(selected) => setCategories(selected as PRODUCT_CATEGORY[])}
+                    selectedChanged={(selected) => setCategories(selected as Enums.PRODUCT_CATEGORY[])}
                     options={[
-                        { value: PRODUCT_CATEGORY.CIDER, label: 'Cider' },
-                        { value: PRODUCT_CATEGORY.CONFECTURE, label: 'Konfekture' },
-                        { value: PRODUCT_CATEGORY.CRAFTMANSSHIP, label: 'Håndværk' }
+                        { value: Enums.PRODUCT_CATEGORY.CIDER, label: 'Cider' },
+                        { value: Enums.PRODUCT_CATEGORY.CONFECTURE, label: 'Konfekture' },
+                        { value: Enums.PRODUCT_CATEGORY.CRAFTMANSSHIP, label: 'Håndværk' }
                     ]}
                 />
             </div>

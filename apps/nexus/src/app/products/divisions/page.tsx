@@ -1,10 +1,10 @@
-import { Entity, Http } from '@packages/index'
+import { Interfaces } from '@packages/index'
 import { fetcher, useSnackbar } from '@/common'
 import Loading from './loading'
 import { DivisionModal, DivisionTable } from '@/composables'
 
 const Page = () => {
-    const { data, isLoading } = useSWR<Awaited<Http.Response<Entity.Division.Retrieve>>>(
+    const { data, isLoading } = useSWR<Awaited<Interfaces.Http.Response<Interfaces.Entity.Division>>>(
         'http://localhost:8080/divisions',
         fetcher
     )
