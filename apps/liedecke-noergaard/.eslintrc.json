@@ -1,5 +1,5 @@
 {
-    "extends": ["next", "next/babel", "next/core-web-vitals", "../../.eslintrc.json"],
+    "extends": ["../../.eslintrc.json"],
     "ignorePatterns": ["!**/*"],
     "overrides": [
         {
@@ -14,11 +14,5 @@
             "files": ["*.js", "*.jsx"],
             "rules": {}
         }
-    ],
-    "rules": {
-        "@next/next/no-html-link-for-pages": "off"
-    },
-    "env": {
-        "jest": true
-    }
+    ]
 }

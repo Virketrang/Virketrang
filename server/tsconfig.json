@@ -7,7 +7,8 @@
         "sourceMap": true,
         "outDir": "./dist",
         "incremental": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "types": ["vitest/globals"]
     },
     "include": ["src/**/*", "../packages/**/*", "../config/**/*"]
 }
