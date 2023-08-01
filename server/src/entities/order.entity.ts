@@ -1,5 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
-import Customer from './customer.entity'
+
+import { Customer } from '.'
 
 @Entity()
 export default class Order {

@@ -1,16 +1,16 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
-import { CustomerType } from '@packages/enums'
+import { CUSTOMER_TYPE } from '../../../packages/enums'
 
-import { Person } from './abstract'
 import Order from './order.entity'
+import Person from './abstract/person.entity'
 
 @Entity()
-export default abstract class Customer extends Person {
+export default class Customer extends Person {
     @PrimaryGeneratedColumn('uuid')
     id!: string
 
-    @Column({ type: 'enum', enum: CustomerType })
-    type!: CustomerType
+    @Column({ type: 'enum', enum: CUSTOMER_TYPE })
+    type!: CUSTOMER_TYPE
 
     @OneToMany(() => Order, (order) => order.customer)
     orders!: Order[]

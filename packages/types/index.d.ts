@@ -3,7 +3,7 @@ import _I18N from './i18n'
 import _Entity from './entities'
 
 declare global {
-    declare namespace Workspace {
+    namespace Workspace {
         export import HTTP = _HTTP
 
         export import I18N = _I18N
@@ -12,4 +12,4 @@ declare global {
     }
 }
 
-export default Types
+export {}

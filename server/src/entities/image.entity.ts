@@ -1,14 +1,14 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+
 import Product from './product.entity'
-import { I18NText } from './abstract'
-import { Interfaces } from '@packages/index'
+import I18NText from './abstract/i18n-text.entity'
 
 @Entity()
-export default class Image implements Interfaces.Entity.Image {
+export default class Image implements Workspace.Entity.Image {
     @PrimaryGeneratedColumn('uuid')
     id!: string
 
-    @Column()
+    @Column(() => I18NText)
     alt!: I18NText
 
     @Column()

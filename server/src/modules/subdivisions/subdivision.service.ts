@@ -1,14 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
 
-import { Subdivision } from '@/entities'
-import { Entity } from '@packages/interfaces'
+import { Subdivision } from '@/server/entities'
 import SubdivisionRepository from './subdivision.repository'
 
 @Injectable()
 export default class SubdivisionService {
     constructor(private readonly subdivisionRepository: SubdivisionRepository) {}
 
-    async create(createSubdivision: Entity.Subdivision.Create): Promise<Subdivision> {
+    async create(createSubdivision: Workspace.Entity.Subdivision.Create): Promise<Subdivision> {
         const subdivision = this.subdivisionRepository.create(createSubdivision)
 
         await this.subdivisionRepository.save(subdivision)

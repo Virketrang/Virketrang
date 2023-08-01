@@ -4,7 +4,7 @@ interface Subdivision extends Workspace.Entity.BaseEntity {
     products?: Workspace.Entity.Product[]
 }
 
-namespace Subdivision {
+declare namespace Subdivision {
     type Create = Omit<Subdivision, 'id'>
 
     type Update = Partial<Create>

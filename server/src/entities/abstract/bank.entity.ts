@@ -1,4 +1,4 @@
-import { Column, Entity, OneToOne } from 'typeorm'
+import { Column } from 'typeorm'
 
 export default abstract class Bank {
     @Column()

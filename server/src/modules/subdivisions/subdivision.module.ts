@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { Subdivision } from '@/entities'
+import { Subdivision } from '@/server/entities'
 
 import SubdivisionService from './subdivision.service'
 import SubdivisionController from './subdivision.controller'

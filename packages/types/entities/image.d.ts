@@ -6,7 +6,7 @@ interface Image extends Workspace.Entity.BaseEntity {
     product: Workspace.Entity.Product
 }
 
-namespace Image {
+declare namespace Image {
     type Create = Omit<Image, 'id' | 'product'>
 
     type Update = Partial<Create>

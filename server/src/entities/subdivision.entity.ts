@@ -1,11 +1,11 @@
 import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
-import Division from './division.entity'
-import { I18NText } from './abstract'
+
 import Product from './product.entity'
-import { Interfaces } from '@packages/index'
+import Division from './division.entity'
+import I18NText from './abstract/i18n-text.entity'
 
 @Entity()
-export default abstract class Subdivision implements Interfaces.Entity.Subdivision {
+export default abstract class Subdivision implements Workspace.Entity.Subdivision {
     @PrimaryGeneratedColumn('uuid')
     id!: string
 

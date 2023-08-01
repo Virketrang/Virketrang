@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 
-import { Order } from '@/entities'
+import { Order } from '@/server/entities'
 
 @Injectable()
 export default class OrderService {

@@ -2,11 +2,10 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 
-import { Entity } from '@packages/interfaces'
-import { Product } from '@/entities'
-import { sanitizeObject, calcSort } from '@/utils'
+import { Product } from '@/server/entities'
+import { sanitizeObject } from '@/server/utils'
 
-import * as Validation from '@/validation'
+import * as Validation from '@/server/validation'
 
 @Injectable()
 export default class ProductService {
@@ -22,7 +21,7 @@ export default class ProductService {
         return product
     }
 
-    async getProducts({ minPrice, maxPrice, limit, materials, sort, ...params }: Validation.Product.Query) {
+    async getProducts({ minPrice, maxPrice, materials, ...params }: Validation.Product.Query) {
         const products = await this.productRepository.find(
             sanitizeObject({
                 ...params,
@@ -36,7 +35,7 @@ export default class ProductService {
         return products
     }
 
-    async createProduct(product: Validation.Product.Create, images: Entity.Image.Create[]): Promise<Product> {
+    async createProduct(product: Validation.Product.Create, images: Workspace.Entity.Image.Create[]): Promise<Product> {
         const newProduct = this.productRepository.create({ ...product, images })
 
         await this.productRepository.save(newProduct)
@@ -44,7 +43,7 @@ export default class ProductService {
         return newProduct
     }
 
-    async updateProduct(id: string, product: Entity.Product.Update) {
+    async updateProduct(id: string, product: Workspace.Entity.Product.Update) {
         const { name, description, retailPrice, costPrice } = product
 
         const existingProduct = await this.getProduct(id)

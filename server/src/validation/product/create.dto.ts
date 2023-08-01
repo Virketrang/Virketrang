@@ -12,23 +12,26 @@ import {
 import { Transform, Type } from 'class-transformer'
 
 import { toBoolean, toNumber } from '@/server/utils'
-import * as Validation from '../index'
-import { Enums, Interfaces } from '@/types'
+import { PRODUCT_CATEGORY } from '../../../../packages/enums'
 
-export default abstract class CreateProduct implements Interfaces.Entity.Product.Create {
+import * as I18N from '@/server/validation/i18n'
+import Measurement from './measurement.dto'
+import Description from './description.dto'
+
+export default abstract class CreateProduct implements Workspace.Entity.Product.Create {
     @Transform(({ value }) => JSON.parse(value))
     @IsDefined({ message: 'Produktet skal have et navn' })
     @IsNotEmptyObject()
     @IsObject({ message: 'Produktet skal have et navn på alle sprog' })
-    @Type(() => Validation.I18N.Text)
-    name!: Validation.I18N.Text
+    @Type(() => I18N.Text)
+    name!: I18N.Text
 
     @Transform(({ value }) => JSON.parse(value))
     @IsDefined({ message: 'Produktet skal have en beskrivelse' })
     @IsNotEmptyObject()
     @IsObject({ message: 'Produktet skal have en beskrivelse på flere sprog' })
-    @Type(() => Validation.Product.Description)
-    description!: Validation.Product.Description
+    @Type(() => Description)
+    description!: Description
 
     @Transform(({ value }) => toNumber(value))
     @IsNumber({ allowNaN: false, allowInfinity: false, maxDecimalPlaces: 2 })
@@ -55,8 +58,8 @@ export default abstract class CreateProduct implements Interfaces.Entity.Product
     @IsString({ each: true, message: 'Materialer skal være af typen: String' })
     materials!: string[]
 
-    @IsEnum(Enums.PRODUCT_CATEGORY, { message: 'Ugyldig produktkategori angivet' })
-    category!: Enums.PRODUCT_CATEGORY
+    @IsEnum(PRODUCT_CATEGORY, { message: 'Ugyldig produktkategori angivet' })
+    category!: PRODUCT_CATEGORY
 
     @IsString({ message: 'Der skal angives en designer og angivelsen skal være en String' })
     designer!: string
@@ -65,6 +68,6 @@ export default abstract class CreateProduct implements Interfaces.Entity.Product
     @IsDefined()
     @IsNotEmptyObject()
     @IsObject()
-    @Type(() => Validation.Product.Measurement)
-    measurement!: Validation.Product.Measurement
+    @Type(() => Measurement)
+    measurement!: Measurement
 }

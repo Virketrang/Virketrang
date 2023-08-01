@@ -1,4 +1,4 @@
-const enum PRODUCT_CATEGORY {
+enum PRODUCT_CATEGORY {
     CRAFTMANSSHIP = 'craftmansship',
     CONFECTURE = 'confecture',
     CIDER = 'cider'

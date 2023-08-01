@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { Division, Subdivision } from '@/entities'
+import { Division, Subdivision } from '@/server/entities'
 
 import DivisionService from './division.service'
 import DivisionController from './division.controller'

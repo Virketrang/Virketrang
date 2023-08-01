@@ -1,10 +1,15 @@
 import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
-import { Enums, Interfaces } from '@packages/index'
 
-import { Description, Measurement, Image, Subdivision, I18NText } from '.'
+import { PRODUCT_CATEGORY } from '@/enums/index'
+
+import I18NText from './abstract/i18n-text.entity'
+import Description from './abstract/description.entity'
+import Measurement from './abstract/measurement.entity'
+import Image from './image.entity'
+import Subdivision from './subdivision.entity'
 
 @Entity()
-export default class Product implements Interfaces.Entity.Product {
+export default class Product implements Workspace.Entity.Product {
     @PrimaryGeneratedColumn('uuid')
     id!: string
 
@@ -32,8 +37,8 @@ export default class Product implements Interfaces.Entity.Product {
     @Column(() => String, { array: true })
     materials!: string[]
 
-    @Column({ type: 'enum', enum: Enums.PRODUCT_CATEGORY })
-    category!: Enums.PRODUCT_CATEGORY
+    @Column({ type: 'enum', enum: PRODUCT_CATEGORY })
+    category!: PRODUCT_CATEGORY
 
     @Column()
     createdAt?: Date = new Date()

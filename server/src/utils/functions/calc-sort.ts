@@ -1,4 +1,4 @@
-import { SORTING_OPTION } from '@packages/enums'
+import { SORTING_OPTION } from '../../../../packages/enums'
 
 export default function calcSort(sortingOption: SORTING_OPTION): any {
     switch (sortingOption) {

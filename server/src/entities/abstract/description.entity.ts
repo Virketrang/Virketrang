@@ -1,4 +1,5 @@
 import { Column } from 'typeorm'
+
 import I18NText from './i18n-text.entity'
 
 export default abstract class Description {

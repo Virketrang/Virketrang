@@ -1,11 +1,12 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
-import { Enums, Interfaces } from '@packages/index'
 
+import { PRODUCT_CATEGORY } from '../../../packages/enums'
+
+import I18NText from './abstract/i18n-text.entity'
 import Subdivision from './subdivision.entity'
-import { I18NText } from './abstract'
 
 @Entity()
-export default abstract class Division implements Interfaces.Entity.Division {
+export default class Division implements Workspace.Entity.Division {
     @PrimaryGeneratedColumn('uuid')
     id!: string
 
@@ -15,6 +16,6 @@ export default abstract class Division implements Interfaces.Entity.Division {
     @OneToMany(() => Subdivision, (subdivision) => subdivision.division, { nullable: true })
     subdivisions?: Subdivision[]
 
-    @Column({ type: 'enum', enum: Enums.PRODUCT_CATEGORY, array: true })
-    categories!: Enums.PRODUCT_CATEGORY[]
+    @Column({ type: 'enum', enum: PRODUCT_CATEGORY, array: true })
+    categories!: PRODUCT_CATEGORY[]
 }

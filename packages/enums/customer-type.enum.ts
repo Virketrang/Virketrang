@@ -1,4 +1,4 @@
-const enum CustomerType {
+enum CustomerType {
     PRIVATE = 'private',
     BUSINESS = 'business'
 }

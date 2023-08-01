@@ -1,7 +1,7 @@
 import { DataSource, Repository } from 'typeorm'
 import { Injectable } from '@nestjs/common'
 
-import { Subdivision } from '@/entities'
+import { Subdivision } from '@/server/entities'
 
 @Injectable()
 export default class SubdivisionRepository extends Repository<Subdivision> {

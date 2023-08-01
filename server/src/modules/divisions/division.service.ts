@@ -1,14 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
 
-import { Entity } from '@packages/interfaces'
 import DivisionRepository from './division.repository'
-import { Division } from '@/entities'
+import { Division } from '@/server/entities'
 
 @Injectable()
 export default class DivisionService {
     constructor(private readonly divisionRepository: DivisionRepository) {}
 
-    async create(createDivision: Entity.Division.Create): Promise<Division> {
+    async create(createDivision: Workspace.Entity.Division.Create): Promise<Division> {
         return await this.divisionRepository.save(createDivision)
     }
 

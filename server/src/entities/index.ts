@@ -6,5 +6,3 @@ export { default as Address } from './abstract/address.entity'
 export { default as Customer } from './customer.entity'
 export { default as Order } from './order.entity'
 export { default as Division } from './division.entity'
-
-export * from './abstract'

@@ -1,12 +1,12 @@
 {
     "$schema": "https://json.schemastore.org/nest-cli",
     "collection": "@nestjs/schematics",
-    "language": "ts",
     "sourceRoot": "src",
-    "root": ".",
+    "language": "ts",
+    "entryFile": "server/src/main",
     "compilerOptions": {
-        "webpack": true,
-        "webpackConfigPath": "webpack.config.js",
+        "deleteOutDir": true,
+        "builder": "swc",
         "typeCheck": true
     }
 }

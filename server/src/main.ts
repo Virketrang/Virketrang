@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { NestFactory } from '@nestjs/core'
 import { BadRequestException, ValidationError, ValidationPipe } from '@nestjs/common'
 
@@ -5,7 +6,7 @@ import { AppModule } from '@/server/app.module'
 
 declare const module: any
 
-const PORT = process.env.SERVER_PORT || 8080
+const PORT = process.env.PORT || 8080
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule)

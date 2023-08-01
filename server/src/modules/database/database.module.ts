@@ -2,7 +2,8 @@ import { Logger, Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { Bank, Customer, Division, Employee, Image, Order, Product, Subdivision } from '@/entities'
+import { Customer, Division, Employee, Image, Order, Product, Subdivision } from '@/server/entities'
+import { __prod__ } from '../../constants'
 
 const logger = new Logger('TypeORM')
 
@@ -11,12 +12,15 @@ const logger = new Logger('TypeORM')
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
             useFactory: (configService: ConfigService) => ({
-                type: 'postgres',
-                ssl: true,
-                url: configService.get<string>('DATABASE_URL'),
-                logger: logger.log.bind(logger),
+                type: 'postgres' as any,
+                ssl: __prod__,
+                url: (() => {
+                    console.log(configService.get<string>('DATABASE_URL'))
+                    return configService.get<string>('DATABASE_URL')
+                })(),
+                logger: logger.log.bind(logger) as any,
                 synchronize: true,
-                entities: [Product, Subdivision, Order, Image, Employee, Division, Customer, Bank]
+                entities: [Product, Subdivision, Order, Image, Employee, Division, Customer]
             }),
             inject: [ConfigService]
         })

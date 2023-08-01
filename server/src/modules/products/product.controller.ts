@@ -14,10 +14,8 @@ import {
 } from '@nestjs/common'
 import { FilesInterceptor } from '@nestjs/platform-express'
 
-import { Entity, Http } from '@packages/interfaces'
-
-import { StorageService } from '@/services'
-import { File } from '@/types'
+import { StorageService } from '@/server/services'
+import { File } from '@/server/types/index'
 
 import ProductService from './product.service'
 import * as Validation from '../../validation/index'
@@ -31,10 +29,10 @@ export default class ProductController {
     @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
     @UseInterceptors(FilesInterceptor('images[]', 8))
     async createProduct(@UploadedFiles() files: File[], @Body() body: Validation.Product.Create) {
-        let images: Entity.Image.Create[] = files.map((file) => {
+        const images: Workspace.Entity.Image.Create[] = files.map((file) => {
             return {
                 url: `https://storage.googleapis.com/liedecke-noergaard/${file.originalname}`,
-                alt: 'Test Image',
+                alt: { 'da-DK': file.originalname, 'en-GB': file.originalname },
                 width: 4096,
                 height: 4096
             }
@@ -53,7 +51,9 @@ export default class ProductController {
 
     @Get()
     @HttpCode(200)
-    async getProducts(@Query() query: Validation.Product.Query): Promise<Http.Response<Entity.Product>> {
+    async getProducts(
+        @Query() query: Validation.Product.Query
+    ): Promise<Workspace.HTTP.Response<Workspace.Entity.Product>> {
         const products = await this.productsService.getProducts(query)
 
         return { status: 'success', body: products }

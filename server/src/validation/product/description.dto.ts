@@ -1,10 +1,9 @@
 import { IsDefined, IsNotEmptyObject, IsObject, ValidateNested } from 'class-validator'
 
-import I18NTextDTO from '../../validation/i18n/text.dto'
+import I18NTextDTO from '../i18n/text.dto'
 import { Transform } from 'class-transformer'
-import { Interfaces } from '@/types/index'
 
-export default abstract class DescriptionDTO implements Interfaces.Entity.Description {
+export default abstract class DescriptionDTO implements Workspace.Entity.Description {
     @Transform(({ value }) => {
         console.log(value)
         return value

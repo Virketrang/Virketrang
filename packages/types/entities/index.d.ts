@@ -5,10 +5,18 @@ import _Product from './product'
 import _Image from './image'
 import _Measurement from './measurement'
 import _Description from './description'
+import _Customer from './customer'
+import _Order from './order'
 
 declare namespace Entity {
-    export type BaseEntity = _BaseEntity
+    // ABSTRACT
+    export interface BaseEntity extends _BaseEntity {}
 
+    export interface Measurement extends _Measurement {}
+
+    export interface Description extends _Description {}
+
+    // ENTITIES
     export import Division = _Division
 
     export import Subdivision = _Subdivision
@@ -17,9 +25,9 @@ declare namespace Entity {
 
     export import Image = _Image
 
-    export type Measurement = _Measurement
+    export import Customer = _Customer
 
-    export type Description = _Description
+    export import Order = _Order
 }
 
 export default Entity

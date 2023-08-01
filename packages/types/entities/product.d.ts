@@ -1,4 +1,4 @@
-import { Enums } from '@/enums'
+import { PRODUCT_CATEGORY } from '@/enums'
 
 interface Product extends Workspace.Entity.BaseEntity {
     name: Workspace.I18N.Text
@@ -17,7 +17,7 @@ interface Product extends Workspace.Entity.BaseEntity {
 
     materials: string[]
 
-    category: Enums.PRODUCT_CATEGORY
+    category: PRODUCT_CATEGORY
 
     createdAt?: Date
 
@@ -30,7 +30,7 @@ interface Product extends Workspace.Entity.BaseEntity {
     subdivisions?: Workspace.Entity.Subdivision[]
 }
 
-namespace Product {
+declare namespace Product {
     type Create = Omit<Product, 'id' | 'createdAt' | 'images'>
 
     type Update = Partial<Create>

@@ -1,17 +1,14 @@
 {
     "extends": "../tsconfig.base.json",
     "compilerOptions": {
-        "module": "CommonJS",
+        "module": "commonjs",
+        "moduleResolution": "node",
         "declaration": true,
-        "allowSyntheticDefaultImports": true,
         "target": "ESNext",
         "sourceMap": true,
         "outDir": "./dist",
-        "diagnostics": false,
-        "extendedDiagnostics": false,
-        "typeRoots": ["./server/unimport.d.ts"],
         "incremental": true,
-        "skipLibCheck": true,
-        "strictBindCallApply": false
-    }
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*", "../packages/**/*"]
 }

@@ -1,4 +1,5 @@
 import { Column } from 'typeorm'
+
 import Address from './address.entity'
 
 export default abstract class Person {
