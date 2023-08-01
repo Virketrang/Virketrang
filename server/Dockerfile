@@ -40,11 +40,11 @@ COPY --chown=node:node ./tsconfig.base.json /workspace
 
 WORKDIR /workspace/server
 
-COPY ./server .
-
 COPY ./server/tsconfig*.json ./
 
 COPY --chown=node:node --from=development /workspace/server/package*.json ./
+
+COPY ./server .
 
 RUN npm ci
 
