@@ -28,6 +28,8 @@ USER node
 
 FROM node:18-alpine AS build
 
+RUN npm i -g npm@latest
+
 RUN mkdir -p /workspace/website
 
 RUN mkdir -p /workspace/packages

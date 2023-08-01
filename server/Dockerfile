@@ -4,6 +4,8 @@
 
 FROM node:18-alpine AS development
 
+RUN npm i -g npm@latest
+
 RUN mkdir -p /workspace/server
 
 RUN mkdir -p /workspace/packages
@@ -25,6 +27,8 @@ USER node
 ########################
 
 FROM node:18-alpine AS build
+
+RUN npm i -g npm@latest
 
 RUN mkdir -p /workspace/server
 
