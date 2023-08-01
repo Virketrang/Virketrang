@@ -1,18 +1,18 @@
-name: Color Package Release
+name: Resolut Package Release
 
 on:
     push:
         branches: [master]
 
         paths:
-            - 'packages/colors/**'
+            - 'packages/resolut/**'
 
 jobs:
     build:
         runs-on: 'ubuntu-latest'
         defaults:
             run:
-                working-directory: ./packages/colors
+                working-directory: ./packages/resolut
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
@@ -25,7 +25,7 @@ jobs:
         runs-on: ubuntu-latest
         defaults:
             run:
-                working-directory: ./packages/colors
+                working-directory: ./packages/resolut
         env:
             NODE_ENV: production
         permissions:

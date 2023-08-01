@@ -1,5 +1,5 @@
 {
-    "extends": "https://raw.githubusercontent.com/virketrang/virketrang/master/tsconfig.base.json",
+    "extends": "../tsconfig.base.json",
     "compilerOptions": {
         "target": "es2015",
         "lib": ["dom", "dom.iterable", "esnext"],
