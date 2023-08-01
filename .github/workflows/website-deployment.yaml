@@ -25,7 +25,7 @@ jobs:
             - name: Auth
               uses: 'google-github-actions/auth@v0'
               with:
-                  credentials_json: ${{ secrets.GOOGLE_CLOUD_GITHUB_ACTIONS_SERVICE_ACCOUNT }}
+                  credentials_json: ${{ secrets.VIRKETRANG_GOOGLE_CLOUD_GITHUB_ACTIONS_SERVICE_ACCOUNT }}
                   project_id: ${{ secrets.VIRKETRANG_GOOGLE_CLOUD_PROJECT_ID }}
 
             - name: Setup Cloud SDK

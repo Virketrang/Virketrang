@@ -10,9 +10,13 @@ RUN mkdir -p /workspace/website
 
 RUN mkdir -p /workspace/packages
 
+RUN mkdir -p /workspace/config
+
 COPY ./website/package*.json /workspace/website
 
 COPY ./packages /workspace/packages
+
+COPY ./config /workspace/config
 
 WORKDIR /workspace/website
 
@@ -34,7 +38,11 @@ RUN mkdir -p /workspace/website
 
 RUN mkdir -p /workspace/packages
 
+RUN mkdir -p /workspace/config
+
 COPY ./packages /workspace/packages
+
+COPY ./config /workspace/config
 
 COPY ./tsconfig.base.json /workspace
 

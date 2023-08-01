@@ -4,19 +4,25 @@
 
 FROM node:18-alpine AS development
 
-RUN mkdir -p /usr/src/app/webshop
+RUN npm i -g npm@latest
 
-RUN mkdir -p /usr/packages
+RUN mkdir -p /workspace/apps/liedecke-noergaard
 
-COPY ./apps/webshop/package*.json /usr/src/app/webshop
+RUN mkdir -p /workspace/packages
 
-COPY ./packages /usr/packages
+RUN mkdir -p /workspace/config
 
-WORKDIR /usr/src/app/webshop
+COPY ./apps/liedecke-noergaard/package*.json /workspace/apps
 
-RUN pnpm install
+COPY ./packages /workspace/packages
 
-COPY ./apps/webshop .
+COPY ./config /workspace/config
+
+WORKDIR /workspace/apps/liedecke-noergaard
+
+RUN npm install
+
+COPY ./apps/liedecke-noergaard .
 
 USER node
 
@@ -26,31 +32,37 @@ USER node
 
 FROM node:18-alpine AS build
 
-RUN mkdir -p /usr/src/app/webshop
+RUN npm i -g npm@latest
 
-RUN mkdir -p /usr/packages
+RUN mkdir -p /workspace/apps/liedecke-noergaard
 
-COPY ./packages /usr/packages
+RUN mkdir -p /workspace/packages
 
-COPY ./tsconfig.base.json /usr
+RUN mkdir -p /workspace/config
 
-WORKDIR /usr/src/app/webshop
+COPY ./packages /workspace/packages
 
-COPY ./apps/webshop/package*.json ./apps/webshop/tsconfig*.json ./
+COPY ./config /workspace/config
 
-RUN pnpm install
+COPY ./tsconfig.base.json /workspace
 
-RUN pnpm -g add next
+WORKDIR /workspace/apps/liedecke-noergaard
 
-COPY ./apps/webshop .
+COPY ./apps/liedecke-noergaard/package*.json ./apps/liedecke-noergaard/tsconfig*.json ./
 
-RUN pnpm run build
+COPY ./apps/liedecke-noergaard .
+
+RUN npm install
+
+RUN npm -g add next
+
+RUN npm run build
 
 ENV NODE_ENV production
 
 ENV PORT 4000
 
-RUN pnpm install --prod
+RUN npm install --only=production
 
 USER node
 
@@ -60,10 +72,12 @@ USER node
 
 FROM node:18-alpine AS production
 
-COPY --chown=node:node --from=build /usr/src/app/webshop/node_modules ./node_modules
+COPY --chown=node:node --from=build /workspace/website/node_modules ./node_modules
 
-COPY --chown=node:node --from=build /usr/src/app/webshop/build ./build
+COPY --chown=node:node --from=build /workspace/website/.next ./.next
 
-EXPOSE 8080
+COPY ./website/package*.json ./
 
-CMD ["node", "build/web/src/main.js"]
+EXPOSE 4000
+
+CMD ["npm", "start"]
