@@ -68,5 +68,5 @@ COPY --chown=node:node --from=build /workspace/server/dist ./dist
 
 EXPOSE ${PORT}
 
-CMD ["node", "dist/main.js"]
+CMD ["node", "dist/server/src/main.js"]
 

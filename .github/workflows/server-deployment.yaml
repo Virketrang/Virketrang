@@ -7,6 +7,7 @@ on:
         paths:
             - 'server/**'
             - 'packages/**'
+            - '.github/workflows/server-deployment.yaml'
 
 jobs:
     build-and-deploy:

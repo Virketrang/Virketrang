@@ -7,6 +7,7 @@ on:
         paths:
             - 'website/**'
             - 'packages/**'
+            - '.github/workflows/website-deployment.yaml'
 
 jobs:
     build-and-deploy:

@@ -3,12 +3,11 @@
     "compilerOptions": {
         "module": "commonjs",
         "moduleResolution": "node",
-        "declaration": true,
         "target": "ESNext",
         "sourceMap": true,
         "outDir": "./dist",
         "incremental": true,
         "skipLibCheck": true
     },
-    "include": ["src/**/*", "../packages/**/*"]
+    "include": ["src/**/*", "../packages/**/*", "../config/**/*"]
 }
