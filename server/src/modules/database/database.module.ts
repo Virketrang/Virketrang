@@ -14,10 +14,7 @@ const logger = new Logger('TypeORM')
             useFactory: (configService: ConfigService) => ({
                 type: 'postgres' as any,
                 ssl: __prod__,
-                url: (() => {
-                    console.log(configService.get<string>('DATABASE_URL'))
-                    return configService.get<string>('DATABASE_URL')
-                })(),
+                url: configService.get<string>('DATABASE_URL'),
                 logger: logger.log.bind(logger) as any,
                 synchronize: true,
                 entities: [Product, Subdivision, Order, Image, Employee, Division, Customer]
