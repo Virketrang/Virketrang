@@ -10,11 +10,8 @@
         "isolatedModules": true,
         "typeRoots": ["./apps/nexus/unimport.d.ts"],
         "noEmit": true,
-        "jsx": "react-jsx",
-        "paths": {
-            "@/*": ["apps/nexus/src/*"]
-        }
+        "jsx": "react-jsx"
     },
-    "include": ["src", "unimport.d.ts"],
+    "include": ["src", "unimport.d.ts", "../../vite.workspace.ts", "../../packages/**/*", "../../config/**/*"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

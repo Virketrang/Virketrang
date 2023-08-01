@@ -1,8 +1,8 @@
 // import { Pagination } from '@resolut/client'
 
-import { Dots } from '@/assets'
-import { categoriesArrayToString, useTable } from '@/common'
-import { Table } from '@/components'
+import { Dots } from '@/nexus/assets'
+import { categoriesArrayToString, useTable } from '@/nexus/common'
+import { Table } from '@/nexus/components'
 
 import styles from './division-table.component.module.css'
 import DivisionTableComponent from './division-table.component.types'

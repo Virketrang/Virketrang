@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type SearchBarComponent = FunctionComponent<{}>
+type SearchBarComponent = React.FunctionComponent<{}>
 
 export default SearchBarComponent

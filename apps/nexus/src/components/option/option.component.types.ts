@@ -1,7 +1,5 @@
-import { ComponentProps, FunctionComponent } from 'react'
+interface OptionComponentProps extends React.ComponentProps<'option'> {}
 
-interface OptionComponentProps extends ComponentProps<'option'> {}
-
-type OptionComponent = FunctionComponent<OptionComponentProps>
+type OptionComponent = React.FunctionComponent<OptionComponentProps>
 
 export default OptionComponent

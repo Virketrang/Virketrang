@@ -1,10 +1,10 @@
-import Interfaces from 'packages/types/interfaces'
-import { fetcher, useSnackbar } from '@/common'
+import { fetcher, useSnackbar } from '@/nexus/common'
+import { DivisionModal, DivisionTable } from '@/nexus/composables'
+
 import Loading from './loading'
-import { DivisionModal, DivisionTable } from '@/composables'
 
 const Page = () => {
-    const { data, isLoading } = useSWR<Awaited<Interfaces.Http.Response<Interfaces.Entity.Division>>>(
+    const { data, isLoading } = useSWR<Awaited<Workspace.HTTP.Response<Workspace.Entity.Division>>>(
         'http://localhost:8080/divisions',
         fetcher
     )

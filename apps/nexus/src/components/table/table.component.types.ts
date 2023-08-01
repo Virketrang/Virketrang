@@ -1,7 +1,5 @@
-import { ComponentProps, FunctionComponent } from 'react'
-
 declare namespace Table {
-    interface Props extends ComponentProps<'table'> {
+    interface Props extends React.ComponentProps<'table'> {
         children: React.ReactNode
         pagination?: {
             pageSize?: number
@@ -9,7 +7,7 @@ declare namespace Table {
         }
     }
 
-    type Component = FunctionComponent<Table.Props>
+    type Component = React.FunctionComponent<Table.Props>
 }
 
 export default Table

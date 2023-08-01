@@ -1,5 +1,5 @@
-import { BusinessSelect, Navigation, SearchBar, ThemeSwitch } from '@/components'
-import { Person, Settings } from '@/assets'
+import { BusinessSelect, Navigation, SearchBar, ThemeSwitch } from '@/nexus/components'
+import { Person, Settings } from '@/nexus/assets'
 
 import styles from './header.component.module.css'
 import HeaderComponent from './header.component.types'

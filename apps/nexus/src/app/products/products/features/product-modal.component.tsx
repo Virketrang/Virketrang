@@ -1,7 +1,6 @@
-import Interfaces from 'packages/types/interfaces'
-import Enums from 'packages/types/enums'
-import { convertObjectToFormData } from '@/common'
-import { Stepper, Button } from '@/components'
+import { PRODUCT_CATEGORY } from '@/enums'
+import { convertObjectToFormData } from '@/nexus/common'
+import { Stepper, Button } from '@/nexus/components'
 
 import ProductModalComponent from './product-modal.component.types'
 import styles from './product-modal.component.module.css'
@@ -13,7 +12,7 @@ const ProductModal: ProductModalComponent = memo(({ open, setOpen }) => {
     const modal = createRef<HTMLDialogElement>()
 
     const [name, setName] = useState<string>('')
-    const [category, setCategory] = useState<Enums.PRODUCT_CATEGORY>(Enums.PRODUCT_CATEGORY.CONFECTURE)
+    const [category, setCategory] = useState<PRODUCT_CATEGORY>(PRODUCT_CATEGORY.CONFECTURE)
     const [shortDescription, setShortDescription] = useState<string>('')
     const [longDescription, setLongDescription] = useState<string>('')
     const [deliveryTime, setDeliveryTime] = useState<number>(0)
@@ -53,7 +52,7 @@ const ProductModal: ProductModalComponent = memo(({ open, setOpen }) => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
-        const data: Interfaces.Entity.Product.Create = {
+        const data: Workspace.Entity.Product.Create = {
             name: { 'da-DK': name, 'en-GB': name },
             description: {
                 short: { 'da-DK': shortDescription, 'en-GB': shortDescription },

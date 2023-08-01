@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { BadRequestException, ValidationError, ValidationPipe } from '@nestjs/common'
 
-import { AppModule } from '@/app.module'
+import { AppModule } from '@/server/app.module'
 
 declare const module: any
 

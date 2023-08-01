@@ -1,7 +1,5 @@
-import Interfaces from 'packages/types/interfaces'
-
-import { fetcher } from '@/common'
-import { ProductTable } from '@/composables'
+import { fetcher } from '@/nexus/common'
+import { ProductTable } from '@/nexus/composables'
 
 import ProductModal from './features/product-modal.component'
 import Error from './error'
@@ -10,7 +8,7 @@ import Loading from './loading'
 type Props = {}
 
 const Page = ({}: Props) => {
-    const { data, isLoading } = useSWR<Awaited<Interfaces.Http.Response<Interfaces.Entity.Product>>>(
+    const { data, isLoading } = useSWR<Awaited<Workspace.HTTP.Response<Workspace.Entity.Product>>>(
         'http://localhost:8080/products',
         fetcher
     )

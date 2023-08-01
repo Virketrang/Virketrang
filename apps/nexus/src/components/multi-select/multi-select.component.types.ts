@@ -1,11 +1,9 @@
-import { ComponentProps, FunctionComponent } from 'react'
-
-interface MultiSelectProps extends ComponentProps<'div'> {
+interface MultiSelectProps extends React.ComponentProps<'div'> {
     options: { value: string; label: string }[]
     selected: string[]
     selectedChanged: (selected: string[]) => void
 }
 
-type MultiSelectComponent = FunctionComponent<MultiSelectProps>
+type MultiSelectComponent = React.FunctionComponent<MultiSelectProps>
 
 export default MultiSelectComponent

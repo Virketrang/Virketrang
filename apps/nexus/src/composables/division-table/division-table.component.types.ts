@@ -1,6 +1,3 @@
-import Interfaces from 'packages/types/interfaces'
-import { FunctionComponent } from 'react'
-
-type DivisionTableComponent = FunctionComponent<{ data: Interfaces.Entity.Division[] }>
+type DivisionTableComponent = React.FunctionComponent<{ data: Workspace.Entity.Division[] }>
 
 export default DivisionTableComponent

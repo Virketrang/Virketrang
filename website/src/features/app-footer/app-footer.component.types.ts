@@ -1,7 +1,5 @@
-import { FunctionComponent } from 'react'
-
 export interface AppFooterProps {}
 
-type AppFooterComponent = FunctionComponent<{}>
+type AppFooterComponent = React.FunctionComponent<{}>
 
 export default AppFooterComponent

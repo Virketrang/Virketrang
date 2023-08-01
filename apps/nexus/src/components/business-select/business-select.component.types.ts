@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type BusinessSelectComponent = FunctionComponent<{}>
+type BusinessSelectComponent = React.FunctionComponent<{}>
 
 export default BusinessSelectComponent

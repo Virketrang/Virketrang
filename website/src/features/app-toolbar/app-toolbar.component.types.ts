@@ -1,11 +1,7 @@
-import { FunctionComponent } from 'react'
-
-import { Locale } from '@types'
-
 export interface AppToolbarProps {
-    locale: Locale
+    locale: Workspace.I18N.Locale
 }
 
-type AppToolbarComponent = FunctionComponent<AppToolbarProps>
+type AppToolbarComponent = React.FunctionComponent<AppToolbarProps>
 
 export default AppToolbarComponent

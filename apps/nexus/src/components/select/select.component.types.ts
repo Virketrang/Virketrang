@@ -1,7 +1,5 @@
-import { ComponentProps, FunctionComponent } from 'react'
+interface SelectComponentProps extends React.ComponentProps<'select'> {}
 
-interface SelectComponentProps extends ComponentProps<'select'> {}
-
-type SelectComponent = FunctionComponent<SelectComponentProps>
+type SelectComponent = React.FunctionComponent<SelectComponentProps>
 
 export default SelectComponent

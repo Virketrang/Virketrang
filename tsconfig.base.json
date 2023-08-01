@@ -20,10 +20,25 @@
         "extendedDiagnostics": true,
         "module": "esnext",
         "baseUrl": ".",
+        "rootDir": ".",
         "moduleResolution": "node",
         "resolveJsonModule": true,
+        "typeRoots": ["packages/types/index.d.ts"],
         "paths": {
-            "packages/*": ["packages/*"]
+            "@/*": ["*"],
+            "@/types/*": ["packages/types/*"],
+            "@/types": ["packages/types/index.ts"],
+            "@/enums/*": ["packages/enums/*"],
+            "@/enums": ["packages/enums/index.ts"],
+            "@/config": ["config/index.ts"],
+            "@/fonts/*": ["packages/fonts/*"],
+            "@/css/*": ["packages/css/*"],
+            "@/themes/*": ["packages/themes/*"],
+            "@/nexus/*": ["apps/nexus/src/*"],
+            "@/strive/*": ["apps/strive/src/*"],
+            "@/liedecke-noergaard/*": ["apps/liedecke-noergaard/src/*"],
+            "@/server/*": ["server/src/*"],
+            "@/website/*": ["website/src/*"]
         }
     }
 }

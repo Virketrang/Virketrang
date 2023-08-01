@@ -1,5 +1,5 @@
-import { Search } from '@/assets'
-import { useShortcut } from '@/common'
+import { Search } from '@/nexus/assets'
+import { useShortcut } from '@/nexus/common'
 
 import SearchBarComponent from './search-bar.component.types'
 import styles from './search-bar.component.module.css'

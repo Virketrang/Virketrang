@@ -1,5 +1,4 @@
 'use client'
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 import DefaultTheme from '../../../public/brightness.png'
@@ -7,7 +6,7 @@ import LightTheme from '../../../public/sun.png'
 import DarkTheme from '../../../public/moon.png'
 
 import { styles, AppToolbarComponent } from '.'
-import { LocaleSwitch } from '@/components'
+import { LocaleSwitch } from '@/website/components'
 
 const AppToolbar: AppToolbarComponent = ({ locale }) => {
     const [theme, setTheme] = useState<'light' | 'dark' | 'default'>('default')

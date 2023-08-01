@@ -1,5 +1,3 @@
-import { FunctionComponent, ReactNode } from 'react'
-
 export const metadata = {
     title: {
         default: 'Virketrang',
@@ -8,7 +6,7 @@ export const metadata = {
     description: 'Forsiden til virketrang.com'
 }
 
-const RootLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) => {
+const RootLayout: React.FunctionComponent<{ children: React.ReactNode }> = ({ children }) => {
     return <>{children}</>
 }
 

@@ -1,9 +1,7 @@
 import { FunctionComponent } from 'react'
 
-import { Locale } from '@types'
-
 export interface AppLogoProps {
-    locale: Locale
+    locale: Workspace.I18N.Locale
 }
 
 type AppLogoComponent = FunctionComponent<AppLogoProps>

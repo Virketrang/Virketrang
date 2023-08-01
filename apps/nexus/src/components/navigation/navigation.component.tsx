@@ -1,4 +1,4 @@
-import { useShortcut, numberToPath } from '@/common'
+import { useShortcut, numberToPath } from '@/nexus/common'
 
 import NavigationComponent from './navigation.component.types'
 import styles from './navigation.component.module.css'
@@ -7,7 +7,7 @@ const tabs = ['1', '2', '3', '4', '5', '6', '7'] as const
 
 const Navigation: NavigationComponent = memo(() => {
     const navigate = useNavigate()
-    useShortcut('metaKey', tabs, (key) => navigate(numberToPath(key)))
+    useShortcut('metaKey', tabs, (key: any) => navigate(numberToPath(key)))
 
     return (
         <nav className={styles.navigation}>

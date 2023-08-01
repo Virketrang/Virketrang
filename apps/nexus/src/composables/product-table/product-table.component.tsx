@@ -1,9 +1,9 @@
-import { Table } from '@/components'
-import { Dots } from '@/assets'
+import { Table } from '@/nexus/components'
+import { Dots } from '@/nexus/assets'
+import { useTable } from '@/nexus/common'
 
 import ProductTableComponent from './product-table.component.types'
 import styles from './product-table.component.module.css'
-import { useTable } from '@/common'
 
 const columns = [
     { name: '', accessor: 'image' },

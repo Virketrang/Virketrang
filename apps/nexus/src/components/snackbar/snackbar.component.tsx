@@ -1,4 +1,4 @@
-import { useSnackbarContext } from '@/common'
+import { useSnackbarContext } from '@/nexus/common'
 
 import SnackbarComponent from './snackbar.component.types'
 import styles from './snackbar.component.module.css'

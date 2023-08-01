@@ -1,6 +1,5 @@
-import { memo } from 'react'
 import styles from './app-logo.component.module.sass'
-import Link from 'next/link'
+
 import Image from 'next/image'
 
 import { Cormorant_Garamond } from 'next/font/google'

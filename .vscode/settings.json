@@ -42,6 +42,8 @@
         // LIBRARIES
         "resolut": "React-components",
         "css-properties": "Css",
+        //PACKAGES
+        "http": "Connection",
         // CLIENT
         "desktop": "Client",
         "native": "Mobile",
@@ -61,6 +63,10 @@
         "legal": "Contract",
         "word": "Docs"
     },
-    "material-icon-theme.files.associations": { "vitest.workspace.ts": "Vitest", "tsconfig.nest.json": "Tsconfig" },
+    "material-icon-theme.files.associations": {
+        "vitest.workspace.ts": "Vitest",
+        "vite.workspace.ts": "Vite",
+        "tsconfig.nest.json": "Tsconfig"
+    },
     "material-icon-theme.activeIconPack": "react"
 }

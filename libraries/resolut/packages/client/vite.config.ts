@@ -3,7 +3,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import Unimport from 'unimport/unplugin'
 import dts from 'vite-plugin-dts'
-
 import { join, resolve } from 'node:path'
 
 const config = defineConfig({
@@ -17,12 +16,12 @@ const config = defineConfig({
         ]
     },
     build: {
-        sourcemap: true,
         outDir: join(__dirname, 'dist'),
+        minify: false,
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
-            name: '@resolut/client',
-            formats: ['es', 'cjs'],
+            name: 'Resolut',
+            formats: ['umd', 'cjs', 'es', 'iife'],
             fileName: (format) => `${format}.js`
         },
         rollupOptions: {

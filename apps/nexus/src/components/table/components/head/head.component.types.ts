@@ -1,9 +1,7 @@
-import { ComponentProps, FunctionComponent } from 'react'
-
-interface TableHeadProps extends ComponentProps<'thead'> {
+interface TableHeadProps extends React.ComponentProps<'thead'> {
     head: string[]
 }
 
-type TableHeadComponent = FunctionComponent<TableHeadProps>
+type TableHeadComponent = React.FunctionComponent<TableHeadProps>
 
 export default TableHeadComponent

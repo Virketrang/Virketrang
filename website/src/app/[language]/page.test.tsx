@@ -1,13 +1,13 @@
-import React from 'react';
-import { expect, test } from 'vitest';
-import { render, screen, within } from '@testing-library/react';
+import React from 'react'
+import { expect, test } from 'vitest'
+import { render, screen, within } from '@testing-library/react'
 
-import Page from './page';
+import Page from './page'
 
 test('Landing page', () => {
-    render(<Page />);
+    render(<Page />)
 
-    const main = within(screen.getByRole('main'));
+    const main = within(screen.getByRole('main'))
 
-    expect(main).toBeDefined();
-});
+    expect(main).toBeDefined()
+})

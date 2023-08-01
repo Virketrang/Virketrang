@@ -11,9 +11,9 @@ import {
 } from 'class-validator'
 import { Transform, Type } from 'class-transformer'
 
-import { toBoolean, toNumber } from '../../utils'
+import { toBoolean, toNumber } from '@/server/utils'
 import * as Validation from '../index'
-import { Enums, Interfaces } from '@packages/index'
+import { Enums, Interfaces } from '@/types'
 
 export default abstract class CreateProduct implements Interfaces.Entity.Product.Create {
     @Transform(({ value }) => JSON.parse(value))

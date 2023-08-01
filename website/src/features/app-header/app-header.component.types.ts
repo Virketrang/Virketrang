@@ -1,9 +1,5 @@
-import { FunctionComponent } from 'react'
-
-import { Locale } from '@types'
-
 export interface AppHeaderProps {
-    locale: Locale
+    locale: Workspace.I18N.Locale
     navigation: {
         products: string
         team: string
@@ -14,6 +10,6 @@ export interface AppHeaderProps {
     }
 }
 
-type AppHeaderComponent = FunctionComponent<AppHeaderProps>
+type AppHeaderComponent = React.FunctionComponent<AppHeaderProps>
 
 export default AppHeaderComponent

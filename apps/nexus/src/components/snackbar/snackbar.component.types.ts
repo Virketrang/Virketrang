@@ -1,14 +1,12 @@
-import { ComponentPropsWithRef, ForwardRefExoticComponent, MemoExoticComponent, RefAttributes } from 'react'
-
 export type Placement = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
 
-export interface SnackbarProps extends Omit<ComponentPropsWithRef<'div'>, 'role'> {
+export interface SnackbarProps extends Omit<React.ComponentPropsWithRef<'div'>, 'role'> {
     placement?: Placement
     offset?: number
 }
 
-export type SnackbarRef = RefAttributes<HTMLDivElement>
+export type SnackbarRef = React.RefAttributes<HTMLDivElement>
 
-type SnackbarComponent = MemoExoticComponent<ForwardRefExoticComponent<SnackbarRef & SnackbarProps>>
+type SnackbarComponent = React.MemoExoticComponent<React.ForwardRefExoticComponent<SnackbarRef & SnackbarProps>>
 
 export default SnackbarComponent

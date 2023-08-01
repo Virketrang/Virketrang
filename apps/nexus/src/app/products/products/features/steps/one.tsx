@@ -1,11 +1,11 @@
-import { InputField, Select, Textarea, Option } from '@/components'
-import Enums from 'packages/types/enums'
+import { InputField, Select, Textarea, Option } from '@/nexus/components'
+import { PRODUCT_CATEGORY } from '@/enums'
 
 type Props = {
     state: { name: string; category: string; shortDescription: string }
     setState: {
         setName: React.Dispatch<React.SetStateAction<string>>
-        setCategory: React.Dispatch<React.SetStateAction<Enums.PRODUCT_CATEGORY>>
+        setCategory: React.Dispatch<React.SetStateAction<PRODUCT_CATEGORY>>
         setShortDescription: React.Dispatch<React.SetStateAction<string>>
     }
 }
@@ -20,7 +20,7 @@ const One: React.FunctionComponent<Props> = memo(({ state, setState }) => {
             />
             <Select
                 value={state.category}
-                onChange={(event) => setState.setCategory(event.target.value as Enums.PRODUCT_CATEGORY)}
+                onChange={(event) => setState.setCategory(event.target.value as PRODUCT_CATEGORY)}
             >
                 <Option value="confecture">Konfekture</Option>
                 <Option value="craftmansship">Håndværk</Option>

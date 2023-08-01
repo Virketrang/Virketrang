@@ -1,10 +1,10 @@
-import { fileURLToPath } from 'url'
-
 import { defineConfig } from 'vite'
 
 import react from '@vitejs/plugin-react'
 import unimport from 'unimport/unplugin'
 import autoprefixer from 'autoprefixer'
+
+import workspaceConfig from '../../vite.workspace'
 
 export default defineConfig({
     plugins: [
@@ -41,12 +41,7 @@ export default defineConfig({
             dts: true
         })
     ],
-    resolve: {
-        alias: {
-            '@': fileURLToPath(new URL('./src', import.meta.url)),
-            'packages': fileURLToPath(new URL('../../packages', import.meta.url))
-        }
-    },
+    resolve: workspaceConfig.resolve,
     clearScreen: false,
     server: {
         port: 1420,

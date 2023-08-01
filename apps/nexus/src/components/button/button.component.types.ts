@@ -1,10 +1,8 @@
-import { ComponentProps, FunctionComponent, ReactNode } from 'react'
-
-interface ButtonComponentProps extends ComponentProps<'button'> {
+interface ButtonComponentProps extends React.ComponentProps<'button'> {
     color?: 'primary' | 'secondary'
-    children: ReactNode
+    children: React.ReactNode
 }
 
-type ButtonComponent = FunctionComponent<ButtonComponentProps>
+type ButtonComponent = React.FunctionComponent<ButtonComponentProps>
 
 export default ButtonComponent

@@ -1,7 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server'
-
-import getLocale from '@utils/get-locale'
-import { i18n } from '@i18n'
+import getLocale from '@/website/utils/get-locale'
+import { i18n } from '@/config'
 
 // @ts-ignore not all code paths return a value.
 export const middleware = (request: NextRequest) => {

@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type ThemeSwitchComponent = FunctionComponent<{}>
+type ThemeSwitchComponent = React.FunctionComponent<{}>
 
 export default ThemeSwitchComponent

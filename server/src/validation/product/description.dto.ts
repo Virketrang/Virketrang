@@ -2,7 +2,7 @@ import { IsDefined, IsNotEmptyObject, IsObject, ValidateNested } from 'class-val
 
 import I18NTextDTO from '../../validation/i18n/text.dto'
 import { Transform } from 'class-transformer'
-import { Interfaces } from '@packages/index'
+import { Interfaces } from '@/types/index'
 
 export default abstract class DescriptionDTO implements Interfaces.Entity.Description {
     @Transform(({ value }) => {

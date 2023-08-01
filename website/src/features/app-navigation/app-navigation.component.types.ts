@@ -1,9 +1,5 @@
-import { FunctionComponent } from 'react'
-
-import { Locale } from '@types'
-
 export interface AppNavigationProps {
-    locale: Locale
+    locale: Workspace.I18N.Locale
     navigation: {
         products: string
         team: string
@@ -14,6 +10,6 @@ export interface AppNavigationProps {
     }
 }
 
-type AppNavigationComponent = FunctionComponent<AppNavigationProps>
+type AppNavigationComponent = React.FunctionComponent<AppNavigationProps>
 
 export default AppNavigationComponent

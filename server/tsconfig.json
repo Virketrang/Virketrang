@@ -9,14 +9,9 @@
         "outDir": "./dist",
         "diagnostics": false,
         "extendedDiagnostics": false,
-        "typeRoots": ["unimport.d.ts"],
-        "baseUrl": "./",
+        "typeRoots": ["./server/unimport.d.ts"],
         "incremental": true,
         "skipLibCheck": true,
-        "strictBindCallApply": false,
-        "paths": {
-            "@packages/*": ["../packages/*"],
-            "@/*": ["./src/app/*"]
-        }
+        "strictBindCallApply": false
     }
 }

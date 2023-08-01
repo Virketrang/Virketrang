@@ -1,4 +1,4 @@
-import { PrimaryKey } from '@/types'
+import { PrimaryKey } from '@/nexus/types'
 
 const useShortcut = <T extends readonly string[]>(
     primaryKey: PrimaryKey,

@@ -1,9 +1,7 @@
-import { ComponentProps, FunctionComponent } from 'react'
-
-interface TextareaComponentProps extends ComponentProps<'textarea'> {
+interface TextareaComponentProps extends React.ComponentProps<'textarea'> {
     resize?: 'none' | 'both' | 'horizontal' | 'vertical'
 }
 
-type TextareaComponent = FunctionComponent<TextareaComponentProps>
+type TextareaComponent = React.FunctionComponent<TextareaComponentProps>
 
 export default TextareaComponent

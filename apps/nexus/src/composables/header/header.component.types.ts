@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type HeaderComponent = FunctionComponent<{}>
+type HeaderComponent = React.FunctionComponent<{}>
 
 export default HeaderComponent

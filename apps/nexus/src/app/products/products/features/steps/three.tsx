@@ -1,4 +1,4 @@
-import { InputField, UploadField } from '@/components'
+import { InputField, UploadField } from '@/nexus/components'
 
 type Props = {
     state: { deliveryTime: number; stock: number; cost: number; retailPrice: number; images: File[] }

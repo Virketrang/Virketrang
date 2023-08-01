@@ -1,16 +1,16 @@
-import AppLayout from '@/app/layout'
-import ProductLayout from '@/app/products/layout'
+import AppLayout from '@/nexus/app/layout'
+import ProductLayout from '@/nexus/app/products/layout'
 
-import Overview from '@/app/overview/page'
-import Orders from '@/app/orders/page'
-import Employees from '@/app/employees/page'
-import Website from '@/app/website/page'
-import Accounting from '@/app/accounting/page'
-import Customers from '@/app/customers/page'
+import Overview from '@/nexus/app/overview/page'
+import Orders from '@/nexus/app/orders/page'
+import Employees from '@/nexus/app/employees/page'
+import Website from '@/nexus/app/website/page'
+import Accounting from '@/nexus/app/accounting/page'
+import Customers from '@/nexus/app/customers/page'
 
-import Products from '@/app/products/products/page'
-import Categories from '@/app/products/divisions/page'
-import Materials from '@/app/products/materials/page'
+import Products from '@/nexus/app/products/products/page'
+import Categories from '@/nexus/app/products/divisions/page'
+import Materials from '@/nexus/app/products/materials/page'
 
 import Error from './app/error'
 

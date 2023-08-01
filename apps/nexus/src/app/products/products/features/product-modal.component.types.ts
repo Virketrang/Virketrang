@@ -1,9 +1,7 @@
-import { ComponentPropsWithoutRef, Dispatch, FunctionComponent, SetStateAction } from 'react'
-
-export interface ProductModalProps extends ComponentPropsWithoutRef<'dialog'> {
-    setOpen: Dispatch<SetStateAction<boolean>>
+export interface ProductModalProps extends React.ComponentPropsWithoutRef<'dialog'> {
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-type ProductModalComponent = FunctionComponent<ProductModalProps>
+type ProductModalComponent = React.FunctionComponent<ProductModalProps>
 
 export default ProductModalComponent

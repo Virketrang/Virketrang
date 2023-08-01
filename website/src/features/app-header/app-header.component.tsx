@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import { styles, AppHeaderComponent } from '.'
 import { AppNavigation, AppLogo, AppToolbar } from '..'
 

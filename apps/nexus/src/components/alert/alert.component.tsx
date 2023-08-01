@@ -1,4 +1,4 @@
-import { useSnackbarContext } from '@/common'
+import { useSnackbarContext } from '@/nexus/common'
 
 import AlertComponent from './alert.component.types'
 import styles from './alert.component.module.css'
@@ -6,7 +6,7 @@ import styles from './alert.component.module.css'
 const Alert: AlertComponent = memo(
     forwardRef(({ className = '', severity = 'success', duration = 4000, children, id, ...props }, forwardedRef) => {
         const { dispatch } = useSnackbarContext()
-        const timerID = useRef<number>()
+        const timerID = useRef<NodeJS.Timeout>()
 
         useEffect(() => {
             timerID.current = setTimeout(() => dispatch({ type: 'DELETE_ALERT', payload: id }), duration)

@@ -1,9 +1,7 @@
-import { ComponentProps, FunctionComponent } from 'react'
-
-interface UploadFieldProps extends ComponentProps<'input'> {
+interface UploadFieldProps extends React.ComponentProps<'input'> {
     upload: (files: File[]) => void
 }
 
-type UploadFieldComponent = FunctionComponent<UploadFieldProps>
+type UploadFieldComponent = React.FunctionComponent<UploadFieldProps>
 
 export default UploadFieldComponent

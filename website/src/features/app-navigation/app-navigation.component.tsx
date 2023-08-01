@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import { Cormorant_Garamond } from 'next/font/google'
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -7,8 +5,6 @@ const cormorantGaramond = Cormorant_Garamond({
     subsets: ['latin'],
     preload: true
 })
-
-import Link from 'next/link'
 
 import { styles, AppNavigationComponent } from '.'
 

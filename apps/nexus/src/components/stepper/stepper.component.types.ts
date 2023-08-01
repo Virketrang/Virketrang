@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
-type StepperComponent = FunctionComponent<{ steps: number; step: number }>
+type StepperComponent = React.FunctionComponent<{ steps: number; step: number }>
 
 export default StepperComponent

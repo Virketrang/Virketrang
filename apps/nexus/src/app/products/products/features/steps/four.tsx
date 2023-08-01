@@ -1,4 +1,4 @@
-import { InputField, MultiSelect, Option, Select } from '@/components'
+import { InputField, MultiSelect, Option, Select } from '@/nexus/components'
 
 type Props = {
     category: string

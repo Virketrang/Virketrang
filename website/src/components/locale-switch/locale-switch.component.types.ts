@@ -1,6 +1,3 @@
-import { Locale } from '@/types'
-import { FunctionComponent } from 'react'
-
-type LocaleSwitchComponent = FunctionComponent<{ locale: Locale }>
+type LocaleSwitchComponent = React.FunctionComponent<{ locale: Workspace.I18N.Locale }>
 
 export default LocaleSwitchComponent

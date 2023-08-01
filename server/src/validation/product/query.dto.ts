@@ -1,7 +1,7 @@
 import { Transform } from 'class-transformer'
 import { IsNumber, IsOptional, IsEnum, IsString, IsBoolean, IsArray } from 'class-validator'
 
-import { Enums } from '@packages/index'
+import { Enums } from '@/types/index'
 import { toArray, toBoolean, toNumber } from '../../utils'
 
 export default class ProductQueryParams {

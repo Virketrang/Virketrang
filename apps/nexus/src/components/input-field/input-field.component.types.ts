@@ -1,7 +1,5 @@
-import { ComponentProps, FunctionComponent } from 'react'
+interface InputFieldProps extends React.ComponentProps<'input'> {}
 
-interface InputFieldProps extends ComponentProps<'input'> {}
-
-type InputFieldComponent = FunctionComponent<InputFieldProps>
+type InputFieldComponent = React.FunctionComponent<InputFieldProps>
 
 export default InputFieldComponent

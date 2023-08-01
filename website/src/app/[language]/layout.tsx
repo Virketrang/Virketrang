@@ -1,11 +1,10 @@
-import '@packages/css/preset.css'
-import '@packages/css/focus.css'
-import '../globals.sass'
+import '@/css/preset.css'
+import '@/css/focus.css'
+import '@/website/app/globals.sass'
 
-import { i18n } from '@i18n'
-import { Locale } from '@types'
-import getDictionary from '@server-only/get-dictionary'
-import { AppFooter, AppHeader } from '@/features'
+import { i18n } from '@/config'
+import { getDictionary } from '@/website/server-only'
+import { AppFooter, AppHeader } from '@/website/features'
 
 export async function generateStaticParams() {
     return i18n.locales.map((locale) => ({ language: locale }))
@@ -16,7 +15,7 @@ export default async function Layout({
     params
 }: {
     children: React.ReactNode
-    params: { language: Locale }
+    params: { language: Workspace.I18N.Locale }
 }) {
     const { navigation } = await getDictionary(params.language)
 

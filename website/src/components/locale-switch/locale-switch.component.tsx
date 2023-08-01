@@ -1,21 +1,15 @@
 'use client'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
-import { useState } from 'react'
+
+import { i18n } from '@/config'
 
 import styles from './locale-switch.component.module.sass'
 import LocaleSwitchComponent from './locale-switch.component.types'
 
-import { i18n } from '@i18n'
-import { Locale } from '@/types'
-
-const localeToCountry = (locale: Locale) => {
+const localeToCountry = (locale: Workspace.I18N.Locale) => {
     switch (locale) {
-        case 'da':
+        case 'da-DK':
             return '🇩🇰 Dansk'
-        case 'de':
-            return '🇩🇪 Deutch'
-        case 'en':
+        case 'en-GB':
             return '🇬🇧 English'
     }
 }

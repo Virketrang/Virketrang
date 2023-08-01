@@ -1,4 +1,4 @@
-import { DarkMode, LightMode } from '@/assets'
+import { DarkMode, LightMode } from '@/nexus/assets'
 
 import ThemeSwitchComponent from './theme-switch.component.types'
 

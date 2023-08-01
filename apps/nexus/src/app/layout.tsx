@@ -1,6 +1,6 @@
-import { SnackbarProvider } from '@/common'
-import { Snackbar } from '@/components'
-import { Header } from '@/composables'
+import { SnackbarProvider } from '@/nexus/common'
+import { Snackbar } from '@/nexus/components'
+import { Header } from '@/nexus/composables'
 
 function Layout() {
     return (
@@ -8,6 +8,7 @@ function Layout() {
             <SnackbarProvider>
                 <Header />
                 <Outlet />
+
                 <Snackbar placement="bottom-left" />
             </SnackbarProvider>
         </>

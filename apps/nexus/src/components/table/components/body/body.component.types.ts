@@ -1,11 +1,9 @@
-import { TableOptions } from '../../../../common/hooks/table'
-import { Column } from '@/common/hooks/table'
-import { ComponentProps, FunctionComponent } from 'react'
+import { Column, TableOptions } from '@/nexus/common/hooks/table'
 
-interface TableBodyProps extends ComponentProps<'tbody'> {
+interface TableBodyProps extends React.ComponentProps<'tbody'> {
     body: { columns: Column[]; data: any; options?: TableOptions }
 }
 
-type TableBodyComponent = FunctionComponent<TableBodyProps>
+type TableBodyComponent = React.FunctionComponent<TableBodyProps>
 
 export default TableBodyComponent

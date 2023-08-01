@@ -1,5 +1,5 @@
-import { SnackbarContext, SnackbarReducer } from '@/common'
-import { Severity } from '@/types'
+import { SnackbarContext, SnackbarReducer } from '@/nexus/common'
+import { Severity } from '@/nexus/types'
 
 export type SnackbarAlert = { id: string; message: string; severity: Severity; duration?: number }
 export type SnackbarAction = { type: 'ADD_ALERT'; payload: SnackbarAlert } | { type: 'DELETE_ALERT'; payload: string }

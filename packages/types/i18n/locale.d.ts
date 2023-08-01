@@ -1,4 +1,4 @@
-import { i18n } from '@i18n'
+import { i18n } from '@/config'
 
 type Locale = (typeof i18n)['locales'][number]
 

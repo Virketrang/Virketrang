@@ -1,4 +1,4 @@
-import { Textarea } from '@/components'
+import { Textarea } from '@/nexus/components'
 
 type Props = { state: string; setState: React.Dispatch<React.SetStateAction<string>> }
 

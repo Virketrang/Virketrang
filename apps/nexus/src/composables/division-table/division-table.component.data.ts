@@ -1,4 +1,4 @@
-import { Column } from '@/common/hooks/table'
+import { Column } from '@/nexus/common/hooks/table'
 
 export const columns: Column[] = [
     { name: 'Navn', accessor: 'name' },

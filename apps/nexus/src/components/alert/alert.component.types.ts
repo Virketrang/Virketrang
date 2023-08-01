@@ -1,4 +1,4 @@
-import { Severity } from '@/types'
+import { Severity } from '@/nexus/types'
 
 export interface AlertProps extends Omit<React.ComponentPropsWithRef<'div'>, 'role'> {
     severity?: Severity

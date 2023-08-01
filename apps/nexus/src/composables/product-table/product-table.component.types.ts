@@ -1,10 +1,7 @@
-import Interfaces from 'packages/types/interfaces'
-import { FunctionComponent } from 'react'
-
 interface ProductTableProps {
-    data: Interfaces.Entity.Product[]
+    data: Workspace.Entity.Product[]
 }
 
-type ProductTableComponent = FunctionComponent<ProductTableProps>
+type ProductTableComponent = React.FunctionComponent<ProductTableProps>
 
 export default ProductTableComponent

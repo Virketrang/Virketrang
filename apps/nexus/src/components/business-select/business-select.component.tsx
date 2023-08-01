@@ -1,4 +1,4 @@
-import { Business } from '@/assets'
+import { Business } from '@/nexus/assets'
 
 import styles from './business-select.component.module.css'
 import BusinessSelectComponent from './business-select.component.types'
