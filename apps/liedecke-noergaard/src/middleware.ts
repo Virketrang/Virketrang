@@ -1,4 +1,4 @@
-import { getLocale } from '@/common/utils/index'
+import { getLocale } from '@/liedecke-noergaard/common/utils/index'
 import i18n from '@/config/i18n'
 
 // @ts-ignore not all code paths return a value.

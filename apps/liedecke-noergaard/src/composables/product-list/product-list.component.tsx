@@ -1,7 +1,7 @@
 'use client'
-import { FilterMenu, Toolbar } from '@/composables'
-import { ProductCard } from '@/components'
-import { isProductNew } from '@/common'
+import { FilterMenu, Toolbar } from '@/liedecke-noergaard/composables'
+import { ProductCard } from '@/liedecke-noergaard/components'
+import { isProductNew } from '@/liedecke-noergaard/common'
 
 import ProductListComponent from './product-list.component.types'
 import styles from './product-list.component.module.scss'

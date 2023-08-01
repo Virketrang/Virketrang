@@ -1,7 +1,5 @@
-import { Entity, Http } from '@/packages/index'
-
-import { __server__ } from '@/common'
-import { FilterCategory, PriceRangeSelector } from '@/components'
+import { __server__ } from '@/liedecke-noergaard/common'
+import { FilterCategory, PriceRangeSelector } from '@/liedecke-noergaard/components'
 
 import styles from './filter-menu.component.module.scss'
 import FilterMenuComponent, { FilterMenuProps } from './filter-menu.component.types'

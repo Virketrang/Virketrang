@@ -1,4 +1,4 @@
-import { Logo, MenuButton, Navigation, CartButton } from '@/components'
+import { Logo, MenuButton, Navigation, CartButton } from '@/liedecke-noergaard/components'
 
 import HeaderComponent from './header.types'
 import styles from './header.module.scss'

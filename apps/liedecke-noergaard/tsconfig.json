@@ -11,7 +11,7 @@
         "module": "esnext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "typeRoots": ["unimport.d.ts", "globals.d.ts"],
+        "typeRoots": ["./apps/liedecke-noergaard/unimport.d.ts", "./apps/liedecke-noergaard/globals.d.ts"],
         "isolatedModules": true,
         "jsx": "preserve",
         "incremental": true,
@@ -20,15 +20,7 @@
             {
                 "name": "next"
             }
-        ],
-        "baseUrl": "./",
-        "paths": {
-            "@/packages/*": ["../../packages/*"],
-            "@/packages": ["../../packages/index"],
-            "@/config/*": ["../../config/*"],
-            "@/public/*": ["./public/*"],
-            "@/*": ["./src/*"]
-        }
+        ]
     },
     "include": [
         "next-env.d.ts",
@@ -37,8 +29,8 @@
         "unimport.d.ts",
         ".next/types/**/*.ts",
         "./dist/types/**/*.ts",
-        "../../packages/**/*.ts",
-        "../../config/**/*.ts"
+        "../../packages/**/*",
+        "../../config/**/*"
     ],
     "exclude": ["node_modules"]
 }

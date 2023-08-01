@@ -1,5 +1,5 @@
 'use client'
-import { Filter, Sort } from '@/components'
+import { Filter, Sort } from '@/liedecke-noergaard/components'
 
 import styles from './toolbar.component.module.scss'
 import ToolbarComponent from './toolbar.component.types'

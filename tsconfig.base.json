@@ -37,6 +37,7 @@
             "@/nexus/*": ["apps/nexus/src/*"],
             "@/strive/*": ["apps/strive/src/*"],
             "@/liedecke-noergaard/*": ["apps/liedecke-noergaard/src/*"],
+            "@/liedecke-noergaard/public/*": ["apps/liedecke-noergaard/public/*"],
             "@/server/*": ["server/src/*"],
             "@/website/*": ["website/src/*"]
         }

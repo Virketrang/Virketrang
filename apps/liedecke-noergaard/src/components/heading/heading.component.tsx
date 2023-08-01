@@ -1,4 +1,4 @@
-import { Banner } from '@/components'
+import { Banner } from '@/liedecke-noergaard/components'
 
 import HeadingComponent from './heading.component.types'
 import styles from './heading.component.module.scss'

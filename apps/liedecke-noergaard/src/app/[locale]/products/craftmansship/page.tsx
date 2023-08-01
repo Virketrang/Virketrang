@@ -1,13 +1,12 @@
-import { PRODUCT_CATEGORY, SORTING_OPTION } from '@/packages/index'
+import { PRODUCT_CATEGORY, SORTING_OPTION } from '@/enums'
 
-import BannerImage from '@/public/images/banners/confecture.jpeg'
-import { Heading } from '@/components'
-import { ProductList } from '@/composables'
-import { getDictionary } from '@/server'
-import { Locale } from '@/types'
-import { API } from '@/common'
+import BannerImage from '@/liedecke-noergaard/public/images/banners/confecture.jpeg'
+import { Heading } from '@/liedecke-noergaard/components'
+import { ProductList } from '@/liedecke-noergaard/composables'
+import { getDictionary } from '@/liedecke-noergaard/server'
+import { API } from '@/liedecke-noergaard/common'
 
-type PageProps = { params: { locale: Locale } }
+type PageProps = { params: { locale: Workspace.I18N.Locale } }
 
 export async function generateMetadata({ params: { locale } }: PageProps) {
     const { craftmansship } = await getDictionary(locale)

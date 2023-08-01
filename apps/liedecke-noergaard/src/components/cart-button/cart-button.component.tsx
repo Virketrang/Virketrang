@@ -1,6 +1,6 @@
 'use client'
-import { useStore } from '@/common'
-import { ShoppingBag } from '@/assets'
+import { useStore } from '@/liedecke-noergaard/common'
+import { ShoppingBag } from '@/liedecke-noergaard/assets'
 
 import CartButtonComponent from './cart-button.types'
 import styles from './cart-button.module.scss'

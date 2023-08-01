@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import LinkedIn from '@/public/icons/linkedin.png'
-import Facebook from '@/public/icons/facebook.png'
-import Instagram from '@/public/icons/instagram.png'
+import LinkedIn from '@/liedecke-noergaard/public/icons/linkedin.png'
+import Facebook from '@/liedecke-noergaard/public/icons/facebook.png'
+import Instagram from '@/liedecke-noergaard/public/icons/instagram.png'
 
 import styles from './social-media.module.scss'
 import SocialMediaComponent from './social-media.types'

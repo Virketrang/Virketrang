@@ -1,5 +1,5 @@
 'use client'
-import { StoreContext, StoreReducer } from '@/common'
+import { StoreContext, StoreReducer } from '@/liedecke-noergaard/common'
 
 type StoreProviderComponent = FunctionComponent<{ children: ReactNode }>
 
@@ -9,7 +9,7 @@ export interface Product {
     quantity: number
     name: string
     materials: string
-    image: { src: string; alt: string }
+    image: { src: string; alt: Workspace.I18N.Text }
 }
 
 export type StoreState = { shoppingCart: { products: Product[]; open: boolean }; sidebar: boolean }

@@ -1,8 +1,8 @@
-import { Dictionary, Locale } from '@/types'
+import { Dictionary } from '@/liedecke-noergaard/types'
 
 type FooterComponent = FunctionComponent<{
     dictionary: Dictionary<'footer'>
-    locale: Locale
+    locale: Workspace.I18N.Locale
 }>
 
 export default FooterComponent

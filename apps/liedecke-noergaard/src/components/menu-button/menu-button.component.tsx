@@ -1,6 +1,6 @@
 'use client'
-import { Menu } from '@/assets'
-import { useStore } from '@/common'
+import { Menu } from '@/liedecke-noergaard/assets'
+import { useStore } from '@/liedecke-noergaard/common'
 
 import styles from './menu-button.module.scss'
 import MenuButtonComponent from './menu-button.types'

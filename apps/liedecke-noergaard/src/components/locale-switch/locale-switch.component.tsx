@@ -1,7 +1,7 @@
 'use client'
-import { i18n } from '@/config/index'
-import { localeToLanguageName, redirectedPathname } from '@/common'
-import { LocaleFlag } from '@/components'
+import { i18n } from '@/config'
+import { localeToLanguageName, redirectedPathname } from '@/liedecke-noergaard/common'
+import { LocaleFlag } from '@/liedecke-noergaard/components'
 
 import LocaleSwitchComponent from './locale-switch.types'
 import styles from './locale-switch.module.scss'

@@ -1,16 +1,15 @@
-import '@/packages/styles/preset.css'
-import '@/packages/styles/focus.css'
+import '@/css/preset.css'
+import '@/css/focus.css'
 import '../../styles.scss'
 
-import { i18n } from '@/config/index'
-import { getDictionary } from '@/server'
-import { CookieModal, Footer, Header, ShoppingCart, Sidebar } from '@/composables'
-import { Font, StoreProvider } from '@/common'
-import { Locale } from '@/types'
+import { i18n } from '@/config'
+import { getDictionary } from '@/liedecke-noergaard/server'
+import { CookieModal, Footer, Header, ShoppingCart, Sidebar } from '@/liedecke-noergaard/composables'
+import { Font, StoreProvider } from '@/liedecke-noergaard/common'
 
 type LayoutProps = {
     children: React.ReactNode
-    params: { locale: Locale }
+    params: { locale: Workspace.I18N.Locale }
 }
 
 export async function generateStaticParams() {

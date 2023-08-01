@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
-import Visa from '@/public/icons/visa.png'
-import Dankort from '@/public/icons/dankort.png'
-import GooglePay from '@/public/icons/google-pay.png'
-import { ApplePay, Mastercard } from '@/assets/svgs'
+import Visa from '@/liedecke-noergaard/public/icons/visa.png'
+import Dankort from '@/liedecke-noergaard/public/icons/dankort.png'
+import GooglePay from '@/liedecke-noergaard/public/icons/google-pay.png'
+import { ApplePay, Mastercard } from '@/liedecke-noergaard/assets/svgs'
 
 import styles from './payment-methods.module.scss'
 import PaymentMethodsComponent from './payment-methods.types'

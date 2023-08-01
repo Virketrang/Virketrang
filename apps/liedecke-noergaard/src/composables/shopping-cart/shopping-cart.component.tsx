@@ -1,10 +1,10 @@
 'use client'
 import Image from 'next/image'
 
-import { useStore } from '@/common/hooks'
-import { Close } from '@/assets/svgs'
-import { Currency } from '@/common/utils'
-import { ModalHeader, QuantityIndicator } from '@/components'
+import { useStore } from '@/liedecke-noergaard/common/hooks'
+import { Close } from '@/liedecke-noergaard/assets/svgs'
+import { Currency } from '@/liedecke-noergaard/common/utils'
+import { ModalHeader, QuantityIndicator } from '@/liedecke-noergaard/components'
 
 import ShoppingCartComponent from './shopping-cart.types'
 import styles from './shopping-cart.module.scss'
@@ -23,7 +23,7 @@ const ShoppingCart: ShoppingCartComponent = memo(({ dictionaries, locale }) => {
                 {state.shoppingCart.products &&
                     state.shoppingCart.products.map(({ id, image, name, materials, price, quantity }) => (
                         <li key={id} className={styles.product}>
-                            <Image src={image.src} alt={image.alt} width={96} height={96} />
+                            <Image src={image.src} alt={image.alt[locale]} width={96} height={96} />
                             <div className={styles.details}>
                                 <h4>{name}</h4>
                                 <p>{materials}</p>

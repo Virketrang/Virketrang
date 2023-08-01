@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
 
-import { useStore, Currency } from '@/common'
-import { ArrowRight, ShoppingBag } from '@/assets'
+import { useStore, Currency } from '@/liedecke-noergaard/common'
+import { ArrowRight, ShoppingBag } from '@/liedecke-noergaard/assets'
 
 import ProductCardComponent from './product-card.types'
 import styles from './product-card.module.scss'
@@ -22,14 +22,14 @@ const ProductCard: ProductCardComponent = memo(
                 <div className={styles.wrapper} role="separator">
                     <Image
                         src={images.distant.src}
-                        alt={images.distant.alt}
+                        alt={images.distant.alt[locale]}
                         fill
                         sizes="(max-width: 878px) 100vw, (max-width: 1200px) 50vw, (max-width: 1759px) 33vw, 25vw"
                     />
                     <Image
                         className={styles.close}
                         src={images.close.src}
-                        alt={images.close.alt}
+                        alt={images.close.alt[locale]}
                         fill
                         sizes="(max-width: 878px) 100vw, (max-width: 1200px) 50vw, (max-width: 1759px) 33vw, 25vw"
                     />

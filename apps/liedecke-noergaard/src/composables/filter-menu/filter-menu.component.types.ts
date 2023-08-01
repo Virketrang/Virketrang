@@ -1,12 +1,11 @@
-import { Entity } from '@/packages/interfaces'
-import { Currency, Dictionary, Locale } from '@/types'
+import { Currency, Dictionary } from '@/liedecke-noergaard/types'
 
 export type FilterMenuProps = {
     dictionary: Dictionary<'filter'>
-    divisions: Entity.Division.Retrieve[]
+    divisions: Workspace.Entity.Division[]
     open: boolean
     currency: Currency
-    locale: Locale
+    locale: Workspace.I18N.Locale
 }
 
 type FilterMenuComponent = React.Component<FilterMenuProps>

@@ -1,6 +1,4 @@
-import { Locale } from '@/types'
-
-export default function localeToLanguageName(locale: Locale) {
+export default function localeToLanguageName(locale: Workspace.I18N.Locale) {
     switch (locale) {
         case 'da-DK':
             return 'Dansk'

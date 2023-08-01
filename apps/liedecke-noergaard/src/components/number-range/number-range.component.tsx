@@ -1,4 +1,4 @@
-import { Currency } from '@/common'
+import { Currency } from '@/liedecke-noergaard/common'
 
 import NumberRangeComponent from './number-range.component.types'
 import styles from './number-range.component.module.scss'

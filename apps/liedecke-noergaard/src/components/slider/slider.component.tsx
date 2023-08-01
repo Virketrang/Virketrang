@@ -1,5 +1,5 @@
 'use client'
-import { Currency } from '@/common'
+import { Currency } from '@/liedecke-noergaard/common'
 
 import SliderComponent from './slider.component.types'
 import styles from './slider.component.module.scss'

@@ -1,4 +1,4 @@
-import { Currency, Locale } from '@/types'
+import { Currency } from '@/liedecke-noergaard/types'
 
 type NumberRangeComponent = React.FunctionComponent<{
     minValue: string
@@ -6,7 +6,7 @@ type NumberRangeComponent = React.FunctionComponent<{
     setMinValue: React.Dispatch<React.SetStateAction<string>>
     setMaxValue: React.Dispatch<React.SetStateAction<string>>
     currency: Currency
-    locale: Locale
+    locale: Workspace.I18N.Locale
 }>
 
 export default NumberRangeComponent

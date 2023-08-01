@@ -1,7 +1,7 @@
 'use client'
-import { Logo, ModalHeader } from '@/components'
-import { useStore } from '@/common'
-import { Person, Search } from '@/assets'
+import { Logo, ModalHeader } from '@/liedecke-noergaard/components'
+import { useStore } from '@/liedecke-noergaard/common'
+import { Person, Search } from '@/liedecke-noergaard/assets'
 
 import SidebarComponent from './sidebar.types'
 import styles from './sidebar.module.scss'

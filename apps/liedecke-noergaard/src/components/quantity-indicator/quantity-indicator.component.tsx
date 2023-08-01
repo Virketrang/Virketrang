@@ -1,6 +1,6 @@
 'use client'
-import { useStore } from '@/common'
-import { Minus, Plus } from '@/assets'
+import { useStore } from '@/liedecke-noergaard/common'
+import { Minus, Plus } from '@/liedecke-noergaard/assets'
 
 import styles from './quantity-indicator.module.scss'
 import QuantityIndicatorComponent from './quantity-indicator.types'

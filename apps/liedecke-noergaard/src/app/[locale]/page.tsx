@@ -1,15 +1,13 @@
-import BannerImage from '@/public/images/banners/banner.jpeg'
-import { Entity, Http } from '@/packages/index'
-import { Locale } from '@/types'
-import { getDictionary } from '@/server'
-import { ProductCard, Banner } from '@/components'
-import { __server__, isProductNew } from '@/common'
+import BannerImage from '@/liedecke-noergaard/public/images/banners/banner.jpeg'
+import { getDictionary } from '@/liedecke-noergaard/server'
+import { ProductCard, Banner } from '@/liedecke-noergaard/components'
+import { __server__, isProductNew } from '@/liedecke-noergaard/common'
 
 import styles from './page.module.scss'
 
-type PageProps = { params: { locale: Locale } }
+type PageProps = { params: { locale: Workspace.I18N.Locale } }
 
-const getProducts: () => Http.Response<Entity.Product> = async () => {
+const getProducts: () => Workspace.HTTP.Response<Workspace.Entity.Product> = async () => {
     const response = await fetch(__server__ + 'products')
 
     return await response.json()
@@ -44,8 +42,14 @@ export default async function Page({ params: { locale } }: PageProps) {
                                     id,
                                     materials: materials.join('/'),
                                     images: {
-                                        close: { alt: images[0].alt, src: images[0].url },
-                                        distant: { alt: images[1].alt, src: images[1].url }
+                                        close: {
+                                            alt: images[0].alt,
+                                            src: images[0].url
+                                        },
+                                        distant: {
+                                            alt: images[0].alt,
+                                            src: images[1].url
+                                        }
                                     },
                                     recent: isProductNew(new Date(data.body[0].createdAt!))
                                 }}

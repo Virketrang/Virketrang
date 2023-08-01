@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import Denmark from '@/public/icons/denmark.png'
-import UnitedKingdom from '@/public/icons/united-kingdom.png'
+import Denmark from '@/liedecke-noergaard/public/icons/denmark.png'
+import UnitedKingdom from '@/liedecke-noergaard/public/icons/united-kingdom.png'
 
 import LocaleFlagComponent from './locale-flag.types'
 import styles from './locale-flag.module.scss'

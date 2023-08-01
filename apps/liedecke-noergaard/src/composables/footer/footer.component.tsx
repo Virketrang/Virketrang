@@ -1,4 +1,11 @@
-import { Logo, LocaleSwitch, FooterList, SocialMedia, PaymentMethods, Credentials } from '@/components'
+import {
+    Logo,
+    LocaleSwitch,
+    FooterList,
+    SocialMedia,
+    PaymentMethods,
+    Credentials
+} from '@/liedecke-noergaard/components'
 
 import FooterComponent from './footer.types'
 import styles from './footer.module.scss'

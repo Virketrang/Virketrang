@@ -1,4 +1,4 @@
-import { Close } from '@/assets'
+import { Close } from '@/liedecke-noergaard/assets'
 
 import styles from './modal-header.module.scss'
 import ModalHeaderComponent from './modal-header.types'

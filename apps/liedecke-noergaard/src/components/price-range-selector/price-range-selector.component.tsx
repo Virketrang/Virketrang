@@ -1,6 +1,6 @@
 'use client'
-import { NumberRange, Slider } from '@/components'
-import { Currency } from '@/common'
+import { NumberRange, Slider } from '@/liedecke-noergaard/components'
+import { Currency } from '@/liedecke-noergaard/common'
 
 import PriceRangeSelectorComponent from './price-range-selector.component.types'
 import styles from './price-range-selector.component.module.scss'

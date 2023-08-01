@@ -1,4 +1,4 @@
-import { Dictionary, Locale } from '@/types'
+import { Dictionary } from '@/liedecke-noergaard/types'
 
 type ProductCardComponent = FunctionComponent<{
     product: {
@@ -7,13 +7,13 @@ type ProductCardComponent = FunctionComponent<{
         price: number
         name: string
         images: {
-            distant: { src: string; alt: string }
-            close: { src: string; alt: string }
+            distant: { src: string; alt: Workspace.I18N.Text }
+            close: { src: string; alt: Workspace.I18N.Text }
         }
         materials: string
     }
     dictionaries: { product: Dictionary<'product'>; currency: Dictionary<'currency'> }
-    locale: Locale
+    locale: Workspace.I18N.Locale
 }>
 
 export default ProductCardComponent

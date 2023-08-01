@@ -1,4 +1,4 @@
-import { StoreContext } from '@/common'
+import { StoreContext } from '@/liedecke-noergaard/common'
 
 const useStore = () => {
     const hook = useContext(StoreContext)

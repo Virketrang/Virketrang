@@ -1,7 +1,7 @@
-import { Currency as ICurrency, Locale } from '@/types'
+import { Currency as ICurrency } from '@/liedecke-noergaard/types'
 
 export default abstract class Currency {
-    public static numberToCurrency(dkk: number, currency: ICurrency, locale: Locale): string {
+    public static numberToCurrency(dkk: number, currency: ICurrency, locale: Workspace.I18N.Locale): string {
         let value = locale === 'en-GB' ? dkk * 8 : dkk
         console.log(dkk)
         return Intl.NumberFormat(locale, { style: 'currency', currency }).format(value)

@@ -1,4 +1,4 @@
-import { Dictionary } from '@/types'
+import { Dictionary } from '@/liedecke-noergaard/types'
 
 type CookieModalComponent = FunctionComponent<{ dictionary: Dictionary<'cookieModal'> }>
 

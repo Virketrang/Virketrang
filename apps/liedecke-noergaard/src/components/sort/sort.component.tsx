@@ -1,5 +1,5 @@
 'use client'
-import { Select } from '@/components'
+import { Select } from '@/liedecke-noergaard/components'
 
 import styles from './sort.component.module.scss'
 import SortComponent from './sort.component.types'
