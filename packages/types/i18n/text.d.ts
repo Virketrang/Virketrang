@@ -1,5 +1,6 @@
 type Text = {
-    [key in Workspace.I18N.Locale]: string
+    'da-DK': string
+    'en-GB': string
 }
 
 export default Text

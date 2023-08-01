@@ -1,4 +1,4 @@
-name: Website Deployment
+name: Virketrang Website Deployment
 
 on:
     push:
