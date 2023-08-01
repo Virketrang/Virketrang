@@ -9,8 +9,9 @@ services:
             - 8080:8080
         environment:
             - PORT=8080
-            - NODE_ENV=production
-        platform: linux/amd64
+            - NODE_ENV=development
+            - DATABASE_URL=postgres://postgres:postgres@database:5432/virketrang
+        # platform: linux/amd64
     liedecke-noergaard:
         image: liedecke-noergaard:latest
         build:

@@ -44,7 +44,7 @@ COPY ./packages /workspace/packages
 
 COPY ./config /workspace/config
 
-COPY ./tsconfig.base.json /workspace
+COPY ./tsconfig.base.json ./eslintrc.json ./workspace/
 
 WORKDIR /workspace/apps/liedecke-noergaard
 
