@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <section className={`${styles.first}`}>
-                <h1>Velkommen Isabella!</h1>
+                <h1>Velkommen</h1>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             </section>
             <section className={`${styles.second}`}></section>

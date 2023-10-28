@@ -1,22 +1,35 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite'
+import type { StorybookConfig } from '@storybook/react-vite'
+import workspaceConfig from '../../../vite.workspace'
 
 const config: StorybookConfig = {
-    stories: ['../packages/**/src/**/*.stories.@(js|jsx|ts|tsx)'],
+    stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+    env: {},
     core: {},
     framework: {
         name: '@storybook/react-vite',
-        options: {},
+        options: {}
     },
     features: {
-        storyStoreV7: true,
+        storyStoreV7: true
     },
-
-    async viteFinal(config, options) {
-        return config;
+    async viteFinal(config) {
+        return mergeConfig(config, {
+            define: {
+                'process.env': {}
+            },
+            resolve: workspaceConfig.resolve as any,
+            build: {
+                minify: false,
+                sourcemap: true
+            }
+        })
     },
     docs: {
-        autodocs: true,
+        autodocs: true
     },
-};
-export default config;
+    staticDirs: ['../../../packages/', '../src/styles'],
+    typescript: {}
+}
+export default config

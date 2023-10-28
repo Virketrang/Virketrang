@@ -33,12 +33,10 @@
             "@/config": ["config/index.ts"],
             "@/fonts/*": ["packages/fonts/*"],
             "@/css/*": ["packages/css/*"],
-            "@/themes/*": ["packages/themes/*"],
-            "@/nexus/*": ["apps/nexus/src/*"],
-            "@/strive/*": ["apps/strive/src/*"],
+            "@/nexus/client/*": ["apps/nexus/client/src/*"],
+            "@/nexus/server/*": ["apps/nexus/server/src/*"],
             "@/liedecke-noergaard/*": ["apps/liedecke-noergaard/src/*"],
             "@/liedecke-noergaard/public/*": ["apps/liedecke-noergaard/public/*"],
-            "@/server/*": ["server/src/*"],
             "@/website/*": ["website/src/*"]
         }
     }

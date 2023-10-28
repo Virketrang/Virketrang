@@ -1,0 +1,26 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+
+import '@/fonts/montserrat.css'
+import '@/fonts/material-symbols-outlined.css'
+import 'resolut/styles'
+import 'resolut/themes/castlereagh'
+
+const { title } = Astro.props
+---
+<html lang="da" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{title}</title>
+    <ViewTransitions/>
+  </head>
+  <body>
+      <slot /> 
+  </body>
+</html>
+<style>
+  body {
+    overflow-x: hidden;
+  }
+</style>

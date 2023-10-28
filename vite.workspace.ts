@@ -8,11 +8,9 @@ const config: UserConfig = {
             '@/fonts': fileURLToPath(new URL('./packages/fonts', import.meta.url)),
             '@/css': fileURLToPath(new URL('./packages/css', import.meta.url)),
             '@/enums': fileURLToPath(new URL('./packages/enums', import.meta.url)),
-            '@/themes': fileURLToPath(new URL('./packages/themes', import.meta.url)),
-            '@/nexus': fileURLToPath(new URL('./apps/nexus/src', import.meta.url)),
-            '@/strive': fileURLToPath(new URL('./apps/strive/src', import.meta.url)),
+            '@/nexus/server': fileURLToPath(new URL('./apps/nexus/server/src', import.meta.url)),
+            '@/nexus/client': fileURLToPath(new URL('./apps/nexus/client/src', import.meta.url)),
             '@/liedecke-noergaard': fileURLToPath(new URL('./apps/liedecke-noergaard/src', import.meta.url)),
-            '@/server': fileURLToPath(new URL('./apps/server/src', import.meta.url)),
             '@/website': fileURLToPath(new URL('./apps/website/src', import.meta.url)),
             '@': fileURLToPath(new URL('.', import.meta.url))
         }

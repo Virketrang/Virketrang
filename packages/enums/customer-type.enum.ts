@@ -1,6 +1,6 @@
-enum CustomerType {
-    PRIVATE = 'private',
-    BUSINESS = 'business'
+enum CUSTOMER_TYPE {
+    PRIVATE = 'PRIVATE',
+    BUSINESS = 'BUSINESS'
 }
 
-export default CustomerType
+export default CUSTOMER_TYPE

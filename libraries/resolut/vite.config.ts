@@ -1,28 +1,68 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import dts from 'vite-plugin-dts'
+import unimport from 'unimport/unplugin'
 
-import react from '@vitejs/plugin-react';
+import { join, resolve } from 'path'
+import fs from 'fs'
 
-import { join, resolve } from 'path';
+import AutoImport from '../../unimport.workspace'
 
 const config = defineConfig({
-    resolve: {
-        alias: {
-            styles: resolve(__dirname, './styles'),
-            types: resolve(__dirname, './types'),
-            utils: resolve(__dirname, './utils'),
-        },
-    },
     build: {
         sourcemap: true,
+        minify: false,
         outDir: join(__dirname, 'dist'),
+        assetsDir: 'src/styles',
         lib: {
-            entry: resolve(__dirname, 'packages/index.ts'),
+            entry: resolve(__dirname, 'src/index.ts'),
             name: 'resolut',
-            formats: ['es', 'cjs', 'umd'],
-            fileName: format => `${format}.js`,
+            formats: ['es'],
+            fileName: 'index.js'
         },
+        rollupOptions: {
+            external: ['react'],
+            output: {
+                globals: {
+                    react: 'React'
+                }
+            }
+        }
     },
-    plugins: [react()],
-});
+    define: {},
+    plugins: [
+        react(),
+        unimport.vite({
+            imports: [...AutoImport.react],
+            dts: true
+        }) as any,
+        dts({
+            entryRoot: './src',
+            rollupTypes: true,
+            copyDtsFiles: true,
+            afterBuild: () => {
+                const declarationFile = fs.readFileSync('./dist/index.d.ts').toString().split('\n')
 
-export default config;
+                declarationFile.splice(0, 0, "import React from 'react';")
+
+                const declarations = declarationFile.join('\n')
+
+                fs.writeFile('./dist/index.d.ts', declarations, function (err) {
+                    if (err) return console.log(err)
+                })
+
+                const globalDeclarations = fs.readFileSync('./src/declarations.d.ts').toString()
+
+                fs.writeFile(
+                    './dist/index.d.ts',
+                    declarations + '\n' + globalDeclarations.replace('export {}', ''),
+                    function (err) {
+                        if (err) return console.log(err)
+                    }
+                )
+            }
+        })
+    ]
+})
+
+export default config

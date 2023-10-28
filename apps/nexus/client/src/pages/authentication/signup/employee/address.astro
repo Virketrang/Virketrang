@@ -1,0 +1,19 @@
+---
+import { Button} from 'resolut'
+
+import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro';
+import CreateEmployee  from '@/apps/nexus/client/src/composables/forms/create-employee/CreateEmployee';
+import StreetName from '@/apps/nexus/client/src/composables/forms/create-employee/fields/StreetName';
+import StreetNumber from '@/apps/nexus/client/src/composables/forms/create-employee/fields/StreetNumber';
+import PostalCode from '@/apps/nexus/client/src/composables/forms/create-employee/fields/PostalCode';
+import City from '@/apps/nexus/client/src/composables/forms/create-employee/fields/City';
+---
+<AuthenticationLayout title="Nexus - opret medarbejder" greeting="Velkommen" back="/authentication/signup/employee/contacts">
+    <CreateEmployee client:load>
+        <StreetName client:load/>
+        <StreetNumber client:load/>    
+        <PostalCode client:load/>
+        <City client:load/>
+        <Button column="span-all" row={3} href="/authentication/signup/employee/bank-account" stretch size="large" transition:name="primary-button">Næste</Button>
+    </CreateEmployee>
+</AuthenticationLayout>

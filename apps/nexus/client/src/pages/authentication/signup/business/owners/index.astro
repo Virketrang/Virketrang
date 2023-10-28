@@ -1,0 +1,31 @@
+---
+import {Button, Typography, Form} from 'resolut'
+import AuthenticationLayout from "@/nexus/client/layouts/auth.astro";
+import { OwnerName } from '@/nexus/client/components';
+
+---
+<AuthenticationLayout title="Nexus - opret virksomhed" greeting="Velkommen" back="/authentication/signup/business">
+    <Typography variant='paragraph1' component='p'>
+        Hvem ejer virksomheden?
+    </Typography>
+    <Form flex direction='column' alignItems='center' padding='2rem 0' width="32rem" gap="2rem" >
+        <OwnerName client:load/>
+        <Button id="add-owner" shape="circle" size="medium" color="secondary">+</Button>
+    </Form>
+    <Button href="/authentication/signup/business/owners/contacts" size="large" width="32rem" transition:name='primary-button'>
+        Næste
+    </Button>
+</AuthenticationLayout>
+<script>
+        import { $CreateCompany } from '@/nexus/client/stores'
+
+        const button = document.getElementById('add-owner') as HTMLButtonElement
+
+        document.addEventListener("astro:page-load", () => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault()
+
+                $CreateCompany.mutate("owners", [...$CreateCompany.store.get().owners, { firstname: '', surname: '' }])
+            })
+        })
+</script>

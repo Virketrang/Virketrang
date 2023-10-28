@@ -1,11 +1,5 @@
-# CSS PREPROCESSOR
-.sass-cache/
-
 # FINDER
 .DS_Store
-
-# MODULE BUNDLER
-.parcel-cache
 
 # PRIVATE
 private

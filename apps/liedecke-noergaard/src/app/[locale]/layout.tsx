@@ -1,6 +1,5 @@
-import '@/css/preset.css'
-import '@/css/focus.css'
 import '../../styles.scss'
+import 'resolut/styles/preset'
 
 import { i18n } from '@/config'
 import { getDictionary } from '@/liedecke-noergaard/server'

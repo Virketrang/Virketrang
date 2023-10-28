@@ -6,7 +6,7 @@ interface Customer extends Workspace.Entity.BaseEntity {
 }
 
 declare namespace Customer {
-    type Create = Omit<Customer, 'id'>
+    type Create = Omit<Customer, keyof Workspace.Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

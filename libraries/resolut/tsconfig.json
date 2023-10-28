@@ -7,25 +7,18 @@
         "module": "ESNext",
         "moduleResolution": "node",
         "types": ["node"],
+        "typeRoots": ["unimport.d.ts", "src/declarations.d.ts", "storybook.d.ts"],
+        "emitDeclarationOnly": true,
+        "outDir": "dist",
+        "baseUrl": ".",
         "declaration": true,
         "sourceMap": true,
         "skipLibCheck": true,
         "preserveSymlinks": true,
         "resolveJsonModule": true,
-        "plugins": [{ "name": "typescript-plugin-css-modules", "options": { "classnameTransform": "camelCase" } }],
-        "paths": {
-            "styles/*": ["./styles/*"],
-            "types/*": ["./types/*"],
-            "utils/*": ["./utils/*"]
-        }
+        "allowUmdGlobalAccess": true,
+        "paths": {}
     },
-    "include": [
-        "packages/**/*.ts",
-        "packages/**/*.tsx",
-        "utils/**/*.ts",
-        "utils/**/*.tsx",
-        "types/**/*.ts",
-        "types/**/*.tsx"
-    ],
-    "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"]
+    "include": ["src", "unimport.d.ts", "storybook.d.ts"],
+    "exclude": ["node_modules", "dist"]
 }

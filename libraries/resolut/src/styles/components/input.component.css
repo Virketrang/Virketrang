@@ -1,0 +1,42 @@
+.resolut-input {
+    padding-inline: 1rem;
+
+    &[data-size='small'] {
+        width: 24rem;
+        height: 2rem;
+
+        &[data-shape='round'] {
+            border-radius: 1rem;
+        }
+
+        &[data-shape='rounded'] {
+            border-radius: 0.25rem;
+        }
+    }
+
+    &[data-size='medium'] {
+        width: 24rem;
+        height: 2.5rem;
+
+        &[data-shape='round'] {
+            border-radius: 1.25rem;
+        }
+
+        &[data-shape='rounded'] {
+            border-radius: 0.33rem;
+        }
+    }
+
+    &[data-size='large'] {
+        width: 24rem;
+        height: 3rem;
+
+        &[data-shape='round'] {
+            border-radius: 1.5rem;
+        }
+
+        &[data-shape='rounded'] {
+            border-radius: 0.5rem;
+        }
+    }
+}

@@ -1,6 +1,7 @@
 packages:
     - "website"
-    - "server"
     - "apps/**"
+    - "apps/**/server"
+    - "apps/**/client"
     - "libraries/**"
     - "libraries/**/packages/**"

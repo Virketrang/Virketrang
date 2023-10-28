@@ -1,0 +1,20 @@
+---
+import { Button, Typography, Link, Main, Div } from 'resolut';
+
+import {Logo} from '@/nexus/client/components/index'
+import GlobalLayout from '@/nexus/client/layouts/global.astro';
+---
+<GlobalLayout title="Nexus - Oprettelse">
+    <Main flex direction='column' center className='main' height='100%' minWidth='100vh' width="100%">
+        <Div flex direction="column" alignItems="center" justifyContent='center' gap="3rem">
+            <Logo transition:name='logo'/>
+            <Typography component='h2' variant='heading2'>Velkommen</Typography>
+        </Div>
+        <Div flex direction="column" gap="2rem" width='32rem' margin='4rem 0 2rem 0'>
+            <Typography component='p' variant="paragraph1">Jeg ønsker at oprette mig som</Typography>
+            <Button stretch elevated size="large" href="/authentication/signup/business" transition:name='primary-button'>Virksomhed</Button>
+            <Button stretch elevated color='secondary' size="large" href="/authentication/signup/employee" transition:name='secondary-button'>Medarbejder</Button>
+        </Div>
+        <Link href="/" underlined>Tilbage</Link>
+    </Main>
+</GlobalLayout>

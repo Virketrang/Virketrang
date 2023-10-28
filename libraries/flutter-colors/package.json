@@ -1,0 +1,60 @@
+{
+    "name": "flutter-colors",
+    "version": "1.0.0",
+    "license": "MIT",
+    "private": false,
+    "description": "Flutters color palette as a JavaScript class",
+    "keywords": [
+        "colors",
+        "flutter"
+    ],
+    "homepage": "https://www.virketrang.com",
+    "bugs": {
+        "url": "https://github.com/virketrang/virketrang/issues",
+        "email": "bugs@virketrang.com"
+    },
+    "author": {
+        "name": "Sigfred Frey Nørgaard Knudsen",
+        "email": "sigfred@virketrang.com",
+        "url": "https://www.virketrang.com/"
+    },
+    "contributors": [
+        {
+            "name": "Isabella Liedecke Mørck",
+            "email": "isabella@virketrang.com",
+            "url": "https://www.virketrang.com/staff/isabella"
+        }
+    ],
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org",
+        "access": "public"
+    },
+    "source": "src/index.ts",
+    "main": "dist/umd.js",
+    "module": "dist/es.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/es.js",
+        "require": "./dist/umd.js"
+    },
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/virketrang/virketrang"
+    },
+    "scripts": {
+        "build": "vite build",
+        "prepublishOnly": "pnpm run build",
+        "publish": "npm publish"
+    },
+    "devDependencies": {
+        "@types/node": "^18.14.0",
+        "typescript": "^5.0.4",
+        "vite": "^4.4.4",
+        "vite-plugin-dts": "~1.7.1",
+        "vitest": "^0.34.6"
+    }
+}

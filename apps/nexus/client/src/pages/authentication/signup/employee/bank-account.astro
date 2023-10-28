@@ -1,0 +1,16 @@
+---
+import { Button} from 'resolut'
+import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro';
+import CreateEmployee  from '@/apps/nexus/client/src/composables/forms/create-employee/CreateEmployee';
+import RegistrationNumber from '@/apps/nexus/client/src/composables/forms/create-employee/fields/RegistrationNumber';
+import AccountNumber from '@/apps/nexus/client/src/composables/forms/create-employee/fields/AccountNumber';
+import ActivationCode from '@/apps/nexus/client/src/composables/forms/create-employee/fields/ActivationCode';
+---
+<AuthenticationLayout title="Nexus - opret medarbejder" greeting="Velkommen" back="/authentication/signup/employee/address">
+    <CreateEmployee submit client:load>
+        <RegistrationNumber client:load/>
+        <AccountNumber client:load/>   
+        <ActivationCode client:load/>
+        <Button column="span-all" row={3} stretch size="large" transition:name="primary-button">Opret</Button>
+    </CreateEmployee>
+</AuthenticationLayout>@/apps/nexus/client/src/composables/forms/create-employee/fields/AccountNumber@/apps/nexus/client/src/composables/forms/create-employee/fields/Activa@/apps/nexus/client/src/composables/forms/create-employee/CreateEmployeeegistrationNumber

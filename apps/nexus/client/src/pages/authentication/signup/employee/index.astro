@@ -1,0 +1,23 @@
+---
+import { Typography, Button, Link, Main, Div } from "resolut";
+
+import { Logo } from "@/nexus/client/components/index";
+import GlobalLayout from "@/apps/nexus/client/src/layouts/global.astro";
+
+---
+<GlobalLayout title="Nexus - opret medarbejder">
+    <Main flex width="100%" minHeight="100vh" direction="column" center>
+        <Div flex direction="column" alignItems="center" gap="3rem">
+            <Logo transition:name='logo'/>
+            <Typography component='h2' variant="heading2">Velkommen</Typography>
+        </Div>
+        <Div flex direction="column" gap="2rem" width="32rem" margin="4 rem 0 2rem 0">
+            <Div flex direction="column" gap="1rem">
+                <Typography uppercase component="h4" variant="heading4">Oplysning</Typography>
+                <Typography component="p" variant="paragraph1">Du skal bruge en aktiveringskode fra din arbejdsgiver for at kunne oprette dig. Har du ikke modtaget en, skal du kontakte din arbejdsgiver, før du kan oprette dig her på siden.</Typography>    
+            </Div>
+            <Button stretch href="/authentication/signup/employee/name" size="large" transition:name="primary-button">Start</Button>
+            <Link href="/authentication/signup">Tilbage</Link>
+        </Div>
+    </Main >
+</GlobalLayout>

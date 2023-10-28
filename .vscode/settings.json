@@ -1,6 +1,7 @@
 {
     // VSCODE
     "editor.fontSize": 16,
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "markdownlint.config": {
         "MD030": false
@@ -26,12 +27,9 @@
     // ESLINT
     "eslint.workingDirectories": [
         "website",
-        "server",
-        "dashboard",
         "apps/**",
         "apps/**/server",
         "apps/**/client",
-        "apps/**/client/**",
         "libraries/**",
         "libraries/**/packages/**"
     ],
@@ -42,6 +40,7 @@
         // LIBRARIES
         "resolut": "React-components",
         "css-properties": "Css",
+        "flutter-colors": "Theme",
         //PACKAGES
         "http": "Connection",
         // CLIENT
@@ -66,7 +65,14 @@
     "material-icon-theme.files.associations": {
         "vitest.workspace.ts": "Vitest",
         "vite.workspace.ts": "Vite",
-        "tsconfig.nest.json": "Tsconfig"
+        "tsconfig.nest.json": "Tsconfig",
+        "docker.dev.yaml": "Docker",
+        "docker.prod.yaml": "Docker"
     },
-    "material-icon-theme.activeIconPack": "react"
+    "material-icon-theme.activeIconPack": "react",
+    "prettier.documentSelectors": ["**/*.astro"],
+    "[astro]": {
+        "editor.defaultFormatter": "astro-build.astro-vscode",
+        "editor.formatOnSave": true
+    }
 }

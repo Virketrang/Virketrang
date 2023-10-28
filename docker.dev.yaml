@@ -1,0 +1,60 @@
+version: "3"
+services:
+    server:
+        image: server:latest
+        restart: always
+        volumes:
+            - ./:/workspace
+        build:
+            context: ./
+            dockerfile: ./server/Dockerfile.dev
+        ports:
+            - 8080:8080
+        environment:
+            - PORT=8080
+            - NODE_ENV=development
+            - DATABASE_URL=postgres://postgres:postgres@database:5432/virketrang
+        platform: linux/amd64
+        depends_on:
+            - database
+        links:
+            - database
+
+    liedecke-noergaard:
+        image: liedecke-noergaard:latest
+        build:
+            context: ./
+            dockerfile: ./apps/liedecke-noergaard/Dockerfile
+        ports:
+            - 4000:4000
+        environment:
+            - PORT=4000
+            - NODE_ENV=development
+        platform: linux/amd64
+
+    website:
+        image: website:latest
+        build:
+            context: ./
+            dockerfile: ./website/Dockerfile
+        ports:
+            - 3000:3000
+        environment:
+            - PORT=3000
+            - NODE_ENV=development
+        platform: linux/amd64
+
+    database:
+        image: postgres:alpine
+        restart: always
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=virketrang
+        ports:
+            - "5432:5432"
+        volumes:
+            - database:/var/lib/postgresql/data
+volumes:
+    database:
+        driver: local

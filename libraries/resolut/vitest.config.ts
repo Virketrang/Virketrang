@@ -1,6 +1,6 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config'
 
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react'
 
 const config = defineConfig({
     plugins: [react()],
@@ -8,9 +8,9 @@ const config = defineConfig({
         environment: 'jsdom',
         watch: false,
         coverage: {
-            enabled: true,
-        },
-    },
-});
+            enabled: false
+        }
+    }
+})
 
-export default config;
+export default config

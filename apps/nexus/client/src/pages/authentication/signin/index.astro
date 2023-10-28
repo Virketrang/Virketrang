@@ -1,0 +1,32 @@
+---
+import { Button, Input, Label} from "resolut"
+
+import AuthenticationLayout from "@/nexus/client/layouts/auth.astro";
+---
+<AuthenticationLayout title="Nexus - Login" greeting="Velkommen tilbage" back="/" >
+    <div class="form-control e-mail">
+        <Label required>E-mail</Label>
+        <Input type="email" stretch size="large" required/>
+    </div>
+    <div class="form-control password">
+        <Label required>Adgangskode</Label>
+        <Input type="password" stretch size="large" required/>
+    </div>
+    <Button className="button" type="submit" stretch size="large" onClick={() => {}} transition:name="login">Login</Button>
+</AuthenticationLayout >
+<style>
+    .e-mail {
+        grid-column: 1 / 5;
+        grid-row: 1;
+    }
+
+    .password {
+        grid-column: 1 / 5;
+        grid-row: 2;
+    }
+
+    .button {
+        grid-column: 1 / 5;
+        grid-row: 3;
+    }
+</style>
