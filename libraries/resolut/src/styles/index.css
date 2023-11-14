@@ -1,9 +1,0 @@
-@import url('./preset.css');
-@import url('./attributes.css');
-
-@import url('./components/button.component.css');
-@import url('./components/typography.component.css');
-@import url('./components/input.component.css');
-@import url('./components/label.component.css');
-@import url('./components/select.component.css');
-@import url('./components/field.component.css');

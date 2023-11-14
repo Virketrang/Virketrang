@@ -1,31 +1,90 @@
-import { Injectable } from '@nestjs/common'
+import {bearerAuth} from 'hono/bearer-auth'
 
-import UserRepository from './user.repository'
+export default abstract class UserService {
+    public static async create(
+        companyId: string,
+        {
+            address,
+            private_phone_number,
+            bank_account,
+            birth_date,
+            password,
+            employee_number,
+            production_unit_id,
+            private_email,
+            ...rest
+        }: Entity.User.Create
+    ): Promise<Entity.User> {
+        const { id: address_id } = await Address.service.create(address)
+        const { id: private_phone_number_id } = await PhoneNumber.service.create(private_phone_number)
+        const { id: bank_account_id } = await BankAccount.service.create(bank_account)
 
-@Injectable()
-export default class UserService {
-    constructor(private readonly userRepository: UserRepository) {}
-    async createUser(createUser: Workspace.Entity.User.Create): Promise<Workspace.Entity.User> {
-        return await this.userRepository.save({ ...createUser, owner: false })
+        const user = await User.repository.insert({
+            company_id: companyId,
+            production_unit_id: production_unit_id,
+            employee_number: employee_number,
+            address_id: address_id,
+            private_email: private_email,
+            password: password,
+            private_phone_number_id,
+            bank_account_id,
+            birth_date: birth_date,
+            ...rest
+        })
+
+        return user
     }
 
-    async createOwner(createOwner: Workspace.Entity.User.Create): Promise<Workspace.Entity.User> {
-        return await this.userRepository.save({ ...createOwner, owner: true })
+    public static async createMany(companyId: string, createUsers: Entity.User.Create[]): Promise<Entity.User[]> {
+        const users = await Promise.all(
+            createUsers.map(
+                async ({
+                    address,
+                    private_phone_number,
+                    bank_account,
+                    birth_date,
+                    employee_number,
+                    production_unit_id,
+                    private_email,
+                    ...rest
+                }) => {
+                    const { id: address_id } = await Address.service.create(address)
+                    const { id: private_phone_number_id } = await PhoneNumber.service.create(private_phone_number)
+                    const { id: bank_account_id } = await BankAccount.service.create(bank_account)
+
+                    return {
+                        company_id: companyId,
+                        production_unit_id: production_unit_id,
+                        address_id,
+                        private_email: private_email,
+                        private_phone_number_id,
+                        bank_account_id,
+                        birth_date: birth_date,
+                        employee_number: employee_number,
+                        ...rest
+                    }
+                }
+            )
+        )
+
+        console.log(users)
+
+        return await User.repository.insertMany(users)
     }
 
-    async createOwners(createOwners: Workspace.Entity.User.Create[]): Promise<Workspace.Entity.User[]> {
-        return await Promise.all(createOwners.map((createOwner) => this.createOwner(createOwner)))
+    public static retrieveAll() {
+        return 'Users retrieved'
     }
 
-    async getUsers(): Promise<Workspace.Entity.User[]> {
-        return await this.userRepository.find()
+    public static retrieve() {
+        return 'User retrieved'
     }
 
-    async getUser(id: string): Promise<Workspace.Entity.User> {
-        return await this.userRepository.getById(id)
+    public static update() {
+        return 'User updated'
     }
 
-    async deleteUser(id: string): Promise<void> {
-        await this.userRepository.delete(id)
+    public static delete() {
+        return 'User deleted'
     }
 }

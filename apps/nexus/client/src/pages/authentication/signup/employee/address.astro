@@ -1,19 +1,62 @@
 ---
-import { Button} from 'resolut'
+import { Button, Form, Field, Label, Text } from '@resolut/react'
+import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro'
 
-import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro';
-import CreateEmployee  from '@/apps/nexus/client/src/composables/forms/create-employee/CreateEmployee';
-import StreetName from '@/apps/nexus/client/src/composables/forms/create-employee/fields/StreetName';
-import StreetNumber from '@/apps/nexus/client/src/composables/forms/create-employee/fields/StreetNumber';
-import PostalCode from '@/apps/nexus/client/src/composables/forms/create-employee/fields/PostalCode';
-import City from '@/apps/nexus/client/src/composables/forms/create-employee/fields/City';
+const TITLE = 'Nexus - opret medarbejder'
+const BACK = '/authentication/signup/employee/contacts'
+const NEXT = '/authentication/signup/employee/bank-account'
 ---
-<AuthenticationLayout title="Nexus - opret medarbejder" greeting="Velkommen" back="/authentication/signup/employee/contacts">
-    <CreateEmployee client:load>
-        <StreetName client:load/>
-        <StreetNumber client:load/>    
-        <PostalCode client:load/>
-        <City client:load/>
-        <Button column="span-all" row={3} href="/authentication/signup/employee/bank-account" stretch size="large" transition:name="primary-button">Næste</Button>
-    </CreateEmployee>
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" gap="2rem" width="32rem">
+        <Field flex vertical gap="0.5rem" column="1 / 4" row={1}>
+            <Label htmlFor="streetName" required>Gadenavn</Label>
+            <Text name="streetName" stretch />
+        </Field>
+        <Field flex vertical gap="0.5rem" column="4 / 5" row={1}>
+            <Label htmlFor="streetNumber" required>Gadenummer</Label>
+            <Text name="streetNumber" stretch />
+        </Field>
+        <Field flex vertical gap="0.5rem" column="1 / 2" row={2}>
+            <Label htmlFor="postalCode" required>Postnummer</Label>
+            <Text name="postalCode" stretch />
+        </Field>
+        <Field flex vertical gap="0.5rem" column="2 / 5" row={2}>
+            <Label htmlFor="city" required>By</Label>
+            <Text name="city" stretch />
+        </Field>
+    </Form>
+    <Button href={NEXT} stretch transition:name="primary-button">Næste</Button>
 </AuthenticationLayout>
+<script>
+    import { $CreateEmployee } from '@/nexus/client/stores'
+
+    document.addEventListener('astro:page-load', () => {
+        const streetName = document.getElementById('streetName') as HTMLInputElement
+        const streetNumber = document.getElementById('streetNumber') as HTMLInputElement
+        const postalCode = document.getElementById('postalCode') as HTMLInputElement
+        const city = document.getElementById('city') as HTMLInputElement
+
+        if (!streetName || !streetNumber || !postalCode || !city) return
+
+        streetName.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('streetName', target.value)
+        })
+
+        streetNumber.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('streetNumber', target.value)
+        })
+
+        postalCode.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('postalCode', target.value)
+        })
+
+        city.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('city', target.value)
+        })
+    })
+</script>

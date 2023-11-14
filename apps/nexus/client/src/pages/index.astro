@@ -1,20 +1,25 @@
 ---
-import {Button, Typography, Main, Div} from 'resolut'
+import { Button, Heading, Main, Div } from '@resolut/react'
 
-import { Logo } from "@/nexus/client/components/index";
-import GlobalLayout from "@/nexus/client/layouts/global.astro";
+import { Logo } from '@/nexus/client/components/index'
+import GlobalLayout from '@/nexus/client/layouts/global.astro'
+
+const TITLE = 'Nexus - Velkommen'
 ---
-<GlobalLayout title="Nexus - Velkommen">
-    <Main flex direction="column" center gap='4rem' width="100%" minHeight='100vh' height='100%'>
-        <Logo transition:name='logo' />
-        <Div flex direction='column' alignItems='center' gap="2rem">
-            <Typography element='h2' variant="heading2" color="secondary">Skab overblik for dig og dine medarbejdere</Typography>
-            <Typography element="h1" variant="heading1" maxWidth="1150px">En samlet applikation til din virksomhed</Typography>
-            <Typography element="h2" variant="heading2" color="secondary">Administrer hjemmeside, ordrer, løn og bogføring i en app</Typography>
+
+<GlobalLayout title={TITLE}>
+    <Main flex vertical center gap="4rem" width="100%" minHeight="100vh" height="100%">
+        <Logo transition:name="logo" />
+        <Div flex vertical gap="2rem" padding="0 4rem">
+            <Heading section fluid center secondary>Skab overblik for dig og dine medarbejdere</Heading>
+            <Heading heading fluid center maxWidth="1150px">En samlet applikation til din virksomhed</Heading>
+            <Heading section fluid center secondary>Administrer hjemmeside, ordrer, løn og bogføring i en app</Heading>
         </Div>
-        <Div height='128px' flex direction='row' center gap='4rem'>
-            <Button color="primary" shape="round" size="large" href="/authentication/signin" transition:name='primary-button'>Login</Button>
-            <Button color="secondary" shape="round" size="large" href="/authentication/signup" transition:name='secondary-button'>Opret</Button>
+        <Div height="128px" flex horizontal center gap="4rem">
+            <Button round href="/authentication/signin" transition:name="primary-button">Login</Button>
+            <Button secondary elevated round href="/authentication/signup" transition:name="secondary-button">
+                Opret
+            </Button>
         </Div>
     </Main>
 </GlobalLayout>

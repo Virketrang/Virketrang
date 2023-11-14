@@ -1,7 +1,7 @@
-interface Invoice extends Workspace.Entity.BaseEntity {}
+interface Invoice extends Entity.BaseEntity {}
 
 declare namespace Invoice {
-    type Create = Omit<Invoice, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<Invoice, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

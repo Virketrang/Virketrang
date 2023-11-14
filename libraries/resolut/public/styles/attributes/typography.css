@@ -1,0 +1,41 @@
+/* SPECIFICITY: 010 */
+
+.resolut-typography {
+    --font-size: initial;
+    --text-align: initial;
+    --font-weight: initial;
+    --text-wrap: initial;
+    --line-height: initial;
+    --letter-spacing: initial;
+    --text-decoration: initial;
+    --font-style: initial;
+    --text-transform: initial;
+    --text-decoration-style: initial;
+    --text-decoration-color: initial;
+    --text-decoration-thickness: initial;
+    --text-decoration-line: initial;
+
+    font-size: var(--font-size, initial);
+    text-align: var(--text-align, initial);
+    font-weight: var(--font-weight, initial);
+    text-wrap: var(--text-wrap, initial);
+    line-height: var(--line-height, initial);
+    letter-spacing: var(--letter-spacing, initial);
+    text-decoration: var(--text-decoration, initial);
+    font-style: var(--font-style, initial);
+    text-transform: var(--text-transform, initial);
+    text-decoration-style: var(--text-decoration-style, initial);
+    text-decoration-color: var(--text-decoration-color, initial);
+    text-decoration-thickness: var(--text-decoration-thickness, initial);
+    text-decoration-line: var(--text-decoration-line, initial);
+
+    /* SPECIFICITY: 020 */
+
+    &[data-color='primary'] {
+        color: var(--typography-primary-color);
+    }
+
+    &[data-color='secondary'] {
+        color: var(--typography-secondary-color);
+    }
+}

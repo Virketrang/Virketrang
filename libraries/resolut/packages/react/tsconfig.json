@@ -1,0 +1,9 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "typeRoots": ["unimport.d.ts", "src/declarations.d.ts", "../../types/declarations.d.ts", "storybook.d.ts"]
+    },
+    "include": ["src", "unimport.d.ts", "storybook.d.ts", "../../utils", "../../public", "../../types"],
+    "exclude": ["node_modules", "dist"]
+}

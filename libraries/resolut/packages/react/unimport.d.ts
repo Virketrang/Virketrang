@@ -1,0 +1,21 @@
+export {}
+declare global {
+  const Dynamic: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/libraries/resolut/packages/react/src/framework/index')['Dynamic']
+  const Fragment: typeof import('react')['Fragment']
+  const React: typeof import('react')['default']
+  const Resolut: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/libraries/resolut/packages/react/src/framework/index')['Resolut']
+  const Suspense: typeof import('react')['Suspense']
+  const Utils: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/libraries/resolut/packages/react/src/framework/index')['Utils']
+  const createContext: typeof import('react')['createContext']
+  const createElement: typeof import('react')['createElement']
+  const createRef: typeof import('react')['createRef']
+  const forwardRef: typeof import('react')['forwardRef']
+  const memo: typeof import('react')['memo']
+  const useCallback: typeof import('react')['useCallback']
+  const useContext: typeof import('react')['useContext']
+  const useEffect: typeof import('react')['useEffect']
+  const useMemo: typeof import('react')['useMemo']
+  const useReducer: typeof import('react')['useReducer']
+  const useRef: typeof import('react')['useRef']
+  const useState: typeof import('react')['useState']
+}

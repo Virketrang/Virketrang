@@ -1,8 +1,6 @@
 {
     // VSCODE
     "editor.fontSize": 16,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "markdownlint.config": {
         "MD030": false
     },
@@ -10,13 +8,26 @@
     "explorer.compactFolders": false,
     "files.exclude": {
         "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
         "**/.DS_Store": true,
-        "**/.parcel-cache": true,
+        "**/tmp": true,
+        "**/node_modules": false,
+        "**/dist": false,
         "**/.next": true,
         ".husky/_": true,
         "website/.vscode": true,
-        "dashboard/.vscode": true,
-        "apps/**/.vscode": true
+        "apps/**/.vscode": true,
+        "**/tsconfig.tsbuildinfo": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/tmp/**": true,
+        "**/bower_components/**": true,
+        "**/dist/**": true
     },
     // TYPESCRIPT
     "typescript.tsdk": "/Users/sigfred/Dropbox/Virketrang/Webudvikling/node_modules/typescript/lib",
@@ -56,6 +67,7 @@
         "composables": "Stack",
         "ui": "Content",
         "forms": "Mock",
+        "attributes": "Other",
         // TYPESCRIPT
         "enums": "Mappings",
         // DOCUMENTS
@@ -69,10 +81,13 @@
         "docker.dev.yaml": "Docker",
         "docker.prod.yaml": "Docker"
     },
+    "typescript.inlayHints.parameterNames.enabled": "all",
     "material-icon-theme.activeIconPack": "react",
+    "editor.formatOnSave": true,
+    "prettier.configPath": "./.prettierrc.js",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "prettier.documentSelectors": ["**/*.astro"],
     "[astro]": {
-        "editor.defaultFormatter": "astro-build.astro-vscode",
-        "editor.formatOnSave": true
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }

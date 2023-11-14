@@ -1,7 +1,7 @@
-interface Role extends Workspace.Entity.BaseEntity {}
+interface Role extends Entity.BaseEntity {}
 
 declare namespace Role {
-    type Create = Omit<Role, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<Role, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

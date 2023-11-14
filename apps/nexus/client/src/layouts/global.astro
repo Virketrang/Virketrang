@@ -1,26 +1,22 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
+import { Body } from '@resolut/react'
 
 import '@/fonts/montserrat.css'
-import '@/fonts/material-symbols-outlined.css'
-import 'resolut/styles'
-import 'resolut/themes/castlereagh'
+import '@resolut/react/styles'
+import '@resolut/react/themes/castlereagh'
 
 const { title } = Astro.props
 ---
-<html lang="da" >
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title}</title>
-    <ViewTransitions/>
-  </head>
-  <body>
-      <slot /> 
-  </body>
+
+<html lang="da">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{title}</title>
+        <ViewTransitions />
+    </head>
+    <Body unselectable>
+        <slot />
+    </Body>
 </html>
-<style>
-  body {
-    overflow-x: hidden;
-  }
-</style>

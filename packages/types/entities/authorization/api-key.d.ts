@@ -1,11 +1,11 @@
-interface ApiKey extends Workspace.Entity.BaseEntity {
+interface ApiKey extends Entity.BaseEntity {
     name: string
     key: string
-    permissions: Workspace.Entity.Permission[]
+    permissions: Entity.Permission[]
 }
 
 declare namespace ApiKey {
-    type Create = Omit<ApiKey, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<ApiKey, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

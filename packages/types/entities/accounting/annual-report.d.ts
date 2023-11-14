@@ -1,17 +1,17 @@
-interface AnnualReport extends Workspace.Entity.BaseEntity {
-    incomeStatements: Workspace.Entity.IncomeStatement[]
+interface AnnualReport extends Entity.BaseEntity {
+    income_statements: Entity.IncomeStatement[]
 
-    balanceSheets: Workspace.Entity.BalanceSheet[]
+    balance_sheets: Entity.BalanceSheet[]
 
-    company: Workspace.Entity.Company
+    company: Entity.Company
 
-    startDate: Date
+    start_date: Date
 
-    endDate: Date
+    end_date: Date
 }
 
 declare namespace AnnualReport {
-    type Create = Omit<AnnualReport, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<AnnualReport, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

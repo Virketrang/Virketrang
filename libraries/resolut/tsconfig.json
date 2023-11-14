@@ -3,14 +3,10 @@
     "compilerOptions": {
         "target": "ESNext",
         "lib": ["DOM", "DOM.Iterable", "ESNext"],
-        "jsx": "react-jsx",
         "module": "ESNext",
         "moduleResolution": "node",
-        "types": ["node"],
-        "typeRoots": ["unimport.d.ts", "src/declarations.d.ts", "storybook.d.ts"],
         "emitDeclarationOnly": true,
         "outDir": "dist",
-        "baseUrl": ".",
         "declaration": true,
         "sourceMap": true,
         "skipLibCheck": true,
@@ -18,7 +14,5 @@
         "resolveJsonModule": true,
         "allowUmdGlobalAccess": true,
         "paths": {}
-    },
-    "include": ["src", "unimport.d.ts", "storybook.d.ts"],
-    "exclude": ["node_modules", "dist"]
+    }
 }

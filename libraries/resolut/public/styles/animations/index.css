@@ -1,0 +1,4 @@
+*[data-animation='grow'] {
+    transition: transform 200ms ease-in-out;
+    transform: scale(1.1);
+}

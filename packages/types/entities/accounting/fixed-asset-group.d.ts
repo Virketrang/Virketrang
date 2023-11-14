@@ -1,7 +1,7 @@
-interface FixedAssetGroup extends Workspace.Entity.BaseEntity {}
+interface FixedAssetGroup extends Entity.BaseEntity {}
 
 declare namespace FixedAssetGroup {
-    type Create = Omit<FixedAssetGroup, keyof Workspace.Entity.BaseEntity | 'product'>
+    type Create = Omit<FixedAssetGroup, keyof Entity.BaseEntity | 'product'>
 
     type Update = Partial<Create>
 }

@@ -1,0 +1,8 @@
+/* SPECIFICITY: 020 */
+.resolut-typography.resolut-label {
+    /* SPECIFICITY: 040 */
+
+    &[data-required='true']::after {
+        content: ' *';
+    }
+}

@@ -1,7 +1,7 @@
-interface Permission extends Workspace.Entity.BaseEntity {}
+interface Permission extends Entity.BaseEntity {}
 
 declare namespace Permission {
-    type Create = Omit<Permission, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<Permission, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

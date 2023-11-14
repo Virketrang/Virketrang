@@ -1,7 +1,7 @@
-interface FixedAssetRegister extends Workspace.Entity.BaseEntity {}
+interface FixedAssetRegister extends Entity.BaseEntity {}
 
 declare namespace FixedAssetRegister {
-    type Create = Omit<FixedAssetRegister, keyof Workspace.Entity.BaseEntity | 'product'>
+    type Create = Omit<FixedAssetRegister, keyof Entity.BaseEntity | 'product'>
 
     type Update = Partial<Create>
 }

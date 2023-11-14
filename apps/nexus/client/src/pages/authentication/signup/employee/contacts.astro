@@ -1,15 +1,43 @@
 ---
-import { Button} from 'resolut'
+import { Button, Form, Field, Label, Text } from '@resolut/react'
 
-import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro';
-import CreateEmployee  from '@/apps/nexus/client/src/composables/forms/create-employee/CreateEmployee';
-import Email from '@/apps/nexus/client/src/composables/forms/create-employee/fields/Email';
-import PhoneNumber from '@/apps/nexus/client/src/composables/forms/create-employee/fields/PhoneNumber';
+import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro'
+
+const TITLE = 'NEXUS - Opret medarbejder'
+const BACK = '/authentication/signup/employee/name'
+const NEXT = '/authentication/signup/employee/address'
 ---
-<AuthenticationLayout title="Nexus - opret medarbejder" greeting="Velkommen" back="/authentication/signup/employee/name">
-    <CreateEmployee  client:load>
-        <Email client:load/>
-        <PhoneNumber client:load/>
-        <Button column="span-all" row={3} href="/authentication/signup/employee/address" size="large" transition:name="primary-button">Næste</Button>
-    </CreateEmployee>
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" gap="2rem" width="32rem">
+        <Field flex vertical gap="0.5rem" column="span-all" row={1}>
+            <Label htmlFor="email" required>Privat e-mail</Label>
+            <Text name="email" stretch />
+        </Field>
+        <Field flex vertical gap="0.5rem" column="span-all" row={2}>
+            <Label htmlFor="phoneNumber" required>Privat telefonnummer</Label>
+            <Text name="phoneNumber" stretch />
+        </Field>
+    </Form>
+    <Button href={NEXT} transition:name="primary-button">Næste</Button>
 </AuthenticationLayout>
+<script>
+    import { $CreateEmployee } from '@/nexus/client/stores'
+
+    document.addEventListener('astro:page-load', () => {
+        const email = document.getElementById('email') as HTMLInputElement
+        const phoneNumber = document.getElementById('phoneNumber') as HTMLInputElement
+
+        if (!email || !phoneNumber) return
+
+        email.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('firstname', target.value)
+        })
+
+        phoneNumber.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('phoneNumber', target.value)
+        })
+    })
+</script>

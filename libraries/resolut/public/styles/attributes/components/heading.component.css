@@ -1,0 +1,51 @@
+.resolut-typography.resolut-heading {
+    /* SPECIFICITY: 030 */
+
+    &[data-heading-variant='heading'] {
+        --font-weight: 700;
+
+        &[data-fluid='false'] {
+            --font-size: 3.5rem;
+        }
+
+        &[data-fluid='true'] {
+            --font-size: clamp(2rem, 9vw, 3.5rem);
+        }
+    }
+
+    &[data-heading-variant='subheading'] {
+        --font-weight: 600;
+
+        &[data-fluid='false'] {
+            --font-size: 2.5rem;
+        }
+
+        &[data-fluid='true'] {
+            --font-size: clamp(1.5rem, 6vw, 2.5rem);
+        }
+    }
+
+    &[data-heading-variant='section'] {
+        --font-weight: 500;
+
+        &[data-fluid='false'] {
+            --font-size: 1.5rem;
+        }
+
+        &[data-fluid='true'] {
+            --font-size: clamp(1rem, 4vw, 1.5rem);
+        }
+    }
+
+    &[data-heading-variant='subsection'] {
+        --font-weight: 400;
+
+        &[data-fluid='false'] {
+            --font-size: 1.1rem;
+        }
+
+        &[data-fluid='true'] {
+            --font-size: clamp(0.75rem, 2vw, 1rem);
+        }
+    }
+}

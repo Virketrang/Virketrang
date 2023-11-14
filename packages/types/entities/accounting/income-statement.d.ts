@@ -1,9 +1,9 @@
-interface IncomeStatement extends Workspace.Entity.BaseEntity {
-    annualReport: Workspace.Entity.AnnualReport
+interface IncomeStatement extends Entity.BaseEntity {
+    annual_report: Entity.AnnualReport
 }
 
 declare namespace IncomeStatement {
-    type Create = Omit<Division, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<IncomeStatement, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

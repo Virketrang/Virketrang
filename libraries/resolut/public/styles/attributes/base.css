@@ -1,0 +1,102 @@
+/* SPECIFICITY: 000 */
+* {
+    --height: initial;
+    --width: initial;
+    --min-height: initial;
+    --min-width: initial;
+    --max-height: initial;
+    --max-width: initial;
+    --margin: initial;
+    --padding: initial;
+    --grid-row: initial;
+    --grid-column: initial;
+    --cursor: initial;
+}
+
+/* SPECIFICITY: 010 */
+
+*[data-size='small'] {
+    --width: 24rem;
+    --height: 2rem;
+
+    &[data-shape='round'] {
+        border-radius: 1rem;
+    }
+
+    &[data-shape='rounded'] {
+        border-radius: 0.25rem;
+    }
+
+    &[data-shape='circle'] {
+        --width: 2rem;
+        border-radius: 50%;
+    }
+}
+
+*[data-size='medium'] {
+    --width: 24rem;
+    --height: 2.5rem;
+
+    &[data-shape='round'] {
+        border-radius: 1.25rem;
+    }
+
+    &[data-shape='rounded'] {
+        border-radius: 0.33rem;
+    }
+
+    &[data-shape='circle'] {
+        --width: 2.5rem;
+        border-radius: 50%;
+    }
+}
+
+*[data-size='large'] {
+    --width: 24rem;
+    --height: 3rem;
+
+    &[data-shape='round'] {
+        border-radius: 1.5rem;
+    }
+
+    &[data-shape='rounded'] {
+        border-radius: 0.5rem;
+    }
+
+    &[data-shape='circle'] {
+        --width: 3rem;
+        border-radius: 50%;
+    }
+}
+
+*[data-shape='square'] {
+    border-radius: 0;
+}
+
+*[data-elevated='true'] {
+    box-shadow: var(--elevation-shadow);
+}
+
+.resolut {
+    height: var(--height, initial);
+    width: var(--width, initial);
+    min-height: var(--min-height, initial);
+    min-width: var(--min-width, initial);
+    max-height: var(--max-height, initial);
+    max-width: var(--max-width, initial);
+    margin: var(--margin, initial);
+    padding: var(--padding, initial);
+    grid-row: var(--grid-row, initial);
+    grid-column: var(--grid-column, initial);
+    cursor: var(--cursor, initial);
+
+    /* SPECIFICITY: 020 */
+
+    &[data-stretch='true'] {
+        --width: 100%;
+    }
+
+    &[data-unselectable='true'] {
+        user-select: none;
+    }
+}

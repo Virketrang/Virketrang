@@ -1,0 +1,21 @@
+export {}
+declare global {
+  const Address: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/modules/index')['Address']
+  const Authorization: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/packages/index')['Authorization']
+  const BankAccount: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/modules/index')['BankAccount']
+  const Company: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/modules/index')['Company']
+  const Constants: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/common/index')['Constants']
+  const Database: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/common/index')['Database']
+  const Enum: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/packages/index')['Enum']
+  const Hono: typeof import('hono')['Hono']
+  const Http: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/packages/index')['Http']
+  const PhoneNumber: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/modules/index')['PhoneNumber']
+  const ProductionUnit: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/modules/index')['ProductionUnit']
+  const User: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/modules/index')['User']
+  const Validation: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/packages/index')['Validation']
+  const postgres: typeof import('postgres')['undefined']
+  const serve: typeof import('@hono/node-server')['serve']
+  const services: typeof import('/Users/sigfred/Library/CloudStorage/Dropbox/Virketrang/Webudvikling/apps/nexus/server/src/services/index')['default']
+  const validator: typeof import('hono/validator')['validator']
+  const z: typeof import('zod')['z']
+}

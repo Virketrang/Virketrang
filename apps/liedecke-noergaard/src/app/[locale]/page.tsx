@@ -8,7 +8,7 @@ import styles from './page.module.scss'
 type PageProps = { params: { locale: Workspace.I18N.Locale } }
 
 const getProducts: () => Workspace.HTTP.Response<Workspace.Entity.Product> = async () => {
-    const response = await fetch(__server__ + 'products')
+    const response = await fetch(__server__ + 'products', { next: { tags: ['products'] } })
 
     return await response.json()
 }

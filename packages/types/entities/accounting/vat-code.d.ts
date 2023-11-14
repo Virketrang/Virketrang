@@ -1,11 +1,11 @@
-interface VatCode extends Workspace.Entity.BaseEntity {
+interface VatCode extends Entity.BaseEntity {
     name: string
     rate: number
-    company: Workspace.Entity.Company
+    company: Entity.Company
 }
 
 declare namespace VatCode {
-    type Create = Omit<Division, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<VatCode, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

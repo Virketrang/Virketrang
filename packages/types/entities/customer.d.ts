@@ -1,12 +1,10 @@
-import { CUSTOMER_TYPE } from '@/enums'
-
-interface Customer extends Workspace.Entity.BaseEntity {
-    type: CUSTOMER_TYPE
-    orders: Workspace.Entity.Order[]
+interface Customer extends Entity.BaseEntity {
+    type: Enum.CUSTOMER_TYPE
+    orders: Entity.Order[]
 }
 
 declare namespace Customer {
-    type Create = Omit<Customer, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<Customer, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

@@ -1,0 +1,6 @@
+export { default as Button } from './button/button.component'
+export { default as Paragraph } from './paragraph/paragraph.component'
+export { default as Span } from './span/span.component'
+export { default as Link } from './link/link.component'
+export { default as Heading } from './heading/heading.component'
+export { default as Label } from './label/label.component'

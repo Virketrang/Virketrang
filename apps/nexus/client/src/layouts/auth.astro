@@ -1,19 +1,29 @@
 ---
-import { slide } from 'astro:transitions';
-import {Typography, Link, Main, Div} from 'resolut'
+import { slide } from 'astro:transitions'
+import { Heading, Link, Main, Div } from '@resolut/react'
 
-import {Logo} from '@/nexus/client/components/index'
-import GlobalLayout from "@/nexus/client/layouts/global.astro";
+import { Logo } from '@/nexus/client/components/index'
+import GlobalLayout from '@/nexus/client/layouts/global.astro'
 
 const { title, greeting, back } = Astro.props
 ---
-<GlobalLayout title={title}>
-    <Main width='100%' minHeight='100vh' flex direction='column' center padding='4rem 0' transition:animate={slide({duration: "0.5s"})} transition:name="page">
-        <Div flex direction='column' alignItems='center' gap='3rem' margin='0 0 4rem 0' transition:name='logo'>
-            <Logo/>
-            <Typography variant='heading2' component='h2'>{greeting}</Typography>
+
+<GlobalLayout {title}>
+    <Main
+        width="100%"
+        minHeight="100vh"
+        flex
+        vertical
+        center
+        padding="4rem 0"
+        transition:animate={slide({ duration: '0.5s' })}
+        transition:name="page"
+    >
+        <Div flex vertical align:center gap="3rem" margin="0 0 4rem 0" transition:name="logo-wrapper">
+            <Logo transition:name="logo" />
+            <Heading medium>{greeting}</Heading>
         </Div>
         <slot />
-        <Link href={back} transition:name="back" margin="1.5rem 0 0 0">Tilbage</Link>
+        <Link href={back} transition:name="back" margin="1.5rem 0 0 0" underline>Tilbage</Link>
     </Main>
 </GlobalLayout>

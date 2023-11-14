@@ -1,8 +1,8 @@
 ---
-import { Button, Form, Field, Label, Input, Select} from 'resolut'
-import AuthenticationLayout from '@/nexus/client/layouts/auth.astro';
+import { Button, Form, Field, Label, Select, Text } from '@resolut/react'
+import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
 
-import Enum from '@/enums/index';
+import Enum from '@/enums/index'
 
 const options = [
     { value: Enum.CORPORATE_FORM.ENKELTMANDSVIRKSOMHED, name: Enum.CORPORATE_FORM.ENKELTMANDSVIRKSOMHED },
@@ -11,60 +11,59 @@ const options = [
     { value: Enum.CORPORATE_FORM.AKTIESELSKAB, name: Enum.CORPORATE_FORM.AKTIESELSKAB },
     { value: Enum.CORPORATE_FORM.KOMMANDITSELSKAB, name: Enum.CORPORATE_FORM.KOMMANDITSELSKAB }
 ]
+
+const TITLE = 'Nexus - opret medarbejder'
+const NEXT = '/authentication/signup/business/owners'
+const BACK = '/authentication/signup/employee/contacts'
 ---
-<AuthenticationLayout title="Nexus - opret medarbejder" greeting="Velkommen" back="/authentication/signup/employee/contacts">
-    <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" style={{ paddingBlock: '2rem' }} width="32rem" gap="2rem">
-        <Field column="span-all" row={1}>
-            <Label htmlFor="companyName" required>
-                Virksomhedsnavn
-            </Label>
-            <Input name="companyName" stretch />
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" padding="2rem 0" width="32rem" gap="2rem">
+        <Field flex vertical gap="0.5rem" column="span-all" row={1}>
+            <Label htmlFor="companyName" required>Virksomhedsnavn</Label>
+            <Text elevated name="companyName" stretch />
         </Field>
-        <Field column="1 / 4" row={2}>
-            <Label htmlFor="corporateForm" required>
-                Selskabstype
-            </Label>
-            <Select options={options} id="corporateForm" name="corporateForm" stretch />
+        <Field flex vertical gap="0.5rem" column="1 / 4" row={2}>
+            <Label htmlFor="corporateForm" required>Selskabstype</Label>
+            <Select elevated {options} name="corporateForm" stretch />
         </Field>
-        <Field column="4 / 5" row={2}>
-            <Label htmlFor="companyNumber" required>
-                CVR
-            </Label>
-            <Input name="companyNumber" stretch />
+        <Field flex vertical gap="0.5rem" column="4 / 5" row={2}>
+            <Label htmlFor="companyNumber" required>CVR</Label>
+            <Text elevated name="companyNumber" stretch />
         </Field>
     </Form>
-    <Button href="/authentication/signup/business/owners" width="32rem" size="large" transition:name="primary-button">Næste</Button>
+    <Button href={NEXT} width="32rem" transition:name="primary-button">Næste</Button>
 </AuthenticationLayout>
 <script>
-    import { $CreateCompany } from "@/nexus/client/stores";
-    
-    document.addEventListener("astro:page-load", () => {
-        const companyName = document.getElementById("companyName") as HTMLInputElement
-        const corporateForm = document.getElementById("corporateForm") as HTMLSelectElement
-        const companyNumber = document.getElementById("companyNumber") as HTMLInputElement
+    import { $CreateCompany } from '@/nexus/client/stores'
 
-        if (!companyName || !corporateForm || !companyNumber) return;
+    document.addEventListener('astro:page-load', () => {
+        const companyName = document.getElementById('companyName') as HTMLInputElement
+        const corporateForm = document.getElementById('corporateForm') as HTMLSelectElement
+        const companyNumber = document.getElementById('companyNumber') as HTMLInputElement
+
+        if (!companyName || !corporateForm || !companyNumber) return
 
         companyName.value = $CreateCompany.store.get().companyName
         corporateForm.value = $CreateCompany.store.get().corporateForm
         companyNumber.value = $CreateCompany.store.get().companyNumber
 
-        console.log($CreateCompany.store.get().companyName)
-
-        companyName.addEventListener("input", (event) => {
-        const target = event.target as HTMLInputElement
-        $CreateCompany.mutate("companyName", target.value)
-        })
-
-        corporateForm.addEventListener("input", (event) => {
-            const target = event.target as HTMLSelectElement
-            $CreateCompany.mutate("corporateForm", corporateForm.options[target.selectedIndex].value as Workspace.Enum.CORPORATE_FORM)
-        })
-
-        companyNumber.addEventListener("input", (event) => {
+        companyName.addEventListener('input', (event) => {
             const target = event.target as HTMLInputElement
-            $CreateCompany.mutate("companyNumber", target.value)
+            $CreateCompany.mutate('companyName', target.value)
+        })
+
+        corporateForm.addEventListener('input', (event) => {
+            const target = event.target as HTMLSelectElement
+            $CreateCompany.mutate(
+                'corporateForm',
+                corporateForm.options[target.selectedIndex].value as Workspace.Enum.CORPORATE_FORM
+            )
+        })
+
+        companyNumber.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateCompany.mutate('companyNumber', target.value)
         })
     })
-
 </script>

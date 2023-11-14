@@ -1,37 +1,75 @@
-import { ACCOUNTING_CLASS, CORPORATE_FORM } from '../../../packages/enums'
+interface Company extends Entity.BaseEntity {
+    company_name: string
 
-interface Company extends Workspace.Entity.BaseEntity {
-    name: string
+    company_number: number
 
-    companyNumber: number
+    accounting_class: Enum.ACCOUNTING_CLASS
 
-    accountingClass?: ACCOUNTING_CLASS
+    corporate_form: Enum.CORPORATE_FORM
 
-    corporateForm: CORPORATE_FORM
+    annual_reports?: Entity.AnnualReport[]
 
-    annualReports?: Workspace.Entity.AnnualReport[]
+    accounts?: Entity.Account[]
 
-    accounts?: Workspace.Entity.Account[]
-
-    customers?: Workspace.Entity.Customer[]
+    customers?: Entity.Customer[]
 
     employer: boolean
 
-    users?: Workspace.Entity.User[]
+    users: Entity.User[]
 
-    contentTypes?: Workspace.Entity.ContentType[]
+    content_types?: Entity.ContentType[]
 
-    vatCodes?: Workspace.Entity.VatCode[]
+    vat_codes?: Entity.VatCode[]
 
-    productionUnits?: Workspace.Entity.ProductionUnit[]
+    production_units: Entity.ProductionUnit[]
 
-    phone: Workspace.Entity.PhoneNumber
+    phone_number: Entity.PhoneNumber
 
-    address: Workspace.Entity.Address
+    address: Entity.Address
+
+    bank_account: Entity.BankAccount
 }
 
 declare namespace Company {
-    type Create = Omit<Company, keyof Workspace.Entity.BaseEntity>
+    interface Create {
+        company_name: string
+
+        company_number: number
+
+        accounting_class: Enum.ACCOUNTING_CLASS
+
+        corporate_form: Enum.CORPORATE_FORM
+
+        employer: boolean
+
+        users: Entity.User.Create[]
+
+        address: Entity.Address.Create
+
+        bank_account: Entity.BankAccount.Create
+
+        phone_number: Entity.PhoneNumber.Create
+
+        production_units: Entity.ProductionUnit.Create[]
+    }
+
+    interface Insert {
+        company_name: string
+
+        company_number: number
+
+        accounting_class: Enum.ACCOUNTING_CLASS
+
+        corporate_form: Enum.CORPORATE_FORM
+
+        employer: boolean
+
+        address_id: string
+
+        bank_account_id: string
+
+        phone_number_id: string
+    }
 
     type Update = Partial<Create>
 }

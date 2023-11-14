@@ -1,13 +1,11 @@
-import { PRODUCT_CATEGORY } from '@/enums'
-
-interface Division extends Workspace.Entity.BaseEntity {
-    name: Workspace.I18N.Text
-    subdivisions?: Workspace.Entity.Subdivision[]
-    categories: PRODUCT_CATEGORY[]
+interface Division extends Entity.BaseEntity {
+    name: I18N.Text
+    subdivisions?: Entity.Subdivision[]
+    categories: Enum.PRODUCT_CATEGORY[]
 }
 
 declare namespace Division {
-    type Create = Omit<Division, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<Division, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

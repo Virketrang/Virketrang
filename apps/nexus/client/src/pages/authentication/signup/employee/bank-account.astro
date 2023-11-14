@@ -1,16 +1,45 @@
 ---
-import { Button} from 'resolut'
-import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro';
-import CreateEmployee  from '@/apps/nexus/client/src/composables/forms/create-employee/CreateEmployee';
-import RegistrationNumber from '@/apps/nexus/client/src/composables/forms/create-employee/fields/RegistrationNumber';
-import AccountNumber from '@/apps/nexus/client/src/composables/forms/create-employee/fields/AccountNumber';
-import ActivationCode from '@/apps/nexus/client/src/composables/forms/create-employee/fields/ActivationCode';
+import { Button, Form, Field, Label, Text } from '@resolut/react'
+import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro'
+
+const TITLE = 'Nexus - Opret Medarbejder'
+const BACK = '/authentication/signup/employee/address'
 ---
-<AuthenticationLayout title="Nexus - opret medarbejder" greeting="Velkommen" back="/authentication/signup/employee/address">
-    <CreateEmployee submit client:load>
-        <RegistrationNumber client:load/>
-        <AccountNumber client:load/>   
-        <ActivationCode client:load/>
-        <Button column="span-all" row={3} stretch size="large" transition:name="primary-button">Opret</Button>
-    </CreateEmployee>
-</AuthenticationLayout>@/apps/nexus/client/src/composables/forms/create-employee/fields/AccountNumber@/apps/nexus/client/src/composables/forms/create-employee/fields/Activa@/apps/nexus/client/src/composables/forms/create-employee/CreateEmployeeegistrationNumber
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" gap="2rem" width="32rem">
+        <Field flex vertical gap="0.5rem" column="1 / 2" row={1}>
+            <Label htmlFor="registrationNumber" required>Reg. nr.</Label>
+            <Text name="registrationNumber" stretch />
+        </Field>
+        <Field flex vertical gap="0.5rem" column="2 / 5" row={1}>
+            <Label htmlFor="accountNumber" required>Kontonummer</Label>
+            <Text name="accountNumber" stretch />
+        </Field>
+        <Field flex vertical gap="0.5rem" column="span-all" row={2}>
+            <Label htmlFor="activationCode" required>Aktiveringskode</Label>
+            <Text name="activationCode" stretch />
+        </Field>
+    </Form>
+    <Button transition:name="primary-button">Opret</Button>
+</AuthenticationLayout>
+<script>
+    import { $CreateEmployee } from '@/nexus/client/stores'
+
+    document.addEventListener('astro:page-load', () => {
+        const registrationNumber = document.getElementById('registrationNumber') as HTMLInputElement
+        const accountNumber = document.getElementById('accountNumber') as HTMLInputElement
+
+        if (!registrationNumber || !accountNumber) return
+
+        registrationNumber.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('registrationNumber', target.value)
+        })
+
+        accountNumber.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('accountNumber', target.value)
+        })
+    })
+</script>

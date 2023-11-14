@@ -1,35 +1,49 @@
 ---
-import {Button, Typography, Form, Field, Label, Input} from 'resolut'
-import AuthenticationLayout from "@/nexus/client/layouts/auth.astro";
+import { Button, Paragraph, Form, Field, Label, Text } from '@resolut/react'
+import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
+
+const TITLE = 'Nexus - opret virksomhed'
+const BACK = '/authentication/signup/business/owners'
+const NEXT = '/authentication/signup/business/owners'
 ---
-<AuthenticationLayout title="Nexus - opret virksomhed" greeting="Velkommen" back="/authentication/signup/business/owners">
-    <Typography id="question" component='p' variant="paragraph1">Udfyld nedenstående om $name</Typography>
-    <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" padding='2rem 0' width="32rem" gap="2rem">
-        <Field column="span-all" row={1}>
-            <Label htmlFor='private-email'>Privat e-mail</Label>
-            <Input name="private-email" stretch/>
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <Paragraph id="question">Indlæser...</Paragraph>
+    <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" padding="2rem 0" width="32rem" gap="2rem">
+        <Field flex vertical gap="0.5rem" column="span-all" row={1}>
+            <Label htmlFor="private-email">Privat e-mail</Label>
+            <Text name="private-email" stretch />
         </Field>
-        <Field column="span-all" row={2}>
-            <Label htmlFor='private-phone'>Privat telefonummer</Label>
-            <Input name="private-phone" stretch/>
+        <Field flex vertical gap="0.5rem" column="span-all" row={2}>
+            <Label htmlFor="private-phone">Privat telefonummer</Label>
+            <Text name="private-phone" stretch />
         </Field>
     </Form>
-    <Button href="/authentication/signup/business/owners" size="large" width="32rem" transition:name='primary-button'>
-        Næste
-    </Button>
+    <Button width="32rem" transition:name="primary-button">Næste</Button>
 </AuthenticationLayout>
 <script>
-    import {$CreateCompany} from '@/nexus/client/stores'
+    import { $CreateCompany } from '@/nexus/client/stores'
 
-    document.addEventListener("astro:page-load", () => {
-        const name = `${$CreateCompany.store.get().owners[0].firstname} ${$CreateCompany.store.get().owners[0].surname}`;
-        const question = document.getElementById("question") as (HTMLParagraphElement | undefined);
+    document.addEventListener('astro:page-load', () => {
+        const question = document.getElementById('question') as HTMLParagraphElement | undefined
+        const button = document.querySelector('button') as HTMLButtonElement | undefined
 
-        if (!question) return;
+        if (!question || !button) return
 
-        console.log($CreateCompany.store.get());
-        console.log(name);
+        let index = 0
+        const owners = $CreateCompany.store.get().owners
 
-        question.innerText = question.innerText.replace('$name', name);
+        const setQuestion = (index: number) => {
+            const name = `${owners[index].firstname} ${owners[index].surname}`
+
+            question.innerText = `Udfyld nedenstående om ${name}`
+        }
+
+        setQuestion(index)
+
+        button.addEventListener('click', () => {
+            index++
+            setQuestion(index)
+        })
     })
 </script>

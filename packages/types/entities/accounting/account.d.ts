@@ -1,17 +1,15 @@
-import { ACCOUNT_TYPE } from '@/enums'
+interface Account extends Entity.BaseEntity {
+    account_name: string
 
-interface Account extends Workspace.Entity.BaseEntity {
-    accountName: string
+    account_number: number
 
-    accountNumber: number
+    type: Enum.ACCOUNT_TYPE
 
-    type: ACCOUNT_TYPE
-
-    company: Workspace.Entity.Company
+    company: Entity.Company
 }
 
 declare namespace Account {
-    type Create = Omit<Account, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<Account, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

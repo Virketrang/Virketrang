@@ -1,15 +1,13 @@
-import { PRODUCT_CATEGORY } from '@/enums'
+interface Product extends Entity.BaseEntity {
+    name: I18N.Text
 
-interface Product extends Workspace.Entity.BaseEntity {
-    name: Workspace.I18N.Text
+    description: Entity.Description
 
-    description: Workspace.Entity.Description
+    retail_price: number
 
-    retailPrice: number
+    cost_price: number
 
-    costPrice: number
-
-    deliveryTime: number
+    delivery_time: number
 
     stock: number
 
@@ -17,21 +15,19 @@ interface Product extends Workspace.Entity.BaseEntity {
 
     materials: string[]
 
-    category: PRODUCT_CATEGORY
+    category: Enum.PRODUCT_CATEGORY
 
-    createdAt?: Date
-
-    measurement: Workspace.Entity.Measurement
+    measurement: Entity.Measurement
 
     designer: string
 
-    images: Workspace.Entity.Image[]
+    images: Entity.Image[]
 
-    subdivisions?: Workspace.Entity.Subdivision[]
+    subdivisions?: Entity.Subdivision[]
 }
 
 declare namespace Product {
-    type Create = Omit<Product, keyof Workspace.Entity.BaseEntity | 'images'>
+    type Create = Omit<Product, keyof Entity.BaseEntity | 'images'>
 
     type Update = Partial<Create>
 }

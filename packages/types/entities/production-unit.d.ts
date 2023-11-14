@@ -1,12 +1,21 @@
-interface ProductionUnit extends Workspace.Entity.BaseEntity {
-    number: number
-    address: Workspace.Entity.Address
-    company: Workspace.Entity.Company
-    users?: Workspace.Entity.User[]
+interface ProductionUnit extends Entity.BaseEntity {
+    unit_number: number
+    address: Entity.Address
+    company: Entity.Company
+    users?: Entity.User[]
 }
 
 declare namespace ProductionUnit {
-    type Create = Omit<ProductionUnit, keyof Workspace.Entity.BaseEntity>
+    interface Create {
+        unit_number: number
+        address: Entity.Address.Create
+    }
+
+    interface Insert {
+        unit_number: number
+        address_id: string
+        company_id: string
+    }
 
     type Update = Partial<Create>
 }

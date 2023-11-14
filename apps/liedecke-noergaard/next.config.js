@@ -34,7 +34,9 @@ const nextConfig = {
                     { name: 'usePathname', from: 'next/navigation' },
                     { name: 'useRouter', from: 'next/navigation' },
                     { name: 'NextRequest', from: 'next/server' },
-                    { name: 'NextResponse', from: 'next/server' }
+                    { name: 'NextResponse', from: 'next/server' },
+                    { name: 'revalidatePath', from: 'next/cache' },
+                    { name: 'revalidateTag', from: 'next/cache' }
                 ]
             })
         )

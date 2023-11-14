@@ -1,23 +1,9 @@
-import { CORPORATE_FORM } from '@/enums'
-
-// const $ = atom<{
-//     companyName: string
-//     companyNumber: string
-//     corporateForm: CORPORATE_FORM
-//     owners: { firstname: string; surname: string }[]
-//     iteration: number
-// }>({
-//     companyName: '',
-//     companyNumber: '',
-//     corporateForm: CORPORATE_FORM.ENKELTMANDSVIRKSOMHED,
-//     owners: [{ firstname: '', surname: '' }],
-//     iteration: 0
-// })
+import Enum from '@/enums'
 
 const $ = persistentAtom<{
     companyName: string
     companyNumber: string
-    corporateForm: CORPORATE_FORM
+    corporateForm: Workspace.Enum.CORPORATE_FORM
     owners: { firstname: string; surname: string }[]
     iteration: number
 }>(
@@ -25,7 +11,7 @@ const $ = persistentAtom<{
     {
         companyName: '',
         companyNumber: '',
-        corporateForm: CORPORATE_FORM.ENKELTMANDSVIRKSOMHED,
+        corporateForm: Enum.CORPORATE_FORM.ENKELTMANDSVIRKSOMHED,
         owners: [{ firstname: '', surname: '' }],
         iteration: 0
     },
@@ -39,5 +25,25 @@ export default abstract class $CreateCompany {
 
     public static mutate<T extends Keys>(field: T, value: ReturnType<typeof this.store.get>[T]) {
         this.store.set({ ...this.store.get(), [field]: value })
+    }
+
+    public static addOwner() {
+        this.mutate('owners', [...this.store.get().owners, { firstname: '', surname: '' }])
+    }
+
+    public static removeOwner(index: number) {
+        const owners = this.store.get().owners
+        owners.splice(index, 1)
+        this.mutate('owners', owners)
+    }
+
+    public static mutateOwner<T extends keyof ReturnType<typeof this.store.get>['owners'][number]>(
+        index: number,
+        field: T,
+        value: ReturnType<typeof this.store.get>['owners'][number][T]
+    ) {
+        const owners = this.store.get().owners
+        owners[index][field] = value
+        this.mutate('owners', owners)
     }
 }

@@ -1,0 +1,27 @@
+/* SPECIFICITY: 010 */
+
+.resolut-layout {
+    --columns: initial;
+    --rows: initial;
+    --flex-direction: initial;
+    --justify-content: initial;
+    --align-items: initial;
+    --gap: initial;
+
+    /* SPECIFICITY: 020 */
+
+    &[data-grid='true'] {
+        display: grid;
+        grid-template-columns: var(--columns, initial);
+        grid-template-rows: var(--rows, initial);
+        gap: var(--gap, 0);
+    }
+
+    &[data-flex='true'] {
+        display: flex;
+        flex-direction: var(--flex-direction, initial);
+        justify-content: var(--justify-content, initial);
+        align-items: var(--align-items, initial);
+        gap: var(--gap, 0);
+    }
+}

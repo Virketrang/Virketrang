@@ -1,0 +1,13 @@
+/* SPECIFICITY: 010 */
+.resolut-input {
+    padding-inline: 1rem;
+    border: 1px solid var(--input-border-color);
+
+    &[data-error='true'] {
+        border-color: var(--input-error-border-color);
+    }
+
+    &[data-disabled='true'] {
+        border-color: var(--input-disabled-border-color);
+    }
+}

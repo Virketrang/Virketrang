@@ -1,9 +1,9 @@
-interface BalanceSheet extends Workspace.Entity.BaseEntity {
-    annualReport: Workspace.Entity.AnnualReport
+interface BalanceSheet extends Entity.BaseEntity {
+    annual_report: Entity.AnnualReport
 }
 
 declare namespace BalanceSheet {
-    type Create = Omit<BalanceSheet, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<BalanceSheet, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

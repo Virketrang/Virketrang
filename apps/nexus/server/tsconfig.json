@@ -1,14 +1,18 @@
 {
     "extends": "../../../tsconfig.base.json",
     "compilerOptions": {
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "target": "ESNext",
-        "sourceMap": true,
-        "outDir": "./dist",
-        "incremental": true,
+        "lib": ["ESNext"],
+        "target": "esnext",
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
+        "noEmit": true,
+        "composite": true,
+        "downlevelIteration": true,
+        "typeRoots": ["./src/types/declarations.d.ts", "unimport.d.ts", "./node_modules/@types"],
         "skipLibCheck": true,
-        "types": ["vitest/globals"]
+        "allowJs": true,
+        "allowImportingTsExtensions": true
     },
-    "include": ["src/**/*", "../../../packages/**/*", "../../../config/**/*"]
+    "include": ["./src/**/*", "../../../packages/**/*", "../../../config/**/*", "unimport.d.ts"],
+    "exclude": ["node_modules", "dist"]
 }

@@ -1,32 +1,51 @@
-import { Injectable } from '@nestjs/common'
+export default abstract class CompanyService {
+    public static async create({
+        address,
+        phone_number,
+        bank_account,
+        production_units,
+        users,
+        ...rest
+    }: Entity.Company.Create): Promise<Entity.Company> {
+        const { id: address_id } = await Address.service.create(address)
+        const { id: phone_number_id } = await PhoneNumber.service.create(phone_number)
+        const { id: bank_account_id } = await BankAccount.service.create(bank_account)
 
-import CompanyRepository from './company.repository'
-import UserService from '../users/user.service'
+        const company = await Company.repository.insert({
+            ...rest,
+            address_id,
+            phone_number_id,
+            bank_account_id
+        })
 
-@Injectable()
-export default class CompanyService {
-    constructor(private readonly companyRepository: CompanyRepository, private readonly userService: UserService) {}
+        const units = await ProductionUnit.service.createMany(company.id, production_units)
 
-    async createCompany(
-        createCompany: Workspace.Entity.Company.Create,
-        createOwners: Workspace.Entity.User.Create[]
-    ): Promise<{ company: Workspace.Entity.Company; owners: Workspace.Entity.User[] }> {
-        const company = await this.companyRepository.save(createCompany)
+        console.log(units[0])
 
-        const owners = await this.userService.createOwners(createOwners.map((owner) => ({ ...owner, company })))
+        const owners = await User.service.createMany(
+            company.id,
+            users.map(({ production_unit_id, ...user }) => ({
+                production_unit_id: units.filter((unit) => unit['unit_number'].toString() === production_unit_id)[0].id,
+                ...user
+            }))
+        )
 
-        return { company, owners }
+        return { ...company, production_units: units, users: owners }
     }
 
-    async getCompanies(): Promise<Workspace.Entity.Company[]> {
-        return await this.companyRepository.find()
+    public static async findAll(): Promise<Entity.Company[]> {
+        return await Company.repository.selectAll()
     }
 
-    async getCompany(id: string): Promise<Workspace.Entity.Company> {
-        return await this.companyRepository.getById(id)
+    public static async findById(id: string): Promise<Entity.Company> {
+        return await Company.repository.selectById(id)
     }
 
-    async deleteCompany(id: string): Promise<void> {
-        await this.companyRepository.delete(id)
+    public static update() {
+        return 'Company updated'
+    }
+
+    public static remove() {
+        return 'Company deleted'
     }
 }

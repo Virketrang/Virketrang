@@ -1,3 +1,3 @@
-export type Response<T> = Promise<Workspace.HTTP.Success<T> | Workspace.HTTP.Failure | Workspace.HTTP.Error>
+export type Response<T> = Http.Success<T> | Http.Failed | Http.Error
 
 export default Response

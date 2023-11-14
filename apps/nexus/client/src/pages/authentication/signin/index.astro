@@ -1,32 +1,19 @@
 ---
-import { Button, Input, Label} from "resolut"
+import { Button, Text, Field, Label, Form } from '@resolut/react'
 
-import AuthenticationLayout from "@/nexus/client/layouts/auth.astro";
+import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
 ---
-<AuthenticationLayout title="Nexus - Login" greeting="Velkommen tilbage" back="/" >
-    <div class="form-control e-mail">
-        <Label required>E-mail</Label>
-        <Input type="email" stretch size="large" required/>
-    </div>
-    <div class="form-control password">
-        <Label required>Adgangskode</Label>
-        <Input type="password" stretch size="large" required/>
-    </div>
-    <Button className="button" type="submit" stretch size="large" onClick={() => {}} transition:name="login">Login</Button>
-</AuthenticationLayout >
-<style>
-    .e-mail {
-        grid-column: 1 / 5;
-        grid-row: 1;
-    }
 
-    .password {
-        grid-column: 1 / 5;
-        grid-row: 2;
-    }
-
-    .button {
-        grid-column: 1 / 5;
-        grid-row: 3;
-    }
-</style>
+<AuthenticationLayout title="Nexus - Login" greeting="Velkommen tilbage" back="/">
+    <Form flex vertical width="32rem" center gap="2rem">
+        <Field flex vertical gap="0.5rem" stretch>
+            <Label required>E-mail</Label>
+            <Text elevated type="email" stretch required />
+        </Field>
+        <Field flex vertical gap="0.5rem" stretch>
+            <Label required>Adgangskode</Label>
+            <Text elevated type="password" stretch required />
+        </Field>
+        <Button submit stretch onClick={() => {}} transition:name="primary-button">Login</Button>
+    </Form>
+</AuthenticationLayout>

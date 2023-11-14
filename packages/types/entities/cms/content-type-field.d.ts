@@ -1,11 +1,11 @@
-interface ContentTypeField extends Workspace.Entity.BaseEntity {
+interface ContentTypeField extends Entity.BaseEntity {
     name: string
     type: string
-    contentType: Workspace.Entity.ContentType
+    content_type: Entity.ContentType
 }
 
 declare namespace ContentTypeField {
-    type Create = Omit<ContentTypeField, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<ContentTypeField, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

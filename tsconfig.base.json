@@ -30,14 +30,16 @@
             "@/types": ["packages/types/index.ts"],
             "@/enums/*": ["packages/enums/*"],
             "@/enums": ["packages/enums/index.ts"],
+            "@/validation/*": ["packages/validation/*"],
+            "@/validation": ["packages/validation/index.ts"],
             "@/config": ["config/index.ts"],
             "@/fonts/*": ["packages/fonts/*"],
-            "@/css/*": ["packages/css/*"],
             "@/nexus/client/*": ["apps/nexus/client/src/*"],
             "@/nexus/server/*": ["apps/nexus/server/src/*"],
             "@/liedecke-noergaard/*": ["apps/liedecke-noergaard/src/*"],
             "@/liedecke-noergaard/public/*": ["apps/liedecke-noergaard/public/*"],
             "@/website/*": ["website/src/*"]
         }
-    }
+    },
+    "include": ["packages/**/*", "apps/**/*", "config/**/*", "website/**/*", "libraries/**/*"]
 }

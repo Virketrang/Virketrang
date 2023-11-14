@@ -28,10 +28,21 @@ export default abstract class AutoImport {
     public static readonly resolut = [
         { name: 'Field', from: 'resolut' },
         { name: 'Form', from: 'resolut' },
-        { name: 'Input', from: 'resolut' },
+        { name: 'Main', from: 'resolut' },
+        { name: 'Section', from: 'resolut' },
+        { name: 'Article', from: 'resolut' },
+        { name: 'Div', from: 'resolut' },
+        { name: 'Select', from: 'resolut' },
+        { name: 'Text', from: 'resolut' },
         { name: 'Button', from: 'resolut' },
         { name: 'Label', from: 'resolut' },
-        { name: 'Select', from: 'resolut' }
+        { name: 'Heading', from: 'resolut' },
+        { name: 'Paragraph', from: 'resolut' },
+        { name: 'Link', from: 'resolut' },
+        { name: 'Span', from: 'resolut' }
     ]
+
     public static readonly swc = [{ name: 'default', as: 'useSWR', from: 'swr' }]
+
+    public static readonly solid = []
 }

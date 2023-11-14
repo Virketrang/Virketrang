@@ -1,11 +1,11 @@
-interface Payslip extends Workspace.Entity.BaseEntity {
-    user: Workspace.Entity.User
+interface Payslip extends Entity.BaseEntity {
+    user: Entity.User
 
-    grossPay: number
+    gross_pay: number
 }
 
 declare namespace Payslip {
-    type Create = Omit<Payslip, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<Payslip, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

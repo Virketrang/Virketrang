@@ -1,15 +1,42 @@
 ---
-import { Button} from 'resolut'
+import { Button, Form, Field, Label, Text } from '@resolut/react'
+import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro'
 
-import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro';
-import CreateEmployee  from '@/apps/nexus/client/src/composables/forms/create-employee/CreateEmployee';
-import Firstname from '@/apps/nexus/client/src/composables/forms/create-employee/fields/Firstname';
-import Surname from '@/apps/nexus/client/src/composables/forms/create-employee/fields/Surname';
+const TITLE = 'Nexus - opret medarbejder'
+const BACK = '/authentication/signup/employee'
+const NEXT = '/authentication/signup/employee/contacts'
 ---
-<AuthenticationLayout title="Nexus - opret medarbejder" greeting="Velkommen" back="/authentication/signup/employee">
-   <CreateEmployee  client:load>
-        <Firstname client:load/>
-        <Surname client:load/>
-        <Button row={3} href="/authentication/signup/employee/contacts" stretch size="large" transition:name="primary-button" transition:persist>Næste</Button>
-   </CreateEmployee>
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" gap="2rem" width="32rem">
+        <Field flex vertical gap="0.5rem" row={1} column="span-all">
+            <Label htmlFor="firstname" required>Fornavn</Label>
+            <Text name="firstname" stretch />
+        </Field>
+        <Field flex vertical gap="0.5rem" row={2} column="span-all">
+            <Label htmlFor="surname" required>Efternavn</Label>
+            <Text name="surname" stretch />
+        </Field>
+    </Form>
+    <Button href={NEXT} stretch transition:name="primary-button" transition:persist>Næste</Button>
 </AuthenticationLayout>
+<script>
+    import { $CreateEmployee } from '@/nexus/client/stores'
+
+    document.addEventListener('astro:page-load', () => {
+        const firstname = document.getElementById('firstname') as HTMLInputElement
+        const surname = document.getElementById('surname') as HTMLInputElement
+
+        if (!firstname || !surname) return
+
+        firstname.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('firstname', target.value)
+        })
+
+        surname.addEventListener('input', (event) => {
+            const target = event.target as HTMLInputElement
+            $CreateEmployee.mutate('surname', target.value)
+        })
+    })
+</script>

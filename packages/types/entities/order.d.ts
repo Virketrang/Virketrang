@@ -1,10 +1,10 @@
-interface Order extends Workspace.Entity.BaseEntity {
+interface Order extends Entity.BaseEntity {
     completed?: boolean
-    customer: Workspace.Entity.Customer
+    customer: Entity.Customer
 }
 
 declare namespace Order {
-    type Create = Omit<Order, keyof Workspace.Entity.BaseEntity>
+    type Create = Omit<Order, keyof Entity.BaseEntity>
 
     type Update = Partial<Create>
 }

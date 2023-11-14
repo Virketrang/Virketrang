@@ -1,0 +1,8 @@
+/* SPECIFICITY: 020 */
+
+.resolut-layout.resolut-field {
+    /* SPECIFICITY: 030 */
+    &::after {
+        content: attr(data-message);
+    }
+}

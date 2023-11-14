@@ -1,0 +1,21 @@
+.resolut-typography.resolut-button {
+    /* SPECIFICITY: 030 */
+    &[data-color='primary'] {
+        background: var(--button-primary-background-color);
+        color: var(--button-primary-text-color);
+    }
+
+    &[data-color='secondary'] {
+        background: var(--button-secondary-background-color);
+        color: var(--button-secondary-text-color);
+    }
+
+    &[data-disabled='true'] {
+        background: var(--button-disabled-background-color);
+        color: var(--button-disabled-text-color);
+    }
+
+    &[data-elevated='true'] {
+        box-shadow: var(--button-elevation-shadow);
+    }
+}

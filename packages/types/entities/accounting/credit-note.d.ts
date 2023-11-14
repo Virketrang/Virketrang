@@ -1,7 +1,7 @@
-interface CreditNote extends Workspace.Entity.BaseEntity {}
+interface CreditNote extends Entity.BaseEntity {}
 
 declare namespace CreditNote {
-    type Create = Omit<CreditNote, keyof Workspace.Entity.BaseEntity | 'product'>
+    type Create = Omit<CreditNote, keyof Entity.BaseEntity | 'product'>
 
     type Update = Partial<Create>
 }

@@ -7,6 +7,8 @@ declare global {
   const createContext: typeof import('react')['createContext']
   const createRef: typeof import('react')['createRef']
   const memo: typeof import('react')['memo']
+  const revalidatePath: typeof import('next/cache')['revalidatePath']
+  const revalidateTag: typeof import('next/cache')['revalidateTag']
   const useContext: typeof import('react')['useContext']
   const useEffect: typeof import('react')['useEffect']
   const usePathname: typeof import('next/navigation')['usePathname']
