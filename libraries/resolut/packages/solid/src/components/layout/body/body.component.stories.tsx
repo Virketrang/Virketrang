@@ -1,15 +1,16 @@
 import Body from './body.component'
-import { BodyComponent, BodyProps, BodyRef } from './body.component.types'
 
-const Story: Storybook.Meta<BodyComponent> = {
+const Story: Storybook.Meta<HTMLBodyElement, Resolut.Component.BodyProps> = {
     title: 'Body',
     component: Body,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<BodyComponent> = ({ ...props }) => <Body {...props} />
+const Template: Storybook.StoryFn<HTMLBodyElement, Resolut.Component.BodyProps> = ({ ...props }) => <Body {...props} />
 
-export const DefaultBody: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, BodyProps & BodyRef> = Template.bind({})
+export const DefaultBody: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.BodyProps> = Template.bind(
+    {}
+)
 
 DefaultBody.args = {}
 

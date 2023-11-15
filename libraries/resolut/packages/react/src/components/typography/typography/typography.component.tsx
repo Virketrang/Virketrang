@@ -1,7 +1,6 @@
 import Base from '../../base/base.component'
-import { TypographyComponent } from './typography.component.types'
 
-const Typography: TypographyComponent = Resolut.create(
+const Typography = Resolut.create<HTMLElement, Resolut.Component.TypographyProps>(
     (
         {
             thin,
@@ -49,9 +48,12 @@ const Typography: TypographyComponent = Resolut.create(
         } /** @remove start **/,
         ref /** @remove end **/
     ) => {
+        const _ = ref as any
+        const __ = props as any
+
         return (
             <Base
-                ref={ref}
+                ref={_}
                 className={Utils.setClasses(className, 'resolut-typography')}
                 style={Utils.setInlineStyles({
                     ...Utils.setCSSVariables({
@@ -85,7 +87,7 @@ const Typography: TypographyComponent = Resolut.create(
                     color: Utils.setValueFromBoolean({ primary, secondary })
                 })}
                 stretch={stretch}
-                {...props}
+                {...__}
             >
                 {children}
             </Base>

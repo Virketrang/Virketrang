@@ -1,7 +1,6 @@
 import Layout from '../layout/layout.component'
-import MainComponent, { MainProps } from './main.component.types'
 
-const Main: MainComponent = Resolut.create<HTMLElement, MainProps>(
+const Main = Resolut.create<HTMLElement, Resolut.Component.MainProps>(
     ({ children, /** @inject ref, **/ ...props } /** @remove start **/, ref /** @remove end **/) => {
         return (
             <Layout {...props} ref={ref} element="main" tag="main">

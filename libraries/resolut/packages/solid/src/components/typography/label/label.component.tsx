@@ -1,21 +1,24 @@
-import Utils from '../../../../../../utils'
-import { LabelComponent } from './label.component.types'
 import Typography from '../typography/typography.component'
 
-const Label: LabelComponent = memo(
-    forwardRef(({ children, required = false, ...props }, ref) => {
-        return createElement(
-            Typography,
-            {
-                ref,
-                tag: 'label',
-                element: 'label',
-                ...props,
-                ...Utils.setAttributes({ required })
-            },
-            children
-        )
-    })
-)
+const Label: Resolut.Component<Resolut.Component.LabelProps> = ({
+    children,
+    for: htmlFor,
+    required = false,
+    ref,
+    ...props
+}) => {
+    return (
+        <Typography
+            ref={ref}
+            for={htmlFor}
+            tag="label"
+            element="label"
+            {...props}
+            {...Utils.setAttributes({ required })}
+        >
+            {children}
+        </Typography>
+    )
+}
 
 export default Label

@@ -1,27 +1,23 @@
 import Layout from '../layout/layout.component'
 
-import FormComponent from './form.component.types'
+const Form: Resolut.Component<Resolut.Component.FormProps> = ({
+    children,
+    onSubmit,
+    preventDefault = true,
+    ref,
+    ...props
+}) => {
+    const handleSubmit: any = (event: Resolut.Events.SubmitEvent) => {
+        preventDefault && event.preventDefault()
 
-const Form: FormComponent = memo(
-    forwardRef(({ children, className, onSubmit, preventDefault = true, ...props }, ref) => {
-        const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-            preventDefault && event.preventDefault()
+        onSubmit && onSubmit(event)
+    }
 
-            onSubmit && onSubmit(event)
-        }
-
-        return createElement(
-            Layout,
-            {
-                ref,
-                onSubmit: handleSubmit,
-                tag: 'form',
-                element: 'form',
-                ...props
-            },
-            children
-        )
-    })
-)
+    return (
+        <Layout ref={ref} onSubmit={handleSubmit} tag="form" element="form" {...props}>
+            {children}
+        </Layout>
+    )
+}
 
 export default Form

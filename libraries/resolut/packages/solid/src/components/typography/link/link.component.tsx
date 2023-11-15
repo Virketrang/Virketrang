@@ -1,21 +1,11 @@
-import Utils from '../../../../../../utils'
 import Typography from '../typography/typography.component'
-import { LinkComponent } from './link.component.types'
 
-const Link: LinkComponent = memo(
-    forwardRef(({ underlined = true, children, ...props }, ref) => {
-        return createElement(
-            Typography,
-            {
-                ref,
-                tag: 'link',
-                element: 'a',
-                ...Utils.setAttributes({ underlined }),
-                ...props
-            },
-            children
-        )
-    })
-)
+const Link: Resolut.Component<Resolut.Component.LinkProps> = ({ underline = true, children, ref, ...props }) => {
+    return (
+        <Typography ref={ref} tag="link" element="a" {...Utils.setAttributes({ underline })} {...props}>
+            {children}
+        </Typography>
+    )
+}
 
 export default Link

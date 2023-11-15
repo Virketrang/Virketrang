@@ -1,10 +1,11 @@
 import Layout from '../layout/layout.component'
-import MainComponent from './main.component.types'
 
-const Main: MainComponent = memo(
-    forwardRef(({ children, ...props }, ref) => {
-        return createElement(Layout, { ...props, ref, element: 'main', tag: 'main' }, children)
-    })
-)
+const Main: Resolut.Component<Resolut.Component.MainProps> = ({ children, ref, ...props }) => {
+    return (
+        <Layout {...props} ref={ref} element="main" tag="main">
+            {children}
+        </Layout>
+    )
+}
 
 export default Main

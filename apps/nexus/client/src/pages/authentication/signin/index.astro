@@ -1,5 +1,5 @@
 ---
-import { Button, Text, Field, Label, Form } from '@resolut/react'
+import { Button, Text, Field, Label, Form } from '@resolut/solid'
 
 import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
 ---
@@ -14,6 +14,6 @@ import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
             <Label required>Adgangskode</Label>
             <Text elevated type="password" stretch required />
         </Field>
-        <Button submit stretch onClick={() => {}} transition:name="primary-button">Login</Button>
+        <Button submit stretch transition:name="primary-button">Login</Button>
     </Form>
 </AuthenticationLayout>

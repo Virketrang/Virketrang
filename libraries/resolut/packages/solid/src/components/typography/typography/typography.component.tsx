@@ -1,9 +1,6 @@
-import Utils from '../../../../../../utils'
 import Base from '../../base/base.component'
 
-import { TypographyComponent } from './typography.component.types'
-
-const Typography: TypographyComponent = ({
+const Typography: Resolut.Component<Resolut.Component.TypographyProps> = ({
     thin,
     extraLight,
     light,
@@ -42,12 +39,18 @@ const Typography: TypographyComponent = ({
     end,
     justify,
     children,
+    class: className,
     style,
+    ref,
     ...props
 }) => {
+    const _ = ref as any
+    const __ = props as any
+
     return (
         <Base
-            class={Utils.setClasses(props.class, 'resolut-typography')}
+            ref={_}
+            className={Utils.setClasses(className, 'resolut-typography')}
             style={Utils.setInlineStyles({
                 ...Utils.setCSSVariables({
                     textAlign: Utils.setValueFromBoolean({ start, center, end, justify }),
@@ -80,8 +83,10 @@ const Typography: TypographyComponent = ({
                 color: Utils.setValueFromBoolean({ primary, secondary })
             })}
             stretch={stretch}
-            {...props}
-        />
+            {...__}
+        >
+            {children}
+        </Base>
     )
 }
 

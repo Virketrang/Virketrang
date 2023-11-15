@@ -1,10 +1,11 @@
 import Layout from '../layout/layout.component'
-import BodyComponent from './body.component.types'
 
-const Body: BodyComponent = memo(
-    forwardRef(({ children, ...props }, ref) => {
-        return createElement(Layout, { ...props, ref, element: 'body', tag: 'body' }, children)
-    })
-)
+const Body: Resolut.Component<Resolut.Component.BodyProps> = ({ children, ref, ...props }) => {
+    return (
+        <Layout {...props} ref={ref} element="body" tag="body">
+            {children}
+        </Layout>
+    )
+}
 
 export default Body

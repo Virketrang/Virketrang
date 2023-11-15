@@ -1,10 +1,11 @@
 import Typography from '../typography/typography.component'
-import ParagraphComponent from './paragraph.component.types'
 
-const Paragraph: ParagraphComponent = memo(
-    forwardRef(({ children, ...props }, ref) => {
-        return createElement(Typography, { tag: 'paragraph', element: 'p', ref, ...props }, children)
-    })
-)
+const Paragraph: Resolut.Component<Resolut.Component.ParagraphProps> = ({ children, ref, ...props }) => {
+    return (
+        <Typography tag="paragraph" element="p" ref={ref} {...props}>
+            {children}
+        </Typography>
+    )
+}
 
 export default Paragraph

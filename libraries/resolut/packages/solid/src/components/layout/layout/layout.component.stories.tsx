@@ -1,15 +1,14 @@
 import Layout from './layout.component'
-import { LayoutComponent, LayoutProps, LayoutRef } from './layout.component.types'
 
-const Story: Storybook.Meta<LayoutComponent> = {
+const Story: Storybook.Meta<HTMLElement, Resolut.Component.LayoutProps> = {
     title: 'Layout',
     component: Layout,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<LayoutComponent> = ({ ...props }) => <Layout {...props} />
+const Template: Storybook.StoryFn<HTMLElement, Resolut.Component.LayoutProps> = ({ ...props }) => <Layout {...props} />
 
-export const DefaultLayout: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, LayoutProps & LayoutRef> =
+export const DefaultLayout: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.LayoutProps> =
     Template.bind({})
 
 DefaultLayout.args = {

@@ -1,15 +1,14 @@
 import Div from './div.component'
-import { DivComponent, DivProps, DivRef } from './div.component.types'
 
-const Story: Storybook.Meta<DivComponent> = {
+const Story: Storybook.Meta<HTMLDivElement, Resolut.Component.DivProps> = {
     title: 'Div',
     component: Div,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<DivComponent> = ({ ...props }) => <Div {...props} />
+const Template: Storybook.StoryFn<HTMLDivElement, Resolut.Component.DivProps> = ({ ...props }) => <Div {...props} />
 
-export const DefaultDiv: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, DivProps & DivRef> = Template.bind({})
+export const DefaultDiv: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.DivProps> = Template.bind({})
 
 DefaultDiv.args = {
     children: 'E-mail'

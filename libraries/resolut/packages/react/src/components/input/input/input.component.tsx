@@ -1,7 +1,6 @@
 import Base from '../../base/base.component'
-import { InputProps, InputComponent } from './input.component.types'
 
-const Input: InputComponent = Resolut.create<HTMLInputElement | HTMLSelectElement, InputProps>(
+const Input = Resolut.create<HTMLInputElement | HTMLSelectElement, Resolut.Component.InputProps>(
     (
         {
             large,
@@ -21,9 +20,12 @@ const Input: InputComponent = Resolut.create<HTMLInputElement | HTMLSelectElemen
         } /** @remove start **/,
         ref /** @remove end **/
     ) => {
+        const _ = ref as any
+
         return (
             <Base
-                ref={ref}
+                ref={_}
+                // @ts-ignore
                 name={name}
                 id={name}
                 {...Utils.setAttributes({

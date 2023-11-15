@@ -44,5 +44,5 @@ export default abstract class AutoImport {
 
     public static readonly swc = [{ name: 'default', as: 'useSWR', from: 'swr' }]
 
-    public static readonly solid = []
+    public static readonly solid = [{ name: 'Dynamic', from: 'solid-js/web' }]
 }

@@ -1,5 +1,108 @@
 declare global {
     namespace Resolut {
+        namespace Props {
+            type BaseProps = {
+                margin?: Resolut.Primitive.String
+                padding?: Resolut.Primitive.String
+                row?: Resolut.Attribute.Layout.GridArea
+                column?: Resolut.Attribute.Layout.GridArea
+                stretch?: Resolut.Primitive.Boolean
+                width?: Resolut.Primitive.String
+                height?: Resolut.Primitive.String
+                minWidth?: Resolut.Primitive.String
+                minHeight?: Resolut.Primitive.String
+                maxWidth?: Resolut.Primitive.String
+                maxHeight?: Resolut.Primitive.String
+                unselectable?: Resolut.Primitive.Boolean
+                class?: Resolut.Primitive.String
+            } & Resolut.Attribute.Cursor
+
+            type LayoutProps = {
+                gap?: Resolut.Primitive.String
+                center?: Resolut.Primitive.Boolean
+                align?: Resolut.Primitive.String
+            } & Resolut.Attribute.Layout.Grid &
+                Resolut.Attribute.Layout.Flex
+
+            type ArticleProps = {}
+
+            type BodyProps = {}
+
+            type DivProps = {}
+
+            type FieldProps = { message?: Resolut.Primitive.String }
+
+            type FormProps = {
+                preventDefault?: Resolut.Primitive.Boolean
+                onSubmit?: (event: Resolut.Events.SubmitEvent) => void
+            }
+
+            type MainProps = {}
+
+            type SectionProps = {}
+
+            type TypographyProps = {
+                letterSpacing?: Resolut.Primitive.String
+                lineHeight?: Resolut.Primitive.String
+                fontSize?: Resolut.Primitive.String
+                decorationColor?: Resolut.Primitive.String
+                decorationThickness?: Resolut.Primitive.String
+                italic?: Resolut.Primitive.Boolean
+                fluid?: Resolut.Primitive.Boolean
+                for?: Resolut.Primitive.String
+            } & Resolut.Attribute.Typography.Casing &
+                Resolut.Attribute.Typography.TextWrap &
+                Resolut.Attribute.Typography.TextAlign &
+                Resolut.Attribute.Color &
+                Resolut.Attribute.Typography.FontWeight &
+                Resolut.Attribute.Typography.DecorationLine &
+                Resolut.Attribute.Typography.DecorationStyle
+
+            type ButtonProps = {
+                children: Resolut.Primitive.String
+                elevated?: Resolut.Primitive.Boolean
+                wide?: Resolut.Primitive.Boolean
+                disabled?: Resolut.Primitive.Boolean
+                loading?: Resolut.Primitive.Boolean
+                iconPosition?: Resolut.Attribute.IconPosition
+            } & Resolut.Attribute.Shape &
+                Resolut.Attribute.Size &
+                Resolut.Attribute.Typography.Button.ActionProps
+
+            type HeadingProps = {
+                children: Resolut.Primitive.String
+            } & Resolut.Attribute.Typography.Heading.TitleVariant
+
+            type LabelProps = {
+                size?: Resolut.Attribute.Size
+                required?: Resolut.Primitive.Boolean
+                children?: Resolut.Primitive.String
+                for?: Resolut.Primitive.String
+            }
+
+            type LinkProps = { children: Resolut.Primitive.String }
+
+            type ParagraphProps = { children: Resolut.Primitive.String }
+
+            type SpanProps = { children: Resolut.Primitive.String }
+
+            type InputProps = {
+                elevated?: Resolut.Primitive.Boolean
+                disabled?: Resolut.Primitive.Boolean
+                error?: Resolut.Primitive.Boolean
+            } & Resolut.Attribute.Size &
+                Omit<Resolut.Attribute.Shape, 'circle'>
+
+            type TextProps = { children?: Resolut.Primitive.Never } & Resolut.Attribute.Input.Text.Type
+
+            type SelectProps = { children?: Resolut.Primitive.Never; options?: Resolut.Attribute.Input.Select.Option[] }
+
+            type BuilderProps = {
+                element: Resolut.Element
+                tag: string
+            }
+        }
+
         namespace Attribute {
             type Size = {
                 small?: Resolut.Primitive.Boolean
@@ -24,47 +127,49 @@ declare global {
             }
 
             type Cursor = {
-                pointer?: Resolut.Primitive.Boolean
-                grab?: Resolut.Primitive.Boolean
-                grabbing?: Resolut.Primitive.Boolean
-                browserDefault?: Resolut.Primitive.Boolean
-                text?: Resolut.Primitive.Boolean
-                wait?: Resolut.Primitive.Boolean
-                move?: Resolut.Primitive.Boolean
-                notAllowed?: Resolut.Primitive.Boolean
-                help?: Resolut.Primitive.Boolean
-                crosshair?: Resolut.Primitive.Boolean
-                progress?: Resolut.Primitive.Boolean
-                none?: Resolut.Primitive.Boolean
-                auto?: Resolut.Primitive.Boolean
-                contextMenu?: Resolut.Primitive.Boolean
-                cell?: Resolut.Primitive.Boolean
-                verticalText?: Resolut.Primitive.Boolean
-                alias?: Resolut.Primitive.Boolean
-                copy?: Resolut.Primitive.Boolean
-                noDrop?: Resolut.Primitive.Boolean
-                allScroll?: Resolut.Primitive.Boolean
-                colResize?: Resolut.Primitive.Boolean
-                rowResize?: Resolut.Primitive.Boolean
-                nResize?: Resolut.Primitive.Boolean
-                eResize?: Resolut.Primitive.Boolean
-                sResize?: Resolut.Primitive.Boolean
-                wResize?: Resolut.Primitive.Boolean
-                neResize?: Resolut.Primitive.Boolean
-                nwResize?: Resolut.Primitive.Boolean
-                seResize?: Resolut.Primitive.Boolean
-                swResize?: Resolut.Primitive.Boolean
-                ewResize?: Resolut.Primitive.Boolean
-                nsResize?: Resolut.Primitive.Boolean
-                neswResize?: Resolut.Primitive.Boolean
-                nwseResize?: Resolut.Primitive.Boolean
-                zoomIn?: Resolut.Primitive.Boolean
-                zoomOut?: Resolut.Primitive.Boolean
+                'cursor:pointer'?: Resolut.Primitive.Boolean
+                'cursor:grab'?: Resolut.Primitive.Boolean
+                'cursor:grabbing'?: Resolut.Primitive.Boolean
+                'cursor:default'?: Resolut.Primitive.Boolean
+                'cursor:text'?: Resolut.Primitive.Boolean
+                'cursor:wait'?: Resolut.Primitive.Boolean
+                'cursor:move'?: Resolut.Primitive.Boolean
+                'cursor:notAllowed'?: Resolut.Primitive.Boolean
+                'cursor:help'?: Resolut.Primitive.Boolean
+                'cursor:crosshair'?: Resolut.Primitive.Boolean
+                'cursor:progress'?: Resolut.Primitive.Boolean
+                'cursor:none'?: Resolut.Primitive.Boolean
+                'cursor:auto'?: Resolut.Primitive.Boolean
+                'cursor:contextMenu'?: Resolut.Primitive.Boolean
+                'cursor:cell'?: Resolut.Primitive.Boolean
+                'cursor:verticalText'?: Resolut.Primitive.Boolean
+                'cursor:alias'?: Resolut.Primitive.Boolean
+                'cursor:copy'?: Resolut.Primitive.Boolean
+                'cursor:noDrop'?: Resolut.Primitive.Boolean
+                'cursor:allScroll'?: Resolut.Primitive.Boolean
+                'cursor:colResize'?: Resolut.Primitive.Boolean
+                'cursor:rowResize'?: Resolut.Primitive.Boolean
+                'cursor:nResize'?: Resolut.Primitive.Boolean
+                'cursor:eResize'?: Resolut.Primitive.Boolean
+                'cursor:sResize'?: Resolut.Primitive.Boolean
+                'cursor:wResize'?: Resolut.Primitive.Boolean
+                'cursor:neResize'?: Resolut.Primitive.Boolean
+                'cursor:nwResize'?: Resolut.Primitive.Boolean
+                'cursor:seResize'?: Resolut.Primitive.Boolean
+                'cursor:swResize'?: Resolut.Primitive.Boolean
+                'cursor:ewResize'?: Resolut.Primitive.Boolean
+                'cursor:nsResize'?: Resolut.Primitive.Boolean
+                'cursor:neswResize'?: Resolut.Primitive.Boolean
+                'cursor:nwseResize'?: Resolut.Primitive.Boolean
+                'cursor:zoomIn'?: Resolut.Primitive.Boolean
+                'cursor:zoomOut'?: Resolut.Primitive.Boolean
             }
 
             type IconPosition = 'before' | 'after'
 
             namespace Input {
+                type Element = 'input' | 'select'
+
                 namespace Select {
                     type Option = { value: Resolut.Primitive.String; name: Resolut.Primitive.String }
                 }
@@ -150,6 +255,22 @@ declare global {
                         section?: Resolut.Primitive.Boolean
                         subsection?: Resolut.Primitive.Boolean
                     }
+
+                    type Element = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+                }
+
+                namespace Button {
+                    type ActionProps =
+                        | {
+                              onClick?: Resolut.Events.ButtonClickEvent
+                              submit?: Resolut.Primitive.Boolean
+                              href?: Resolut.Primitive.Never
+                          }
+                        | {
+                              onClick?: Resolut.Primitive.Never
+                              submit?: Resolut.Primitive.Never
+                              href?: Resolut.Primitive.String
+                          }
                 }
 
                 type DecorationStyle = {

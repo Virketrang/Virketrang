@@ -1,22 +1,11 @@
 import Layout from '../layout/layout.component'
-import { FieldComponent } from './field.component.types'
 
-import Utils from '../../../../../../utils'
-
-const Field: FieldComponent = memo(
-    forwardRef(({ message, children, ...props }, ref) => {
-        return createElement(
-            Layout,
-            {
-                ref,
-                tag: 'field',
-                ...Utils.setAttributes({ message }),
-                element: 'div',
-                ...props
-            },
-            children
-        )
-    })
-)
+const Field: Resolut.Component<Resolut.Component.FieldProps> = ({ message, children, ref, ...props }) => {
+    return (
+        <Layout ref={ref} tag="field" {...Utils.setAttributes({ message })} element="div" {...props}>
+            {children}
+        </Layout>
+    )
+}
 
 export default Field

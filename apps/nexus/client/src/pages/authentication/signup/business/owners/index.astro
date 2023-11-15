@@ -1,5 +1,5 @@
 ---
-import { Button, Paragraph, Form, Field, Label, Text, Div } from '@resolut/react'
+import { Button, Paragraph, Form, Field, Label, Text, Div } from '@resolut/solid'
 import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
 
 const TITLE = 'Nexus - opret virksomhed'
@@ -10,17 +10,17 @@ const NEXT = '/authentication/signup/business/owners/contacts'
 <AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
     <Paragraph>Hvem ejer virksomheden?</Paragraph>
     <Form flex vertical center padding="2rem 0" width="32rem" gap="2rem">
-        <Button cell id="add-owner" elevated circle medium secondary>+</Button>
+        <Button cursor:cell id="add-owner" elevated circle medium secondary>+</Button>
     </Form>
     <Button href={NEXT} width="32rem" transition:name="primary-button">Næste</Button>
     <template>
         <Div margin="0 0 0 4rem" id="owner-field" flex align:end justify:center gap="2rem">
             <Field flex vertical gap="0.5rem">
-                <Label htmlFor="owner-firstname">Fornavn</Label>
+                <Label for="owner-firstname">Fornavn</Label>
                 <Text name="owner-firstname" elevated />
             </Field>
             <Field flex vertical gap="0.5rem">
-                <Label htmlFor="owner-surname">Efternavn</Label>
+                <Label for="owner-surname">Efternavn</Label>
                 <Text name="owner-surname" elevated />
             </Field>
             <Button margin="0.5rem 0" elevated circle small secondary>-</Button>

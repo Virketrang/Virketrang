@@ -1,12 +1,11 @@
 import Layout from '../layout/layout.component'
-import FormComponent, { FormProps } from './form.component.types'
 
-const Form: FormComponent = Resolut.create<HTMLFormElement, FormProps>(
+const Form = Resolut.create<HTMLFormElement, Resolut.Component.FormProps>(
     (
         { children, onSubmit, preventDefault = true, /** @inject ref, **/ ...props } /** @remove start **/,
         ref /** @remove end **/
     ) => {
-        const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        const handleSubmit: any = (event: Resolut.Events.SubmitEvent) => {
             preventDefault && event.preventDefault()
 
             onSubmit && onSubmit(event)

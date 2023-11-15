@@ -6,7 +6,7 @@ import { ProductList } from '@/liedecke-noergaard/composables'
 import { getDictionary } from '@/liedecke-noergaard/server'
 import { API } from '@/liedecke-noergaard/common'
 
-type PageProps = { params: { locale: Workspace.I18N.Locale } }
+type PageProps = { params: { locale: I18N.Locale } }
 
 export async function generateMetadata({ params: { locale } }: PageProps) {
     const { craftmansship } = await getDictionary(locale)

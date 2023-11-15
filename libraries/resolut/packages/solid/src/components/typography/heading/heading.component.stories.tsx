@@ -1,15 +1,16 @@
 import Heading from './heading.component'
-import { HeadingComponent, HeadingProps, HeadingRef } from './heading.component.types'
 
-const Story: Storybook.Meta<HeadingComponent> = {
+const Story: Storybook.Meta<HTMLHeadingElement, Resolut.Component.HeadingProps> = {
     title: 'Heading',
     component: Heading,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<HeadingComponent> = ({ ...props }) => <Heading {...props} />
+const Template: Storybook.StoryFn<HTMLHeadingElement, Resolut.Component.HeadingProps> = ({ ...props }) => (
+    <Heading {...props} />
+)
 
-export const DefaultHeading: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, HeadingProps & HeadingRef> =
+export const DefaultHeading: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.HeadingProps> =
     Template.bind({})
 
 DefaultHeading.args = {

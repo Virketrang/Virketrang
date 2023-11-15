@@ -1,7 +1,6 @@
 import Typography from '../typography/typography.component'
-import ButtonComponent, { ButtonProps } from './button.component.types'
 
-const Button: ButtonComponent = Resolut.create<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+const Button = Resolut.create<HTMLButtonElement | HTMLAnchorElement, Resolut.Component.ButtonProps>(
     (
         {
             square,
@@ -9,7 +8,6 @@ const Button: ButtonComponent = Resolut.create<HTMLButtonElement | HTMLAnchorEle
             round,
             rounded,
             submit,
-            type,
             small,
             medium,
             large,
@@ -25,7 +23,6 @@ const Button: ButtonComponent = Resolut.create<HTMLButtonElement | HTMLAnchorEle
             <Typography
                 ref={ref}
                 tag="button"
-                type={submit ? 'submit' : type}
                 element={props.href ? 'a' : 'button'}
                 {...Utils.setAttributes({
                     shape: Utils.setValueFromBoolean({ circle, square, round, rounded }),

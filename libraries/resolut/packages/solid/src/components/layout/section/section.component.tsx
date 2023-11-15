@@ -1,10 +1,11 @@
 import Layout from '../layout/layout.component'
-import SectionComponent from './section.component.types'
 
-const Section: SectionComponent = memo(
-    forwardRef(({ children, ...props }, ref) => {
-        return createElement(Layout, { ...props, ref, element: 'section' }, children)
-    })
-)
+const Section: Resolut.Component<Resolut.Component.SectionProps> = ({ children, ref, ...props }) => {
+    return (
+        <Layout {...props} ref={ref} element="section" tag="section">
+            {children}
+        </Layout>
+    )
+}
 
 export default Section

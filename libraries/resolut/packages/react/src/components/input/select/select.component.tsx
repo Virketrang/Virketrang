@@ -1,14 +1,22 @@
 import Input from '../input/input.component'
-import { SelectComponent, SelectProps } from './select.component.types'
 
-const Select: SelectComponent = Resolut.create<HTMLSelectElement, SelectProps>(
+const Select = Resolut.create<HTMLSelectElement, Resolut.Component.SelectProps>(
     ({ options, /** @inject ref, **/ ...props } /** @remove start **/, ref /** @remove end **/) => {
         return (
             <Input tag="select" element="select" ref={ref} {...props}>
                 {options &&
-                    options.map(({ value, name }) =>
-                        createElement('option', { className: 'resolut-option', value: value, key: name + value }, name)
-                    )}
+                    options.map(({ value, name }) => (
+                        <option
+                            /** @inject class="resolut-option" **/
+                            value={value}
+                            /** @remove start **/
+                            key={name + value}
+                            className="resolut-option"
+                            /** @remove end **/
+                        >
+                            {name}
+                        </option>
+                    ))}
             </Input>
         )
     }

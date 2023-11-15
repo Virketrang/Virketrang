@@ -1,15 +1,16 @@
 import Form from './form.component'
-import { FormComponent, FormProps, FormRef } from './form.component.types'
 
-const Story: Storybook.Meta<FormComponent> = {
+const Story: Storybook.Meta<HTMLFormElement, Resolut.Component.FormProps> = {
     title: 'Form',
     component: Form,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<FormComponent> = ({ ...props }) => <Form {...props} />
+const Template: Storybook.StoryFn<HTMLFormElement, Resolut.Component.FormProps> = ({ ...props }) => <Form {...props} />
 
-export const DefaultForm: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, FormProps & FormRef> = Template.bind({})
+export const DefaultForm: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.FormProps> = Template.bind(
+    {}
+)
 
 DefaultForm.args = {}
 

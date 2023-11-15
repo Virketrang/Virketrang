@@ -1,47 +1,41 @@
 import Base from '../../base/base.component'
-import InputComponent from './input.component.types'
 
-import Utils from '../../../../../../utils'
+const Input: Resolut.Component<Resolut.Component.InputProps> = ({
+    large,
+    medium,
+    small,
+    round,
+    rounded,
+    square,
+    name,
+    elevated,
+    disabled,
+    error,
+    children,
+    class: className,
+    ref,
+    ...props
+}) => {
+    const _ = ref as any
 
-const Input: InputComponent = memo(
-    forwardRef(
-        (
-            {
-                large,
-                medium,
-                small,
-                round,
-                rounded,
-                square,
-                name,
-                elevated,
-                disabled,
+    return (
+        <Base
+            ref={_}
+            // @ts-ignore
+            name={name}
+            id={name}
+            {...Utils.setAttributes({
+                size: Utils.setValueFromBoolean({ small, medium, large }) || 'large',
+                shape: Utils.setValueFromBoolean({ round, rounded, square }),
                 error,
-                children,
-                className,
-                ...props
-            },
-            ref
-        ) => {
-            return createElement(
-                Base,
-                {
-                    ref,
-                    name,
-                    id: name,
-                    ...Utils.setAttributes({
-                        size: Utils.setValueFromBoolean({ small, medium, large }) || 'large',
-                        shape: Utils.setValueFromBoolean({ round, rounded, square }),
-                        error,
-                        elevated
-                    }),
-                    className: Utils.setClasses('resolut-input', className),
-                    ...props
-                },
-                children
-            )
-        }
+                elevated
+            })}
+            class={Utils.setClasses('resolut-input', className)}
+            {...props}
+        >
+            {children}
+        </Base>
     )
-)
+}
 
 export default Input

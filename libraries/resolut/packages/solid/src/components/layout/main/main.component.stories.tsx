@@ -1,15 +1,16 @@
 import Main from './main.component'
-import { MainComponent, MainProps, MainRef } from './main.component.types'
 
-const Story: Storybook.Meta<MainComponent> = {
+const Story: Storybook.Meta<HTMLElement, Resolut.Component.MainProps> = {
     title: 'Main',
     component: Main,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<MainComponent> = ({ ...props }) => <Main {...props} />
+const Template: Storybook.StoryFn<HTMLElement, Resolut.Component.MainProps> = ({ ...props }) => <Main {...props} />
 
-export const DefaultMain: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, MainProps & MainRef> = Template.bind({})
+export const DefaultMain: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.MainProps> = Template.bind(
+    {}
+)
 
 DefaultMain.args = {}
 

@@ -1,15 +1,16 @@
 import Section from './section.component'
-import { SectionComponent, SectionProps, SectionRef } from './section.component.types'
 
-const Story: Storybook.Meta<SectionComponent> = {
+const Story: Storybook.Meta<HTMLElement, Resolut.Component.SectionProps> = {
     title: 'Section',
     component: Section,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<SectionComponent> = ({ ...props }) => <Section {...props} />
+const Template: Storybook.StoryFn<HTMLElement, Resolut.Component.SectionProps> = ({ ...props }) => (
+    <Section {...props} />
+)
 
-export const DefaultSection: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, SectionProps & SectionRef> =
+export const DefaultSection: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.SectionProps> =
     Template.bind({})
 
 DefaultSection.args = {

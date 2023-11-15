@@ -3,7 +3,7 @@ type SliderComponent = FunctionComponent<{
     maxValue: string
     setMinValue: Dispatch<SetStateAction<string>>
     setMaxValue: Dispatch<SetStateAction<string>>
-    locale: Workspace.I18N.Locale
+    locale: I18N.Locale
 }>
 
 export default SliderComponent

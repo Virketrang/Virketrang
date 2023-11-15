@@ -1,7 +1,6 @@
 import Typography from '../typography/typography.component'
-import HeadingComponent, { HeadingProps } from './heading.component.types'
 
-const Heading: HeadingComponent = Resolut.create<HTMLHeadingElement, HeadingProps>(
+const Heading = Resolut.create<HTMLHeadingElement, Resolut.Component.HeadingProps>(
     (
         {
             heading,

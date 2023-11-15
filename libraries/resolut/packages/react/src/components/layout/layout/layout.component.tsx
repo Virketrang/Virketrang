@@ -1,9 +1,8 @@
 import Base from '../../base/base.component'
-import LayoutComponent, { LayoutProps } from './layout.component.types'
 
-const Layout: LayoutComponent = Resolut.create<
+const Layout = Resolut.create<
     HTMLFormElement | HTMLElement | HTMLDivElement | HTMLBodyElement,
-    LayoutProps
+    Resolut.Component.LayoutProps
 >(
     (
         {
@@ -35,9 +34,11 @@ const Layout: LayoutComponent = Resolut.create<
         } /** @remove start **/,
         ref /** @remove end **/
     ) => {
+        const _ = ref as any
+
         return (
             <Base
-                ref={ref}
+                ref={_}
                 className={Utils.setClasses(className, 'resolut-layout')}
                 style={{
                     ...Utils.setCSSVariables({

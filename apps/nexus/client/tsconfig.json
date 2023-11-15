@@ -10,7 +10,8 @@
         "isolatedModules": true,
         "typeRoots": ["./apps/nexus/client/unimport.d.ts"],
         "noEmit": true,
-        "jsx": "react-jsx"
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js"
     },
     "include": [
         "src/**/*.astro",

@@ -1,5 +1,5 @@
 import '../../styles.scss'
-import 'resolut/styles/preset'
+import '@resolut/react/styles'
 
 import { i18n } from '@/config'
 import { getDictionary } from '@/liedecke-noergaard/server'

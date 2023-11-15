@@ -1,7 +1,6 @@
 import Text from './text.component'
-import { TextComponent, TextProps, TextRef } from './text.component.types'
 
-const Story: Storybook.Meta<TextComponent> = {
+const Story: Storybook.Meta<HTMLInputElement, Resolut.Component.TextProps> = {
     title: 'Text',
     component: Text,
     argTypes: {
@@ -10,13 +9,6 @@ const Story: Storybook.Meta<TextComponent> = {
             control: {
                 type: 'boolean'
             }
-        },
-        shape: {
-            defaultValue: 'square',
-            control: {
-                type: 'select'
-            },
-            options: ['square', 'round', 'rounded']
         },
         type: {
             defaultValue: 'text',
@@ -57,15 +49,16 @@ const Story: Storybook.Meta<TextComponent> = {
     }
 }
 
-const Template: Storybook.StoryFn<TextComponent> = ({ ...props }) => <Text {...props} />
+const Template: Storybook.StoryFn<HTMLInputElement, Resolut.Component.TextProps> = ({ ...props }) => <Text {...props} />
 
-export const DefaultText: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, TextProps & TextRef> = Template.bind({})
+export const DefaultText: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.TextProps> = Template.bind(
+    {}
+)
 
 DefaultText.args = {
     type: 'text',
     placeholder: 'Text...',
     stretch: false,
-    shape: 'square',
     name: 'text'
 }
 

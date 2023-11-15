@@ -7,52 +7,110 @@ declare global {
         type Element = ValidComponent
 
         namespace Component {
-            type Props<T> = Omit<JSX.HTMLAttributes<T>, 'unselectable' | 'style'> & {
-                margin?: Resolut.Primitive.String
-                padding?: Resolut.Primitive.String
-                row?: Resolut.Attribute.Layout.GridArea
-                column?: Resolut.Attribute.Layout.GridArea
-                stretch?: Resolut.Primitive.Boolean
-                width?: Resolut.Primitive.String
-                height?: Resolut.Primitive.String
-                minWidth?: Resolut.Primitive.String
-                minHeight?: Resolut.Primitive.String
-                maxWidth?: Resolut.Primitive.String
-                maxHeight?: Resolut.Primitive.String
-                unselectable?: Resolut.Primitive.Boolean
+            type GenericProps<T> = Omit<T, 'unselectable' | 'style'> & {
                 style?: JSX.CSSProperties
-            } & Resolut.Attribute.Cursor
+            } & Resolut.Props.BaseProps
 
-            namespace Props {
-                type Layout<T> = Resolut.Component.Props<T> & {
-                    gap?: Resolut.Primitive.String
-                    center?: Resolut.Primitive.Boolean
-                } & Resolut.Attribute.Layout.Grid &
-                    Resolut.Attribute.Layout.Flex
+            type BaseProps = GenericProps<JSX.HTMLAttributes<HTMLElement>> & Resolut.Props.BuilderProps
 
-                type Typography<T> = Resolut.Component.Props<T> & {
-                    letterSpacing?: Resolut.Primitive.String
-                    lineHeight?: Resolut.Primitive.String
-                    fontSize?: Resolut.Primitive.String
-                    decorationColor?: Resolut.Primitive.String
-                    decorationThickness?: Resolut.Primitive.String
-                    italic?: Resolut.Primitive.Boolean
-                    fluid?: Resolut.Primitive.Boolean
-                } & Resolut.Attribute.Typography.Casing &
-                    Resolut.Attribute.Typography.TextWrap &
-                    Resolut.Attribute.Typography.TextAlign &
-                    Resolut.Attribute.Color &
-                    Resolut.Attribute.Typography.FontWeight &
-                    Resolut.Attribute.Typography.DecorationLine &
-                    Resolut.Attribute.Typography.DecorationStyle
+            type LayoutProps = GenericProps<JSX.FormHTMLAttributes<HTMLFormElement> | JSX.HTMLAttributes<HTMLElement>> &
+                Resolut.Props.LayoutProps &
+                Resolut.Props.BuilderProps
 
-                type Input<T> = Resolut.Component.Props<T> & {
-                    elevated?: Resolut.Primitive.Boolean
-                    disabled?: Resolut.Primitive.Boolean
-                    error?: Resolut.Primitive.Boolean
-                } & Resolut.Attribute.Size &
-                    Omit<Resolut.Attribute.Shape, 'circle'>
+            type ArticleProps = GenericProps<JSX.HTMLAttributes<HTMLElement>> &
+                Resolut.Props.LayoutProps &
+                Resolut.Props.ArticleProps
+
+            type BodyProps = GenericProps<JSX.HTMLAttributes<HTMLElement>> &
+                Resolut.Props.LayoutProps &
+                Resolut.Props.BodyProps
+
+            type DivProps = GenericProps<JSX.HTMLAttributes<HTMLElement>> &
+                Resolut.Props.LayoutProps &
+                Resolut.Props.DivProps
+
+            type FieldProps = GenericProps<JSX.HTMLAttributes<HTMLElement>> &
+                Resolut.Props.LayoutProps &
+                Resolut.Props.FieldProps
+
+            type FormProps = GenericProps<JSX.FormHTMLAttributes<HTMLFormElement>> &
+                Resolut.Props.LayoutProps &
+                Resolut.Props.FormProps
+
+            type MainProps = GenericProps<JSX.HTMLAttributes<HTMLElement>> &
+                Resolut.Props.LayoutProps &
+                Resolut.Props.MainProps
+
+            type SectionProps = GenericProps<JSX.HTMLAttributes<HTMLElement>> &
+                Resolut.Props.LayoutProps &
+                Resolut.Props.SectionProps
+
+            type a = Resolut.Attribute.Typography.Element
+
+            type TypographyProps = GenericProps<
+                | JSX.AnchorHTMLAttributes<HTMLAnchorElement>
+                | JSX.ButtonHTMLAttributes<HTMLButtonElement>
+                | JSX.LabelHTMLAttributes<HTMLLabelElement>
+                | JSX.HTMLAttributes<HTMLParagraphElement>
+                | JSX.HTMLAttributes<HTMLSpanElement>
+                | JSX.HTMLAttributes<HTMLHeadingElement>
+            > &
+                Resolut.Props.TypographyProps &
+                Resolut.Props.BuilderProps
+
+            type ButtonProps = GenericProps<JSX.ButtonHTMLAttributes<HTMLButtonElement>> &
+                Resolut.Props.TypographyProps &
+                Resolut.Props.ButtonProps
+
+            type HeadingProps = GenericProps<JSX.HTMLAttributes<HTMLHeadingElement>> &
+                Resolut.Props.TypographyProps &
+                Resolut.Props.HeadingProps
+
+            type LabelProps = GenericProps<JSX.LabelHTMLAttributes<HTMLLabelElement>> &
+                Resolut.Props.TypographyProps &
+                Resolut.Props.LabelProps
+
+            type LinkProps = GenericProps<JSX.AnchorHTMLAttributes<HTMLAnchorElement>> &
+                Resolut.Props.TypographyProps &
+                Resolut.Props.LinkProps
+
+            type ParagraphProps = GenericProps<JSX.HTMLAttributes<HTMLParagraphElement>> &
+                Resolut.Props.TypographyProps &
+                Resolut.Props.ParagraphProps
+
+            type SpanProps = GenericProps<JSX.HTMLAttributes<HTMLSpanElement>> &
+                Resolut.Props.TypographyProps &
+                Resolut.Props.SpanProps
+
+            type InputProps = GenericProps<
+                JSX.InputHTMLAttributes<HTMLInputElement> | JSX.SelectHTMLAttributes<HTMLSelectElement>
+            > &
+                Resolut.Props.InputProps &
+                Resolut.Props.BuilderProps
+
+            type SelectProps = GenericProps<JSX.SelectHTMLAttributes<HTMLSelectElement>> &
+                Resolut.Props.InputProps &
+                Resolut.Props.SelectProps
+
+            type TextProps = GenericProps<JSX.InputHTMLAttributes<HTMLInputElement>> &
+                Resolut.Props.InputProps &
+                Resolut.Props.TextProps
+        }
+
+        namespace Events {
+            type SubmitEvent = Event & {
+                submitter: HTMLElement
+            } & {
+                currentTarget: 'form'
+                target: Element
+            }
+
+            type ButtonClickEvent = MouseEvent & {
+                currentTarget: HTMLButtonElement
+                target: Element
             }
         }
     }
 }
+
+export {}

@@ -1,7 +1,6 @@
 import Button from './button.component'
-import { ButtonComponent, ButtonProps, ButtonRef } from './button.component.types'
 
-const Story: Storybook.Meta<ButtonComponent> = {
+const Story: Storybook.Meta<HTMLButtonElement | HTMLAnchorElement, Resolut.Component.ButtonProps> = {
     title: 'Button',
     component: Button,
     argTypes: {
@@ -20,9 +19,11 @@ const Story: Storybook.Meta<ButtonComponent> = {
     }
 }
 
-const Template: Storybook.StoryFn<ButtonComponent> = ({ ...props }) => <Button {...props} />
+const Template: Storybook.StoryFn<HTMLButtonElement | HTMLAnchorElement, Resolut.Component.ButtonProps> = ({
+    ...props
+}) => <Button {...props} />
 
-export const RoundButton: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, ButtonProps & ButtonRef> = Template.bind(
+export const RoundButton: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ButtonProps> = Template.bind(
     {}
 )
 
@@ -34,14 +35,12 @@ RoundButton.args = {
     large: true,
     medium: false,
     small: false,
-    relative: false,
-    fixed: true,
     children: 'Round',
     disabled: false,
     stretch: false
 }
 
-export const RoundedButton: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, ButtonProps & ButtonRef> =
+export const RoundedButton: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ButtonProps> =
     Template.bind({})
 
 RoundedButton.args = {
@@ -52,16 +51,13 @@ RoundedButton.args = {
     large: true,
     medium: false,
     small: false,
-    relative: false,
-    fixed: true,
     children: 'Rounded',
     disabled: false,
     stretch: false
 }
 
-export const SquareButton: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, ButtonProps & ButtonRef> = Template.bind(
-    {}
-)
+export const SquareButton: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ButtonProps> =
+    Template.bind({})
 
 SquareButton.args = {
     square: true,
@@ -71,16 +67,13 @@ SquareButton.args = {
     large: true,
     medium: false,
     small: false,
-    relative: false,
-    fixed: true,
     children: 'Square',
     disabled: false,
     stretch: false
 }
 
-export const CircleButton: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, ButtonProps & ButtonRef> = Template.bind(
-    {}
-)
+export const CircleButton: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ButtonProps> =
+    Template.bind({})
 
 CircleButton.args = {
     circle: true,
@@ -90,8 +83,6 @@ CircleButton.args = {
     large: true,
     medium: false,
     small: false,
-    relative: false,
-    fixed: true,
     children: '+',
     disabled: false,
     stretch: false

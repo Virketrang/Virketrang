@@ -1,5 +1,5 @@
 ---
-import { Button, Form, Field, Label, Text } from '@resolut/react'
+import { Button, Form, Field, Label, Text } from '@resolut/solid'
 
 import AuthenticationLayout from '@/apps/nexus/client/src/layouts/auth.astro'
 
@@ -11,11 +11,11 @@ const NEXT = '/authentication/signup/employee/address'
 <AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
     <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" gap="2rem" width="32rem">
         <Field flex vertical gap="0.5rem" column="span-all" row={1}>
-            <Label htmlFor="email" required>Privat e-mail</Label>
+            <Label for="email" required>Privat e-mail</Label>
             <Text name="email" stretch />
         </Field>
         <Field flex vertical gap="0.5rem" column="span-all" row={2}>
-            <Label htmlFor="phoneNumber" required>Privat telefonnummer</Label>
+            <Label for="phoneNumber" required>Privat telefonnummer</Label>
             <Text name="phoneNumber" stretch />
         </Field>
     </Form>

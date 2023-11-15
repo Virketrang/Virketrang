@@ -1,10 +1,11 @@
 import Layout from '../layout/layout.component'
-import DivComponent from './div.component.types'
 
-const Div: DivComponent = memo(
-    forwardRef(({ children, ...props }, ref) => {
-        return createElement(Layout, { ...props, ref, element: 'div', tag: 'div' }, children)
-    })
-)
+const Div: Resolut.Component<Resolut.Component.DivProps> = ({ children, ref, ...props }) => {
+    return (
+        <Layout {...props} ref={ref} element="div" tag="div">
+            {children}
+        </Layout>
+    )
+}
 
 export default Div

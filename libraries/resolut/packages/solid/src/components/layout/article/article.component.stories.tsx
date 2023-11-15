@@ -1,15 +1,16 @@
 import Article from './article.component'
-import { ArticleComponent, ArticleProps, ArticleRef } from './article.component.types'
 
-const Story: Storybook.Meta<ArticleComponent> = {
+const Story: Storybook.Meta<HTMLElement, Resolut.Component.ArticleProps> = {
     title: 'Article',
     component: Article,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<ArticleComponent> = ({ ...props }) => <Article {...props} />
+const Template: Storybook.StoryFn<HTMLElement, Resolut.Component.ArticleProps> = ({ ...props }) => (
+    <Article {...props} />
+)
 
-export const DefaultArticle: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, ArticleProps & ArticleRef> =
+export const DefaultArticle: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ArticleProps> =
     Template.bind({})
 
 DefaultArticle.args = {

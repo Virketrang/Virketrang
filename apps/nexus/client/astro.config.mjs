@@ -1,18 +1,18 @@
 import { defineConfig } from 'astro/config'
-import react from '@astrojs/react'
 import unimport from 'unimport/unplugin'
 import autoprefixer from 'autoprefixer'
+import solid from '@astrojs/solid-js'
 
 import workspaceConfig from '../../../vite.workspace'
 import AutoImport from '../../../unimport.workspace'
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [react()],
+    integrations: [solid()],
     vite: {
         plugins: [
             unimport.vite({
-                imports: [...AutoImport.react, ...AutoImport.swc, ...AutoImport.nanostores, ...AutoImport.resolut],
+                imports: [...AutoImport.nanostores, ...AutoImport.resolut],
                 dts: true
             })
         ],

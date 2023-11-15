@@ -1,15 +1,14 @@
 import Field from './field.component'
-import { FieldComponent, FieldProps, FieldRef } from './field.component.types'
 
-const Story: Storybook.Meta<FieldComponent> = {
+const Story: Storybook.Meta<HTMLDivElement, Resolut.Component.FieldProps> = {
     title: 'Field',
     component: Field,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<FieldComponent> = ({ ...props }) => <Field {...props} />
+const Template: Storybook.StoryFn<HTMLDivElement, Resolut.Component.FieldProps> = ({ ...props }) => <Field {...props} />
 
-export const DefaultField: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, FieldProps & FieldRef> = Template.bind(
+export const DefaultField: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.FieldProps> = Template.bind(
     {}
 )
 

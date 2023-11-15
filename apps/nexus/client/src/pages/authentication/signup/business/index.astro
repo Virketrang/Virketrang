@@ -1,5 +1,5 @@
 ---
-import { Button, Form, Field, Label, Select, Text } from '@resolut/react'
+import { Button, Form, Field, Label, Select, Text } from '@resolut/solid'
 import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
 
 import Enum from '@/enums/index'
@@ -20,15 +20,15 @@ const BACK = '/authentication/signup/employee/contacts'
 <AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
     <Form grid columns="repeat(4, 1fr)" rows="repeat(2, 1fr)" padding="2rem 0" width="32rem" gap="2rem">
         <Field flex vertical gap="0.5rem" column="span-all" row={1}>
-            <Label htmlFor="companyName" required>Virksomhedsnavn</Label>
+            <Label for="companyName" required>Virksomhedsnavn</Label>
             <Text elevated name="companyName" stretch />
         </Field>
         <Field flex vertical gap="0.5rem" column="1 / 4" row={2}>
-            <Label htmlFor="corporateForm" required>Selskabstype</Label>
+            <Label for="corporateForm" required>Selskabstype</Label>
             <Select elevated {options} name="corporateForm" stretch />
         </Field>
         <Field flex vertical gap="0.5rem" column="4 / 5" row={2}>
-            <Label htmlFor="companyNumber" required>CVR</Label>
+            <Label for="companyNumber" required>CVR</Label>
             <Text elevated name="companyNumber" stretch />
         </Field>
     </Form>
@@ -57,7 +57,7 @@ const BACK = '/authentication/signup/employee/contacts'
             const target = event.target as HTMLSelectElement
             $CreateCompany.mutate(
                 'corporateForm',
-                corporateForm.options[target.selectedIndex].value as Workspace.Enum.CORPORATE_FORM
+                corporateForm.options[target.selectedIndex].value as Enum.CORPORATE_FORM
             )
         })
 

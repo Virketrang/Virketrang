@@ -22,11 +22,11 @@
         }
     ],
     "source": "src/index.ts",
-    "main": "dist/index.js.mjs",
-    "module": "dist/index.js.mjs",
+    "main": "dist/index.mjs",
+    "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
     "exports": {
-        ".": "./dist/index.js.mjs",
+        ".": "./dist/index.mjs",
         "./styles": "./dist/styles/index.css",
         "./styles/preset": "./dist/styles/preset.css",
         "./styles/base": "./dist/styles/base.css",
@@ -64,9 +64,11 @@
         "unimport": "^3.4.0",
         "vite": "^4.4.11",
         "vite-plugin-dts": "~3.6.0",
-        "vitest": "^0.34.6"
-    },
-    "dependencies": {
+        "vitest": "^0.34.6",
         "vite-plugin-solid": "^2.7.2"
-    }
+    },
+    "peerDependencies": {
+        "solid-js": "^1.8.5"
+    },
+    "dependencies": {}
 }

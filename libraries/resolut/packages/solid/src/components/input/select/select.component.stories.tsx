@@ -1,19 +1,18 @@
 import Select from './select.component'
-import { SelectComponent, SelectProps, SelectRef } from './select.component.types'
 
-const Story: Storybook.Meta<SelectComponent> = {
+const Story: Storybook.Meta<HTMLSelectElement, Resolut.Component.SelectProps> = {
     title: 'Select',
     component: Select,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<SelectComponent> = ({ ...props }) => <Select {...props} />
+const Template: Storybook.StoryFn<HTMLSelectElement, Resolut.Component.SelectProps> = ({ ...props }) => (
+    <Select {...props} />
+)
 
-export const DefaultSelect: Storybook.AnnotatedStoryFn<Storybook.ReactRenderer, SelectProps & SelectRef> =
+export const DefaultSelect: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.SelectProps> =
     Template.bind({})
 
-DefaultSelect.args = {
-    children: 'E-mail'
-}
+DefaultSelect.args = {}
 
 export default Story

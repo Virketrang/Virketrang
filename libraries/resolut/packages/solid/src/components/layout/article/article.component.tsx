@@ -1,10 +1,11 @@
 import Layout from '../layout/layout.component'
-import ArticleComponent from './article.component.types'
 
-const Article: ArticleComponent = memo(
-    forwardRef(({ children, ...props }, ref) => {
-        return createElement(Layout, { ...props, ref, element: 'article' }, children)
-    })
-)
+const Article: Resolut.Component<Resolut.Component.ArticleProps> = ({ children, ref, ...props }) => {
+    return (
+        <Layout {...props} ref={ref} element="article" tag="article">
+            {children}
+        </Layout>
+    )
+}
 
 export default Article

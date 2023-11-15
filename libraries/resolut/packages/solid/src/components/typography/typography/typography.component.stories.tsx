@@ -1,7 +1,6 @@
 import Typography from './typography.component'
-import { TypographyComponent, TypographyProps } from './typography.component.types'
 
-const Story: Storybook.Meta<TypographyComponent> = {
+const Story: Storybook.Meta<HTMLElement, Resolut.Component.TypographyProps> = {
     title: 'Typography',
     component: Typography,
     argTypes: {
@@ -14,9 +13,12 @@ const Story: Storybook.Meta<TypographyComponent> = {
     }
 }
 
-const Template: Storybook.StoryFn<TypographyComponent> = ({ ...props }) => <Typography {...props} />
+const Template: Storybook.StoryFn<HTMLElement, Resolut.Component.TypographyProps> = ({ ...props }) => (
+    <Typography {...props} />
+)
 
-export const DefaultTypography: Storybook.AnnotatedStoryFn<Storybook.Renderer, TypographyProps> = Template.bind({})
+export const DefaultTypography: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.TypographyProps> =
+    Template.bind({})
 
 DefaultTypography.args = {
     children: 'E-mail',

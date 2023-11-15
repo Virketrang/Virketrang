@@ -7,12 +7,18 @@ import { join, resolve } from 'node:path'
 import fs from 'node:fs'
 
 import AutoImport from '../../../../unimport.workspace'
+import pkg from './package.json'
 
 const config = defineConfig({
     publicDir: '../../public',
     build: {
         sourcemap: true,
-        minify: true,
+        minify: 'terser',
+        terserOptions: {
+            compress: {
+                keep_fnames: /^.*/ // Use a regular expression to match all function names
+            }
+        },
         cssMinify: true,
         cssCodeSplit: true,
         outDir: join(__dirname, 'dist'),
@@ -21,21 +27,23 @@ const config = defineConfig({
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'resolut',
             formats: ['es'],
-            fileName: 'index.js'
+            fileName: 'index'
         },
         rollupOptions: {
-            external: ['react'],
-            output: {
-                globals: {
-                    react: 'React'
-                }
-            }
+            external: [
+                'solid-js',
+                'solid-js/web',
+                'solid-js/store',
+                ...Object.keys(pkg.dependencies ?? {}),
+                ...Object.keys(pkg.peerDependencies ?? {})
+            ]
         }
     },
     define: {},
     plugins: [
         solid(),
         unimport.vite({
+            dirs: ['src/framework'],
             imports: [...AutoImport.solid],
             dts: true
         }) as any,
