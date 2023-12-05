@@ -1,0 +1,68 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			// const bogførtVærdi =
+			// 	anskaffelsesværdi -
+			// 	afskrivningsprocent * anskaffelsesværdi * levetid
+		</script>
+	</head>
+	<body>
+		<div data-test="true">Hello</div>
+	</body>
+	<script>
+		const udregnAfskrivningsprocent = (
+			anskaffelsesværdi,
+			scrapværdi,
+			levetid
+		) => 1 - Math.pow(scrapværdi / anskaffelsesværdi, 1 / levetid)
+
+		const beregnAfskrivninger = (
+			anskaffelsesværdi,
+			scrapværdi,
+			levetid
+		) => {
+			let primoværdi
+			let ultimoVærdi
+			let akkumuleretAfskrivning = 0
+			const afskrivningsprocent = udregnAfskrivningsprocent(
+				anskaffelsesværdi,
+				scrapværdi,
+				levetid
+			)
+
+			for (i = 0; i < levetid; i++) {
+				primoværdi = ultimoVærdi || anskaffelsesværdi
+
+				const årligAfskrivning = primoværdi * afskrivningsprocent
+
+				ultimoVærdi = primoværdi - årligAfskrivning
+
+				akkumuleretAfskrivning += årligAfskrivning
+
+				console.log('--------------------------------------')
+				console.log('ÅR: ', i + 1)
+				console.log('PRIMO VÆRDI: ', parseFloat(primoværdi.toFixed(2)))
+				console.log(
+					'ÅRLIG AFSKRIVNING: ',
+					parseFloat(årligAfskrivning.toFixed(2))
+				)
+				console.log(
+					'AKKUMULERET AFSKRIVNING: ',
+					parseFloat(akkumuleretAfskrivning.toFixed(2))
+				)
+				console.log('ULTIMO VÆRDI', parseFloat(ultimoVærdi.toFixed(2)))
+				console.log(
+					'AFSKRIVNINGSPROCENT: ',
+					parseFloat(afskrivningsprocent.toFixed(2))
+				)
+				i === levetid - 1 &&
+					console.log('--------------------------------------')
+			}
+		}
+
+		beregnAfskrivninger(500000, 100000, 5)
+	</script>
+</html>

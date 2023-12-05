@@ -1,14 +1,20 @@
-import 'dotenv/config'
+import './modules'
+
+import { router } from './common/decorators/controller'
 
 const app = new Hono().basePath('/api')
 
-app.route('/companies', Company.routes())
-app.route('/users', User.routes())
+app.use('*', cors({ origin: (origin) => origin, credentials: true }))
 
-app.get('/', (c) => {
-    return c.json({ message: 'THE API IS RUNNING' })
+app.route('/v1', router)
+
+app.get('/test', (ctx) => {
+    const companyHeader = ctx.req.header('X-Company-Header')
+    return ctx.json({ header: companyHeader })
 })
 
-serve({ fetch: app.fetch, port: Constants.PORT })
+serve({ fetch: app.fetch, port: parseInt(process.env.PORT) })
 
-console.log(`Server running at ${Constants.HOST}:${Constants.PORT}`)
+console.log(`Server running at ${process.env.HOST}:${process.env.PORT}`)
+
+export default app

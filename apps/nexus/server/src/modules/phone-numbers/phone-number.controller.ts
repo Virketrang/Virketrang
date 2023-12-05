@@ -1,6 +1,7 @@
 import PhoneNumberRepository from './phone-number.repository'
 import PhoneNumberService from './phone-number.service'
 
+@Controller('/phone-numbers')
 export default abstract class PhoneNumber {
     public static readonly router = new Hono()
     public static readonly service = PhoneNumberService

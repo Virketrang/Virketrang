@@ -3,7 +3,7 @@ import _Failed from './http/failed'
 import _Success from './http/success'
 import _Response from './http/response'
 
-import _Locale from './i18n/locale'
+import _I18NLocale from './i18n/locale'
 import _Config from './i18n/config'
 import _Text from './i18n/text'
 import _Dictionary from './i18n/dictionary'
@@ -19,6 +19,7 @@ import _PhoneNumber from './entities/phone-number'
 import _Division from './entities/product/division'
 import _Subdivision from './entities/product/subdivision'
 import _Product from './entities/product/product'
+import _Locale from './entities/locale'
 import _Image from './entities/image'
 import _Customer from './entities/customer'
 import _Order from './entities/order'
@@ -30,12 +31,17 @@ import _AnnualReport from './entities/accounting/annual-report'
 import _User from './entities/user'
 import _Invoice from './entities/accounting/invoice'
 import _CreditNote from './entities/accounting/credit-note'
+import _Signup from './entities/authentication/signup'
 import _Permission from './entities/authorization/permission'
 import _Role from './entities/authorization/role'
+import _Profile from './entities/profile'
+import _ContactInfo from './entities/contact-info'
 import _ProductionUnit from './entities/production-unit'
 import _Content from './entities/cms/content'
 import _ContentType from './entities/cms/content-type'
 import _ContentTypeField from './entities/cms/content-type-field'
+import _Currency from './entities/currency'
+import _Category from './entities/category'
 import _Payslip from './entities/payslip'
 import _FixedAssetRegister from './entities/accounting/fixed-asset-register'
 import _FixedAssetGroup from './entities/accounting/fixed-asset-group'
@@ -43,16 +49,19 @@ import _ApiKey from './entities/authorization/api-key'
 import _VatCode from './entities/accounting/vat-code'
 import _PayPeriod from './entities/accounting/pay-period'
 import _FixedAsset from './entities/accounting/fixed-asset'
+import _Employee from './entities/employee'
+import _Signin from './entities/authentication/signin'
+import _Language from './entities/language'
 
-import _SORTING_OPTION from '../enums/sorting-option.enum'
-import _PRODUCT_CATEGORY from '../enums/product-category.enum'
-import _CUSTOMER_TYPE from '../enums/customer-type.enum'
-import _ACCOUNTING_CLASS from '../enums/accounting-class.enum'
-import _ACCOUNT_TYPE from '../enums/account-type.enum'
-import _CORPORATE_FORM from '../enums/corporate-form.enum'
-import _GENDER from '../enums/gender.enum'
-import _INCOME_TYPE from '../enums/income-type.enum'
-import _FIXED_ASSET_TYPE from '../enums/fixed-asset-type.enum'
+import _SORTING_OPTION from '../enums/other/sorting-option.enum'
+import _PRODUCT_CATEGORY from '../enums/other/product-category.enum'
+import _CUSTOMER_TYPE from '../enums/other/customer-type.enum'
+import _ACCOUNTING_CLASS from '../enums/other/accounting-class.enum'
+import _ACCOUNT_TYPE from '../enums/other/account-type.enum'
+import _CORPORATE_FORM from '../enums/other/corporate-form.enum'
+import _GENDER from '../enums/other/gender.enum'
+import _INCOME_TYPE from '../enums/other/income-type.enum'
+import _FIXED_ASSET_TYPE from '../enums/other/fixed-asset-type.enum'
 import _AuthorizationAction from '../enums/authorization/action.enum'
 import _AuthorizationPermission from '../enums/authorization/permission.enum'
 
@@ -68,13 +77,13 @@ declare global {
     }
 
     namespace I18N {
-        export type Locale = _Locale
+        export type Locale = _I18NLocale
 
         export type Config<T extends readonly string[]> = _Config<T>
 
         export type Text = _Text
 
-        export type Dictionary<T> = _Dictionary<T>
+        export type Dictionary<T extends (...args: any) => any> = _Dictionary<T>
     }
 
     namespace Entity {
@@ -84,6 +93,8 @@ declare global {
         export interface Measurement extends _Measurement {}
 
         export interface Description extends _Description {}
+
+        export interface Signup extends _Signup {}
 
         export import Address = _Address
 
@@ -100,7 +111,19 @@ declare global {
 
         export import FixedAsset = _FixedAsset
 
+        export import Locale = _Locale
+
+        export import Category = _Category
+
+        export import Signin = _Signin
+
         export import ApiKey = _ApiKey
+
+        export import Currency = _Currency
+
+        export import Language = _Language
+
+        export import Employee = _Employee
 
         export import FixedAssetGroup = _FixedAssetGroup
 
@@ -113,6 +136,10 @@ declare global {
         export import ContentType = _ContentType
 
         export import Content = _Content
+
+        export import ContactInfo = _ContactInfo
+
+        export import Profile = _Profile
 
         export import ProductionUnit = _ProductionUnit
 
@@ -149,7 +176,8 @@ declare global {
         export import User = _User
     }
 
-    export namespace Enum {
+    // @ts-ignore
+    namespace Enum {
         export import SORTING_OPTION = _SORTING_OPTION
         export import PRODUCT_CATEGORY = _PRODUCT_CATEGORY
         export import CUSTOMER_TYPE = _CUSTOMER_TYPE
@@ -163,6 +191,12 @@ declare global {
         namespace Authorization {
             export import Action = _AuthorizationAction
             export import Permission = _AuthorizationPermission
+        }
+    }
+
+    namespace Primitive {
+        namespace Boolean {
+            type ToString = 'true' | 'false'
         }
     }
 }

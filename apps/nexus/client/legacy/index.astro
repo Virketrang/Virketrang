@@ -1,0 +1,41 @@
+---
+import { Logo } from '@/nexus/client/components/index'
+import GlobalLayout from '@/nexus/client/layouts/global.astro'
+
+const TITLE = 'Nexus - Oprettelse'
+const BUSINESS = '/authentication/signup/business'
+const EMPLOYEE = '/authentication/signup/employee'
+---
+
+<GlobalLayout title={TITLE}>
+    <main flex flex-col flex-center h-full min-h-screen w-full>
+        <div flex flex-col flex-center gap="3rem">
+            <Logo transition:name="logo" />
+            <h2 font-medium>Velkommen</h2>
+        </div>
+        <div flex flex-col flex-center gap="1.5rem" w="32rem" m="4rem 0 2rem 0">
+            <p>Jeg ønsker at oprette mig som</p>
+            <a
+                w-full
+                elevated
+                h="3rem"
+                bg="btn-primary-bg"
+                color="btn-primary-text"
+                href={BUSINESS}
+                transition:name="primary-button">Virksomhed</a
+            >
+            <a
+                w-full
+                elevated
+                bg="btn-secondary-bg"
+                color="btn-secondary-text"
+                h="3rem"
+                href={EMPLOYEE}
+                transition:name="secondary-button"
+            >
+                Medarbejder</a
+            >
+        </div>
+        <a href="/" underline>Tilbage</a>
+    </main>
+</GlobalLayout>

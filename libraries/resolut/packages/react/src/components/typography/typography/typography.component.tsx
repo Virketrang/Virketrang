@@ -54,7 +54,7 @@ const Typography = Resolut.create<HTMLElement, Resolut.Component.TypographyProps
         return (
             <Base
                 ref={_}
-                className={Utils.setClasses(className, 'resolut-typography')}
+                class={Utils.setClasses(className, 'resolut-typography')}
                 style={Utils.setInlineStyles({
                     ...Utils.setCSSVariables({
                         textAlign: Utils.setValueFromBoolean({ start, center, end, justify }),

@@ -1,0 +1,15 @@
+*[min-w-screen] {
+    min-width: 100vh;
+}
+
+*[w-screen] {
+    width: 100vh;
+}
+
+*[w-full] {
+    width: 100%;
+}
+
+*[w-32] {
+    width: 32rem;
+}

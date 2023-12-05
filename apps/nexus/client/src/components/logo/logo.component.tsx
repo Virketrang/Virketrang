@@ -1,6 +1,4 @@
-import { Component } from 'solid-js'
-
-const Logo: Component<{ size?: number }> = ({ size = 128, ...props }) => {
+const Logo = ({ size = 128, ...props }: { size?: number }) => {
     return (
         <svg
             width={size}

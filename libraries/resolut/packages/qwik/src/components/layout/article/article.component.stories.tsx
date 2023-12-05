@@ -1,12 +1,12 @@
 import Article from './article.component'
 
-const Story: Storybook.Meta<HTMLElement, Resolut.Component.ArticleProps> = {
+const Story: Storybook.Meta<Resolut.Component.ArticleProps> = {
     title: 'Article',
     component: Article,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<HTMLElement, Resolut.Component.ArticleProps> = ({ ...props }) => (
+const Template: Storybook.StoryFn<Resolut.Component.ArticleProps> = ({ ...props }: Resolut.Component.ArticleProps) => (
     <Article {...props} />
 )
 
@@ -15,6 +15,6 @@ export const DefaultArticle: Storybook.AnnotatedStoryFn<Storybook.Renderer, Reso
 
 DefaultArticle.args = {
     children: 'E-mail'
-}
+} as Resolut.Component.ArticleProps
 
 export default Story

@@ -1,6 +1,7 @@
 import BankAccountRepository from './bank-account.repository'
 import BankAccountService from './bank-account.service'
 
+@Controller('/bank-accounts')
 export default abstract class BankAccount {
     public static readonly router = new Hono()
     public static readonly service = BankAccountService

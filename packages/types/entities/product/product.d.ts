@@ -15,8 +15,6 @@ interface Product extends Entity.BaseEntity {
 
     materials: string[]
 
-    category: Enum.PRODUCT_CATEGORY
-
     measurement: Entity.Measurement
 
     designer: string

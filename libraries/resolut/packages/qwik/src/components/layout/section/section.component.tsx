@@ -1,13 +1,12 @@
+import { component$ } from '@builder.io/qwik'
 import Layout from '../layout/layout.component'
 
-const Section = Resolut.create<HTMLElement, Resolut.Component.SectionProps>(
-    ({ children,  ref,  ...props } ) => {
-        return (
-            <Layout {...props} ref={ref} element="section" tag="section">
-                {children}
-            </Layout>
-        )
-    }
-)
+const Section = component$(({ ...props }: Resolut.Component.SectionProps) => {
+    return (
+        <Layout {...props} element="section" tag="section">
+            <Slot />
+        </Layout>
+    )
+})
 
 export default Section

@@ -1,0 +1,55 @@
+---
+import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
+
+const TITLE = 'Nexus - opret virksomhed'
+const BACK = '/authentication/signup/business/owners'
+const NEXT = '/authentication/signup/business/owners'
+---
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <p id="question">Indlæser...</p>
+    <form grid grid-cols-4 grid-rows-3 p="2rem 0" w="32rem" gap="2rem">
+        <div flex flex-col gap="0.5rem" style="grid-column: 1 / -1; grid-row: 1;">
+            <label for="private-email">Privat e-mail</label>
+            <input type="text" h="3rem" elevated w-full name="private-email" />
+        </div>
+        <div flex flex-col gap="0.5rem" style="grid-column: 1 / -1; grid-row: 2;">
+            <label for="private-phone">Privat telefonummer</label>
+            <input type="text" h="3rem" elevated w-full name="private-phone" />
+        </div>
+        <a
+            w-full
+            h="3rem"
+            bg="btn-primary-bg"
+            color="btn-primary-text"
+            style="grid-column: 1 / -1; grid-row: 3;"
+            transition:name="primary-button">Næste</a
+        >
+    </form>
+</AuthenticationLayout>
+<script>
+    import { $CreateCompany } from '@/nexus/client/stores'
+
+    document.addEventListener('astro:page-load', () => {
+        const question = document.getElementById('question') as HTMLParagraphElement | undefined
+        const button = document.querySelector('button') as HTMLButtonElement | undefined
+
+        if (!question || !button) return
+
+        let index = 0
+        const owners = $CreateCompany.store.get().owners
+
+        const setQuestion = (index: number) => {
+            const name = `${owners[index].firstname} ${owners[index].surname}`
+
+            question.innerText = `Udfyld nedenstående om ${name}`
+        }
+
+        setQuestion(index)
+
+        button.addEventListener('click', () => {
+            index++
+            setQuestion(index)
+        })
+    })
+</script>

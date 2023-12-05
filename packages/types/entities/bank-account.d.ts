@@ -3,7 +3,7 @@ interface BankAccount extends Entity.BaseEntity {
 
     account_number: number
 
-    swift?: string
+    swift_code?: string
 
     iban?: string
 }

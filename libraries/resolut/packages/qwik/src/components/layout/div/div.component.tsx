@@ -1,13 +1,12 @@
+import { component$ } from '@builder.io/qwik'
 import Layout from '../layout/layout.component'
 
-const Div = Resolut.create<HTMLDivElement, Resolut.Component.DivProps>(
-    ({ children,  ref,  ...props } ) => {
-        return (
-            <Layout {...props} ref={ref} element="div" tag="div">
-                {children}
-            </Layout>
-        )
-    }
-)
+const Div = component$(({ ...props }: Resolut.Component.DivProps) => {
+    return (
+        <Layout {...props} element="div" tag="div">
+            <Slot />
+        </Layout>
+    )
+})
 
 export default Div

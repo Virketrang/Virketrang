@@ -33,8 +33,16 @@ declare global {
 
             type SectionProps = GenericProps<'section'> & Resolut.Props.LayoutProps & Resolut.Props.SectionProps
 
-            type TypographyProps = GenericProps<Resolut.Attribute.Typography.Element> &
-                Resolut.Props.TypographyProps &
+            type HeaderProps = GenericProps<'header'> & Resolut.Props.LayoutProps & Resolut.Props.HeaderProps
+
+            type NavProps = GenericProps<'nav'> & Resolut.Props.LayoutProps & Resolut.Props.NavProps
+
+            type FooterProps = GenericProps<'footer'> & Resolut.Props.LayoutProps & Resolut.Props.FooterProps
+
+            type TypographyProps = GenericProps<Resolut.Attribute.Typography.Element> & {
+                htmlFor?: Resolut.Primitive.String
+                type?: Resolut.Primitive.String
+            } & Resolut.Props.TypographyProps &
                 Resolut.Props.BuilderProps
 
             type ButtonProps = GenericProps<'button'> & Resolut.Props.TypographyProps & Resolut.Props.ButtonProps

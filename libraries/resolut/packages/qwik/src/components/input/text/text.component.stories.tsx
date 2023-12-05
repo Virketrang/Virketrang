@@ -1,6 +1,6 @@
 import Text from './text.component'
 
-const Story: Storybook.Meta<HTMLInputElement, Resolut.Component.TextProps> = {
+const Story: Storybook.Meta<Resolut.Component.TextProps> = {
     title: 'Text',
     component: Text,
     argTypes: {
@@ -49,7 +49,9 @@ const Story: Storybook.Meta<HTMLInputElement, Resolut.Component.TextProps> = {
     }
 }
 
-const Template: Storybook.StoryFn<HTMLInputElement, Resolut.Component.TextProps> = ({ ...props }) => <Text {...props} />
+const Template: Storybook.StoryFn<Resolut.Component.TextProps> = ({ ...props }: Resolut.Component.TextProps) => (
+    <Text {...props} />
+)
 
 export const DefaultText: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.TextProps> = Template.bind(
     {}
@@ -60,6 +62,6 @@ DefaultText.args = {
     placeholder: 'Text...',
     stretch: false,
     name: 'text'
-}
+} as Resolut.Component.TextProps
 
 export default Story

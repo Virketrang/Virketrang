@@ -1,18 +1,23 @@
 import { defineConfig } from 'astro/config'
+
+import solid from '@astrojs/solid-js'
+
 import unimport from 'unimport/unplugin'
 import autoprefixer from 'autoprefixer'
-import solid from '@astrojs/solid-js'
+import unoCSS from 'unocss/astro'
 
 import workspaceConfig from '../../../vite.workspace'
 import AutoImport from '../../../unimport.workspace'
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [solid()],
+    integrations: [solid({}), unoCSS({ configFile: './unocss.config.js' })],
+    output: 'static',
     vite: {
         plugins: [
             unimport.vite({
-                imports: [...AutoImport.nanostores, ...AutoImport.resolut],
+                dirs: ['../../../packages/enums', './src/stores', 'src/common'],
+                imports: [...AutoImport.nanostores, ...AutoImport.resolut, ...AutoImport.solid],
                 dts: true
             })
         ],

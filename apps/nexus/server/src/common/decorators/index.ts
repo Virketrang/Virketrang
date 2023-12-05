@@ -1,0 +1,8 @@
+export { default as Controller } from './controller'
+export { default as Protected } from './protected'
+export { default as Validator } from './validator'
+export { default as Get } from './get'
+export { default as Post } from './post'
+export { default as Put } from './put'
+export { default as Patch } from './patch'
+export { default as Delete } from './delete'

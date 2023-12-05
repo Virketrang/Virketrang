@@ -1,30 +1,24 @@
+import { component$ } from '@builder.io/qwik'
 import Base from '../../base/base.component'
 
-const Input = Resolut.create<HTMLInputElement | HTMLSelectElement, Resolut.Component.InputProps>(
-    (
-        {
-            large,
-            medium,
-            small,
-            round,
-            rounded,
-            square,
-            name,
-            elevated,
-            disabled,
-            error,
-            children,
-            class: className,
-             ref, 
-            ...props
-        } 
-    ) => {
-        const _ = ref as any
-
+const Input = component$(
+    ({
+        large,
+        medium,
+        small,
+        round,
+        rounded,
+        square,
+        name,
+        elevated,
+        disabled,
+        error,
+        children,
+        class: className,
+        ...props
+    }: Resolut.Component.InputProps) => {
         return (
             <Base
-                ref={_}
-                // @ts-ignore
                 name={name}
                 id={name}
                 {...Utils.setAttributes({
@@ -34,9 +28,9 @@ const Input = Resolut.create<HTMLInputElement | HTMLSelectElement, Resolut.Compo
                     elevated
                 })}
                 class={Utils.setClasses('resolut-input', className)}
-                {...props}
+                {...(props as any)}
             >
-                {children}
+                <Slot />
             </Base>
         )
     }

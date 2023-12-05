@@ -34,6 +34,7 @@
             "@/validation": ["packages/validation/index.ts"],
             "@/config": ["config/index.ts"],
             "@/fonts/*": ["packages/fonts/*"],
+            "@/css/*": ["packages/css/*"],
             "@/nexus/client/*": ["apps/nexus/client/src/*"],
             "@/nexus/server/*": ["apps/nexus/server/src/*"],
             "@/liedecke-noergaard/*": ["apps/liedecke-noergaard/src/*"],

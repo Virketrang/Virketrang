@@ -19,10 +19,10 @@ export default abstract class AutoImport {
     ]
 
     public static readonly nanostores = [
-        { name: 'useStore', from: '@nanostores/react' },
+        ,
         { name: 'atom', from: 'nanostores' },
         { name: 'persistentAtom', from: '@nanostores/persistent' },
-        { name: 'useStore', from: '@nanostores/react' }
+        { name: 'useStore', from: '@nanostores/solid' }
     ]
 
     public static readonly resolut = [
@@ -44,5 +44,19 @@ export default abstract class AutoImport {
 
     public static readonly swc = [{ name: 'default', as: 'useSWR', from: 'swr' }]
 
-    public static readonly solid = [{ name: 'Dynamic', from: 'solid-js/web' }]
+    public static readonly solid = [
+        { name: 'Dynamic', from: 'solid-js/web' },
+        { name: 'For', from: 'solid-js' },
+        { name: 'Show', from: 'solid-js' },
+        { name: 'createSignal', from: 'solid-js' },
+        { name: 'onMount', from: 'solid-js' },
+        { name: 'onCleanup', from: 'solid-js' },
+        { name: 'createEffect', from: 'solid-js' }
+    ]
+
+    public static readonly qwik = [
+        // { name: 'component$', from: '@builder.io/qwik' },
+        { name: 'Slot', from: '@builder.io/qwik' },
+        { name: 'useSignal', from: '@builder.io/qwik' }
+    ]
 }

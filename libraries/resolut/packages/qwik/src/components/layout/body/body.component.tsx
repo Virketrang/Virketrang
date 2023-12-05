@@ -1,13 +1,12 @@
+import { component$ } from '@builder.io/qwik'
 import Layout from '../layout/layout.component'
 
-const Body = Resolut.create<HTMLBodyElement, Resolut.Component.BodyProps>(
-    ({ children,  ref,  ...props } ) => {
-        return (
-            <Layout {...props} ref={ref} element="body" tag="body">
-                {children}
-            </Layout>
-        )
-    }
-)
+const Body = component$(({ ...props }) => {
+    return (
+        <Layout {...props} element="body" tag="body">
+            <Slot />
+        </Layout>
+    )
+})
 
 export default Body

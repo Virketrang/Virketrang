@@ -1,19 +1,49 @@
 ---
-import { Button, Text, Field, Label, Form } from '@resolut/solid'
-
 import AuthenticationLayout from '@/nexus/client/layouts/auth.astro'
+import { Input } from '../../../components'
 ---
 
 <AuthenticationLayout title="Nexus - Login" greeting="Velkommen tilbage" back="/">
-    <Form flex vertical width="32rem" center gap="2rem">
-        <Field flex vertical gap="0.5rem" stretch>
-            <Label required>E-mail</Label>
-            <Text elevated type="email" stretch required />
-        </Field>
-        <Field flex vertical gap="0.5rem" stretch>
-            <Label required>Adgangskode</Label>
-            <Text elevated type="password" stretch required />
-        </Field>
-        <Button submit stretch transition:name="primary-button">Login</Button>
-    </Form>
+    <form flex flex-column w-32 flex-center gap-2>
+        <Input label="E-mail" name="email" type="email" />
+        <Input label="Adgangskode" name="password" type="password" />
+        <button type="submit" w-full h-3 btn-primary-bg btn-primary-text transition:name="primary-button">Login</button>
+    </form>
 </AuthenticationLayout>
+<script>
+    import { $User } from '@/nexus/client/stores'
+
+    const form = document.querySelector('form') as HTMLFormElement
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        const { email, password } = Object.fromEntries(new FormData(form).entries())
+
+        if (!email || !password) return console.log('Missing fields')
+
+        const response = await fetch('http://localhost:8080/api/authentication/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({ email, password })
+        })
+
+        const data: Http.Response<{ token: string; user: Entity.User; companies?: Entity.Company[] }> =
+            await response.json()
+
+        if (data.status !== 'success') return console.log(data)
+
+        const { user, companies } = data.body
+
+        $User.set(user)
+
+        if (companies) {
+            $Company.set(companies[0])
+        }
+
+        window.location.href = '/dashboard'
+    })
+</script>

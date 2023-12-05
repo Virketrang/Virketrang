@@ -14,26 +14,19 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/react": "^3.0.4",
         "@astrojs/solid-js": "^3.0.2",
         "@nanostores/persistent": "^0.9.1",
-        "@resolut/react": "^0.0.0",
-        "@resolut/solid": "^0.0.0",
-        "@tauri-apps/api": "^1.4.0",
+        "@nanostores/solid": "^0.4.2",
+        "@tauri-apps/api": "^1.5.1",
         "astro": "^3.2.2",
         "nanostores": "^0.9.4",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
         "solid-js": "^1.8.5"
     },
     "devDependencies": {
-        "@tauri-apps/cli": "^1.4.0",
+        "@tauri-apps/cli": "^1.5.6",
         "@testing-library/react": "^14.0.0",
         "@types/node": "^20.8.7",
-        "@types/react": "^18.0.15",
-        "@types/react-dom": "^18.0.11",
-        "@vitejs/plugin-react": "^4.1.0",
-        "@vitest/coverage-v8": "^0.33.0",
+        "@unocss/transformer-attributify-jsx": "^0.57.7",
         "autoprefixer": "^10.4.14",
         "eslint": "^8.46.0",
         "jsdom": "^22.1.0",
@@ -41,6 +34,7 @@
         "prettier-plugin-astro": "^0.12.0",
         "typescript": "^5.2.2",
         "unimport": "^3.0.14",
+        "unocss": "^0.57.7",
         "vite": "^4.4.4",
         "vite-plugin-solid": "^2.7.2",
         "vitest": "^0.34.1"

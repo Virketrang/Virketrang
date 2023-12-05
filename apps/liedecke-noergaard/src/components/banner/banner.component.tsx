@@ -20,6 +20,4 @@ const Banner: BannerComponent = memo(({ src, blurDataURL, alt }) => {
     )
 })
 
-Banner.displayName = Banner.name
-
 export default Banner

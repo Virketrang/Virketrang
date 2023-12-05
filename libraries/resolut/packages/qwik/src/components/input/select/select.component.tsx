@@ -1,22 +1,17 @@
+import { component$ } from '@builder.io/qwik'
 import Input from '../input/input.component'
 
-const Select = Resolut.create<HTMLSelectElement, Resolut.Component.SelectProps>(
-    ({ options,  ref,  ...props } ) => {
-        return (
-            <Input tag="select" element="select" ref={ref} {...props}>
-                {options &&
-                    options.map(({ value, name }) => (
-                        <option
-                             class="resolut-option" 
-                            value={value}
-                            
-                        >
-                            {name}
-                        </option>
-                    ))}
-            </Input>
-        )
-    }
-)
+const Select = component$(({ options, ...props }: Resolut.Component.SelectProps) => {
+    return (
+        <Input tag="select" element="select" {...props}>
+            {options &&
+                options.map(({ value, name }) => (
+                    <option value={value} key={name + value} class="resolut-option">
+                        {name}
+                    </option>
+                ))}
+        </Input>
+    )
+})
 
 export default Select

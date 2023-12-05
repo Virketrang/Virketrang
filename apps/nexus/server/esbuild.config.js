@@ -9,19 +9,27 @@ async function watch() {
         outfile: './dist/index.js',
         platform: 'node',
         loader: { '.ts': 'ts' },
-        external: ['dotenv', 'zod'],
+        external: ['@google-cloud/storage', 'zod'],
         minify: false,
         sourcemap: true,
         format: 'esm',
         plugins: [
             unimport.esbuild({
-                dirs: ['src/modules', 'src/common', 'src/services', '../../../packages'],
+                dirs: ['src/modules', 'src/common', '../../../packages'],
                 imports: [
                     { name: 'Hono', from: 'hono' },
+                    { name: 'setCookie', from: 'hono/cookie' },
+                    { name: 'getCookie', from: 'hono/cookie' },
+                    { name: 'cors', from: 'hono/cors' },
                     { name: 'serve', from: '@hono/node-server' },
                     { name: 'validator', from: 'hono/validator' },
                     { as: 'postgres', from: 'postgres' },
-                    { name: 'z', from: 'zod' }
+                    { name: 'z', from: 'zod' },
+                    { name: '*', as: 'jwt', from: 'hono/jwt' },
+                    { name: '*', as: 'crypto', from: 'crypto' },
+                    { name: '*', as: 'path', from: 'path' },
+                    { name: 'promisify', from: 'util' },
+                    { name: 'Storage', from: '@google-cloud/storage' }
                 ],
                 dts: true
             })

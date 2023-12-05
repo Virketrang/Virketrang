@@ -1,6 +1,7 @@
 import ProductionUnitRepository from './production-unit.repository'
 import ProductionUnitService from './production-unit.service'
 
+@Controller('/production-units')
 export default abstract class ProductionUnit {
     public static readonly router = new Hono()
     public static readonly service = ProductionUnitService

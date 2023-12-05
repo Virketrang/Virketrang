@@ -3,11 +3,27 @@ interface Image extends Entity.BaseEntity {
     width: number
     height: number
     url: string
-    product: Entity.Product
+    file_name: string
 }
 
 declare namespace Image {
-    type Create = Omit<Image, keyof Entity.BaseEntity | 'product'>
+    interface Create {
+        alt: I18N.Text
+        width: number
+        height: number
+        url: string
+        owner_id: string
+        buffer: Buffer
+        file_name: string
+        relation: 'product' | 'content'
+    }
+
+    interface Insert {
+        width: number
+        height: number
+        url: string
+        file_name: string
+    }
 
     type Update = Partial<Create>
 }

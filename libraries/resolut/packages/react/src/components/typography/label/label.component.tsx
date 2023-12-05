@@ -8,7 +8,7 @@ const Label = Resolut.create<HTMLLabelElement, Resolut.Component.LabelProps>(
         return (
             <Typography
                 ref={ref}
-                for={htmlFor}
+                htmlFor={htmlFor}
                 tag="label"
                 element="label"
                 {...props}

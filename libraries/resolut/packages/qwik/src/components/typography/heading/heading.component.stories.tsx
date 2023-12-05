@@ -1,12 +1,12 @@
 import Heading from './heading.component'
 
-const Story: Storybook.Meta<HTMLHeadingElement, Resolut.Component.HeadingProps> = {
+const Story: Storybook.Meta<Resolut.Component.HeadingProps> = {
     title: 'Heading',
     component: Heading,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<HTMLHeadingElement, Resolut.Component.HeadingProps> = ({ ...props }) => (
+const Template: Storybook.StoryFn<Resolut.Component.HeadingProps> = ({ ...props }: Resolut.Component.HeadingProps) => (
     <Heading {...props} />
 )
 

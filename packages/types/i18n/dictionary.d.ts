@@ -1,3 +1,3 @@
-type Dictionary<T> = Awaited<ReturnType<T>>
+type Dictionary<T extends (...args: any) => any> = Awaited<ReturnType<T>>
 
 export default Dictionary

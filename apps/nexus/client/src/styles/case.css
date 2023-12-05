@@ -1,0 +1,15 @@
+*[uppercase] {
+    text-transform: uppercase;
+}
+
+*[capitalize] {
+    text-transform: capitalize;
+}
+
+*[lowercase] {
+    text-transform: lowercase;
+}
+
+*[underline] {
+    text-decoration: underline;
+}

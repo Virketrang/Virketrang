@@ -5,9 +5,9 @@ import { __server__, isProductNew } from '@/liedecke-noergaard/common'
 
 import styles from './page.module.scss'
 
-type PageProps = { params: { locale: Workspace.I18N.Locale } }
+type PageProps = { params: { locale: I18N.Locale } }
 
-const getProducts: () => Workspace.HTTP.Response<Workspace.Entity.Product> = async () => {
+const getProducts: () => Promise<Http.Response<Entity.Product>> = async () => {
     const response = await fetch(__server__ + 'products', { next: { tags: ['products'] } })
 
     return await response.json()
@@ -23,7 +23,7 @@ export default async function Page({ params: { locale } }: PageProps) {
     const { landingPage, product, currency } = await getDictionary(locale)
     const data = await getProducts()
 
-    if (data.status === 'error' || data.status === 'failure') throw Error('Kunne ikke indlæse produkter')
+    if (data.status === 'error' || data.status === 'failed') throw Error('Kunne ikke indlæse produkter')
 
     return (
         <>

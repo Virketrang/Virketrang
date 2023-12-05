@@ -7,20 +7,24 @@
         "allowJs": false,
         "skipLibCheck": true,
         "esModuleInterop": false,
+        "typeRoots": [
+            "apps/nexus/client/declarations.d.ts",
+            "apps/nexus/client/unimport.d.ts",
+            "packages/types/index.d.ts"
+        ],
         "isolatedModules": true,
-        "typeRoots": ["./apps/nexus/client/unimport.d.ts"],
         "noEmit": true,
         "jsx": "preserve",
         "jsxImportSource": "solid-js"
     },
     "include": [
-        "src/**/*.astro",
-        "src/**/*.tsx",
-        "src/**/*.ts",
+        "src",
         "unimport.d.ts",
         "../../../vite.workspace.ts",
+        "../../../unimport.workspace.ts",
         "../../../packages/**/*",
-        "../../../config/**/*"
+        "../../../config/**/*",
+        "declarations.d.ts"
     ],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

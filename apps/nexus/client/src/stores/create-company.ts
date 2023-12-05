@@ -1,49 +1,81 @@
 import Enum from '@/enums'
 
-const $ = persistentAtom<{
-    companyName: string
-    companyNumber: string
-    corporateForm: Workspace.Enum.CORPORATE_FORM
-    owners: { firstname: string; surname: string }[]
-    iteration: number
+export default persistentAtom<{
+    company_name: string
+    company_number: string
+    corporate_form: Enum.CORPORATE_FORM
+    accounting_class: Enum.ACCOUNTING_CLASS
+    employer: Primitive.Boolean.ToString
+    phone_number: {
+        country_code: string
+        subscriber_number: string
+    }
+    address: {
+        street_name: string
+        street_number: string
+        postal_code: string
+        apartment: string
+        city: string
+        country: string
+    }
+    bank_account: {
+        registration_number: string
+        account_number: string
+        iban: string
+        swift_code: string
+    }
+    production_units: {
+        unit_number: string
+        primary_location: Primitive.Boolean.ToString
+        address: {
+            street_name: string
+            street_number: string
+            postal_code: string
+            apartment: string
+            city: string
+            country: string
+        }
+    }[]
 }>(
     'create_company',
     {
-        companyName: '',
-        companyNumber: '',
-        corporateForm: Enum.CORPORATE_FORM.ENKELTMANDSVIRKSOMHED,
-        owners: [{ firstname: '', surname: '' }],
-        iteration: 0
+        company_name: '',
+        company_number: '',
+        corporate_form: Enum.CORPORATE_FORM.ENKELTMANDSVIRKSOMHED,
+        accounting_class: Enum.ACCOUNTING_CLASS.A,
+        employer: 'true' as Primitive.Boolean.ToString,
+        phone_number: {
+            country_code: '',
+            subscriber_number: ''
+        },
+        address: {
+            street_name: '',
+            street_number: '',
+            postal_code: '',
+            apartment: '',
+            city: '',
+            country: 'denmark'
+        },
+        bank_account: {
+            registration_number: '',
+            account_number: '',
+            iban: '',
+            swift_code: ''
+        },
+        production_units: [
+            {
+                unit_number: '',
+                primary_location: 'true',
+                address: {
+                    street_name: '',
+                    street_number: '',
+                    postal_code: '',
+                    apartment: '',
+                    city: '',
+                    country: 'denmark'
+                }
+            }
+        ]
     },
     { encode: JSON.stringify, decode: JSON.parse }
 )
-
-type Keys = keyof ReturnType<typeof $.get>
-
-export default abstract class $CreateCompany {
-    public static store = $
-
-    public static mutate<T extends Keys>(field: T, value: ReturnType<typeof this.store.get>[T]) {
-        this.store.set({ ...this.store.get(), [field]: value })
-    }
-
-    public static addOwner() {
-        this.mutate('owners', [...this.store.get().owners, { firstname: '', surname: '' }])
-    }
-
-    public static removeOwner(index: number) {
-        const owners = this.store.get().owners
-        owners.splice(index, 1)
-        this.mutate('owners', owners)
-    }
-
-    public static mutateOwner<T extends keyof ReturnType<typeof this.store.get>['owners'][number]>(
-        index: number,
-        field: T,
-        value: ReturnType<typeof this.store.get>['owners'][number][T]
-    ) {
-        const owners = this.store.get().owners
-        owners[index][field] = value
-        this.mutate('owners', owners)
-    }
-}

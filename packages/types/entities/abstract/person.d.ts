@@ -1,33 +1,17 @@
 interface Person extends Entity.BaseEntity {
-    firstname: string
-    lastname: string
-    name: string
-    private_email: string
-    address: Entity.Address
-    private_phone_number: Entity.PhoneNumber
-    gender: Enum.GENDER
-    birth_date: Date
+    profile: Entity.Profile
+    contact_info: Entity.ContactInfo
 }
 
 declare namespace Person {
     interface Create {
-        firstname: string
-        lastname: string
-        private_email: string
-        address: Entity.Address.Create
-        private_phone_number: Entity.PhoneNumber.Create
-        gender: Enum.GENDER
-        birth_date: Date
+        profile: Entity.Profile.Create
+        contact_info: Entity.ContactInfo.Create
     }
 
     interface Insert {
-        firstname: string
-        lastname: string
-        private_email: string
-        address_id: string
-        private_phone_number_id: string
-        gender: Enum.GENDER
-        birth_date: Date
+        profile_id: string
+        contact_info_id: string
     }
 }
 

@@ -1,6 +1,5 @@
 ---
 import { slide } from 'astro:transitions'
-import { Heading, Link, Main, Div } from '@resolut/solid'
 
 import { Logo } from '@/nexus/client/components/index'
 import GlobalLayout from '@/nexus/client/layouts/global.astro'
@@ -9,21 +8,21 @@ const { title, greeting, back } = Astro.props
 ---
 
 <GlobalLayout {title}>
-    <Main
-        width="100%"
-        minHeight="100vh"
+    <main
+        w-full
+        min-h-screen
         flex
-        vertical
-        center
-        padding="4rem 0"
+        flex-column
+        flex-center
+        style="padding-block: 4rem;"
         transition:animate={slide({ duration: '0.5s' })}
         transition:name="page"
     >
-        <Div flex vertical align:center gap="3rem" margin="0 0 4rem 0" transition:name="logo-wrapper">
+        <div flex flex-column flex-items-center gap-3 style="margin-bottom: 4rem;" transition:name="logo-wrapper">
             <Logo transition:name="logo" />
-            <Heading medium>{greeting}</Heading>
-        </Div>
+            <h2 transition:name="logo-text" font-400>{greeting}</h2>
+        </div>
         <slot />
-        <Link href={back} transition:name="back" margin="1.5rem 0 0 0" underline>Tilbage</Link>
-    </Main>
+        <a href={back} style={{ marginTop: '2rem' }} transition:name="back" underline>Tilbage</a>
+    </main>
 </GlobalLayout>

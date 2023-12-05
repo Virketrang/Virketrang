@@ -1,5 +1,5 @@
 interface Config<T extends readonly string[]> {
-    defaultLocale: Workspace.I18N.Locale
+    defaultLocale: I18N.Locale
     locales: T
 }
 

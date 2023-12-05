@@ -1,0 +1,70 @@
+---
+
+---
+
+<main class="main">
+    <div class="toolbar">
+        <h1>Produkter</h1>
+        <div role="toolbar">
+            <button id="add-button"> Opret</button>
+        </div>
+    </div>
+    <nav class="navigation">
+        <ul>
+            <li>
+                <a href="/dashboard/products">Produkter</a>
+            </li>
+            <li>
+                <a href="/dashboard/products/divisions">Inddelinger</a>
+            </li>
+            <li>
+                <a href="/dashboard/products/materials">Materialer</a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <slot />
+    </div>
+</main>
+<style>
+    .main {
+        padding: 3rem 5rem;
+    }
+
+    .toolbar {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #add-button {
+        padding: 10px 30px;
+        border-radius: 19px;
+        font-size: 1rem;
+        font-weight: 700;
+        background: #625afa;
+        color: #fff;
+    }
+
+    .navigation ul {
+        position: relative;
+
+        display: flex;
+        gap: 1.5rem;
+        padding-block: 0.5rem 0.5rem;
+    }
+
+    .navigation ul::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.15);
+    }
+
+    .active {
+        color: #625afa;
+    }
+</style>

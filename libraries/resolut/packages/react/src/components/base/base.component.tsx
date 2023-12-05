@@ -115,7 +115,7 @@ const Base = Resolut.create<HTMLElement, Resolut.Component.BaseProps>(
                     }),
                     ...style
                 })}
-                className={Utils.setClasses(className, `resolut resolut-${tag}`)}
+                className={Utils.setClasses(className, `resolut-${tag}`, 'resolut')}
                 ref={ref}
                 {...Utils.setAttributes({ stretch: row || column ? true : stretch, unselectable })}
                 {...props}

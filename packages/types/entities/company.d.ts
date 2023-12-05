@@ -15,7 +15,7 @@ interface Company extends Entity.BaseEntity {
 
     employer: boolean
 
-    users: Entity.User[]
+    employees: Entity.Employee[]
 
     content_types?: Entity.ContentType[]
 
@@ -41,8 +41,6 @@ declare namespace Company {
         corporate_form: Enum.CORPORATE_FORM
 
         employer: boolean
-
-        users: Entity.User.Create[]
 
         address: Entity.Address.Create
 

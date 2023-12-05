@@ -41,6 +41,12 @@ declare global {
 
             type SectionProps = {}
 
+            type HeaderProps = {}
+
+            type NavProps = {}
+
+            type FooterProps = {}
+
             type TypographyProps = {
                 letterSpacing?: Resolut.Primitive.String
                 lineHeight?: Resolut.Primitive.String
@@ -59,7 +65,6 @@ declare global {
                 Resolut.Attribute.Typography.DecorationStyle
 
             type ButtonProps = {
-                children: Resolut.Primitive.String
                 elevated?: Resolut.Primitive.Boolean
                 wide?: Resolut.Primitive.Boolean
                 disabled?: Resolut.Primitive.Boolean
@@ -69,22 +74,20 @@ declare global {
                 Resolut.Attribute.Size &
                 Resolut.Attribute.Typography.Button.ActionProps
 
-            type HeadingProps = {
-                children: Resolut.Primitive.String
-            } & Resolut.Attribute.Typography.Heading.TitleVariant
+            type HeadingProps = {} & Resolut.Attribute.Typography.Heading.TitleVariant
 
             type LabelProps = {
                 size?: Resolut.Attribute.Size
                 required?: Resolut.Primitive.Boolean
-                children?: Resolut.Primitive.String
+
                 for?: Resolut.Primitive.String
             }
 
-            type LinkProps = { children: Resolut.Primitive.String }
+            type LinkProps = {}
 
-            type ParagraphProps = { children: Resolut.Primitive.String }
+            type ParagraphProps = {}
 
-            type SpanProps = { children: Resolut.Primitive.String }
+            type SpanProps = {}
 
             type InputProps = {
                 elevated?: Resolut.Primitive.Boolean

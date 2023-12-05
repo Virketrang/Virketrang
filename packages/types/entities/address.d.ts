@@ -1,11 +1,9 @@
 interface Address extends Entity.BaseEntity {
     street_name: string
 
-    street_number: string
+    street_number: number
 
-    floor?: string
-
-    door?: string
+    apartment?: string
 
     postal_code: number
 

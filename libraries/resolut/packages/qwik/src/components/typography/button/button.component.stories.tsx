@@ -1,6 +1,6 @@
 import Button from './button.component'
 
-const Story: Storybook.Meta<HTMLButtonElement | HTMLAnchorElement, Resolut.Component.ButtonProps> = {
+const Story: Storybook.Meta<Resolut.Component.ButtonProps> = {
     title: 'Button',
     component: Button,
     argTypes: {
@@ -19,9 +19,9 @@ const Story: Storybook.Meta<HTMLButtonElement | HTMLAnchorElement, Resolut.Compo
     }
 }
 
-const Template: Storybook.StoryFn<HTMLButtonElement | HTMLAnchorElement, Resolut.Component.ButtonProps> = ({
-    ...props
-}) => <Button {...props} />
+const Template: Storybook.StoryFn<Resolut.Component.ButtonProps> = ({ ...props }: Resolut.Component.ButtonProps) => (
+    <Button />
+)
 
 export const RoundButton: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ButtonProps> = Template.bind(
     {}
@@ -38,7 +38,7 @@ RoundButton.args = {
     children: 'Round',
     disabled: false,
     stretch: false
-}
+} as Resolut.Component.ButtonProps
 
 export const RoundedButton: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ButtonProps> =
     Template.bind({})
@@ -54,7 +54,7 @@ RoundedButton.args = {
     children: 'Rounded',
     disabled: false,
     stretch: false
-}
+} as Resolut.Component.ButtonProps
 
 export const SquareButton: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ButtonProps> =
     Template.bind({})
@@ -70,7 +70,7 @@ SquareButton.args = {
     children: 'Square',
     disabled: false,
     stretch: false
-}
+} as Resolut.Component.ButtonProps
 
 export const CircleButton: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.ButtonProps> =
     Template.bind({})
@@ -86,6 +86,6 @@ CircleButton.args = {
     children: '+',
     disabled: false,
     stretch: false
-}
+} as Resolut.Component.ButtonProps
 
 export default Story

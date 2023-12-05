@@ -1,35 +1,25 @@
 interface User extends Entity.Person {
-    username: string
-    password: string
-    active: boolean
+    email: string
     bank_account: Entity.BankAccount
-    company: Entity.Company
-    owner: boolean
-    production_unit?: Entity.ProductionUnit
+    companies?: Entity.Company[]
     payslips: Entity.Payslip[]
-    employee_number: number
 }
 
 declare namespace User {
-    interface Create extends Entity.Person.Create {
-        username: string
+    interface WithPassword extends User {
         password: string
-        active: boolean
+    }
+
+    interface Create extends Entity.Person.Create {
+        email: string
+        password: string
         bank_account: Entity.BankAccount.Create
-        employee_number: number
-        owner: boolean
-        production_unit_id: string
     }
 
     interface Insert extends Entity.Person.Insert {
-        username: string
+        email: string
         password: string
-        active: boolean
         bank_account_id: string
-        company_id: string
-        owner: boolean
-        production_unit_id: string
-        employee_number: number
     }
 
     type Update = Partial<Create>

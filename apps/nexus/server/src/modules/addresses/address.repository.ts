@@ -3,16 +3,15 @@ export default abstract class AddressRepository {
         street_name,
         street_number,
         postal_code,
-        floor,
-        door,
+        apartment,
         city,
         country
     }: Entity.Address.Insert): Promise<Entity.Address> {
         const result = await Database.sql<
             Entity.Address[]
-        >`INSERT INTO addresses (street_name, street_number, postal_code, apartment_floor, door, city, country) VALUES (${street_name}, ${street_number}, ${postal_code}, ${
-            floor || null
-        }, ${door || null}, ${city}, ${country}) RETURNING *;`
+        >`INSERT INTO addresses (street_name, street_number, postal_code, apartment, city, country) VALUES (${street_name}, ${street_number}, ${postal_code}, ${
+            apartment || null
+        }, ${city}, ${country}) RETURNING *;`
 
         return result[0]
     }

@@ -1,22 +1,12 @@
+import { component$ } from '@builder.io/qwik'
 import Typography from '../typography/typography.component'
 
-const Label = Resolut.create<HTMLLabelElement, Resolut.Component.LabelProps>(
-    (
-        { children, for: htmlFor, required = false,  ref,  ...props } 
-    ) => {
-        return (
-            <Typography
-                ref={ref}
-                for={htmlFor}
-                tag="label"
-                element="label"
-                {...props}
-                {...Utils.setAttributes({ required })}
-            >
-                {children}
-            </Typography>
-        )
-    }
-)
+const Label = component$(({ for: htmlFor, required = false, ...props }: Resolut.Component.LabelProps) => {
+    return (
+        <Typography for={htmlFor} tag="label" element="label" {...props} {...Utils.setAttributes({ required })}>
+            <Slot />
+        </Typography>
+    )
+})
 
 export default Label

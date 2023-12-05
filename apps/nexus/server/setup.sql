@@ -22,18 +22,27 @@ DROP TABLE IF EXISTS credit_notes CASCADE;
 DROP TABLE IF EXISTS customers CASCADE;
 DROP TABLE IF EXISTS fixed_asset_groups CASCADE;
 DROP TABLE IF EXISTS fixed_asset_registers CASCADE;
-DROP TABLE IF EXISTS i18n_texts CASCADE;
+DROP TABLE IF EXISTS product_description_translations CASCADE;
+DROP TABLE IF EXISTS product_name_translations CASCADE;
+DROP TABLE IF EXISTS image_alt_translations CASCADE;
+DROP TABLE IF EXISTS measurements CASCADE;
+DROP TABLE IF EXISTS units CASCADE;
 DROP TABLE IF EXISTS income_statements CASCADE;
 DROP TABLE IF EXISTS invoices CASCADE;
 DROP TABLE IF EXISTS locales CASCADE;
 DROP TABLE IF EXISTS orders CASCADE;
 DROP TABLE IF EXISTS pay_periods CASCADE;
+DROP TABLE IF EXISTS currencies CASCADE;
+DROP TABLE IF EXISTS languages CASCADE;
 DROP TABLE IF EXISTS payslips CASCADE;
+DROP TABLE IF EXISTS users_companies_relations CASCADE;
+DROP TABLE IF EXISTS employees CASCADE;
+DROP TABLE IF EXISTS profiles CASCADE;
+DROP TABLE IF EXISTS contact_infos CASCADE;
 DROP TABLE IF EXISTS permissions CASCADE;
 DROP TABLE IF EXISTS phone_numbers CASCADE;
-DROP TABLE IF EXISTS product_categories CASCADE;
-DROP TABLE IF EXISTS product_descriptions CASCADE;
-DROP TABLE IF EXISTS product_images CASCADE;
+DROP TABLE IF EXISTS categories CASCADE;
+DROP TABLE IF EXISTS images CASCADE;
 DROP TABLE IF EXISTS products CASCADE;
 DROP TABLE IF EXISTS production_units CASCADE;
 DROP TABLE IF EXISTS roles CASCADE;
@@ -118,8 +127,7 @@ CREATE TABLE IF NOT EXISTS addresses (
 
     street_name VARCHAR(255) NOT NULL,
     street_number VARCHAR(255) NOT NULL,
-    apartment_floor VARCHAR(255),
-    door VARCHAR(255),
+    apartment VARCHAR(255),
     postal_code VARCHAR(255) NOT NULL,
     city VARCHAR(255) NOT NULL,
     country VARCHAR(255) NOT NULL,
@@ -169,7 +177,20 @@ CREATE TABLE IF NOT EXISTS companies (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS locales (
+CREATE TABLE IF NOT EXISTS currencies (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    currency_name VARCHAR(255) NOT NULL,
+    currency_code VARCHAR(255) NOT NULL,
+    currency_symbol VARCHAR(255) NOT NULL,
+
+    company_id uuid REFERENCES companies(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS languages (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
     language_name VARCHAR(255) NOT NULL,
@@ -181,12 +202,12 @@ CREATE TABLE IF NOT EXISTS locales (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS i18n_texts (
+CREATE TABLE IF NOT EXISTS locales (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
-    text_value TEXT NOT NULL,
-
-    locale_id uuid REFERENCES locales(id) NOT NULL,
+    language_id uuid REFERENCES languages(id) NOT NULL,
+    currency_id uuid REFERENCES currencies(id) NOT NULL,
+    company_id uuid REFERENCES companies(id) NOT NULL,
 
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -233,6 +254,7 @@ CREATE TABLE IF NOT EXISTS production_units (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
     unit_number INTEGER NOT NULL,
+    primary_location BOOLEAN NOT NULL DEFAULT false,
 
     address_id uuid REFERENCES addresses(id) NOT NULL,
     company_id uuid REFERENCES companies(id) NOT NULL,
@@ -268,26 +290,120 @@ CREATE TABLE IF NOT EXISTS fixed_asset_registers (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS permissions (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
+    permission_name authorization_permission NOT NULL,
+    permission_action authorization_action[] NOT NULL,
+
+    company_id uuid REFERENCES companies(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS api_keys (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    key_name VARCHAR(255) NOT NULL,
+    key_value TEXT NOT NULL,
+
+    company_id uuid REFERENCES companies(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS roles (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    role_name VARCHAR(255) NOT NULL,
+
+    company_id uuid REFERENCES companies(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS roles_permissions_relations (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    role_id uuid REFERENCES roles(id) NOT NULL,
+    permission_id uuid REFERENCES permissions(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS api_keys_permissions_relations (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    api_key_id uuid REFERENCES api_keys(id) NOT NULL,
+    permission_id uuid REFERENCES permissions(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS contact_infos (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    address_id uuid REFERENCES addresses(id) NOT NULL,
+    phone_number_id uuid REFERENCES phone_numbers(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS profiles (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+    
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     fullname VARCHAR(255) GENERATED ALWAYS AS (firstname || ' ' || lastname) STORED,
-    private_email VARCHAR(255) NOT NULL UNIQUE,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    active BOOLEAN DEFAULT true,
-    owner BOOLEAN DEFAULT false,
-    employee_number INTEGER,
-    birth_date TIMESTAMPTZ NOT NULL,
+    birthdate TIMESTAMPTZ NOT NULL,
     gender gender NOT NULL,
 
-    address_id uuid REFERENCES addresses(id) NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS users (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+    
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+
+    profile_id uuid REFERENCES profiles(id) NOT NULL,
+    contact_info_id uuid REFERENCES contact_infos(id) NOT NULL,
     bank_account_id uuid REFERENCES bank_accounts(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS users_companies_relations (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    user_id uuid REFERENCES users(id) NOT NULL,
     company_id uuid REFERENCES companies(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS employees (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    employee_number INTEGER NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    
+    profile_id uuid REFERENCES profiles(id) NOT NULL,
+    contact_info_id uuid REFERENCES contact_infos(id) NOT NULL,
+    bank_account_id uuid REFERENCES bank_accounts(id) NOT NULL,
     production_unit_id uuid REFERENCES production_units(id) NOT NULL,
-    private_phone_number_id uuid REFERENCES phone_numbers(id) NOT NULL,
+    role_id uuid REFERENCES roles(id) NOT NULL,
 
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -296,16 +412,13 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS customers (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
-    firstname VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     customer_type customer_type NOT NULL,
 
-    fullname VARCHAR(255) GENERATED ALWAYS AS (firstname || ' ' || lastname) STORED,
+    profile_id uuid REFERENCES profiles(id) NOT NULL,
+    contact_info_id uuid REFERENCES contact_infos(id) NOT NULL,
 
     company_id uuid REFERENCES companies(id) NOT NULL,
-    address_id uuid REFERENCES addresses(id) NOT NULL,
-    phone_number_id uuid REFERENCES phone_numbers(id) NOT NULL,
 
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -383,61 +496,6 @@ CREATE TABLE payslips (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS permissions (
-    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-
-    permission_name authorization_permission NOT NULL,
-    permission_action authorization_action[] NOT NULL,
-
-    company_id uuid REFERENCES companies(id) NOT NULL,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS api_keys (
-    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-
-    key_name VARCHAR(255) NOT NULL,
-    key_value TEXT NOT NULL,
-
-    company_id uuid REFERENCES companies(id) NOT NULL,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS roles (
-    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-
-    role_name VARCHAR(255) NOT NULL,
-
-    company_id uuid REFERENCES companies(id) NOT NULL,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS roles_permissions_relations (
-    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-
-    role_id uuid REFERENCES roles(id) NOT NULL,
-    permission_id uuid REFERENCES permissions(id) NOT NULL,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS api_keys_permissions_relations (
-    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-
-    api_key_id uuid REFERENCES api_keys(id) NOT NULL,
-    permission_id uuid REFERENCES permissions(id) NOT NULL,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
 CREATE TABLE IF NOT EXISTS content_types (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
@@ -473,11 +531,11 @@ CREATE TABLE IF NOT EXISTS content_type_fields (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS product_categories (
+CREATE TABLE IF NOT EXISTS categories (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
-    category_name uuid REFERENCES i18n_texts(id) NOT NULL,
-    category_path ltree,
+    unique_identifier VARCHAR(255) NOT NULL UNIQUE,
+    path ltree,
 
     company_id uuid REFERENCES companies(id) NOT NULL,
 
@@ -485,11 +543,13 @@ CREATE TABLE IF NOT EXISTS product_categories (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS product_descriptions (
+CREATE TABLE IF NOT EXISTS categories_names_translations (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
-    long_description uuid REFERENCES i18n_texts(id) NOT NULL,
-    short_description uuid REFERENCES i18n_texts(id) NOT NULL,
+    value VARCHAR(255) NOT NULL,
+
+    language_id uuid REFERENCES locales(id) NOT NULL,
+    category_id uuid REFERENCES categories(id) NOT NULL,
 
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -504,27 +564,104 @@ CREATE TABLE IF NOT EXISTS products (
     stock INTEGER NOT NULL DEFAULT 0,
     available BOOLEAN NOT NULL DEFAULT true,
     designer VARCHAR(255) NOT NULL,
-    measurement_unit VARCHAR(255) NOT NULL,
-    measurement_value INTEGER NOT NULL,
 
-    category_id uuid REFERENCES product_categories(id) NOT NULL,
-    name_id uuid REFERENCES i18n_texts(id) NOT NULL,
-    description_id uuid REFERENCES product_descriptions(id) NOT NULL,
+    category_id uuid REFERENCES categories(id) NOT NULL,
     company_id uuid REFERENCES companies(id) NOT NULL,
 
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE product_images (
+CREATE TABLE IF NOT EXISTS product_description_translations (
     id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 
-    image_width integer NOT NULL,
-    image_height integer NOT NULL,
-    image_url VARCHAR(255) NOT NULL,
-    
+    value TEXT NOT NULL,
+
+    language_id uuid REFERENCES locales(id) NOT NULL,
+    product__id uuid REFERENCES product_descriptions(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS product_name_translations (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    value VARCHAR(255) NOT NULL,
+
+    language_id uuid REFERENCES locales(id) NOT NULL,
     product_id uuid REFERENCES products(id) NOT NULL,
-    image_alt uuid REFERENCES i18n_texts(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS units (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    unit_name VARCHAR(255) NOT NULL,
+    unit_symbol VARCHAR(255) NOT NULL,
+
+    company_id uuid REFERENCES companies(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS measurements (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    width INTEGER,
+    height INTEGER,
+    depth INTEGER,
+    weight INTEGER,
+
+    unit_id uuid REFERENCES units(id) NOT NULL,
+    product_id uuid REFERENCES products(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE images (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    width integer NOT NULL,
+    height integer NOT NULL,
+    file_url VARCHAR(255) NOT NULL,
+    file_name VARCHAR(255) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS image_alt_translations (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    value TEXT NOT NULL,
+
+    language_id uuid REFERENCES locales(id) NOT NULL,
+    image_id uuid REFERENCES images(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS products_images_relations (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    product_id uuid REFERENCES products(id) NOT NULL,
+    image_id uuid REFERENCES images(id) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS contents_images_relations (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+
+    content_id uuid REFERENCES contents(id) NOT NULL,
+    image_id uuid REFERENCES images(id) NOT NULL,
 
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()

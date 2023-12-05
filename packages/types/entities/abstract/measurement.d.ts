@@ -1,6 +1,8 @@
 interface Measurement {
     unit: string
-    value: number
+    width?: number
+    height?: number
+    depth?: number
 }
 
 export default Measurement

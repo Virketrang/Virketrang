@@ -1,13 +1,12 @@
+import { component$ } from '@builder.io/qwik'
 import Layout from '../layout/layout.component'
 
-const Article = Resolut.create<HTMLElement, Resolut.Component.ArticleProps>(
-    ({ children,  ref,  ...props } ) => {
-        return (
-            <Layout {...props} ref={ref} element="article" tag="article">
-                {children}
-            </Layout>
-        )
-    }
-)
+const Article = component$(({ ...props }: Resolut.Component.ArticleProps) => {
+    return (
+        <Layout {...props} element="article" tag="article">
+            <Slot />
+        </Layout>
+    )
+})
 
 export default Article

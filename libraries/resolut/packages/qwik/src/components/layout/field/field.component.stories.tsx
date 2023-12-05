@@ -1,12 +1,14 @@
 import Field from './field.component'
 
-const Story: Storybook.Meta<HTMLDivElement, Resolut.Component.FieldProps> = {
+const Story: Storybook.Meta<Resolut.Component.FieldProps> = {
     title: 'Field',
     component: Field,
     argTypes: {}
 }
 
-const Template: Storybook.StoryFn<HTMLDivElement, Resolut.Component.FieldProps> = ({ ...props }) => <Field {...props} />
+const Template: Storybook.StoryFn<Resolut.Component.FieldProps> = ({ ...props }: Resolut.Component.FieldProps) => (
+    <Field {...props} />
+)
 
 export const DefaultField: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolut.Component.FieldProps> = Template.bind(
     {}
@@ -14,6 +16,6 @@ export const DefaultField: Storybook.AnnotatedStoryFn<Storybook.Renderer, Resolu
 
 DefaultField.args = {
     children: 'E-mail'
-}
+} as Resolut.Component.FieldProps
 
 export default Story

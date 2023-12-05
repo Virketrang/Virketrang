@@ -134,10 +134,12 @@
         "windows": [
             {
                 "fullscreen": false,
+                "minHeight": 800,
+                "minWidth": 1200,
                 "resizable": true,
                 "title": "Nexus",
-                "width": 800,
-                "height": 600,
+                "width": 1200,
+                "height": 800,
                 "fileDropEnabled": true
             }
         ]

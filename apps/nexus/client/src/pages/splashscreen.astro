@@ -1,0 +1,18 @@
+---
+import { Logo } from '../components'
+import GlobalLayout from '../layouts/global.astro'
+---
+
+<GlobalLayout>
+    <div transition:name="logo-wrapper" flex flex-center h-screen flex-column gap-2>
+        <Logo transition:name="logo" />
+        <span transition:name="logo-text">Indlæser...</span>
+    </div>
+</GlobalLayout>
+<script>
+    import { invoke } from '@tauri-apps/api/tauri'
+
+    setTimeout(() => {
+        invoke('close_splashscreen')
+    }, 1000)
+</script>

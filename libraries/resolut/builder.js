@@ -57,13 +57,13 @@ const edit = (filePath) => {
 
 const main = () => {
     const sourceDir = 'packages/react/src/components'
-    const solidDir = 'packages/solid/src/components'
+    // const solidDir = 'packages/solid/src/components'
     const qwikDir = 'packages/qwik/src/components'
 
-    copy(sourceDir, solidDir)
+    // copy(sourceDir, solidDir)
     copy(sourceDir, qwikDir)
 
-    const filePaths = walk(solidDir).concat(walk(qwikDir))
+    const filePaths = walk(qwikDir)
     filePaths.forEach((filePath) => edit(filePath))
 
     console.log('Done!')

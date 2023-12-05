@@ -1,10 +1,10 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
-import { Body } from '@resolut/solid'
 
 import '@/fonts/montserrat.css'
-import '@resolut/solid/styles'
-import '@resolut/solid/themes/castlereagh'
+import '@/css/preset.css'
+import '../styles/index.css'
+import '../styles/theme.css'
 
 const { title } = Astro.props
 ---
@@ -16,7 +16,7 @@ const { title } = Astro.props
         <title>{title}</title>
         <ViewTransitions />
     </head>
-    <Body unselectable>
+    <body select-none>
         <slot />
-    </Body>
+    </body>
 </html>

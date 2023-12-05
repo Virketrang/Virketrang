@@ -9,6 +9,7 @@ const Button = Resolut.create<HTMLButtonElement | HTMLAnchorElement, Resolut.Com
             rounded,
             submit,
             small,
+            type,
             medium,
             large,
             elevated,
@@ -22,6 +23,7 @@ const Button = Resolut.create<HTMLButtonElement | HTMLAnchorElement, Resolut.Com
         return (
             <Typography
                 ref={ref}
+                type={submit ? 'submit' : type || 'button'}
                 tag="button"
                 element={props.href ? 'a' : 'button'}
                 {...Utils.setAttributes({

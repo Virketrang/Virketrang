@@ -1,13 +1,8 @@
+import { component$ } from '@builder.io/qwik'
 import Layout from '../layout/layout.component'
 
-const Field = Resolut.create<HTMLDivElement, Resolut.Component.FieldProps>(
-    ({ message, children,  ref,  ...props } ) => {
-        return (
-            <Layout ref={ref} tag="field" {...Utils.setAttributes({ message })} element="div" {...props}>
-                {children}
-            </Layout>
-        )
-    }
-)
+const Field = component$(({ message, ...props }: Resolut.Component.FieldProps) => {
+    return <Layout tag="field" {...Utils.setAttributes({ message })} element="div" {...props}></Layout>
+})
 
 export default Field

@@ -1,21 +1,20 @@
+import { component$ } from '@builder.io/qwik'
 import Layout from '../layout/layout.component'
 
-const Form = Resolut.create<HTMLFormElement, Resolut.Component.FormProps>(
-    (
-        { children, onSubmit, preventDefault = true,  ref,  ...props } 
-    ) => {
-        const handleSubmit: any = (event: Resolut.Events.SubmitEvent) => {
-            preventDefault && event.preventDefault()
+const Form = component$(({ onSubmit, preventDefault, ...props }: Resolut.Component.FormProps) => {
+    // const handleSubmit = (event: any) => {
+    //     preventDefault === true && event.preventDefault()
 
-            onSubmit && onSubmit(event)
-        }
+    //     console.log('Submitting...')
 
-        return (
-            <Layout ref={ref} onSubmit={handleSubmit} tag="form" element="form" {...props}>
-                {children}
-            </Layout>
-        )
-    }
-)
+    //     onSubmit && onSubmit(event)
+    // }
+
+    return (
+        <Layout tag="form" element="form" {...props}>
+            <Slot />
+        </Layout>
+    )
+})
 
 export default Form

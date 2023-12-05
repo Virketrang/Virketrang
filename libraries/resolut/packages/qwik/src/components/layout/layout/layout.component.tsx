@@ -1,44 +1,40 @@
-import Base from '../../base/base.component'
+import { component$ } from '@builder.io/qwik'
+import { Base } from '../..'
 
-const Layout = Resolut.create<
-    HTMLFormElement | HTMLElement | HTMLDivElement | HTMLBodyElement,
-    Resolut.Component.LayoutProps
->(
-    (
-        {
-            center,
-            flex,
-            grid,
-            columns,
-            rows,
-            horizontal,
-            'align:baseline': alignBaseline,
-            'align:stretch': alignStretch,
-            'align:center': alignCenter,
-            'align:start': alignStart,
-            'align:end': alignEnd,
-            'justify:between': justifyBetween,
-            'justify:around': justifyAround,
-            'justify:center': justifyCenter,
-            'justify:start': justifyStart,
-            'justify:end': justifyEnd,
-            'justify:evenly': justifyEvenly,
-            vertical,
-            reverse,
-            gap,
-            children,
-            style,
-            'class': className,
-             ref, 
-            ...props
-        } 
-    ) => {
-        const _ = ref as any
-
+export default component$(
+    ({
+        center,
+        flex,
+        grid,
+        columns,
+        rows,
+        horizontal,
+        'align:baseline': alignBaseline,
+        'align:stretch': alignStretch,
+        'align:center': alignCenter,
+        'align:start': alignStart,
+        'align:end': alignEnd,
+        'justify:between': justifyBetween,
+        'justify:around': justifyAround,
+        'justify:center': justifyCenter,
+        'justify:start': justifyStart,
+        'justify:end': justifyEnd,
+        'justify:evenly': justifyEvenly,
+        vertical,
+        tag,
+        reverse,
+        element,
+        gap,
+        children,
+        style,
+        'class': className,
+        ...props
+    }: Resolut.Component.LayoutProps) => {
         return (
             <Base
-                ref={_}
-                className={Utils.setClasses(className, 'resolut-layout')}
+                element={element}
+                tag={tag}
+                {...(props as any)}
                 style={{
                     ...Utils.setCSSVariables({
                         columns,
@@ -69,18 +65,16 @@ const Layout = Resolut.create<
                         }),
                         gap
                     }),
-                    ...style
+                    ...(style as Resolut.CSSProperties)
                 }}
                 {...Utils.setAttributes({
                     grid,
                     flex
                 })}
-                {...props}
+                class={Utils.setClasses(className, 'resolut-layout')}
             >
-                {children}
+                <Slot />
             </Base>
         )
     }
 )
-
-export default Layout

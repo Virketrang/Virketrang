@@ -39,7 +39,7 @@ const Layout = Resolut.create<
         return (
             <Base
                 ref={_}
-                className={Utils.setClasses(className, 'resolut-layout')}
+                class={Utils.setClasses(className, 'resolut-layout')}
                 style={{
                     ...Utils.setCSSVariables({
                         columns,

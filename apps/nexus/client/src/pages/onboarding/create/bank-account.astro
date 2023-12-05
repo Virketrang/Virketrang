@@ -1,0 +1,125 @@
+---
+import OnboardingLayout from '../../../layouts/onboarding.astro'
+import { Input } from '../../../components'
+
+const title = 'Nexus - opret virksomhed'
+const href = '/onboarding/create/production-units'
+---
+
+<OnboardingLayout {title}>
+    <main flex flex-column align-center justify-center gap-5>
+        <form
+            grid
+            style="padding: 2rem 0; width: 32rem; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr);"
+            gap-2
+            transition:name="form"
+            transition:animate="slide"
+        >
+            <Input name="registration_number" label="Reg. nr." column="1 / 2" row="1" />
+            <Input name="account_number" label="Kontonummer" column="2 / 5" row="1" />
+            <Input name="swift_code" label="Swift-kode" column="1 / 2" row="2" />
+            <Input name="iban" label="IBAN-nummer" column="2 / 5" row="2" />
+            <Input name="country_code" label="Landekode" column="1 / 2" row="3" />
+            <Input name="subscriber_number" label="Telefonnummer" column="2 / 5" row="3" />
+            <div flex flex-column gap-2 style="grid-column: 1 / 5; grid-row: 4;">
+                <a
+                    {href}
+                    w-full
+                    style="height: 3rem;"
+                    btn-primary-bg
+                    color="btn-primary-text"
+                    transition:name="primary-button">Næste</a
+                >
+                <a transition:name="back" href="/onboarding/create/address">Tilbage</a>
+            </div>
+        </form>
+    </main>
+</OnboardingLayout>
+<style>
+    main {
+        height: calc(100vh - 88px);
+    }
+</style>
+<script>
+    import { $CreateCompany } from '@/nexus/client/stores'
+
+    document.addEventListener('astro:page-load', () => {
+        const registrationNumber = document.getElementById('registration_number') as HTMLInputElement
+        const accountNumber = document.getElementById('account_number') as HTMLInputElement
+        const swiftCode = document.getElementById('swift_code') as HTMLInputElement
+        const iban = document.getElementById('iban') as HTMLInputElement
+        const countryCode = document.getElementById('country_code') as HTMLInputElement
+        const subscriberNumber = document.getElementById('subscriber_number') as HTMLInputElement
+
+        if (!registrationNumber || !accountNumber || !swiftCode || !iban || !countryCode || !subscriberNumber) {
+            return
+        }
+
+        registrationNumber.value = $CreateCompany.get().bank_account.registration_number
+        accountNumber.value = $CreateCompany.get().bank_account.account_number
+        swiftCode.value = $CreateCompany.get().bank_account.swift_code
+        iban.value = $CreateCompany.get().bank_account.iban
+        countryCode.value = $CreateCompany.get().phone_number.country_code
+        subscriberNumber.value = $CreateCompany.get().phone_number.subscriber_number
+
+        registrationNumber.addEventListener('input', (event) => {
+            $CreateCompany.set({
+                ...$CreateCompany.get(),
+                bank_account: {
+                    ...$CreateCompany.get().bank_account,
+                    registration_number: (event.target as HTMLInputElement).value
+                }
+            })
+        })
+
+        accountNumber.addEventListener('input', (event) => {
+            $CreateCompany.set({
+                ...$CreateCompany.get(),
+                bank_account: {
+                    ...$CreateCompany.get().bank_account,
+                    account_number: (event.target as HTMLInputElement).value
+                }
+            })
+        })
+
+        swiftCode.addEventListener('input', (event) => {
+            $CreateCompany.set({
+                ...$CreateCompany.get(),
+                bank_account: {
+                    ...$CreateCompany.get().bank_account,
+                    swift_code: (event.target as HTMLInputElement).value
+                }
+            })
+        })
+
+        iban.addEventListener('input', (event) => {
+            $CreateCompany.set({
+                ...$CreateCompany.get(),
+                bank_account: {
+                    ...$CreateCompany.get().bank_account,
+                    iban: (event.target as HTMLInputElement).value
+                }
+            })
+        })
+
+        countryCode.addEventListener('input', (event) => {
+            $CreateCompany.set({
+                ...$CreateCompany.get(),
+                phone_number: {
+                    ...$CreateCompany.get().phone_number,
+                    country_code: (event.target as HTMLInputElement).value
+                }
+            })
+        })
+
+        subscriberNumber.addEventListener('input', (event) => {
+            $CreateCompany.set({
+                ...$CreateCompany.get(),
+                phone_number: {
+                    ...$CreateCompany.get().phone_number,
+                    subscriber_number: (event.target as HTMLInputElement).value
+                }
+            })
+        })
+    })
+</script>

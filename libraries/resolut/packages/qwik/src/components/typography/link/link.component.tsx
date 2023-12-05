@@ -1,13 +1,12 @@
+import { component$ } from '@builder.io/qwik'
 import Typography from '../typography/typography.component'
 
-const Link = Resolut.create<HTMLAnchorElement, Resolut.Component.LinkProps>(
-    ({ underline = true, children,  ref,  ...props } ) => {
-        return (
-            <Typography ref={ref} tag="link" element="a" {...Utils.setAttributes({ underline })} {...props}>
-                {children}
-            </Typography>
-        )
-    }
-)
+const Link = component$(({ underline = true, ...props }: Resolut.Component.LinkProps) => {
+    return (
+        <Typography tag="link" element="a" {...Utils.setAttributes({ underline })} {...props}>
+            <Slot />
+        </Typography>
+    )
+})
 
 export default Link
