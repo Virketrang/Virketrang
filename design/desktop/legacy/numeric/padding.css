@@ -1,0 +1,35 @@
+*[padding-inline='4rem'] {
+    padding-inline: 4rem;
+}
+
+*[padding='2rem'] {
+    padding: 2rem;
+}
+
+*[padding-block='2rem'] {
+    padding-block: 2rem;
+}
+
+*[padding-block='4rem'] {
+    padding-block: 4rem;
+}
+
+*[padding='0.5rem'] {
+    padding: 0.5rem;
+}
+
+*[padding='0.5rem 1rem'] {
+    padding: 0.5rem 1rem;
+}
+
+*[padding-top='2rem'] {
+    padding-top: 2rem;
+}
+
+*[padding='3rem 3rem 0 3rem'] {
+    padding: 3rem 3rem 0 3rem;
+}
+
+*[padding='3rem 5rem'] {
+    padding: 3rem 5rem;
+}

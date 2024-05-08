@@ -1,0 +1,33 @@
+---
+import AuthenticationLayout from '@/nexus/client/desktop/layouts/auth.astro'
+import { Input } from '../../../components'
+
+const TITLE = 'Nexus - opret bruger'
+const BACK = '/authentication/signup/credentials'
+const NEXT = '/authentication/signup/address'
+---
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <form grid grid-template-columns="repeat(4, 1fr)" grid-template-rows="repeat(4, 1fr)" gap="1.5rem" width="32rem">
+        <Input label="Fornavn" name="firstname" column="1 / 5" row="1" />
+        <Input label="Efternavn" name="lastname" column="1 / 5" row="2" />
+        <a
+            height="3rem"
+            btn-primary-bg
+            btn-primary-text
+            href={NEXT}
+            elevated
+            width="100%"
+            style="grid-column: 1 / 5; grid-row: 3;"
+            transition:name="primary-button">Næste</a
+        >
+    </form>
+</AuthenticationLayout>
+<script>
+    import { $CreateUser } from '@/nexus/client/desktop/stores'
+    import { Utils } from '@/nexus/client/desktop/common'
+
+    document.addEventListener('astro:page-load', () => {
+        Utils.bindInputsToStore($CreateUser, ['firstname', 'lastname'])
+    })
+</script>

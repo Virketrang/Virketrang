@@ -1,0 +1,54 @@
+*[min-width='100vh'] {
+    min-width: 100vh;
+}
+
+*[max-width='500px'] {
+    max-width: 500px;
+}
+
+*[max-width='1150px'] {
+    max-width: 1150px;
+}
+
+*[width='300px'] {
+    width: 300px;
+}
+
+*[width='677px'] {
+    width: 677px;
+}
+
+*[width='100vh'] {
+    width: 100vh;
+}
+
+*[width='100%'] {
+    width: 100%;
+}
+
+*[width='2rem'],
+*[size='2rem'] {
+    width: 2rem;
+}
+
+*[size='2.5rem'],
+*[width='2.5rem'] {
+    width: 2.5rem;
+}
+
+*[width='3rem'],
+*[size='3rem'] {
+    width: 3rem;
+}
+
+*[width='12rem'] {
+    width: 12rem;
+}
+
+*[width='24rem'] {
+    width: 24rem;
+}
+
+*[width='32rem'] {
+    width: 32rem;
+}

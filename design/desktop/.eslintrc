@@ -1,0 +1,6 @@
+{
+    "extends": ["../.eslintrc.json"],
+    "rules": {
+        "react/jsx-no-undef": "off"
+    }
+}

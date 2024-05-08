@@ -79,7 +79,8 @@
         "vite.workspace.ts": "Vite",
         "tsconfig.nest.json": "Tsconfig",
         "docker.dev.yaml": "Docker",
-        "docker.prod.yaml": "Docker"
+        "docker.prod.yaml": "Docker",
+        "tailwind.workspace.js": "Tailwindcss"
     },
     "typescript.inlayHints.parameterNames.enabled": "all",
     "material-icon-theme.activeIconPack": "react",

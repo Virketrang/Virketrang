@@ -1,0 +1,20 @@
+---
+import Header from '@/nexus/client/desktop/features/header/header.astro'
+import GlobalLayout from './global.astro'
+
+const { title } = Astro.props
+---
+
+<GlobalLayout {title}>
+    <Header transition:persist />
+    <slot />
+</GlobalLayout>
+<script>
+    import { $User, $Company } from '@/nexus/client/desktop/stores'
+
+    if (!$User.get()) window.location.href = '/authentication/signin'
+
+    if (!$Company.get() && window.location.pathname !== '/onboarding') {
+        window.location.href = '/onboarding'
+    }
+</script>

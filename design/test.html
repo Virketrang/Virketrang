@@ -1,0 +1,84 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 class="compose">Nexus Compose</h1>
+    </body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* background: linear-gradient(-70deg, #a2facf 0%, #64acff 100%); */
+        /* background: linear-gradient(90deg, oklch(67.3% 0.266 25.039656026515278), oklch(85.82% 0.201 91.19)); */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nexus {
+            --start-color: oklch(59.59% 0.24 255.09156059071347);
+            --end-color: oklch(81.58% 0.189 190.74037768509325);
+        }
+
+        .compose {
+            --start-color: oklch(49.07% 0.272 300.45);
+            --end-color: oklch(64.53% 0.292 2.47);
+        }
+
+        h1 {
+            font-size: 6rem;
+            font-weight: 700;
+
+            background: linear-gradient(90deg, var(--start-color), var(--end-color));
+
+            background-size: 200% auto;
+            background-repeat: repeat;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+
+            animation: gradient 5s ease infinite;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</html>

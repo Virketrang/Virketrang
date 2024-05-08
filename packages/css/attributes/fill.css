@@ -1,0 +1,27 @@
+*[fill\:primary],
+*[fill='primary'],
+.fill-primary,
+.fill\:primary {
+    fill: var(--primary-text-color);
+}
+
+*[fill\:secondary],
+*[fill='secondary'],
+.fill-secondary,
+.fill\:secondary {
+    fill: var(--secondary-text-color);
+}
+
+*[fill\:tertiary],
+*[fill='tertiary'],
+.fill-tertiary,
+.fill\:tertiary {
+    fill: var(--tertiary-text-color);
+}
+
+*[fill\:none],
+*[fill='none'],
+.fill-none,
+.fill\:none {
+    fill: none;
+}

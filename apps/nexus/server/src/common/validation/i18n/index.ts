@@ -3,7 +3,7 @@ const CreateI18nTextSchema = z.object({
     'en-GB': z.string()
 }) satisfies z.ZodType<I18N.Text>
 
-export default abstract class I18nSchema {
+export default abstract class I18nValidation {
     public static text = class Text {
         public static create = CreateI18nTextSchema
     }

@@ -1,0 +1,35 @@
+---
+import { slide } from 'astro:transitions'
+
+import { Logo } from '@/apps/nexus/client/desktop-old/src/components/index'
+import GlobalLayout from '@/nexus/client/desktop/layouts/global.astro'
+
+const { title, greeting, back } = Astro.props
+---
+
+<GlobalLayout {title}>
+    <main
+        width="100%"
+        min-height="100vh"
+        flex
+        flex-direction:column
+        flex:center
+        padding-block="4rem"
+        transition:animate={slide({ duration: '0.5s' })}
+        transition:name="page"
+    >
+        <div
+            flex
+            flex-direction:column
+            align-items:center
+            gap="3rem"
+            margin-bottom="4rem"
+            transition:name="logo-wrapper"
+        >
+            <Logo transition:name="logo" />
+            <h2 transition:name="logo-text" font-weight:regular>{greeting}</h2>
+        </div>
+        <slot />
+        <a href={back} margin-top="2rem" transition:name="back" underline>Tilbage</a>
+    </main>
+</GlobalLayout>

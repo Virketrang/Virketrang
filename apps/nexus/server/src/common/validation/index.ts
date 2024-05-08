@@ -1,29 +1,29 @@
-import CompanySchema from './company'
-import AddressSchema from './address'
-import PhoneNumberSchema from './phone-number'
-import BankAccountSchema from './bank-account'
-import UserSchema from './user'
-import PersonSchema from './person'
-import ProductionUnitSchema from './production-unit'
-import AuthenticationSchema from './authentication/index'
-import ProfileSchema from './profile'
-import ProductSchema from './product'
-import ImageSchema from './image'
-import I18nSchema from './i18n'
-import MeasurementSchema from './measurement'
+import AuthenticationValidation from '../../modules/authentication/authentication/authentication.validation'
+import CompanyValidation from '../../modules/companies/companies/company.validation'
+import ProductionUnitValidation from '../../modules/companies/production-units/production-unit.validation'
+import MeasurementValidation from '../../modules/products/measurements/measurement.validation'
+import ProductValidation from '../../modules/products/products/product.validation'
+import AddressValidation from '../../modules/shared/addresses/address.validation'
+import BankAccountValidation from '../../modules/shared/bank-accounts/bank-account.validation'
+import ImageValidation from '../../modules/shared/images/image.validation'
+import PhoneNumberValidation from '../../modules/shared/phone-numbers/phone-number.validation'
+import ProfileValidation from '../../modules/shared/profiles/profile.validation'
+import UserValidation from '../../modules/users/users/user.validation'
+import I18nValidation from './i18n'
+import PersonValidation from './person'
 
 export default abstract class Validation {
-    public static readonly Company = CompanySchema
-    public static readonly Address = AddressSchema
-    public static readonly PhoneNumber = PhoneNumberSchema
-    public static readonly BankAccount = BankAccountSchema
-    public static readonly User = UserSchema
-    public static readonly Person = PersonSchema
-    public static readonly ProductionUnit = ProductionUnitSchema
-    public static readonly Authentication = AuthenticationSchema
-    public static readonly Profile = ProfileSchema
-    public static readonly Product = ProductSchema
-    public static readonly Image = ImageSchema
-    public static readonly I18n = I18nSchema
-    public static readonly Measurement = MeasurementSchema
+    public static readonly Company = CompanyValidation
+    public static readonly Address = AddressValidation
+    public static readonly PhoneNumber = PhoneNumberValidation
+    public static readonly BankAccount = BankAccountValidation
+    public static readonly User = UserValidation
+    public static readonly Person = PersonValidation
+    public static readonly ProductionUnit = ProductionUnitValidation
+    public static readonly Authentication = AuthenticationValidation
+    public static readonly Profile = ProfileValidation
+    public static readonly Product = ProductValidation
+    public static readonly Image = ImageValidation
+    public static readonly I18n = I18nValidation
+    public static readonly Measurement = MeasurementValidation
 }

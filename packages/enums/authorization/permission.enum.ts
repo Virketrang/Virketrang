@@ -1,5 +1,6 @@
 enum Permission {
     PRODUCT = 'PRODUCT',
+    PRODUCT_CATEGORY = 'PRODUCT_CATEGORY',
     CUSTOMER = 'CUSTOMER',
     ORDER = 'ORDER',
     INVOICE = 'INVOICE',
@@ -18,7 +19,10 @@ enum Permission {
     CONTENT = 'CONTENT',
     CONTENT_TYPE = 'CONTENT_TYPE',
     CONTENT_TYPE_FIELD = 'CONTENT_TYPE_FIELD',
-    LOCALES = 'LOCALES'
+    LOCALES = 'LOCALES',
+    QUOTE = 'QUOTE',
+    ANALYTICS = 'ANALYTICS',
+    EMPLOYEE = 'EMPLOYEE'
 }
 
 export default Permission

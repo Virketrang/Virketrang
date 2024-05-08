@@ -19,9 +19,10 @@ export default abstract class AutoImport {
     ]
 
     public static readonly nanostores = [
-        ,
         { name: 'atom', from: 'nanostores' },
+        { name: 'map', from: 'nanostores' },
         { name: 'persistentAtom', from: '@nanostores/persistent' },
+        { name: 'persistentMap', from: '@nanostores/persistent' },
         { name: 'useStore', from: '@nanostores/solid' }
     ]
 

@@ -1,0 +1,116 @@
+*[flex],
+.flex {
+    display: flex;
+}
+
+*[flex-direction\:column],
+*[flex-direction='column'],
+*[flex_direction='column'],
+.flex-direction-column,
+.flex-direction\:column {
+    flex-direction: column;
+}
+
+*[flex-direction\:row],
+*[flex-direction='row'],
+*[flex_direction='row'],
+.flex-direction-row,
+.flex-direction\:row {
+    flex-direction: row;
+}
+
+*[align-items\:start],
+*[align-items='start'],
+*[align_items='start'],
+.align-items-start,
+.align-items\:start,
+*[flex\:start],
+*[flex='start'],
+.flex-start,
+.flex\:start {
+    align-items: flex-start;
+}
+
+*[align-items\:center],
+*[align-items='center'],
+*[align_items='center'],
+.align-items-center,
+.align-items\:center,
+*[flex\:center],
+*[flex='center'],
+.flex-center,
+.flex\:center {
+    align-items: center;
+}
+
+*[align-items\:end],
+*[align-items='end'],
+*[align_items='end'],
+.align-items-end,
+.align-items\:end,
+*[flex\:end],
+*[flex='end'],
+.flex-end,
+.flex\:end {
+    align-items: flex-end;
+}
+
+*[align-self\:start],
+*[align-self='start'],
+*[align_self='start'],
+.align-self-start,
+.align-self\:start {
+    align-self: start;
+}
+
+*[justify-content\:center],
+*[justify-content='center'],
+*[justify_content='center'],
+.justify-content-center,
+.justify-content\:center,
+*[flex\:center],
+*[flex='center'],
+.flex-center,
+.flex\:center {
+    justify-content: center;
+}
+
+*[justify-content\:between],
+*[justify-content='between'],
+*[justify_content='between'],
+.justify-content-between,
+.justify-content\:between {
+    justify-content: space-between;
+}
+
+*[justify-content\:around],
+*[justify-content='around'],
+*[justify_content='around'],
+.justify-content-around,
+.justify-content\:around {
+    justify-content: space-around;
+}
+
+*[justify-content\:evenly],
+*[justify-content='evenly'],
+*[justify_content='evenly'],
+.justify-content-evenly,
+.justify-content\:evenly {
+    justify-content: space-evenly;
+}
+
+*[justify-content\:start],
+*[justify-content='start'],
+*[justify_content='start'],
+.justify-content-start,
+.justify-content\:start {
+    justify-content: flex-start;
+}
+
+*[justify-content\:end],
+*[justify-content='end'],
+*[justify_content='end'],
+.justify-content-end,
+.justify-content\:end {
+    justify-content: flex-end;
+}

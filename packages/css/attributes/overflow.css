@@ -1,0 +1,27 @@
+*[overflow\:visible],
+*[overflow='visible'],
+.overflow\:visible,
+.overflow-visible {
+    overflow: visible;
+}
+
+*[overflow\:hidden],
+*[overflow='hidden'],
+.overflow\:hidden,
+.overflow-hidden {
+    overflow: hidden;
+}
+
+*[overflow\:auto],
+*[overflow='auto'],
+.overflow\:auto,
+.overflow-auto {
+    overflow: auto;
+}
+
+*[overflow\:scroll],
+*[overflow='scroll'],
+.overflow\:scroll,
+.overflow-scroll {
+    overflow: scroll;
+}

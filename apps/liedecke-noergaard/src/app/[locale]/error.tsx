@@ -1,7 +1,10 @@
 'use client'
-type ErrorPage = React.FunctionComponent<{ error: Error; reset: () => void }>
+interface Props {
+    error: Error
+    reset: () => void
+}
 
-const Error: ErrorPage = ({ error, reset }) => {
+export default function Error({ error, reset }: Props) {
     useEffect(() => {
         console.error(error)
     }, [error])
@@ -13,5 +16,3 @@ const Error: ErrorPage = ({ error, reset }) => {
         </div>
     )
 }
-
-export default Error

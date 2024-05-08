@@ -1,0 +1,44 @@
+{
+    "name": "nexus",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "test": "vitest && rimraf coverage",
+        "lint": "eslint --ext .ts,.tsx --fix",
+        "tauri": "tauri",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/solid-js": "^3.0.2",
+        "@nanostores/persistent": "^0.9.1",
+        "@nanostores/solid": "^0.4.2",
+        "@tauri-apps/api": "^1.5.3",
+        "astro": "^3.2.2",
+        "nanostores": "^0.9.4",
+        "@solidjs/meta": "^0.29.3",
+        "@solidjs/router": "^0.13.2",
+        "@solidjs/start": "^1.0.0-rc.0",
+        "solid-js": "^1.8.16"
+    },
+    "devDependencies": {
+        "@tauri-apps/cli": "^1.5.10",
+        "@types/node": "^20.8.7",
+        "autoprefixer": "^10.4.14",
+        "dom5": "^3.0.1",
+        "eslint": "^8.46.0",
+        "jsdom": "^22.1.0",
+        "postcss": "^8.4.21",
+        "prettier-plugin-astro": "^0.12.0",
+        "typescript": "^5.2.2",
+        "unimport": "^3.0.14",
+        "vite": "^4.4.4",
+        "vite-plugin-solid": "^2.7.2",
+        "vitest": "^0.34.1",
+        "vinxi": "^0.3.11"
+    }
+}

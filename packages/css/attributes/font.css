@@ -1,0 +1,124 @@
+*[font-weight\:thin],
+*[font-weight='100'],
+*[font-weight='thin'],
+*[font_weight='100'],
+*[font_weight='thin'],
+.font-weight-thin,
+.font-weight-100,
+.font-weight\:thin,
+.font-weight\:100 {
+    font-weight: 100;
+}
+
+*[font-weight\:extra-light],
+*[font-weight='200'],
+*[font-weight='extra-light'],
+*[font_weight='200'],
+*[font_weight='extra-light'],
+.font-weight-extra-light,
+.font-weight-200,
+.font-weight\:extra-light,
+.font-weight\:200 {
+    font-weight: 200;
+}
+
+*[font-weight\:light],
+*[font-weight='300'],
+*[font-weight='light'],
+*[font_weight='300'],
+*[font_weight='light'],
+.font-weight-light,
+.font-weight-300,
+.font-weight\:light,
+.font-weight\:300 {
+    font-weight: 300;
+}
+
+*[font-weight\:regular],
+*[font-weight='400'],
+*[font-weight='regular'],
+*[font_weight='400'],
+*[font_weight='regular'],
+.font-weight-regular,
+.font-weight-400,
+.font-weight\:regular,
+.font-weight\:400 {
+    font-weight: 400;
+}
+
+*[font-weight\:medium],
+*[font-weight='medium'],
+*[font-weight='500'],
+*[font_weight='500'],
+*[font_weight='medium'],
+.font-weight-medium,
+.font-weight-500,
+.font-weight\:medium,
+.font-weight\:500 {
+    font-weight: 500;
+}
+
+*[font-weight\:semi-bold],
+*[font-weight='semi-bold'],
+*[font-weight='600'],
+*[font_weight='600'],
+*[font_weight='semi-bold'],
+.font-weight-semi-bold,
+.font-weight-600,
+.font-weight\:semi-bold,
+.font-weight\:600 {
+    font-weight: 600;
+}
+
+*[font-weight\:bold],
+*[font-weight='bold'],
+*[font-weight='700'],
+*[font_weight='700'],
+.font-weight-bold,
+.font-weight-700,
+.font-weight\:bold,
+.font-weight\:700 {
+    font-weight: 700;
+}
+
+*[font-weight\:extra-bold],
+*[font-weight='extra-bold'],
+*[font-weight='800'],
+*[font_weight='800'],
+*[font_weight='extra-bold'],
+.font-weight-extra-bold,
+.font-weight-800,
+.font-weight\:extra-bold,
+.font-weight\:800 {
+    font-weight: 800;
+}
+
+*[font-weight\:black],
+*[font-weight='black'],
+*[font-weight='900'],
+*[font_weight='900'],
+*[font_weight='black'],
+.font-weight-black,
+.font-weight-900,
+.font-weight\:black,
+.font-weight\:900 {
+    font-weight: 900;
+}
+
+*[italic],
+*[font-style\:italic],
+*[font-style='italic'],
+*[font_style='italic'],
+.italic,
+.font-style-italic,
+.font-style\:italic {
+    font-style: italic;
+}
+
+*[font-style\:normal],
+*[font-style='normal'],
+*[font_style='normal'],
+.font-style-normal,
+.font-style\:normal {
+    font-style: normal;
+}

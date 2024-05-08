@@ -1,0 +1,101 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body style="display: flex; flex-direction: column; gap: 2rem">
+        <h1 font-size="15">Hello World!</h1>
+        <h1 font-size="14">Hello World!</h1>
+        <h1 font-size="13">Hello World!</h1>
+        <h1 font-size="12">Hello World!</h1>
+        <h1 font-size="11">Hello World!</h1>
+        <h1 font-size="10">Hello World!</h1>
+        <h1 font-size="9">Hello World!</h1>
+        <h2 font-size="8">Hello World!</h2>
+        <h3 font-size="7">Hello World!</h3>
+        <h4 font-size="6">Hello World!</h4>
+        <h5 font-size="5">Hello World!</h5>
+        <h6 font-size="4">Hello World!</h6>
+        <p font-size="3">Hello World!</p>
+        <span font-size="2">Hello World!</span>
+        <small font-size="1">Hello World!</small>
+    </body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --font-size: 16px;
+            --font-scaling: 0.125rem;
+        }
+
+        html,
+        body {
+            font-size: var(--font-size, 16px);
+        }
+
+        *[font-size='1'] {
+            font-size: calc(1rem - var(--font-scaling) * 4);
+        }
+
+        *[font-size='2'] {
+            font-size: calc(1rem - var(--font-scaling) * 3);
+        }
+
+        *[font-size='3'] {
+            font-size: calc(1rem - var(--font-scaling) * 2);
+        }
+
+        *[font-size='4'] {
+            font-size: calc(1rem - var(--font-scaling) * 1);
+        }
+
+        *[font-size='5'] {
+            font-size: 1rem;
+        }
+
+        *[font-size='6'] {
+            font-size: calc(1rem + var(--font-scaling) * 1);
+        }
+
+        *[font-size='7'] {
+            font-size: calc(1rem + var(--font-scaling) * 2);
+        }
+
+        *[font-size='8'] {
+            font-size: calc(1rem + var(--font-scaling) * 3);
+        }
+
+        *[font-size='9'] {
+            font-size: calc(1rem + var(--font-scaling) * 4);
+        }
+
+        *[font-size='10'] {
+            font-size: calc(1rem + var(--font-scaling) * 5);
+        }
+
+        *[font-size='11'] {
+            font-size: calc(1rem + var(--font-scaling) * 6);
+        }
+
+        *[font-size='12'] {
+            font-size: calc(1rem + var(--font-scaling) * 7);
+        }
+
+        *[font-size='13'] {
+            font-size: calc(1rem + var(--font-scaling) * 8);
+        }
+
+        *[font-size='14'] {
+            font-size: calc(1rem + var(--font-scaling) * 9);
+        }
+
+        *[font-size='15'] {
+            font-size: calc(1rem + var(--font-scaling) * 10);
+        }
+    </style>
+</html>

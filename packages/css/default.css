@@ -1,0 +1,54 @@
+:root {
+    --font-scaling: 1.25rem;
+    --text-lineheight: 1.5;
+    --heading-lineheight: 1.2;
+}
+
+*[text-size='1'] {
+    font-size: calc(1rem / (var(--font-scaling) * 3));
+}
+
+*[text-size='2'] {
+    font-size: calc(1rem / (var(--font-scaling) * 2));
+}
+
+*[text-size='3'] {
+    font-size: calc(1rem / var(--font-scaling) * 1);
+}
+
+*[text-size='4'] {
+    font-size: calc(1rem * var(--font-scaling) * 1);
+}
+
+*[text-size='5'] {
+    font-size: calc(1rem * var(--font-scaling) * 2);
+}
+
+*[text-size='6'] {
+    font-size: calc(1rem * var(--font-scaling) * 3);
+}
+
+*[text-size='7'] {
+    font-size: calc(1rem * var(--font-scaling) * 4);
+}
+
+*[text-size='8'] {
+    font-size: calc(1rem * var(--font-scaling) * 5);
+}
+
+*[text-size='9'] {
+    font-size: calc(1rem * var(--font-scaling) * 6);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: var(--heading-lineheight);
+}
+
+p {
+    line-height: var(--text-lineheight);
+}

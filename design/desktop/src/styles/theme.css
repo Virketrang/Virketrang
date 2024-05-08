@@ -1,0 +1,48 @@
+:root {
+    --primary-background-color: #ffffff;
+    --secondary-background-color: #155afe;
+
+    --primary-text-color: #000000;
+    --secondary-text-color: #ffffff;
+}
+
+*[btn-primary-bg] {
+    background-color: #155afe;
+}
+
+*[btn-primary-text] {
+    color: #fff;
+}
+
+*[btn-secondary-bg] {
+    background-color: #ffffff;
+}
+
+*[btn-secondary-text] {
+    color: #000000;
+}
+
+*[bg-white] {
+    background-color: #ffffff;
+}
+
+[bg-black] {
+    background-color: #000000;
+}
+
+*[fg-white] {
+    color: #ffffff;
+}
+
+*[fg-black] {
+    color: #000000;
+}
+
+*[border-grey-200] {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+*[active='true'] {
+    background-color: #155afe;
+    color: #fff;
+}

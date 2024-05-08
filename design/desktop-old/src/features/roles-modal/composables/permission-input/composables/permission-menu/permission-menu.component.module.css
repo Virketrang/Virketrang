@@ -1,0 +1,10 @@
+.menu {
+    & header {
+        background: #155afe;
+        height: 2.5rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

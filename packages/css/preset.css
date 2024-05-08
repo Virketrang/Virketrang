@@ -11,6 +11,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -28,6 +29,7 @@ body {
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
     overscroll-behavior-y: none;
     overflow-x: hidden;
 }

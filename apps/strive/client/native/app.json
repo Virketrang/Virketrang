@@ -1,0 +1,34 @@
+{
+    "expo": {
+        "name": "Strive",
+        "slug": "strive",
+        "platforms": ["ios", "android"],
+        "version": "0.0.0",
+        "orientation": "portrait",
+        "icon": "./src/assets/icon.png",
+        "userInterfaceStyle": "light",
+        "scheme": "demo",
+        "splash": {
+            "image": "./src/assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./src/assets/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            }
+        },
+        "extra": {
+            "eas": {
+                "projectId": "c99d3356-7e77-4b54-ad8f-147daf30c267"
+            }
+        },
+        "owner": "virketrang",
+        "sourceExts": ["js", "json", "ts", "tsx", "jsx", "vue"]
+    }
+}

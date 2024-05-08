@@ -1,0 +1,52 @@
+---
+import { Logo } from '@/nexus/client/desktop/components/index'
+import GlobalLayout from '@/nexus/client/desktop/layouts/global.astro'
+
+const { title } = Astro.props
+---
+
+<GlobalLayout {title}>
+    <header flex justify-content:between padding="3rem 3rem 0 3rem">
+        <div flex align-items:center gap="1rem">
+            <Logo transition:name="logo" size={32} />
+            <h4>Nexus</h4>
+        </div>
+        <div transition:name="account" transition:persist flex gap="1rem">
+            <!-- TODO: REMOVE INLINE STYLE -->
+            <div flex flex:center circle height="2.5rem" width="2.5rem" style="background: #DDE8FE;">
+                <span font-weight:medium id="initials"></span>
+            </div>
+            <div>
+                <h4 id="name"></h4>
+                <span font-size="0.75rem" id="email"></span>
+            </div>
+        </div>
+    </header>
+    <slot />
+</GlobalLayout>
+<script>
+    import { $User } from '../stores'
+
+    const user = $User.get()
+
+    document.addEventListener('astro:page-load', () => {
+        const initials = document.getElementById('initials') as HTMLSpanElement
+        const name = document.getElementById('name') as HTMLHeadingElement
+        const email = document.getElementById('email') as HTMLSpanElement
+
+        console.log(user)
+
+        if (!initials || !name || !email) {
+            return
+        }
+
+        if (!user || Object.keys(user).length === 0) {
+            window.location.href = '/authentication/signin'
+            return
+        }
+
+        initials.innerText = user.profile.firstname.charAt(0)
+        name.innerText = `${user.profile.firstname} ${Utils.formatLastname(user.profile.lastname)}`
+        email.innerText = user.email
+    })
+</script>

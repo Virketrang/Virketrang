@@ -1,0 +1,35 @@
+---
+import AuthenticationLayout from '@/nexus/client/desktop/layouts/auth.astro'
+import { Input } from '../../../components'
+
+const TITLE = 'Nexus - opret bruger'
+const BACK = '/authentication/signup/address'
+const NEXT = '/authentication/signup/other'
+---
+
+<AuthenticationLayout title={TITLE} greeting="Velkommen" back={BACK}>
+    <form grid grid-template-columns="repeat(4, 1fr)" grid-template-rows="repeat(4, 1fr)" gap="1.5rem" width="32rem">
+        <Input label="Reg nr." name="registration_number" column="1 / 2" row="1" />
+        <Input label="Kontonummer" name="account_number" column="2 / 5" row="1" />
+        <Input label="Swift-kode" name="swift_code" column="1 / 5" row="2" />
+        <Input label="IBAN-nummer" name="iban" column="1 / 5" row="3" />
+        <a
+            href={NEXT}
+            btn-primary-bg
+            btn-primary-text
+            style="grid-column: 1 / 5; grid-row: 4;"
+            width="100%"
+            height="3rem"
+            elevated
+            transition:name="primary-button">Næste</a
+        >
+    </form>
+</AuthenticationLayout>
+<script>
+    import { $CreateUser } from '@/nexus/client/desktop/stores'
+    import { Utils } from '@/nexus/client/desktop/common'
+
+    document.addEventListener('astro:page-load', () => {
+        Utils.bindInputsToStore($CreateUser, ['registration_number', 'account_number', 'swift_code', 'iban'])
+    })
+</script>

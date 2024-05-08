@@ -5,21 +5,23 @@ import { __server__, isProductNew } from '@/liedecke-noergaard/common'
 
 import styles from './page.module.scss'
 
-type PageProps = { params: { locale: I18N.Locale } }
+interface Props {
+    params: { locale: I18N.Locale }
+}
 
-const getProducts: () => Promise<Http.Response<Entity.Product>> = async () => {
+const getProducts: () => Promise<Http.Response<Entity.Product[]>> = async () => {
     const response = await fetch(__server__ + 'products', { next: { tags: ['products'] } })
 
     return await response.json()
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps) {
+export async function generateMetadata({ params: { locale } }: Props) {
     const { landingPage } = await getDictionary(locale)
 
     return { title: landingPage.title, description: landingPage.description }
 }
 
-export default async function Page({ params: { locale } }: PageProps) {
+export default async function Page({ params: { locale } }: Props) {
     const { landingPage, product, currency } = await getDictionary(locale)
     const data = await getProducts()
 
@@ -33,11 +35,11 @@ export default async function Page({ params: { locale } }: PageProps) {
                 <div className={styles.grid} role="grid">
                     {data &&
                         data.body &&
-                        data.body.map(({ id, retailPrice, name, materials, images }) => (
+                        data.body.map(({ id, name, materials, images, retail_price }) => (
                             <ProductCard
                                 key={id}
                                 product={{
-                                    price: retailPrice,
+                                    price: retail_price,
                                     name: name[locale],
                                     id,
                                     materials: materials.join('/'),
@@ -51,7 +53,7 @@ export default async function Page({ params: { locale } }: PageProps) {
                                             src: images[1].url
                                         }
                                     },
-                                    recent: isProductNew(new Date(data.body[0].createdAt!))
+                                    recent: isProductNew(new Date(data.body[0].created_at))
                                 }}
                                 dictionaries={{ product, currency }}
                                 locale={locale}

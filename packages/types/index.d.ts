@@ -37,15 +37,15 @@ import _Role from './entities/authorization/role'
 import _Profile from './entities/profile'
 import _ContactInfo from './entities/contact-info'
 import _ProductionUnit from './entities/production-unit'
-import _Content from './entities/cms/content'
-import _ContentType from './entities/cms/content-type'
-import _ContentTypeField from './entities/cms/content-type-field'
+import _Content from './entities/website/content'
+import _ContentType from './entities/website/content-type'
+import _ContentTypeField from './entities/website/content-type-field'
 import _Currency from './entities/currency'
 import _Category from './entities/category'
 import _Payslip from './entities/payslip'
 import _FixedAssetRegister from './entities/accounting/fixed-asset-register'
 import _FixedAssetGroup from './entities/accounting/fixed-asset-group'
-import _ApiKey from './entities/authorization/api-key'
+import _ApiKey from './entities/authentication/api-key'
 import _VatCode from './entities/accounting/vat-code'
 import _PayPeriod from './entities/accounting/pay-period'
 import _FixedAsset from './entities/accounting/fixed-asset'
@@ -64,6 +64,7 @@ import _INCOME_TYPE from '../enums/other/income-type.enum'
 import _FIXED_ASSET_TYPE from '../enums/other/fixed-asset-type.enum'
 import _AuthorizationAction from '../enums/authorization/action.enum'
 import _AuthorizationPermission from '../enums/authorization/permission.enum'
+import _AuthorizationPermissionType from '../enums/authorization/permission-type.enum'
 
 declare global {
     namespace Http {
@@ -191,6 +192,7 @@ declare global {
         namespace Authorization {
             export import Action = _AuthorizationAction
             export import Permission = _AuthorizationPermission
+            export import PermissionType = _AuthorizationPermissionType
         }
     }
 

@@ -1,0 +1,27 @@
+*[background\:none],
+*[background='none'],
+.background-none,
+.background\:none {
+    background: none;
+}
+
+*[background\:primary],
+*[background='primary'],
+.background-primary,
+.background\:primary {
+    background: var(--primary-background-color);
+}
+
+*[background\:secondary],
+*[background='secondary'],
+.background-secondary,
+.background\:secondary {
+    background: var(--secondary-background-color);
+}
+
+*[background\:tertiary],
+*[background='tertiary'],
+.background-tertiary,
+.background\:tertiary {
+    background: var(--tertiary-background-color);
+}

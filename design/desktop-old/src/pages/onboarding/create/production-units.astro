@@ -1,0 +1,115 @@
+---
+import OnboardingLayout from '../../../layouts/onboarding.astro'
+import { ProductionUnits as PU } from '../../../composables'
+
+const title = 'Nexus - opret virksomhed'
+---
+
+<OnboardingLayout {title}>
+    <main flex flex-direction:column flex:center gap="5rem">
+        <form
+            transition:name="form"
+            flex
+            flex-direction:column
+            align-items:center
+            gap="2rem"
+            width="32rem"
+            padding-block="2rem"
+            transition:animate="slide"
+        >
+            <div flex flex-direction:column align-items:center gap="2rem" width="100%" height="442px">
+                <PU client:only />
+            </div>
+            <div flex flex-direction:column gap="2rem" width="32rem">
+                <button
+                    elevated
+                    height="3rem"
+                    width="100%"
+                    btn-primary-bg
+                    btn-primary-text
+                    style="grid-column: 1 / 5; grid-row: 4;"
+                    transition:name="primary-button">Opret</button
+                >
+                <a transition:name="back" href="/onboarding/create/bank-account">Tilbage</a>
+            </div>
+        </form>
+    </main>
+</OnboardingLayout>
+<style>
+    main {
+        height: calc(100vh - 88px);
+    }
+</style>
+<script>
+    import { $CreateCompany, $Company } from '@/nexus/client/desktop/stores'
+    import Enum from '@/enums/index'
+
+    document.addEventListener('astro:page-load', () => {
+        const form = document.querySelector('form') as HTMLFormElement
+
+        if (!form) return
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault()
+
+            const response = await fetch('http://localhost:8080/api/companies', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify($CreateCompany.get())
+            })
+
+            const data: Http.Response<Entity.Company> = await response.json()
+
+            if (data.status !== 'success') return console.log(data)
+
+            $CreateCompany.set({
+                company_name: '',
+                company_number: '',
+                corporate_form: Enum.CORPORATE_FORM.ENKELTMANDSVIRKSOMHED,
+                accounting_class: Enum.ACCOUNTING_CLASS.A,
+                address: {
+                    apartment: '',
+                    street_name: '',
+                    street_number: '',
+                    postal_code: '',
+                    city: '',
+                    country: 'denmark'
+                },
+                bank_account: {
+                    account_number: '',
+                    registration_number: '',
+                    iban: '',
+                    swift_code: ''
+                },
+                production_units: [
+                    {
+                        unit_number: '',
+                        primary_location: 'false',
+                        address: {
+                            apartment: '',
+                            street_name: '',
+                            street_number: '',
+                            postal_code: '',
+                            city: '',
+                            country: 'denmark'
+                        }
+                    }
+                ],
+                employer: 'false',
+                phone_number: {
+                    subscriber_number: '',
+                    country_code: ''
+                }
+            })
+
+            const { body: company } = data
+
+            $Company.set(company)
+
+            window.location.href = '/dashboard'
+        })
+    })
+</script>

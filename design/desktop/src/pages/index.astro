@@ -1,0 +1,39 @@
+---
+import { Logo } from '@/nexus/client/desktop/components/index'
+import GlobalLayout from '@/nexus/client/desktop/layouts/global.astro'
+
+const TITLE = 'Nexus - Velkommen'
+---
+
+<GlobalLayout title={TITLE}>
+    <main flex flex-direction:column flex:center gap="4rem" width="100%" min-height="100vh" height="100%">
+        <Logo transition:name="logo" />
+        <div flex flex-direction:column gap="2rem" padding-inline="4rem">
+            <h4 font-weight:light text-align:center>Skab overblik for dig og dine medarbejdere</h4>
+            <h1 font-size="3rem" max-width="1150px" text-wrap:balance text-align:center>
+                En samlet applikation til din virksomhed
+            </h1>
+            <h4 font-weight:light text-align:center>Administrer hjemmeside, ordrer, løn og bogføring i en app</h4>
+        </div>
+        <div height="8rem" flex flex-direction:row flex:center gap="4rem">
+            <a
+                btn-primary-bg
+                btn-primary-text
+                elevated
+                style="width: 24rem; height: 3rem; border-radius: 1.5rem;"
+                href="/authentication/signin"
+                transition:name="primary-button">Login</a
+            >
+            <a
+                btn-secondary-bg
+                btn-secondary-text
+                elevated
+                style="width: 24rem; height: 3rem; border-radius: 1.5rem;"
+                href="/authentication/signup"
+                transition:name="secondary-button"
+            >
+                Opret</a
+            >
+        </div>
+    </main>
+</GlobalLayout>

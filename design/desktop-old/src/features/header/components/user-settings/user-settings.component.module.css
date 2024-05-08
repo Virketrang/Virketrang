@@ -1,0 +1,23 @@
+.button {
+    & span {
+        background-color: #1e2227;
+        color: #fff;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 2.75rem;
+    background: #fff;
+    width: 12rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}

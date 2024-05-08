@@ -1,0 +1,8 @@
+@keyframes filter {
+    0% {
+        backdrop-filter: blur(0px);
+    }
+    100% {
+        backdrop-filter: blur(3px);
+    }
+}

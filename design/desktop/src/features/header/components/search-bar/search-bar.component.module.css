@@ -1,0 +1,29 @@
+.searchbar {
+    width: 100%;
+    max-width: 600px;
+    height: 2.5rem;
+    border-radius: 0.25rem;
+    fill: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    background: #fff;
+}
+
+.button,
+.tooltip {
+    width: 2.5rem;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+}
+
+.button {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.input {
+    width: 100%;
+    border: none;
+    padding: 0 0 0 1em;
+    outline: none;
+}

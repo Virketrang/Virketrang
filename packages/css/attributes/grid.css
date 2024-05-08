@@ -1,0 +1,16 @@
+*[grid],
+.grid {
+    display: grid;
+}
+
+*[place-items\:center],
+*[place-items='center'],
+*[place_items='center'],
+.place-items-center,
+.place-items\:center,
+*[grid\:center],
+*[grid='center'],
+.grid-center,
+.grid\:center {
+    place-items: center;
+}

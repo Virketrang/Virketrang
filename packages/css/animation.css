@@ -1,0 +1,82 @@
+@import url('./animations/bounce.css');
+@import url('./animations/expand.css');
+@import url('./animations/filter.css');
+
+*[animation\:bounce],
+*[animation='bounce'] {
+    animation-name: bounce;
+}
+
+*[animation\:expand],
+*[animation='expand'] {
+    animation-name: expand;
+}
+
+*[animation\:filter],
+*[animation='filter'] {
+    animation-name: filter;
+}
+
+*[animation-timing-function\:ease-in],
+*[animation-timing-function='ease-in'] {
+    animation-timing-function: ease-in;
+}
+
+*[animation-timing-function\:ease-out],
+*[animation-timing-function='ease-out'] {
+    animation-timing-function: ease-out;
+}
+
+*[animation-timing-function\:ease-in-out],
+*[animation-timing-function='ease-in-out'] {
+    animation-timing-function: ease-in-out;
+}
+
+*[animation-timing-function\:linear],
+*[animation-timing-function='linear'] {
+    animation-timing-function: linear;
+}
+
+*[animation-timing-function\:ease],
+*[animation-timing-function='ease'] {
+    animation-timing-function: ease;
+}
+*[animation-direction\:normal],
+*[animation-direction='normal'] {
+    animation-direction: normal;
+}
+
+*[animation-direction\:reverse],
+*[animation-direction='reverse'] {
+    animation-direction: reverse;
+}
+
+*[animation-direction\:alternate],
+*[animation-direction='alternate'] {
+    animation-direction: alternate;
+}
+
+*[animation-direction\:alternate-reverse],
+*[animation-direction='alternate-reverse'] {
+    animation-direction: alternate-reverse;
+}
+
+*[animation-fill-mode\:none],
+*[animation-fill-mode='none'] {
+    animation-fill-mode: none;
+}
+
+*[animation-fill-mode\:forwards],
+*[animation-fill-mode='forwards'] {
+    animation-fill-mode: forwards;
+}
+
+*[animation-fill-mode\:backwards],
+*[animation-fill-mode='backwards'] {
+    animation-fill-mode: backwards;
+}
+
+*[animation-fill-mode\:both],
+*[animation-fill-mode='both'] {
+    animation-fill-mode: both;
+}

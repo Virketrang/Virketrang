@@ -1,0 +1,43 @@
+[
+    {
+        "company": {
+            "websites": [
+                {
+                    "name": "",
+                    "content": [
+                        {"title": "name of post", "subtitle": "subtitle of post", "sections": [
+                            {"title"}
+                        ]}
+                    ],
+                    "content-types": [
+                        {
+                            "name": "",
+                            "types": [
+                                {
+                                    "title": { "type": "string" },
+                                    "subtitle": { "type": "string" },
+                                    "sections": {
+                                        "type": "array",
+                                        "children": {
+                                            "title": { "type": "string" },
+                                            "text": { "type": "string" }
+                                        }
+                                    },
+                                    "published": { "type": "boolean" },
+                                    "date": { "type": "date" },
+                                    "author": {
+                                        "type": "object",
+                                        "children": {
+                                            "firstname": { "type": "string" },
+                                            "lastname": { "type": "string" }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

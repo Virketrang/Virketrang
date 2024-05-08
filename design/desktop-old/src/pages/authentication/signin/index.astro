@@ -1,0 +1,54 @@
+---
+import AuthenticationLayout from '@/nexus/client/desktop/layouts/auth.astro'
+import { Input } from '../../../components'
+---
+
+<AuthenticationLayout title="Nexus - Login" greeting="Velkommen tilbage" back="/">
+    <form flex flex-direction:column width="32rem" flex:center gap="2rem">
+        <Input label="E-mail" name="email" type="email" />
+        <Input label="Adgangskode" name="password" type="password" />
+        <button
+            type="submit"
+            width="100%"
+            height="3rem"
+            btn-primary-bg
+            btn-primary-text
+            transition:name="primary-button">Login</button
+        >
+    </form>
+</AuthenticationLayout>
+<script>
+    import { $User, $Companies } from '@/nexus/client/desktop/stores'
+
+    const form = document.querySelector('form') as HTMLFormElement
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        const { email, password } = Object.fromEntries(new FormData(form).entries())
+
+        if (!email || !password) return console.log('Missing fields')
+
+        const response = await fetch('http://localhost:8080/api/v1/authentication/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({ email, password })
+        })
+
+        const data: Http.Response<{ token: string; user: Entity.User; companies?: Entity.Company[] }> =
+            await response.json()
+
+        if (data.status !== 'success') return console.log(data)
+
+        const { user, companies } = data.body
+
+        $User.set(user)
+
+        $Companies.set(companies)
+
+        window.location.href = '/authentication/signin/company'
+    })
+</script>

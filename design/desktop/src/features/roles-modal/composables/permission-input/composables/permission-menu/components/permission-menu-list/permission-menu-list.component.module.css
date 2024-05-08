@@ -1,0 +1,31 @@
+.options {
+    width: 100%;
+    max-height: 15rem;
+    overflow-y: auto;
+
+    & li {
+        height: 3rem;
+
+        &:nth-of-type(even) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        & div:first-child {
+            margin-left: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            span {
+                font-size: 0.75rem;
+                color: #000;
+            }
+        }
+
+        & div input {
+            width: 1rem;
+            height: 1rem;
+            margin-inline: 1.5rem;
+        }
+    }
+}

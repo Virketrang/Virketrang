@@ -1,0 +1,32 @@
+{
+    "extends": "../../../../tsconfig.base.json",
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "allowJs": false,
+        "skipLibCheck": true,
+        "esModuleInterop": false,
+        "typeRoots": [
+            "apps/nexus/client/desktop/declarations.d.ts",
+            "apps/nexus/client/desktop/unimport.d.ts",
+            "packages/types/index.d.ts",
+            "apps/nexus/client/desktop/node_modules/vinxi/types/client.d.ts"
+        ],
+        "types": ["vite/client"],
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js"
+    },
+    "include": [
+        "src",
+        "unimport.d.ts",
+        "../../../../vite.workspace.ts",
+        "../../../../unimport.workspace.ts",
+        "../../../../packages/**/*",
+        "../../../../config/**/*",
+        "declarations.d.ts"
+    ],
+    "references": [{ "path": "./tsconfig.node.json" }]
+}

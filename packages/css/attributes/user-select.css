@@ -1,0 +1,11 @@
+*[user-select\:none],
+*[select\:none],
+*[user-select='none'],
+*[user_select='none'],
+*[select='none'],
+.user-select-none,
+.user-select\:none,
+.select-none,
+.select\:none {
+    user-select: none;
+}

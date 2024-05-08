@@ -9,6 +9,8 @@ export { default as INCOME_TYPE } from './other/income-type.enum'
 export { default as FIXED_ASSET_TYPE } from './other/fixed-asset-type.enum'
 export { default as STATUS } from './http/status.enum'
 
+import { default as Authorization } from './authorization/index'
+
 import SORTING_OPTION from './other/sorting-option.enum'
 import PRODUCT_CATEGORY from './other/product-category.enum'
 import CUSTOMER_TYPE from './other/customer-type.enum'
@@ -29,4 +31,6 @@ export default abstract class Enum {
     public static readonly GENDER = GENDER
     public static readonly INCOME_TYPE = INCOME_TYPE
     public static readonly FIXED_ASSET_TYPE = FIXED_ASSET_TYPE
+
+    public static readonly Authorization = Authorization
 }

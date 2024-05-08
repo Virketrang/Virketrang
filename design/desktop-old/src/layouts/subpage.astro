@@ -1,0 +1,102 @@
+---
+import Dashboard from './dashboard.astro'
+import Sidebar from '@/nexus/client/desktop/features/sidebar/sidebar.astro'
+
+const { title, options, subpages } = Astro.props
+---
+
+<Dashboard {title}>
+    <div flex flex-direction:row min-height="calc(100% - 7.5rem)">
+        <Sidebar {title} {options} />
+        <main width="100%" padding="3rem 5rem">
+            <div flex justify-content:between width="100%" class="toolbar">
+                <h1 class="title"></h1>
+                <div role="toolbar">
+                    <button font-size="1rem" font-weight:bold id="add-button">Opret</button>
+                </div>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    {
+                        subpages.map((subpage: { label: string; value: string }) => (
+                            <li>
+                                <a href={subpage.value}>{subpage.label}</a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+            <div>
+                <slot />
+            </div>
+        </main>
+    </div>
+</Dashboard>
+<style>
+    #add-button {
+        padding: 10px 30px;
+        border-radius: 19px;
+        background: #625afa;
+        color: #fff;
+    }
+
+    .navigation ul {
+        position: relative;
+
+        display: flex;
+        gap: 1.5rem;
+        padding-block: 0.5rem 0.5rem;
+    }
+
+    .navigation ul::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.15);
+    }
+
+    .navigation a[data-active='true'] {
+        color: #155afe;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -0.5rem;
+            height: 1px;
+            background: #155afe;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const title = document.querySelector('.title') as HTMLHeadingElement
+        const links = document.querySelectorAll('aside a') as NodeListOf<HTMLAnchorElement>
+        console.log(links)
+        links.forEach((link) => {
+            if (link.getAttribute('href') === window.location.pathname) {
+                title.textContent = (link.querySelector('span') as HTMLSpanElement).textContent
+            }
+        })
+    })
+
+    const listener = () => {
+        const sidebar = document.querySelector('.navigation') as HTMLElement
+        const links = sidebar.querySelectorAll('a') as NodeListOf<HTMLAnchorElement>
+
+        links.forEach((link) => {
+            console.log(link.getAttribute('href'))
+            if (link.getAttribute('href') === window.location.pathname) {
+                link.setAttribute('data-active', 'true')
+            }
+        })
+    }
+
+    document.addEventListener('astro:after-swap', listener)
+    document.addEventListener('DOMContentLoaded', listener)
+</script>

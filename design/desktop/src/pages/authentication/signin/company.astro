@@ -1,0 +1,79 @@
+---
+import Onboarding from '@/nexus/client/desktop/layouts/onboarding.astro'
+---
+
+<Onboarding title="Nexus - vælg virksomhed">
+    <main class="main" width="100%" flex flex-direction:column flex:center>
+        <h1 style="font-size: 42px;">Vælg virksomhed</h1>
+        <p style="font-size: 18px; margin-top: 1rem;">Hvilken virksomhed ønsker du at oprette forbindelse til?</p>
+        <div id="companies"></div>
+    </main>
+</Onboarding>
+<style is:global>
+    .main {
+        height: calc(100% - 5.5rem);
+    }
+
+    #companies {
+        margin-top: 4rem;
+    }
+
+    .company-option {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .company-option h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 400;
+        width: 200px;
+        height: 200px;
+        font-size: 82px;
+        border-radius: 1rem;
+        color: white;
+    }
+
+    .company-option h3 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+</style>
+<script>
+    import { $Companies } from '../../../stores'
+
+    const div = document.getElementById('companies') as HTMLDivElement
+
+    const companies = $Companies.get()
+
+    if (!companies) {
+        window.location.href = '/onboarding'
+    } else {
+        companies?.map((company) => {
+            const option = document.createElement('div')
+            option.className = 'company-option'
+            option.addEventListener('click', () => {
+                $Company.set(company)
+
+                document.cookie = `nexus_company=${company.id}; Path=/; SameSite=Lax;`
+
+                window.location.href = '/dashboard'
+            })
+
+            const initials = document.createElement('h2')
+            initials.innerText = company.company_name.charAt(0).toUpperCase()
+            initials.style.backgroundColor = Utils.stringToColour(company.company_name)
+
+            const name = document.createElement('h3')
+            name.innerText = company.company_name
+
+            option.appendChild(initials)
+            option.appendChild(name)
+            div.appendChild(option)
+        })
+    }
+</script>

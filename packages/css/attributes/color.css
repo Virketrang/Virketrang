@@ -1,0 +1,27 @@
+*[color\:none],
+*[color='none'],
+.color-none,
+.color\:none {
+    color: none;
+}
+
+*[color\:primary],
+*[color='primary'],
+.color-primary,
+.color\:primary {
+    color: var(--primary-text-color);
+}
+
+*[color\:secondary],
+*[color='secondary'],
+.color-secondary,
+.color\:secondary {
+    color: var(--secondary-text-color);
+}
+
+*[color\:tertiary],
+*[color='tertiary'],
+.color-tertiary,
+.color\:tertiary {
+    color: var(--tertiary-text-color);
+}

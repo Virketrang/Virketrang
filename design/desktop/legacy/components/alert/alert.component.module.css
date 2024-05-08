@@ -1,0 +1,62 @@
+.alert {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 12rem;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.alert::after {
+    content: '';
+    height: 5px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    animation: timer;
+    animation-duration: var(--alert-duration, 4000);
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes timer {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0;
+    }
+}
+
+.icon {
+    font-size: 1.5rem;
+    font-family: 'Material Symbols Outlined';
+    margin-right: 1rem;
+}
+
+.dismiss {
+    font-size: 1.5rem;
+    font-family: 'Material Symbols Outlined';
+    margin-left: auto;
+}
+
+.alert.top {
+    top: var(--alert-offset, 1rem);
+}
+
+.alert.right {
+    right: var(--alert-offset, 1rem);
+}
+
+.alert.bottom {
+    bottom: var(--alert-offset, 1rem);
+}
+
+.alert.left {
+    left: var(--alert-left, 1rem);
+}

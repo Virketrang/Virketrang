@@ -1,0 +1,33 @@
+:root {
+    --font-size: 16px;
+
+    --overscroll: none;
+    --scrollbar-track-color: #f5f5f5;
+    --scrollbar-thumb-color: #c1c1c1;
+    --scrollbar-background-color: #f5f5f5;
+    --scrollbar-width: 6px;
+    --scrollbar-thumb-radius: 3px;
+}
+
+* {
+    overscroll-behavior: var(--overscroll);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track-color);
+}
+
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    background-color: var(--scrollbar-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+    border-radius: var(--scrollbar-thumb-radius);
+}
+
+html,
+body {
+    font-size: var(--font-size, 16px);
+}

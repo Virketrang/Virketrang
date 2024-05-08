@@ -1,0 +1,83 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+
+import '@/fonts/montserrat.css'
+import '@/css/preset.css'
+import '@/css/attributes.css'
+
+import '../styles/theme.css'
+import '../styles/settings.css'
+
+const { title } = Astro.props
+---
+
+<html overflow:hidden lang="da">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/attributes.css" />
+        <title>{title}</title>
+        <ViewTransitions />
+    </head>
+    <body overflow:hidden select:none>
+        <slot />
+        <script>
+            // document.addEventListener('astro:page-load', () => {
+            //     const attributes: Exclude<
+            //         {
+            //             [K in keyof CSSStyleDeclaration]: CSSStyleDeclaration[K] extends Function ? never : K
+            //         }[keyof CSSStyleDeclaration],
+            //         'length' | 'parentRule'
+            //     >[] = [
+            //         'margin',
+            //         'marginLeft',
+            //         'marginRight',
+            //         'marginTop',
+            //         'marginBottom',
+            //         'marginInline',
+            //         'marginBlock',
+            //         'padding',
+            //         'paddingLeft',
+            //         'paddingRight',
+            //         'paddingTop',
+            //         'paddingBottom',
+            //         'paddingInline',
+            //         'paddingBlock',
+            //         'gap',
+            //         'left',
+            //         'right',
+            //         'top',
+            //         'bottom',
+            //         'inset',
+            //         'borderRadius',
+            //         'width',
+            //         'height',
+            //         'minWidth',
+            //         'minHeight',
+            //         'maxWidth',
+            //         'maxHeight',
+            //         'gridTemplateColumns',
+            //         'gridTemplateRows',
+            //         'fontSize',
+            //         'zIndex',
+            //         'opacity'
+            //     ]
+
+            //     attributes.forEach((attribute) => {
+            //         const hyphenCase = attribute
+            //             .toString()
+            //             .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
+            //             .toLowerCase()
+
+            //         const elements = document.querySelectorAll(`[${hyphenCase}]`) as NodeListOf<HTMLElement> | null
+
+            //         if (!elements) return
+
+            //         elements.forEach((element: HTMLElement) => {
+            //             element.style[attribute] = element.getAttribute(hyphenCase) || ''
+            //         })
+            //     })
+            // })
+        </script>
+    </body>
+</html>

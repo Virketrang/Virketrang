@@ -1,0 +1,89 @@
+*[text-align\:center],
+*[text-align='center'],
+*[text_align='center'],
+.text-align-center,
+.text-align\:center {
+    text-align: center;
+}
+
+*[text-wrap\:balance],
+*[text-wrap='balance'],
+*[text_wrap='balance'],
+.text-balance,
+.text\:balance,
+.text-wrap-balance,
+.text-wrap\:balance {
+    text-wrap: balance;
+}
+
+*[uppercase],
+*[text_transform='uppercase'],
+*[text-transform='uppercase'],
+*[text-transform\:uppercase],
+.uppercase,
+.text-uppercase,
+.text\:balance,
+.text-transform-uppercase,
+.text-transform\:uppercase {
+    text-transform: uppercase;
+}
+
+*[capitalize],
+*[text_transform='capitalize'],
+*[text-transform='capitalize'],
+*[text-transform\:capitalize],
+.capitalize,
+.text-capitalize,
+.text\:capitalize,
+.text-transform-capitalize,
+.text-transform\:capitalize {
+    text-transform: capitalize;
+}
+
+*[lowercase],
+*[text_transform='lowercase'],
+*[text-transform='lowercase'],
+*[text-transform\:lowercase],
+.lowercase,
+.text-lowercase,
+.text\:lowercase,
+.text-transform-lowercase,
+.text-transform\:lowercase {
+    text-transform: lowercase;
+}
+
+*[underline],
+*[text_decoration='underline'],
+*[text-decoration\:underline],
+*[text-decoration\:underline],
+.underline,
+.text-underline,
+.text\:underline,
+.text-decoration-underline,
+.text-decoration\:underline {
+    text-decoration: underline;
+}
+
+*[line-through],
+*[text_decoration='line-through'],
+*[text-decoration\:line-through],
+*[text-decoration='line-through'],
+.line-through,
+.text-line-through,
+.text\:line-through,
+.text-decoration-line-through,
+.text-decoration\:line-through {
+    text-decoration: line-through;
+}
+
+*[overline],
+*[text_decoration='overline'],
+*[text-decoration\:overline],
+*[text-decoration='overline'],
+.overline,
+.text-overline,
+.text\:overline,
+.text-decoration-overline,
+.text-decoration\:overline {
+    text-decoration: overline;
+}
